@@ -1,0 +1,132 @@
+
+
+version: "3.9"
+
+services:
+  # ──────────────────────────────────────────────────────────────────────────
+  # Consul
+  consul:
+    image: hashicorp/consul:1.21
+    container_name: consul
+    ports:
+      - "8500:8500"
+    command: "agent -dev -client=0.0.0.0"
+    networks:
+      - appnet
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Controller
+  controller:
+    build:
+      context: .
+      dockerfile: controller.dockerfile
+    container_name: controller
+    ports:
+      - "9000:9000"
+    networks:
+      - appnet
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Agent 1
+  agent1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iiserinternship-agent1-1 
+    ports:
+      - "5000:5000"
+    volumes:
+      - agent1data:/app/data
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+
+  
+    # ──────────────────────────────────────────────────────────────────────────
+  # Agent 2
+  agent2:
+    build:
+      context: .
+      dockerfile: Dockerfile2.dockerfile
+    container_name: iiserinternship-agent2-1
+    ports:
+      - "5001:5001"  # Expose agent2 on port 5001
+    volumes:
+      - agent2data:/app/data
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Agent 3
+    # ──────────────────────────────────────────────────────────────────────────
+  # Agent 3
+  agent3:
+    build:
+      context: .
+      dockerfile: Dockerfile3.dockerfile
+    container_name: agent3
+    ports:
+      - "5002:5002"  # Expose agent3 on port 5002
+    volumes:
+      - agent3data:/app/data
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Agent 4
+    # ──────────────────────────────────────────────────────────────────────────
+  # Agent 4
+  agent4:
+    build:
+      context: .
+      dockerfile: Dockerfile4.dockerfile
+    container_name: agent4
+    ports:
+      - "5003:5003"  # Expose agent4 on port 5003
+    volumes:
+      - agent4data:/app/data
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Agent 5
+    # ──────────────────────────────────────────────────────────────────────────
+  # Agent 5
+  agent5:
+    build:
+      context: .
+      dockerfile: Dockerfile5.dockerfile
+    container_name: agent5
+    ports:
+      - "5004:5004"  # Expose agent5 on port 5004
+    volumes:
+      - agent5data:/app/data
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+volumes:
+  agent1data:
+  agent2data:
+  agent3data:
+  agent4data:
+  agent5data:
+
+# ────────────────────────────────────────────────────────────────────────────
+# Declare custom bridge network
+networks:
+  appnet:
