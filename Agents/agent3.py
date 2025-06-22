@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_file
 import uuid, json, http.client
 import os, time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import requests
 
@@ -83,7 +83,7 @@ def health():
 def data():
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "noise_level": round(random.uniform(40.0, 90.0), 2)  # dB
+        "noise_level": round(random.uniform(40.0, 90.0), 2)
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -122,6 +122,41 @@ def export_data():
 @app.route('/description')
 def description():
     return jsonify(metadata)
+
+@app.route('/capabilities')
+def capabilities():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"agent": AGENT_NAME, "capabilities": "No data available"})
+
+    try:
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        cutoff = datetime.utcnow() - timedelta(minutes=5)
+        recent = [r["noise_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return jsonify({"agent": AGENT_NAME, "capabilities": "No recent data in last 5 minutes"})
+
+        return jsonify({
+            "agent": AGENT_NAME,
+            "average_noise_level": sum(recent) / len(recent),
+            "min_noise_level": min(recent),
+            "max_noise_level": max(recent)
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/requirements')
+def requirements():
+    return jsonify({
+        "agent": AGENT_NAME,
+        "hardware": "Noise Sensor (Microphone or Sound Module)",
+        "runtime": "Python 3.9+, Flask, Docker",
+        "dependencies": ["flask", "requests"],
+        "data_frequency": "Every 10 seconds",
+        "network": "Consul service mesh (port 8500), controller endpoint (port 9000)"
+    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

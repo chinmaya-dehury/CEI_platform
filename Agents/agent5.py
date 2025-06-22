@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_file
 import uuid, json, http.client
 import os, time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import requests
 
@@ -15,7 +15,7 @@ DATA_LOG_PATH = "/data/agent5_data_log.json"
 
 # -------- Metadata -------- #
 metadata = {
-    "uuid": "",  # Will be filled after controller registration
+    "uuid": "",
     "sensor_type": "Temperature Sensor",
     "frequency": "Every 10 seconds",
     "unit": "°C",
@@ -122,6 +122,41 @@ def export_data():
 @app.route('/description')
 def description():
     return jsonify(metadata)
+
+@app.route('/capabilities')
+def capabilities():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"agent": AGENT_NAME, "capabilities": "No data available"})
+
+    try:
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        cutoff = datetime.utcnow() - timedelta(minutes=5)
+        recent = [r["temperature"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return jsonify({"agent": AGENT_NAME, "capabilities": "No recent data in last 5 minutes"})
+
+        return jsonify({
+            "agent": AGENT_NAME,
+            "average_temperature": sum(recent) / len(recent),
+            "min_temperature": min(recent),
+            "max_temperature": max(recent)
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/requirements')
+def requirements():
+    return jsonify({
+        "agent": AGENT_NAME,
+        "hardware": "Temperature Sensor (e.g., DHT22, LM35)",
+        "runtime": "Python 3.9+, Flask, Docker",
+        "dependencies": ["flask", "requests"],
+        "data_frequency": "Every 10 seconds",
+        "network": "Consul (8500), Controller (9000)"
+    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

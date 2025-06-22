@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_file
 import uuid, json, http.client
 import os, time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import requests
 
@@ -122,6 +122,43 @@ def export_data():
 @app.route('/description')
 def description():
     return jsonify(metadata)
+
+# -------- NEW: Capabilities -------- #
+@app.route('/capabilities')
+def capabilities():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"agent": AGENT_NAME, "capabilities": "No data available"})
+
+    try:
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        cutoff = datetime.utcnow() - timedelta(minutes=5)
+        recent = [r["co2_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return jsonify({"agent": AGENT_NAME, "capabilities": "No recent data in last 5 minutes"})
+
+        return jsonify({
+            "agent": AGENT_NAME,
+            "average_co2": sum(recent) / len(recent),
+            "min_co2": min(recent),
+            "max_co2": max(recent)
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# -------- NEW: Requirements -------- #
+@app.route('/requirements')
+def requirements():
+    return jsonify({
+        "agent": AGENT_NAME,
+        "hardware": "CO2 Sensor Module (MQ135 or equivalent)",
+        "runtime": "Python 3.9+, Flask, Docker",
+        "dependencies": ["flask", "requests"],
+        "data_frequency": "Every 10 seconds",
+        "network": "Consul service mesh (port 8500), controller endpoint (port 9000)"
+    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
