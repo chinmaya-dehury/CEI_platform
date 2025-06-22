@@ -1,18 +1,18 @@
 [
   {
-    "timestamp": "2025-06-19T06:52:26.475713",
-    "traffic_flow": 17
+    "timestamp": "2025-06-22T10:35:43.699609",
+    "traffic_flow": 29
   },
   {
-    "timestamp": "2025-06-19T06:53:52.241726",
-    "traffic_flow": 8
+    "timestamp": "2025-06-22T10:35:50.436558",
+    "traffic_flow": 7
   },
   {
-    "timestamp": "2025-06-19T06:59:15.172264",
-    "traffic_flow": 41
+    "timestamp": "2025-06-22T10:35:57.004106",
+    "traffic_flow": 89
   },
   {
-    "timestamp": "2025-06-19T07:19:19.927701",
-    "traffic_flow": 37
+    "timestamp": "2025-06-22T10:36:04.403570",
+    "traffic_flow": 32
   }
 ]

@@ -28,22 +28,19 @@ services:
 
   # ──────────────────────────────────────────────────────────────────────────
   # Agent 1
+  
   agent1:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: iiserinternship-agent1-1 
+    container_name: iiserinternship-agent1-1
     ports:
       - "5000:5000"
     volumes:
-      - agent1data:/app/data
+      - ./data/agent1:/app/data     # ← bind-mount local folder
     networks:
       - appnet
-    depends_on:
-      - controller
-      - consul
 
-  
     # ──────────────────────────────────────────────────────────────────────────
   # Agent 2
   agent2:
