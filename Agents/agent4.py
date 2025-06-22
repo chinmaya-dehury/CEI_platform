@@ -146,17 +146,6 @@ def capabilities():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/requirements')
-def requirements():
-    return jsonify({
-        "agent": AGENT_NAME,
-        "hardware": "Humidity Sensor (DHT11/DHT22 or equivalent)",
-        "runtime": "Python 3.9+, Flask, Docker",
-        "dependencies": ["flask", "requests"],
-        "data_frequency": "Every 10 seconds",
-        "network": "Consul service (8500), Controller (9000)"
-    })
-
 # -------- Main Flow -------- #
 if __name__ == "__main__":
     time.sleep(5)

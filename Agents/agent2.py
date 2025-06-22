@@ -15,7 +15,7 @@ DATA_LOG_PATH = "/data/agent2_data_log.json"
 
 # ------- 1. Metadata & UUID Generation ------- #
 metadata = {
-    "uuid": "",  # Filled after registration
+    "uuid": "",
     "sensor_type": "CO2 Sensor",
     "frequency": "Every 10 seconds",
     "unit": "ppm",
@@ -70,7 +70,6 @@ def register_with_consul():
         response = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
         conn.close()
-
     except Exception as e:
         print(f"[ERROR] Failed to register with Consul: {e}")
 
@@ -83,7 +82,7 @@ def health():
 def data():
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "co2_level": random.randint(300, 600)  # synthetic CO2 ppm value
+        "co2_level": random.randint(300, 600)
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -123,7 +122,7 @@ def export_data():
 def description():
     return jsonify(metadata)
 
-# -------- NEW: Capabilities -------- #
+# -------- Capabilities -------- #
 @app.route('/capabilities')
 def capabilities():
     if not os.path.exists(DATA_LOG_PATH):
@@ -147,18 +146,6 @@ def capabilities():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-# -------- NEW: Requirements -------- #
-@app.route('/requirements')
-def requirements():
-    return jsonify({
-        "agent": AGENT_NAME,
-        "hardware": "CO2 Sensor Module (MQ135 or equivalent)",
-        "runtime": "Python 3.9+, Flask, Docker",
-        "dependencies": ["flask", "requests"],
-        "data_frequency": "Every 10 seconds",
-        "network": "Consul service mesh (port 8500), controller endpoint (port 9000)"
-    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

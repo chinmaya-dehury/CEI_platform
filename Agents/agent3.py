@@ -15,7 +15,7 @@ DATA_LOG_PATH = "/data/agent3_data_log.json"
 
 # -------- Metadata -------- #
 metadata = {
-    "uuid": "",  # Will be filled after controller registration
+    "uuid": "",
     "sensor_type": "Noise Sensor",
     "frequency": "Every 10 seconds",
     "unit": "dB",
@@ -146,17 +146,6 @@ def capabilities():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-@app.route('/requirements')
-def requirements():
-    return jsonify({
-        "agent": AGENT_NAME,
-        "hardware": "Noise Sensor (Microphone or Sound Module)",
-        "runtime": "Python 3.9+, Flask, Docker",
-        "dependencies": ["flask", "requests"],
-        "data_frequency": "Every 10 seconds",
-        "network": "Consul service mesh (port 8500), controller endpoint (port 9000)"
-    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

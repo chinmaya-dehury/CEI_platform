@@ -15,7 +15,7 @@ DATA_LOG_PATH = "/data/agent1_data_log.json"
 
 # ------- 1. Metadata & UUID Generation ------- #
 metadata = {
-    "uuid": "",  # To be filled after registration
+    "uuid": "",
     "sensor_type": "Traffic Congestion Detector",
     "frequency": "Every 10 seconds",
     "unit": "vehicles/minute",
@@ -122,11 +122,10 @@ def export_data():
 def description():
     return jsonify(metadata)
 
-# -------- NEW: Capabilities Endpoint -------- #
 @app.route('/capabilities')
 def capabilities():
     now = datetime.utcnow()
-    five_minutes_ago = now.timestamp() - 5 * 60  # 5 minutes ago
+    five_minutes_ago = now.timestamp() - 5 * 60
 
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({
@@ -172,32 +171,9 @@ def capabilities():
         }
     })
 
-# -------- NEW: Requirements Endpoint -------- #
-@app.route('/requirements')
-def requirements():
-    requirements_info = {
-        "agent": AGENT_NAME,
-        "requirements": {
-            "data_collection_interval": "Every 10 seconds",
-            "network_connectivity": [
-                "http://controller:9000 (for registration)",
-                "http://consul:8500 (for service discovery)"
-            ],
-            "expected_runtime": "Python 3.8+ with Flask",
-            "dockerized": True,
-            "dependencies": ["flask", "requests"],
-            "hardware_requirements": {
-                "cpu": ">=1 core",
-                "memory": ">=256MB"
-            },
-            "volume_mounted_path": "/data (for metadata and logs)"
-        }
-    }
-    return jsonify(requirements_info)
-
 # -------- Main Flow -------- #
 if __name__ == "__main__":
-    time.sleep(5)  # Allow Consul and controller to boot
+    time.sleep(5)
     if not load_metadata():
         register_with_controller()
     register_with_consul()

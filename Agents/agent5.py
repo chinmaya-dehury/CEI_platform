@@ -70,7 +70,6 @@ def register_with_consul():
         response = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
         conn.close()
-
     except Exception as e:
         print(f"[ERROR] Failed to register with Consul: {e}")
 
@@ -146,17 +145,6 @@ def capabilities():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-@app.route('/requirements')
-def requirements():
-    return jsonify({
-        "agent": AGENT_NAME,
-        "hardware": "Temperature Sensor (e.g., DHT22, LM35)",
-        "runtime": "Python 3.9+, Flask, Docker",
-        "dependencies": ["flask", "requests"],
-        "data_frequency": "Every 10 seconds",
-        "network": "Consul (8500), Controller (9000)"
-    })
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
