@@ -57,6 +57,12 @@ def register_with_consul():
             "Name": AGENT_NAME,
             "Address": "agent2",
             "Port": PORT,
+            "Meta": {
+                "sensor_type": metadata["sensor_type"],
+                "location": metadata["location"],
+                "unit": metadata["unit"],
+                "frequency": metadata["frequency"]
+            },
             "Check": {
                 "HTTP": f"http://agent2:{5001}/health",
                 "Interval": "10s"
@@ -122,7 +128,6 @@ def export_data():
 def description():
     return jsonify(metadata)
 
-# -------- Capabilities -------- #
 @app.route('/capabilities')
 def capabilities():
     if not os.path.exists(DATA_LOG_PATH):
@@ -140,9 +145,13 @@ def capabilities():
 
         return jsonify({
             "agent": AGENT_NAME,
-            "average_co2": sum(recent) / len(recent),
-            "min_co2": min(recent),
-            "max_co2": max(recent)
+            "capabilities": {
+                "average_co2": round(sum(recent) / len(recent), 2),
+                "min_co2": min(recent),
+                "max_co2": max(recent),
+                "unit": metadata["unit"],
+                "data_points_considered": len(recent)
+            }
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500

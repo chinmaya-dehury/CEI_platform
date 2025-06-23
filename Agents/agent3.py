@@ -57,6 +57,12 @@ def register_with_consul():
             "Name": AGENT_NAME,
             "Address": AGENT_NAME,
             "Port": PORT,
+            "Meta": {
+                "sensor_type": metadata["sensor_type"],
+                "location": metadata["location"],
+                "unit": metadata["unit"],
+                "frequency": metadata["frequency"]
+            },
             "Check": {
                 "HTTP": f"http://{AGENT_NAME}:{5002}/health",
                 "Interval": "10s"
@@ -140,9 +146,13 @@ def capabilities():
 
         return jsonify({
             "agent": AGENT_NAME,
-            "average_noise_level": sum(recent) / len(recent),
-            "min_noise_level": min(recent),
-            "max_noise_level": max(recent)
+            "capabilities": {
+                "average_noise_level": round(sum(recent) / len(recent), 2),
+                "min_noise_level": min(recent),
+                "max_noise_level": max(recent),
+                "unit": metadata["unit"],
+                "data_points_considered": len(recent)
+            }
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500

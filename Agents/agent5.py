@@ -57,6 +57,12 @@ def register_with_consul():
             "Name": AGENT_NAME,
             "Address": AGENT_NAME,
             "Port": PORT,
+            "Meta": {
+                "sensor_type": metadata["sensor_type"],
+                "location": metadata["location"],
+                "unit": metadata["unit"],
+                "frequency": metadata["frequency"]
+            },
             "Check": {
                 "HTTP": f"http://{AGENT_NAME}:{5004}/health",
                 "Interval": "10s"
@@ -139,9 +145,13 @@ def capabilities():
 
         return jsonify({
             "agent": AGENT_NAME,
-            "average_temperature": sum(recent) / len(recent),
-            "min_temperature": min(recent),
-            "max_temperature": max(recent)
+            "capabilities": {
+                "average_temperature": round(sum(recent) / len(recent), 2),
+                "min_temperature": min(recent),
+                "max_temperature": max(recent),
+                "unit": metadata["unit"],
+                "data_points_considered": len(recent)
+            }
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500

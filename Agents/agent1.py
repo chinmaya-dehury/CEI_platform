@@ -57,6 +57,12 @@ def register_with_consul():
             "Name": AGENT_NAME,
             "Address": "agent1",
             "Port": PORT,
+            "Meta": {
+                "sensor_type": metadata["sensor_type"],
+                "location": metadata["location"],
+                "unit": metadata["unit"],
+                "frequency": metadata["frequency"]
+            },
             "Check": {
                 "HTTP": f"http://agent1:{5000}/health",
                 "Interval": "10s"
