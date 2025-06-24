@@ -1,9 +1,7 @@
-FROM python:3.9
+FROM python:3.9-slim
+
 WORKDIR /app
+COPY . .
+RUN pip install flask requests
 
-RUN pip install flask
-
-COPY server/controller.py ./server/controller.py
-CMD ["python", "server/controller.py"]
-
-
+CMD ["python", "controller.py"]

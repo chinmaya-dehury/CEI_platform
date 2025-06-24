@@ -1,9 +1,14 @@
 from flask import Flask, jsonify, request, send_file
 import uuid, json, http.client
-import os, csv, time, threading
-from datetime import datetime
+import os, time
+from datetime import datetime, timedelta
 import random
 import requests
+import sys
+print("PYTHONPATH:", sys.path)
+
+
+from data.agent1_capabilities import get_capabilities_data  #  imported capabilities logic
 
 app = Flask(__name__)
 
@@ -16,11 +21,11 @@ DATA_LOG_PATH = "/data/agent1_data_log.json"
 # ------- 1. Metadata & UUID Generation ------- #
 metadata = {
     "uuid": "",
-    "sensor_type": "Traffic Congestion Detector",
+    "sensor_type": "Traffic Congestion Sensor",
     "frequency": "Every 10 seconds",
-    "unit": "vehicles/minute",
-    "location": "Signal Point A",
-    "data_name": "traffic_flow",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
     "agent_name": AGENT_NAME
 }
 
@@ -70,16 +75,16 @@ def register_with_consul():
         }
         json_data = json.dumps(service)
         headers = {"Content-Type": "application/json"}
+
         conn = http.client.HTTPConnection("consul", 8500)
         conn.request("PUT", "/v1/agent/service/register", body=json_data, headers=headers)
         response = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
         conn.close()
     except Exception as e:
-        print(f"[ERROR] Failed to register with Consul using HTTPConnection: {e}")
+        print(f"[ERROR] Failed to register with Consul: {e}")
 
 # -------- Flask Endpoints -------- #
-
 @app.route('/health')
 def health():
     return jsonify({"status": "healthy"})
@@ -88,7 +93,7 @@ def health():
 def data():
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "traffic_flow": random.randint(0, 100)
+        "congestion_level": random.randint(20, 90)
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -130,52 +135,7 @@ def description():
 
 @app.route('/capabilities')
 def capabilities():
-    now = datetime.utcnow()
-    five_minutes_ago = now.timestamp() - 5 * 60
-
-    if not os.path.exists(DATA_LOG_PATH):
-        return jsonify({
-            "agent": AGENT_NAME,
-            "capabilities": "No data available"
-        })
-
-    with open(DATA_LOG_PATH, "r") as f:
-        try:
-            history = json.load(f)
-        except json.JSONDecodeError:
-            return jsonify({
-                "error": "Data history is corrupted"
-            }), 500
-
-    recent_values = []
-    for entry in history:
-        try:
-            ts = datetime.fromisoformat(entry["timestamp"]).timestamp()
-            if ts >= five_minutes_ago:
-                recent_values.append(entry["traffic_flow"])
-        except Exception:
-            continue
-
-    if not recent_values:
-        return jsonify({
-            "agent": AGENT_NAME,
-            "capabilities": "No data from the last 5 minutes"
-        })
-
-    avg_val = sum(recent_values) / len(recent_values)
-    min_val = min(recent_values)
-    max_val = max(recent_values)
-
-    return jsonify({
-        "agent": AGENT_NAME,
-        "capabilities": {
-            "average_traffic_flow_last_5_minutes": round(avg_val, 2),
-            "min_traffic_flow_last_5_minutes": min_val,
-            "max_traffic_flow_last_5_minutes": max_val,
-            "unit": "vehicles/minute",
-            "data_points_considered": len(recent_values)
-        }
-    })
+    return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

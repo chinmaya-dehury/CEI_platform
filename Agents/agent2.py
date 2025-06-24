@@ -4,6 +4,11 @@ import os, time
 from datetime import datetime, timedelta
 import random
 import requests
+import sys
+
+print("PYTHONPATH:", sys.path)
+
+from data.agent2_capabilities import get_capabilities_data 
 
 app = Flask(__name__)
 
@@ -130,31 +135,7 @@ def description():
 
 @app.route('/capabilities')
 def capabilities():
-    if not os.path.exists(DATA_LOG_PATH):
-        return jsonify({"agent": AGENT_NAME, "capabilities": "No data available"})
-
-    try:
-        with open(DATA_LOG_PATH, "r") as f:
-            records = json.load(f)
-
-        cutoff = datetime.utcnow() - timedelta(minutes=5)
-        recent = [r["co2_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
-
-        if not recent:
-            return jsonify({"agent": AGENT_NAME, "capabilities": "No recent data in last 5 minutes"})
-
-        return jsonify({
-            "agent": AGENT_NAME,
-            "capabilities": {
-                "average_co2": round(sum(recent) / len(recent), 2),
-                "min_co2": min(recent),
-                "max_co2": max(recent),
-                "unit": metadata["unit"],
-                "data_points_considered": len(recent)
-            }
-        })
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

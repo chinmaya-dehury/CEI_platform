@@ -1,9 +1,14 @@
 from flask import Flask, jsonify, request, send_file
 import uuid, json, http.client
 import os, time
-from datetime import datetime, timedelta
+from datetime import datetime
 import random
 import requests
+import sys
+
+print("PYTHONPATH:", sys.path)
+
+from data.agent5_capabilities import get_capabilities_data  # ✅ imported
 
 app = Flask(__name__)
 
@@ -64,7 +69,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{AGENT_NAME}:{5004}/health",
+                "HTTP": f"http://{AGENT_NAME}:{PORT}/health",
                 "Interval": "10s"
             }
         }
@@ -130,31 +135,7 @@ def description():
 
 @app.route('/capabilities')
 def capabilities():
-    if not os.path.exists(DATA_LOG_PATH):
-        return jsonify({"agent": AGENT_NAME, "capabilities": "No data available"})
-
-    try:
-        with open(DATA_LOG_PATH, "r") as f:
-            records = json.load(f)
-
-        cutoff = datetime.utcnow() - timedelta(minutes=5)
-        recent = [r["temperature"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
-
-        if not recent:
-            return jsonify({"agent": AGENT_NAME, "capabilities": "No recent data in last 5 minutes"})
-
-        return jsonify({
-            "agent": AGENT_NAME,
-            "capabilities": {
-                "average_temperature": round(sum(recent) / len(recent), 2),
-                "min_temperature": min(recent),
-                "max_temperature": max(recent),
-                "unit": metadata["unit"],
-                "data_points_considered": len(recent)
-            }
-        })
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
