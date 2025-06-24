@@ -5,7 +5,7 @@ from datetime import datetime
 import random
 import requests
 import sys
-
+from datetime import timedelta 
 print("PYTHONPATH:", sys.path)
 
 from data.agent5_capabilities import get_capabilities_data  # ✅ imported
@@ -136,6 +136,54 @@ def description():
 @app.route('/capabilities')
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+@app.route('/req', methods=['GET', 'POST'])
+def handle_req():
+    try:
+        if not os.path.exists(DATA_LOG_PATH):
+            return jsonify({"error": "No data log found"}), 404
+
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        # Handle GET (default view) or POST (custom query)
+        if request.method == 'GET':
+            requirement = "average_temperature"
+            duration = 5
+        else:
+            req_data = request.get_json()
+            requirement = req_data.get("requirement")
+            duration = int(req_data.get("duration_minutes", 5))
+
+            if not requirement:
+                return jsonify({"error": "Missing 'requirement' field"}), 400
+
+        # Filter records from the past 'duration' minutes
+        cutoff = datetime.utcnow() - timedelta(minutes=duration)
+        recent = [r["temperature"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
+
+        # Compute based on requirement
+        if requirement == "average_temperature":
+            value = round(sum(recent) / len(recent), 2)
+        elif requirement == "min_temperature":
+            value = min(recent)
+        elif requirement == "max_temperature":
+            value = max(recent)
+        else:
+            return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
+
+        return jsonify({
+            "agent": AGENT_NAME,
+            "requirement": requirement,
+            "value": value,
+            "unit": metadata["unit"],
+            "data_points_considered": len(recent)
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

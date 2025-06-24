@@ -5,10 +5,10 @@ from datetime import datetime, timedelta
 import random
 import requests
 import sys
+
 print("PYTHONPATH:", sys.path)
 
-
-from data.agent1_capabilities import get_capabilities_data  #  imported capabilities logic
+from data.agent1_capabilities import get_capabilities_data
 
 app = Flask(__name__)
 
@@ -136,6 +136,59 @@ def description():
 @app.route('/capabilities')
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+
+# -------- NEW: Requirement Handler -------- #
+@app.route('/req', methods=['GET', 'POST'])
+def handle_req():
+    try:
+        # Check if data file exists
+        if not os.path.exists(DATA_LOG_PATH):
+            return jsonify({"error": "No data log found"}), 404
+
+        # Load stored records
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        # Choose duration
+        if request.method == 'GET':
+            requirement = "average_congestion"
+            duration = 5  # Default: last 5 minutes
+        elif request.method == 'POST':
+            req_data = request.get_json()
+            requirement = req_data.get("requirement")
+            duration = int(req_data.get("duration_minutes", 5))
+
+            if not requirement:
+                return jsonify({"error": "Missing 'requirement' field"}), 400
+
+        # Filter records within the time window
+        cutoff = datetime.utcnow() - timedelta(minutes=duration)
+        recent = [r["congestion_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
+
+        # Compute value
+        if requirement == "average_congestion":
+            value = round(sum(recent) / len(recent), 2)
+        elif requirement == "min_congestion":
+            value = min(recent)
+        elif requirement == "max_congestion":
+            value = max(recent)
+        else:
+            return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
+
+        # Return result
+        return jsonify({
+            "agent": AGENT_NAME,
+            "requirement": requirement,
+            "value": value,
+            "unit": metadata["unit"],
+            "data_points_considered": len(recent)
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

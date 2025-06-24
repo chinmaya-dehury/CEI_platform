@@ -4,6 +4,7 @@ import os, time
 from datetime import datetime
 import random
 import requests
+from datetime import timedelta 
 import sys
 print("PYTHONPATH:", sys.path)
 
@@ -135,6 +136,56 @@ def description():
 @app.route('/capabilities')
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+@app.route('/req', methods=['GET', 'POST'])
+def handle_req():
+    try:
+        if not os.path.exists(DATA_LOG_PATH):
+            return jsonify({"error": "No data log found"}), 404
+
+        with open(DATA_LOG_PATH, "r") as f:
+            records = json.load(f)
+
+        if request.method == 'GET':
+            requirement = "average_noise"
+            duration = 5  # default
+        else:
+            req_data = request.get_json()
+            requirement = req_data.get("requirement")
+            duration = int(req_data.get("duration_minutes", 5))
+
+            if not requirement:
+                return jsonify({"error": "Missing 'requirement' field"}), 400
+
+        # Filter recent data
+        cutoff = datetime.utcnow() - timedelta(minutes=duration)
+        recent = [
+            r["noise_level"] for r in records
+            if datetime.fromisoformat(r["timestamp"]) > cutoff
+        ]
+
+        if not recent:
+            return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
+
+        # Compute value
+        if requirement == "average_noise":
+            value = round(sum(recent) / len(recent), 2)
+        elif requirement == "min_noise":
+            value = min(recent)
+        elif requirement == "max_noise":
+            value = max(recent)
+        else:
+            return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
+
+        return jsonify({
+            "agent": AGENT_NAME,
+            "requirement": requirement,
+            "value": value,
+            "unit": metadata["unit"],
+            "data_points_considered": len(recent)
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
