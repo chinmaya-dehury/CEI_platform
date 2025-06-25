@@ -7,9 +7,9 @@
 - Make traffic data accessible via endpoints for monitoring.
 
 ##  Capabilities
-- `GET /data` – Returns current traffic congestion value (low/medium/high).
-- `GET /history` – Returns traffic congestion history (last 5 minutes).
-- `GET /capabilities` – Reports min/avg/max traffic values in last 5 minutes.
+- `GET /data` – Displays current traffic congestion value (low/medium/high).
+- `GET /history` – Displays traffic congestion history (last 5 minutes).
+- `GET /capabilities` – Displays min/avg/max traffic values in last 5 minutes.
 - Self-registers with Consul and Controller using its UUID and metadata.
 - Logs data persistently in a Docker volume.
 - Health-checked via Consul for system observability.
@@ -43,9 +43,9 @@
 - Log data for short-term historical analysis.
 
 ### Capabilities
-- `GET /data` – Returns current noise level (in dB).
+- `GET /data` – Displays current noise level (in dB).
 - `GET /history` – Last 5 minutes of noise level data.
-- `GET /capabilities` – Reports min/avg/max noise levels over 5 minutes.
+- `GET /capabilities` – Displays min/avg/max noise levels over 5 minutes.
 - Periodic noise data generation every 30 seconds.
 - Self-registers with controller and Consul at startup.
 - Persists logs using Docker volume for observability.
@@ -60,7 +60,7 @@
 - Integrate seamlessly with the service mesh (Consul).
 
 ### Capabilities
-- `GET /data` – Returns current humidity level (in %).
+- `GET /data` – Displays current humidity level (in %).
 - `GET /history` – Humidity data history for the last 5 minutes.
 - `GET /capabilities` – Min/Avg/Max humidity levels computed over 5 minutes.
 - Registers automatically with central controller and Consul.
@@ -78,9 +78,9 @@
 - Maintain historical data for short-term analysis.
 
 ### Capabilities
-- `GET /data` – Returns current temperature (in °C).
-- `GET /history` – Provides temperature history for the last 5 minutes.
-- `GET /capabilities` – Reports min/avg/max temperature in the last 5 minutes.
+- `GET /data` – Displays current temperature (in °C).
+- `GET /history` – Displays temperature history for the last 5 minutes.
+- `GET /capabilities` – Displays min/avg/max temperature in the last 5 minutes.
 - Periodic data generation every 30 seconds.
 - Auto-registers with controller and Consul.
 - Logs temperature data using Docker volume.
