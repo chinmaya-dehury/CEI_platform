@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2025-06-25T07:10:13.562226",
+    "co2_level": 551,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-06-25T07:12:26.150296",
+    "co2_level": 411,
+    "co2_status": "Moderate"
+  }
+]

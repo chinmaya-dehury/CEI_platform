@@ -91,9 +91,20 @@ def health():
 
 @app.route('/data')
 def data():
+    co2_level = random.randint(300, 600)
+
+    # Classify CO2 level
+    if co2_level < 400:
+        status = "Low"
+    elif co2_level <= 500:
+        status = "Moderate"
+    else:
+        status = "High"
+
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "co2_level": random.randint(300, 600)
+        "co2_level": co2_level,
+        "co2_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -141,49 +152,49 @@ def capabilities():
 @app.route('/req', methods=['GET', 'POST'])
 def handle_req():
     try:
-        # Ensure data file exists
         if not os.path.exists(DATA_LOG_PATH):
             return jsonify({"error": "No data log found"}), 404
 
-        # Load history from file
         with open(DATA_LOG_PATH, "r") as f:
             records = json.load(f)
 
-        # Determine mode
         if request.method == 'GET':
             requirement = "average_co2"
-            duration = 5  # default 5 minutes
-        else:  # POST
+            duration = 5
+        else:
             req_data = request.get_json()
             requirement = req_data.get("requirement")
             duration = int(req_data.get("duration_minutes", 5))
             if not requirement:
                 return jsonify({"error": "Missing 'requirement' field"}), 400
 
-        # Filter recent data
         cutoff = datetime.utcnow() - timedelta(minutes=duration)
-        recent = [r["co2_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+        recent_records = [r for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
 
-        if not recent:
+        if not recent_records:
             return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
 
-        # Evaluate the requested metric
+        co2_values = [r["co2_level"] for r in recent_records]
+
         if requirement == "average_co2":
-            value = round(sum(recent) / len(recent), 2)
+            value = round(sum(co2_values) / len(co2_values), 2)
         elif requirement == "min_co2":
-            value = min(recent)
+            value = min(co2_values)
         elif requirement == "max_co2":
-            value = max(recent)
+            value = max(co2_values)
+        elif requirement == "co2_status":
+            from collections import Counter
+            statuses = [r.get("co2_status", "Unknown") for r in recent_records]
+            value = Counter(statuses).most_common(1)[0][0]
         else:
             return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
 
-        # Return structured response
         return jsonify({
             "agent": AGENT_NAME,
             "requirement": requirement,
             "value": value,
-            "unit": metadata["unit"],
-            "data_points_considered": len(recent)
+            "unit": metadata["unit"] if "co2" in requirement else "status",
+            "data_points_considered": len(recent_records)
         })
 
     except Exception as e:

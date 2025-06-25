@@ -91,9 +91,20 @@ def health():
 
 @app.route('/data')
 def data():
+    temp_value = round(random.uniform(20.0, 35.0), 2)
+
+    # Temperature category logic
+    if temp_value < 24.0:
+        status = "Cold"
+    elif 24.0 <= temp_value <= 30.0:
+        status = "Moderate"
+    else:
+        status = "Hot"
+
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "temperature": round(random.uniform(20.0, 35.0), 2)
+        "temperature": temp_value,
+        "temperature_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)

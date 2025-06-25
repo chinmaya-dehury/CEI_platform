@@ -1,34 +1,32 @@
 import json
-import os
-
 from datetime import datetime, timedelta
+from collections import Counter
 
 def get_capabilities_data(data_log_path, agent_name, unit):
-    if not data_log_path or not agent_name or not unit:
-        return {"error": "Missing parameters"}
-
-    if not os.path.exists(data_log_path):
-        return {"agent": agent_name, "capabilities": "No data available"}
-
     try:
         with open(data_log_path, "r") as f:
             records = json.load(f)
 
+        if not records:
+            return {"error": "No data available"}
+
+        # Last 5 minutes only
         cutoff = datetime.utcnow() - timedelta(minutes=5)
-        recent = [r["congestion_level"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+        recent = [r for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
 
         if not recent:
-            return {"agent": agent_name, "capabilities": "No recent data in last 5 minutes"}
+            return {"error": f"No recent data in last 5 minutes"}
+
+        vehicle_counts = [r["vehicle_count"] for r in recent]
+        statuses = [r["congestion_status"] for r in recent]
 
         return {
-            "agent": agent_name,
-            "capabilities": {
-                "average_congestion": round(sum(recent) / len(recent), 2),
-                "min_congestion": min(recent),
-                "max_congestion": max(recent),
-                "unit": unit,
-                "data_points_considered": len(recent)
-            }
+            "average_vehicle_count": round(sum(vehicle_counts) / len(vehicle_counts), 2),
+            "min_vehicle_count": min(vehicle_counts),
+            "max_vehicle_count": max(vehicle_counts),
+            "most_common_congestion_status": Counter(statuses).most_common(1)[0][0],
+            "data_points_analyzed": len(recent)
         }
+
     except Exception as e:
         return {"error": str(e)}

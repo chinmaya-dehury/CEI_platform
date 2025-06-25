@@ -136,6 +136,7 @@ def description():
 @app.route('/capabilities')
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+
 @app.route('/req', methods=['GET', 'POST'])
 def handle_req():
     try:

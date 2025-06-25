@@ -91,9 +91,20 @@ def health():
 
 @app.route('/data')
 def data():
+    humidity_value = round(random.uniform(30.0, 90.0), 2)
+
+    # Categorize humidity status
+    if humidity_value < 40.0:
+        status = "Low"
+    elif 40.0 <= humidity_value <= 60.0:
+        status = "Moderate"
+    else:
+        status = "High"
+
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "humidity": round(random.uniform(30.0, 90.0), 2)
+        "humidity": humidity_value,
+        "humidity_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)

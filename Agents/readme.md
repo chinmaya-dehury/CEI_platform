@@ -7,7 +7,7 @@
 - Make traffic data accessible via endpoints for monitoring.
 
 ##  Capabilities
-- `GET /data` – Displays current traffic congestion value (low/medium/high).
+- `GET /data` – Displays current traffic congestion value (low/medium/high) based on vehicle count
 - `GET /history` – Displays traffic congestion history (last 5 minutes).
 - `GET /capabilities` – Displays min/avg/max traffic values in last 5 minutes.
 - Self-registers with Consul and Controller using its UUID and metadata.
