@@ -31,7 +31,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile
-    container_name: agent1
+    container_name: traffic_agent
     ports:
       - "5000:5000"
     volumes:
@@ -43,11 +43,11 @@ services:
       - consul
 
   # ──────────────── Agent 2 ────────────────
-  agent2:
+  co2_agent:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile2.dockerfile
-    container_name: agent2
+    container_name: co2_agent
     ports:
       - "5001:5001"
     volumes:

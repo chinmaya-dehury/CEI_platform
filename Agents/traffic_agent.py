@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, Response
 import uuid, json, http.client
 import os, time
 from datetime import datetime, timedelta
@@ -8,24 +8,24 @@ import sys
 
 print("PYTHONPATH:", sys.path)
 
-from data.agent2_capabilities import get_capabilities_data 
+from data.traffic_agentcapabilities import get_capabilities_data
 
 app = Flask(__name__)
 
-AGENT_NAME = "agent2"
-PORT = 5001
-UUID_PATH = "/data/agent2_metadata.json"
+AGENT_NAME = "traffic_agent"
+PORT = 5000
+UUID_PATH = "/data/traffic_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
-DATA_LOG_PATH = "/data/agent2_data_log.json"
+DATA_LOG_PATH = "/data/traffic_agent_data_log.json"
 
-# ------- 1. Metadata & UUID Generation ------- #
+# ------- Metadata & UUID ------- #
 metadata = {
     "uuid": "",
-    "sensor_type": "CO2 Sensor",
+    "sensor_type": "Traffic Congestion Sensor",
     "frequency": "Every 10 seconds",
-    "unit": "ppm",
-    "location": "Zone B",
-    "data_name": "co2_level",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
     "agent_name": AGENT_NAME
 }
 
@@ -60,7 +60,7 @@ def register_with_consul():
         service = {
             "ID": metadata["uuid"],
             "Name": AGENT_NAME,
-            "Address": "agent2",
+            "Address": "traffic_agent",
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
@@ -69,15 +69,12 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://agent2:{PORT}/health",
+                "HTTP": f"http://traffic_agent:{5000}/health",
                 "Interval": "10s"
             }
         }
-        json_data = json.dumps(service)
-        headers = {"Content-Type": "application/json"}
-
         conn = http.client.HTTPConnection("consul", 8500)
-        conn.request("PUT", "/v1/agent/service/register", body=json_data, headers=headers)
+        conn.request("PUT", "/v1/agent/service/register", body=json.dumps(service), headers={"Content-Type": "application/json"})
         response = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
         conn.close()
@@ -91,20 +88,19 @@ def health():
 
 @app.route('/data')
 def data():
-    co2_level = random.randint(300, 600)
+    vehicle_count = random.randint(0, 100)
 
-    # Classify CO2 level
-    if co2_level < 400:
-        status = "Low"
-    elif co2_level <= 500:
-        status = "Moderate"
+    if vehicle_count > 70:
+        congestion_status = "High Congestion"
+    elif vehicle_count > 40:
+        congestion_status = "Moderate Congestion"
     else:
-        status = "High"
+        congestion_status = "Low Congestion"
 
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "co2_level": co2_level,
-        "co2_status": status
+        "vehicle_count": vehicle_count,
+        "congestion_status": congestion_status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -140,6 +136,50 @@ def export_data():
     else:
         return jsonify({"error": "No data log found"}), 404
 
+@app.route('/data/export/json', methods=['GET', 'POST'])
+def export_json():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH, "r") as f:
+        try:
+            raw_data = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    formatted = [
+        {
+            "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
+            "measurement": "Congestion",
+            "value": entry["vehicle_count"]
+        }
+        for entry in raw_data
+    ]
+
+    return jsonify(formatted), 200
+
+@app.route('/data/export/csv', methods=['GET', 'POST'])
+def export_csv():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH, "r") as f:
+        try:
+            raw_data = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    csv_lines = ["Timestamp,Measurement,Value"]
+    for entry in raw_data:
+        ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
+        csv_lines.append(f"{ts_epoch},Congestion,{entry['vehicle_count']}")
+
+    return Response(
+        "\n".join(csv_lines),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=traffic_agent_data.csv"}
+    )
+
 @app.route('/description')
 def description():
     return jsonify(metadata)
@@ -148,7 +188,6 @@ def description():
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
 
-# --------  Requirement Endpoint -------- #
 @app.route('/req', methods=['GET', 'POST'])
 def handle_req():
     try:
@@ -159,32 +198,31 @@ def handle_req():
             records = json.load(f)
 
         if request.method == 'GET':
-            requirement = "average_co2"
+            requirement = "average_vehicle_count"
             duration = 5
         else:
             req_data = request.get_json()
             requirement = req_data.get("requirement")
             duration = int(req_data.get("duration_minutes", 5))
+
             if not requirement:
                 return jsonify({"error": "Missing 'requirement' field"}), 400
 
         cutoff = datetime.utcnow() - timedelta(minutes=duration)
-        recent_records = [r for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
+        recent = [r for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
 
-        if not recent_records:
+        if not recent:
             return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
 
-        co2_values = [r["co2_level"] for r in recent_records]
-
-        if requirement == "average_co2":
-            value = round(sum(co2_values) / len(co2_values), 2)
-        elif requirement == "min_co2":
-            value = min(co2_values)
-        elif requirement == "max_co2":
-            value = max(co2_values)
-        elif requirement == "co2_status":
+        if requirement == "average_vehicle_count":
+            value = round(sum(r["vehicle_count"] for r in recent) / len(recent), 2)
+        elif requirement == "min_vehicle_count":
+            value = min(r["vehicle_count"] for r in recent)
+        elif requirement == "max_vehicle_count":
+            value = max(r["vehicle_count"] for r in recent)
+        elif requirement == "congestion_status":
             from collections import Counter
-            statuses = [r.get("co2_status", "Unknown") for r in recent_records]
+            statuses = [r["congestion_status"] for r in recent]
             value = Counter(statuses).most_common(1)[0][0]
         else:
             return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
@@ -193,8 +231,8 @@ def handle_req():
             "agent": AGENT_NAME,
             "requirement": requirement,
             "value": value,
-            "unit": metadata["unit"] if "co2" in requirement else "status",
-            "data_points_considered": len(recent_records)
+            "unit": "vehicles" if "vehicle_count" in requirement else "status",
+            "data_points_considered": len(recent)
         })
 
     except Exception as e:
@@ -206,4 +244,4 @@ if __name__ == "__main__":
     if not load_metadata():
         register_with_controller()
     register_with_consul()
-    app.run(host="0.0.0.0", port=5001)
+    app.run(host="0.0.0.0", port=5000)

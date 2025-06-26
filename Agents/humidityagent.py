@@ -1,22 +1,22 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, Response
 import uuid, json, http.client
 import os, time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import requests
 import sys
-from datetime import timedelta
+
 print("PYTHONPATH:", sys.path)
 
-from data.agent4_capabilities import get_capabilities_data  # ✅ imported capabilities logic
+from data.humidityagent_capabilities import get_capabilities_data  # ✅ new import
 
 app = Flask(__name__)
 
-AGENT_NAME = "agent4"
+AGENT_NAME = "humidityagent"
 PORT = 5003
-UUID_PATH = "/data/agent4_metadata.json"
+UUID_PATH = "/data/humidityagent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
-DATA_LOG_PATH = "/data/agent4_data_log.json"
+DATA_LOG_PATH = "/data/humidityagent_data_log.json"
 
 # -------- Metadata -------- #
 metadata = {
@@ -37,8 +37,7 @@ def save_metadata():
 def load_metadata():
     if os.path.exists(UUID_PATH):
         with open(UUID_PATH) as f:
-            loaded = json.load(f)
-            metadata.update(loaded)
+            metadata.update(json.load(f))
         print(f"[INFO] Loaded metadata and UUID: {metadata['uuid']}")
         return True
     return False
@@ -69,17 +68,14 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{AGENT_NAME}:{5003}/health",
+                "HTTP": f"http://{AGENT_NAME}:{PORT}/health",
                 "Interval": "10s"
             }
         }
-        json_data = json.dumps(service)
-        headers = {"Content-Type": "application/json"}
-
         conn = http.client.HTTPConnection("consul", 8500)
-        conn.request("PUT", "/v1/agent/service/register", body=json_data, headers=headers)
-        response = conn.getresponse()
-        print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
+        conn.request("PUT", "/v1/agent/service/register", body=json.dumps(service), headers={"Content-Type": "application/json"})
+        res = conn.getresponse()
+        print(f"[INFO] Registered with Consul. Status: {res.status} {res.reason}")
         conn.close()
     except Exception as e:
         print(f"[ERROR] Failed to register with Consul: {e}")
@@ -93,10 +89,9 @@ def health():
 def data():
     humidity_value = round(random.uniform(30.0, 90.0), 2)
 
-    # Categorize humidity status
-    if humidity_value < 40.0:
+    if humidity_value < 40:
         status = "Low"
-    elif 40.0 <= humidity_value <= 60.0:
+    elif humidity_value <= 60:
         status = "Moderate"
     else:
         status = "High"
@@ -110,7 +105,7 @@ def data():
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
     history = []
     if os.path.exists(DATA_LOG_PATH):
-        with open(DATA_LOG_PATH, "r") as f:
+        with open(DATA_LOG_PATH) as f:
             try:
                 history = json.load(f)
             except json.JSONDecodeError:
@@ -126,19 +121,55 @@ def data():
 @app.route('/data/history')
 def data_history():
     if os.path.exists(DATA_LOG_PATH):
-        with open(DATA_LOG_PATH, "r") as f:
+        with open(DATA_LOG_PATH) as f:
             try:
                 return jsonify(json.load(f))
             except json.JSONDecodeError:
                 return jsonify({"error": "History is corrupted"}), 500
     return jsonify([])
 
-@app.route('/data/export')
-def export_data():
-    if os.path.exists(DATA_LOG_PATH):
-        return send_file(DATA_LOG_PATH, as_attachment=True)
-    else:
-        return jsonify({"error": "No data log found"}), 404
+@app.route('/data/export/json', methods=['GET', 'POST'])
+def export_json():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH) as f:
+        try:
+            records = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    export = [
+        {
+            "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
+            "measurement": "Humidity",
+            "value": entry["humidity"]
+        } for entry in records
+    ]
+
+    return jsonify(export)
+
+@app.route('/data/export/csv', methods=['GET', 'POST'])
+def export_csv():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH) as f:
+        try:
+            records = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    csv_lines = ["Timestamp,Measurement,Value"]
+    for entry in records:
+        ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
+        csv_lines.append(f"{ts_epoch},Humidity,{entry['humidity']}")
+
+    return Response(
+        "\n".join(csv_lines),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=humidityagent_data.csv"}
+    )
 
 @app.route('/description')
 def description():
@@ -147,35 +178,32 @@ def description():
 @app.route('/capabilities')
 def capabilities():
     return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+
 @app.route('/req', methods=['GET', 'POST'])
 def handle_req():
     try:
         if not os.path.exists(DATA_LOG_PATH):
             return jsonify({"error": "No data log found"}), 404
 
-        with open(DATA_LOG_PATH, "r") as f:
+        with open(DATA_LOG_PATH) as f:
             records = json.load(f)
 
-        # Default: browser mode
         if request.method == 'GET':
             requirement = "average_humidity"
             duration = 5
-        else:  # POST
+        else:
             req_data = request.get_json()
             requirement = req_data.get("requirement")
             duration = int(req_data.get("duration_minutes", 5))
-
             if not requirement:
                 return jsonify({"error": "Missing 'requirement' field"}), 400
 
-        # Filter data within duration
         cutoff = datetime.utcnow() - timedelta(minutes=duration)
         recent = [r["humidity"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
 
         if not recent:
             return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
 
-        # Compute the required metric
         if requirement == "average_humidity":
             value = round(sum(recent) / len(recent), 2)
         elif requirement == "min_humidity":

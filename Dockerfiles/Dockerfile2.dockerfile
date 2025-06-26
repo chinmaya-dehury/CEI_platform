@@ -10,5 +10,5 @@ COPY agents/ ./agents/
 
 RUN pip install flask requests
 
-CMD ["python", "./agents/agent2.py"]
+CMD ["python", "./agents/co2_agent.py"]
 

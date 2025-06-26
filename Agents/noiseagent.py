@@ -1,22 +1,22 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, Response
 import uuid, json, http.client
 import os, time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import requests
-from datetime import timedelta 
 import sys
+
 print("PYTHONPATH:", sys.path)
 
-from data.agent3_capabilities import get_capabilities_data  # 
+from data.noise_intelligence import get_capabilities_data
 
 app = Flask(__name__)
 
-AGENT_NAME = "agent3"
+AGENT_NAME = "noiseagent"
 PORT = 5002
-UUID_PATH = "/data/agent3_metadata.json"
+UUID_PATH = "/data/noiseagent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
-DATA_LOG_PATH = "/data/agent3_data_log.json"
+DATA_LOG_PATH = "/data/noiseagent_data_log.json"
 
 # -------- Metadata -------- #
 metadata = {
@@ -73,11 +73,8 @@ def register_with_consul():
                 "Interval": "10s"
             }
         }
-        json_data = json.dumps(service)
-        headers = {"Content-Type": "application/json"}
-
         conn = http.client.HTTPConnection("consul", 8500)
-        conn.request("PUT", "/v1/agent/service/register", body=json_data, headers=headers)
+        conn.request("PUT", "/v1/agent/service/register", body=json.dumps(service), headers={"Content-Type": "application/json"})
         response = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
         conn.close()
@@ -129,6 +126,50 @@ def export_data():
     else:
         return jsonify({"error": "No data log found"}), 404
 
+@app.route('/data/export/json', methods=['GET', 'POST'])
+def export_json():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH, "r") as f:
+        try:
+            raw_data = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    formatted = [
+        {
+            "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
+            "measurement": "Noise",
+            "value": entry["noise_level"]
+        }
+        for entry in raw_data
+    ]
+
+    return jsonify(formatted), 200
+
+@app.route('/data/export/csv', methods=['GET', 'POST'])
+def export_csv():
+    if not os.path.exists(DATA_LOG_PATH):
+        return jsonify({"error": "No data available"}), 404
+
+    with open(DATA_LOG_PATH, "r") as f:
+        try:
+            raw_data = json.load(f)
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid data format"}), 500
+
+    csv_lines = ["Timestamp,Measurement,Value"]
+    for entry in raw_data:
+        ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
+        csv_lines.append(f"{ts_epoch},Noise,{entry['noise_level']}")
+
+    return Response(
+        "\n".join(csv_lines),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=noiseagent_data.csv"}
+    )
+
 @app.route('/description')
 def description():
     return jsonify(metadata)
@@ -148,16 +189,14 @@ def handle_req():
 
         if request.method == 'GET':
             requirement = "average_noise"
-            duration = 5  # default
+            duration = 5
         else:
             req_data = request.get_json()
             requirement = req_data.get("requirement")
             duration = int(req_data.get("duration_minutes", 5))
-
             if not requirement:
                 return jsonify({"error": "Missing 'requirement' field"}), 400
 
-        # Filter recent data
         cutoff = datetime.utcnow() - timedelta(minutes=duration)
         recent = [
             r["noise_level"] for r in records
@@ -167,7 +206,6 @@ def handle_req():
         if not recent:
             return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
 
-        # Compute value
         if requirement == "average_noise":
             value = round(sum(recent) / len(recent), 2)
         elif requirement == "min_noise":

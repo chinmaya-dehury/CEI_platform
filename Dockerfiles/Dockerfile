@@ -9,5 +9,5 @@ COPY agents/ ./agents/
 
 RUN pip install flask requests
 
-CMD ["python", "./agents/agent1.py"]
+CMD ["python", "./agents/traffic_agent.py"]
 
