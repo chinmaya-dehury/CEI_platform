@@ -1,9 +1,7 @@
-# data/agent4_capabilities.py
-
 import json
 from datetime import datetime, timedelta
 
-def get_capabilities_data(data_log_path, agent_name, unit):
+def get_intelligence_data(data_log_path, agent_name, unit):
     try:
         with open(data_log_path, "r") as f:
             records = json.load(f)
@@ -11,10 +9,10 @@ def get_capabilities_data(data_log_path, agent_name, unit):
         if not records:
             return {"error": "No data available"}
 
-        # Filter last 5 minutes of data
+        # Filter last 5 minutes
         cutoff = datetime.utcnow() - timedelta(minutes=5)
         recent = [
-            r["humidity"] for r in records
+            r["noise_level"] for r in records
             if datetime.fromisoformat(r["timestamp"]) > cutoff
         ]
 
@@ -22,9 +20,10 @@ def get_capabilities_data(data_log_path, agent_name, unit):
             return {"error": "No recent data in last 5 minutes"}
 
         return {
-            "average_humidity": round(sum(recent) / len(recent), 2),
-            "min_humidity": min(recent),
-            "max_humidity": max(recent),
+            "average_noise": round(sum(recent) / len(recent), 2),
+            "timestamp": datetime.utcnow().isoformat(),
+            "min_noise": min(recent),
+            "max_noise": max(recent),
             "data_points_analyzed": len(recent),
             "unit": unit
         }

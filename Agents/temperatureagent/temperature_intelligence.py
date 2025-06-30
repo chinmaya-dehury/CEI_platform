@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timedelta
 from collections import Counter
 
-def get_capabilities_data(data_log_path, agent_name, unit):
+def get_intelligence_data(data_log_path, agent_name, unit):
     if not os.path.exists(data_log_path):
         return {"error": "Data log not found"}
 
@@ -29,6 +29,7 @@ def get_capabilities_data(data_log_path, agent_name, unit):
             "agent": agent_name,
             "data_points_analyzed": len(values),
             "average_temperature": round(sum(values) / len(values), 2),
+            "timestamp": datetime.utcnow().isoformat(),
             "min_temperature": min(values),
             "max_temperature": max(values),
             "unit": unit,

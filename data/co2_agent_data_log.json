@@ -1,7 +1,22 @@
 [
   {
-    "timestamp": "2025-06-26T05:04:48.836921",
-    "co2_level": 404,
-    "co2_status": "Moderate"
+    "timestamp": "2025-06-29T17:43:35.983126",
+    "co2_level": 551,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-06-30T06:43:20.531595",
+    "co2_level": 397,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-06-30T06:56:56.603651",
+    "co2_level": 534,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-06-30T09:11:12.939802",
+    "co2_level": 357,
+    "co2_status": "Low"
   }
 ]

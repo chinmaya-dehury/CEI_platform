@@ -8,24 +8,26 @@ import sys
 
 print("PYTHONPATH:", sys.path)
 
-from data.humidityagent_capabilities import get_capabilities_data  # ✅ new import
+from .temperature_intelligence import get_intelligence_data  
+from .temperature_requirements import get_requirements_data
+
 
 app = Flask(__name__)
 
-AGENT_NAME = "humidityagent"
-PORT = 5003
-UUID_PATH = "/data/humidityagent_metadata.json"
+AGENT_NAME = "temperatureagent"
+PORT = 5004
+UUID_PATH = "/data/temperatureagent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
-DATA_LOG_PATH = "/data/humidityagent_data_log.json"
+DATA_LOG_PATH = "/data/temperatureagent_data_log.json"
 
 # -------- Metadata -------- #
 metadata = {
     "uuid": "",
-    "sensor_type": "Humidity Sensor",
+    "sensor_type": "Temperature Sensor",
     "frequency": "Every 10 seconds",
-    "unit": "%",
-    "location": "Zone D",
-    "data_name": "humidity",
+    "unit": "°C",
+    "location": "Zone E",
+    "data_name": "temperature",
     "agent_name": AGENT_NAME
 }
 
@@ -58,8 +60,8 @@ def register_with_consul():
     try:
         service = {
             "ID": metadata["uuid"],
-            "Name": AGENT_NAME,
-            "Address": AGENT_NAME,
+            "Name": metadata["agent_name"],  
+            "Address": metadata["address"],  
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
@@ -68,17 +70,25 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{AGENT_NAME}:{PORT}/health",
+                "HTTP": f"http://{metadata['address']}:{5004}/health",  #  correct health check URL
                 "Interval": "10s"
             }
         }
+
         conn = http.client.HTTPConnection("consul", 8500)
-        conn.request("PUT", "/v1/agent/service/register", body=json.dumps(service), headers={"Content-Type": "application/json"})
+        conn.request(
+            "PUT",
+            "/v1/agent/service/register",
+            body=json.dumps(service),
+            headers={"Content-Type": "application/json"}
+        )
         res = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {res.status} {res.reason}")
         conn.close()
+
     except Exception as e:
         print(f"[ERROR] Failed to register with Consul: {e}")
+
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -87,19 +97,19 @@ def health():
 
 @app.route('/data')
 def data():
-    humidity_value = round(random.uniform(30.0, 90.0), 2)
+    temp_value = round(random.uniform(20.0, 35.0), 2)
 
-    if humidity_value < 40:
-        status = "Low"
-    elif humidity_value <= 60:
+    if temp_value < 24.0:
+        status = "Cold"
+    elif temp_value <= 30.0:
         status = "Moderate"
     else:
-        status = "High"
+        status = "Hot"
 
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "humidity": humidity_value,
-        "humidity_status": status
+        "temperature": temp_value,
+        "temperature_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -142,8 +152,8 @@ def export_json():
     export = [
         {
             "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
-            "measurement": "Humidity",
-            "value": entry["humidity"]
+            "measurement": "Temperature",
+            "value": entry["temperature"]
         } for entry in records
     ]
 
@@ -163,66 +173,26 @@ def export_csv():
     csv_lines = ["Timestamp,Measurement,Value"]
     for entry in records:
         ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
-        csv_lines.append(f"{ts_epoch},Humidity,{entry['humidity']}")
+        csv_lines.append(f"{ts_epoch},Temperature,{entry['temperature']}")
 
     return Response(
         "\n".join(csv_lines),
         mimetype="text/csv",
-        headers={"Content-Disposition": "attachment; filename=humidityagent_data.csv"}
+        headers={"Content-Disposition": "attachment; filename=temperatureagent_data.csv"}
     )
 
 @app.route('/description')
 def description():
     return jsonify(metadata)
 
-@app.route('/capabilities')
-def capabilities():
-    return jsonify(get_capabilities_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+@app.route('/intelligence')
+def intelligence():
+    return jsonify(get_intelligence_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
 
-@app.route('/req', methods=['GET', 'POST'])
-def handle_req():
-    try:
-        if not os.path.exists(DATA_LOG_PATH):
-            return jsonify({"error": "No data log found"}), 404
+@app.route('/requirements', methods=['GET', 'POST'])
+def req():
+    return get_requirements_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"])
 
-        with open(DATA_LOG_PATH) as f:
-            records = json.load(f)
-
-        if request.method == 'GET':
-            requirement = "average_humidity"
-            duration = 5
-        else:
-            req_data = request.get_json()
-            requirement = req_data.get("requirement")
-            duration = int(req_data.get("duration_minutes", 5))
-            if not requirement:
-                return jsonify({"error": "Missing 'requirement' field"}), 400
-
-        cutoff = datetime.utcnow() - timedelta(minutes=duration)
-        recent = [r["humidity"] for r in records if datetime.fromisoformat(r["timestamp"]) > cutoff]
-
-        if not recent:
-            return jsonify({"response": f"No recent data in last {duration} minutes"}), 200
-
-        if requirement == "average_humidity":
-            value = round(sum(recent) / len(recent), 2)
-        elif requirement == "min_humidity":
-            value = min(recent)
-        elif requirement == "max_humidity":
-            value = max(recent)
-        else:
-            return jsonify({"error": f"Unknown requirement: {requirement}"}), 400
-
-        return jsonify({
-            "agent": AGENT_NAME,
-            "requirement": requirement,
-            "value": value,
-            "unit": metadata["unit"],
-            "data_points_considered": len(recent)
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
@@ -230,4 +200,4 @@ if __name__ == "__main__":
     if not load_metadata():
         register_with_controller()
     register_with_consul()
-    app.run(host="0.0.0.0", port=5003)
+    app.run(host="0.0.0.0", port=5004)

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Agent Dashboard</title>
+</head>
+<body>
+    <h1>Connected Agents</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Port</th>
+            <th>Location</th>
+            <th>Health</th>
+            <th>Requirements</th>
+        </tr>
+        {% for agent in agents %}
+        <tr>
+            <td>{{ agent.ID }}</td>
+            <td>{{ agent.Name }}</td>
+            <td>{{ agent.Address }}</td>
+            <td>{{ agent.Port }}</td>
+            <td>{{ agent.Location }}</td>
+            <td>{{ agent.Health }}</td>
+            <td>{{ agent.Requirements }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        <a href="/intelligence">Export Intelligence JSON</a> |
+        <a href="/data/export/csv">Export Intelligence CSV</a>
+    </p>
+</body>
+</html>

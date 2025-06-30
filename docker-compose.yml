@@ -5,11 +5,28 @@ services:
   consul:
     image: hashicorp/consul:1.21
     container_name: consul
+    hostname: consul
     ports:
       - "8500:8500"
     command: "agent -dev -client=0.0.0.0"
     networks:
       - appnet
+    restart: unless-stopped
+
+  # ──────────────── Dashboard ────────────────
+  dashboard:
+    build:
+      context: .
+      dockerfile: server/dashboard.dockerfile
+    container_name: dashboard
+    hostname: dashboard
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - appnet
+    restart: unless-stopped
 
   # ──────────────── Controller ────────────────
   controller:
@@ -17,6 +34,7 @@ services:
       context: .
       dockerfile: controller.dockerfile
     container_name: controller
+    hostname: controller
     volumes:
       - ./server:/app
     working_dir: /app
@@ -25,13 +43,15 @@ services:
       - "9000:9000"
     networks:
       - appnet
+    restart: unless-stopped
 
   # ──────────────── Agent 1 ────────────────
-  agent1:
+  traffic_agent:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile
     container_name: traffic_agent
+    hostname: traffic_agent
     ports:
       - "5000:5000"
     volumes:
@@ -41,6 +61,7 @@ services:
     depends_on:
       - controller
       - consul
+    restart: unless-stopped
 
   # ──────────────── Agent 2 ────────────────
   co2_agent:
@@ -48,6 +69,7 @@ services:
       context: .
       dockerfile: Dockerfiles/Dockerfile2.dockerfile
     container_name: co2_agent
+    hostname: co2_agent
     ports:
       - "5001:5001"
     volumes:
@@ -57,13 +79,15 @@ services:
     depends_on:
       - controller
       - consul
+    restart: unless-stopped
 
   # ──────────────── Agent 3 ────────────────
-  agent3:
+  noiseagent:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile3.dockerfile
-    container_name: agent3
+    container_name: noiseagent
+    hostname: noiseagent
     ports:
       - "5002:5002"
     volumes:
@@ -73,13 +97,15 @@ services:
     depends_on:
       - controller
       - consul
+    restart: unless-stopped
 
   # ──────────────── Agent 4 ────────────────
-  agent4:
+  humidityagent:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile4.dockerfile
-    container_name: agent4
+    container_name: humidityagent
+    hostname: humidityagent
     ports:
       - "5003:5003"
     volumes:
@@ -89,13 +115,15 @@ services:
     depends_on:
       - controller
       - consul
+    restart: unless-stopped
 
   # ──────────────── Agent 5 ────────────────
-  agent5:
+  temperatureagent:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile5.dockerfile
-    container_name: agent5
+    container_name: temperatureagent
+    hostname: temperatureagent
     ports:
       - "5004:5004"
     volumes:
@@ -105,6 +133,7 @@ services:
     depends_on:
       - controller
       - consul
+    restart: unless-stopped
 
 networks:
   appnet:
