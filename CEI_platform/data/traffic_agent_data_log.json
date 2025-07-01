@@ -33,5 +33,20 @@
     "timestamp": "2025-06-30T09:23:25.863585",
     "vehicle_count": 51,
     "congestion_status": "Moderate Congestion"
+  },
+  {
+    "timestamp": "2025-07-01T19:14:21.641210",
+    "vehicle_count": 65,
+    "congestion_status": "Moderate Congestion"
+  },
+  {
+    "timestamp": "2025-07-01T19:24:42.697955",
+    "vehicle_count": 61,
+    "congestion_status": "Moderate Congestion"
+  },
+  {
+    "timestamp": "2025-07-01T19:38:10.347441",
+    "vehicle_count": 99,
+    "congestion_status": "High Congestion"
   }
 ]
