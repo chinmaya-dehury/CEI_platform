@@ -1,0 +1,9 @@
+{
+  "uuid": "ae2307a8-c268-4ec1-aebd-d509deac3ff2",
+  "sensor_type": "CO2 Sensor",
+  "frequency": "Every 10 seconds",
+  "unit": "ppm",
+  "location": "Zone B",
+  "data_name": "co2_level",
+  "agent_name": "co2_agent"
+}
