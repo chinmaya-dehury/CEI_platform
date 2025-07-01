@@ -64,7 +64,7 @@ def register_with_consul():
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
-            "Address": Address,
+            "Address": agent_ip,
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
