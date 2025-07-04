@@ -48,5 +48,10 @@
     "timestamp": "2025-07-01T19:38:10.347441",
     "vehicle_count": 99,
     "congestion_status": "High Congestion"
+  },
+  {
+    "timestamp": "2025-07-03T06:45:55.332422",
+    "vehicle_count": 0,
+    "congestion_status": "Low Congestion"
   }
 ]
