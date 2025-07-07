@@ -4,6 +4,7 @@ from datetime import datetime
 from .temperature_intelligence import get_intelligence_data  
 from .temperature_requirements import get_requirements_data
 from .temperature_registration import metadata, load_metadata, register_with_controller, register_with_consul
+from .temperature_intelligence import generate_and_save_intelligence
 
 app = Flask(__name__)
 
@@ -107,7 +108,8 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    return jsonify(get_intelligence_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"]))
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    return jsonify(result)
 
 @app.route('/requirements', methods=['GET', 'POST'])
 def req():

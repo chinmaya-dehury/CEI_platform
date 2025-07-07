@@ -1,17 +1,72 @@
 [
   {
-    "timestamp": "2025-06-30T06:48:56.247593",
-    "humidity": 42.14,
+    "timestamp": "2025-07-07T06:57:51.864510",
+    "humidity": 83.58,
+    "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-07T07:03:19.836695",
+    "humidity": 39.5,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-07T07:03:22.739446",
+    "humidity": 54.54,
     "humidity_status": "Moderate"
   },
   {
-    "timestamp": "2025-06-30T06:58:49.939358",
-    "humidity": 67.42,
+    "timestamp": "2025-07-07T07:03:23.133815",
+    "humidity": 84.47,
     "humidity_status": "High"
   },
   {
-    "timestamp": "2025-06-30T09:33:13.214938",
-    "humidity": 82.06,
+    "timestamp": "2025-07-07T07:03:24.500493",
+    "humidity": 41.1,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T07:13:11.811115",
+    "humidity": 49.23,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T07:13:15.962424",
+    "humidity": 46.23,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T07:13:16.296026",
+    "humidity": 64.01,
     "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-07T07:13:16.532309",
+    "humidity": 35.4,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-07T07:42:28.247368",
+    "co2_level": 565,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-07-07T07:42:32.232791",
+    "co2_level": 318,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-07T07:42:32.572251",
+    "co2_level": 420,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T07:42:32.905747",
+    "co2_level": 563,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-07-07T07:42:33.125555",
+    "co2_level": 567,
+    "co2_status": "High"
   }
 ]

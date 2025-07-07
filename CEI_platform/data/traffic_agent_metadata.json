@@ -1,5 +1,5 @@
 {
-  "uuid": "5e099435-4e43-4665-a8bb-19c37809c6de",
+  "uuid": "cc200b01-0e16-4698-b63e-4be1e54be934",
   "sensor_type": "Traffic Congestion Sensor",
   "frequency": "Every 10 seconds",
   "unit": "%",

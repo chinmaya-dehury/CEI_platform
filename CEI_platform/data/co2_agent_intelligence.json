@@ -1,0 +1,9 @@
+{
+  "average_co2": 563.0,
+  "timestamp": "2025-07-07T07:50:56.062067",
+  "min_co2": 563,
+  "max_co2": 563,
+  "most_common_co2_status": "High",
+  "data_points_analyzed": 1,
+  "unit": "ppm"
+}

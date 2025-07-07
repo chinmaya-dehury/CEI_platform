@@ -1,0 +1,14 @@
+{
+  "agent": "temperatureagent",
+  "data_points_analyzed": 6,
+  "average_temperature": 29.31,
+  "timestamp": "2025-07-07T08:10:57.075383",
+  "min_temperature": 23.55,
+  "max_temperature": 34.35,
+  "unit": "\u00b0C",
+  "status_distribution": {
+    "Hot": 3,
+    "Cold": 1,
+    "Moderate": 2
+  }
+}

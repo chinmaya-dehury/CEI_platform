@@ -1,12 +1,32 @@
 [
   {
-    "timestamp": "2025-06-30T06:59:13.168878",
-    "temperature": 20.45,
+    "timestamp": "2025-07-07T08:10:48.518420",
+    "temperature": 31.8,
+    "temperature_status": "Hot"
+  },
+  {
+    "timestamp": "2025-07-07T08:10:50.169963",
+    "temperature": 23.55,
     "temperature_status": "Cold"
   },
   {
-    "timestamp": "2025-06-30T09:47:17.940646",
-    "temperature": 24.66,
+    "timestamp": "2025-07-07T08:10:50.492278",
+    "temperature": 26.65,
     "temperature_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T08:10:50.681703",
+    "temperature": 34.35,
+    "temperature_status": "Hot"
+  },
+  {
+    "timestamp": "2025-07-07T08:10:50.996395",
+    "temperature": 27.28,
+    "temperature_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-07T08:10:51.355911",
+    "temperature": 32.21,
+    "temperature_status": "Hot"
   }
 ]

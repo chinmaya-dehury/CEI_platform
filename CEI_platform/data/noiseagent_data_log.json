@@ -1,22 +1,22 @@
 [
   {
-    "timestamp": "2025-06-30T06:45:39.373520",
-    "noise_level": 40.47
+    "timestamp": "2025-07-07T08:03:22.480805",
+    "noise_level": 45.16
   },
   {
-    "timestamp": "2025-06-30T06:58:26.286801",
-    "noise_level": 50.14
+    "timestamp": "2025-07-07T08:03:26.015823",
+    "noise_level": 53.62
   },
   {
-    "timestamp": "2025-06-30T07:01:46.986715",
-    "noise_level": 42.41
+    "timestamp": "2025-07-07T08:03:26.347432",
+    "noise_level": 42.77
   },
   {
-    "timestamp": "2025-06-30T07:30:04.340287",
-    "noise_level": 89.51
+    "timestamp": "2025-07-07T08:03:26.694582",
+    "noise_level": 59.98
   },
   {
-    "timestamp": "2025-06-30T09:37:47.601419",
-    "noise_level": 70.29
+    "timestamp": "2025-07-07T08:03:27.108175",
+    "noise_level": 69.0
   }
 ]

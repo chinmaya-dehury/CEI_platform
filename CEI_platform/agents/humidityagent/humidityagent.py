@@ -5,11 +5,13 @@ from flask import Flask, jsonify, request, Response
 from .humidityagent_requirements import get_requirements_data
 from .humidityagent_intelligence import get_intelligence_data
 from .humidity_registration import load_metadata, register_with_controller, register_with_consul, metadata
+from .humidityagent_intelligence import generate_and_save_intelligence
 
 app = Flask(__name__)
 
 PORT = 5003
 DATA_LOG_PATH = "/data/humidityagent_data_log.json"
+INTELLIGENCE_PATH = "/datahumidity_intelligence.json"
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -108,8 +110,9 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    return jsonify(get_intelligence_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"]))
-
+    # This will both compute and write the file
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    return jsonify(result)
 @app.route('/requirements')
 def req():
     return jsonify(get_requirements_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"]))

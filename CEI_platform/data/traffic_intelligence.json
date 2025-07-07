@@ -1,0 +1,10 @@
+{
+  "agent": "traffic_agent",
+  "average_vehicle_count": 33.62,
+  "timestamp": "2025-07-07T08:17:02.401688",
+  "min_vehicle_count": 0,
+  "max_vehicle_count": 84,
+  "most_common_congestion_status": "Low Congestion",
+  "data_points_analyzed": 8,
+  "unit": "%"
+}

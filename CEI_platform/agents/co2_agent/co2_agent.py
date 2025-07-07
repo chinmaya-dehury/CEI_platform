@@ -3,12 +3,16 @@ from flask import Flask, jsonify, request, send_file, Response
 import uuid, json, time, os, random, sys
 from datetime import datetime
 import requests  
+import subprocess
+
 
 from . import co2requirements as requirements
 from . import co2_agent_intelligence as intelligence
 from .co2_agent_intelligence import get_intelligence_data
 from .co2requirements import get_requirements_data
 from .registration import load_metadata, register_with_controller, register_with_consul  #  Use external registration
+
+from .co2_agent_intelligence import generate_and_save_intelligence
 
 print("PYTHONPATH:", sys.path)
 
@@ -17,8 +21,11 @@ app = Flask(__name__)
 AGENT_NAME = "co2_agent"
 PORT = 5001
 UUID_PATH = "/data/co2_agent_metadata.json"
-DATA_LOG_PATH = "/data/co2_agent_data_log.json"
 
+import os
+import os
+
+DATA_LOG_PATH = "/data/co2_agent_data_log.json"
 # ------- Metadata & UUID ------- #
 metadata = {
     "uuid": "",
@@ -117,8 +124,11 @@ def description():
     return jsonify(metadata)
 
 @app.route('/intelligence')
-def intelligence_endpoint():
-    return jsonify(get_intelligence_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"]))
+def intelligence():
+    # This will both compute and write the file
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    return jsonify(result)
+
 
 @app.route('/requirements')
 def requirements_endpoint():
