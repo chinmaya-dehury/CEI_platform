@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 import uuid
 
 app = Flask(__name__)
+###
+# TODO: This should store all UUIDs and their corresponding agent names in json file. Keep it in the same folder.
+###
 
 @app.route('/register', methods=['POST'])
 def register():
