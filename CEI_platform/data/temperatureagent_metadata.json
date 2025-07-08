@@ -1,9 +1,0 @@
-{
-  "uuid": "97f60bac-f641-4514-823f-962987439725",
-  "sensor_type": "Temperature Sensor",
-  "frequency": "Every 10 seconds",
-  "unit": "\u00b0C",
-  "location": "Zone E",
-  "data_name": "temperature",
-  "agent_name": "temperatureagent"
-}

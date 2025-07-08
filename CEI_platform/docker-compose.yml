@@ -17,7 +17,7 @@ services:
   dashboard:
     build:
       context: .
-      dockerfile: server/dashboard.dockerfile
+      dockerfile: dashboard.dockerfile
     container_name: dashboard
     hostname: dashboard
     ports:
@@ -32,11 +32,11 @@ services:
   controller:
     build:
       context: .
-      dockerfile: controller.dockerfile
+      dockerfile: controller/controller.dockerfile
     container_name: controller
     hostname: controller
     volumes:
-      - ./server:/app
+      - ./controller:/app
     working_dir: /app
     command: python controller.py
     ports:
@@ -49,7 +49,7 @@ services:
   traffic_agent:
     build:
       context: .
-      dockerfile: Dockerfiles/Dockerfile
+      dockerfile: Dockerfiles/traffic_agent.dockerfile
     container_name: traffic_agent
     hostname: traffic_agent
     ports:
@@ -67,7 +67,7 @@ services:
   co2_agent:
     build:
       context: .
-      dockerfile: Dockerfiles/Dockerfile2.dockerfile
+      dockerfile: Dockerfiles/co2_agent.dockerfile
     container_name: co2_agent
     hostname: co2_agent
     ports:
@@ -82,12 +82,12 @@ services:
     restart: unless-stopped
 
   # ──────────────── Agent 3 ────────────────
-  noiseagent:
+  noise_agent:
     build:
       context: .
-      dockerfile: Dockerfiles/Dockerfile3.dockerfile
-    container_name: noiseagent
-    hostname: noiseagent
+      dockerfile: Dockerfiles/noise_agent.dockerfile
+    container_name: noise_agent
+    hostname: noise_agent
     ports:
       - "5002:5002"
     volumes:
@@ -100,12 +100,12 @@ services:
     restart: unless-stopped
 
   # ──────────────── Agent 4 ────────────────
-  humidityagent:
+  humidity_agent:
     build:
       context: .
-      dockerfile: Dockerfiles/Dockerfile4.dockerfile
-    container_name: humidityagent
-    hostname: humidityagent
+      dockerfile: Dockerfiles/humidity_agent.dockerfile
+    container_name: humidity_agent
+    hostname: humidity_agent
     ports:
       - "5003:5003"
     volumes:
@@ -118,12 +118,12 @@ services:
     restart: unless-stopped
 
   # ──────────────── Agent 5 ────────────────
-  temperatureagent:
+  temperature_agent:
     build:
       context: .
-      dockerfile: Dockerfiles/Dockerfile5.dockerfile
-    container_name: temperatureagent
-    hostname: temperatureagent
+      dockerfile: Dockerfiles/temperature_agent.dockerfile
+    container_name: temperature_agent
+    hostname: temperature_agent
     ports:
       - "5004:5004"
     volumes:
