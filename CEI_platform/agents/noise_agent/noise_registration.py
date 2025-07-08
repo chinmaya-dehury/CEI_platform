@@ -1,7 +1,7 @@
 import os, json, socket, http.client, requests
 
-AGENT_NAME = "noiseagent"
-UUID_PATH = "/data/noiseagent_metadata.json"
+AGENT_NAME = "noise_agent"
+UUID_PATH = "/data/noise_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
 metadata = {

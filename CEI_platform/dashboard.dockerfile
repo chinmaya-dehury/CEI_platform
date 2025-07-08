@@ -6,7 +6,6 @@ WORKDIR /app
 
 COPY ./central_app/ /app/
 
-
 RUN pip install flask requests
 
 EXPOSE 8000

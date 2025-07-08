@@ -1,15 +1,17 @@
 import os, sys, time, json, random
 from datetime import datetime
-from flask import Flask, jsonify, request, Response, send_file
+from flask import Flask, jsonify, request, Response
 
+from .humidityagent_requirements import get_requirements_data
+from .humidityagent_intelligence import get_intelligence_data
+from .humidity_registration import load_metadata, register_with_controller, register_with_consul, metadata
+from .humidityagent_intelligence import generate_and_save_intelligence
 
-from .noise_requirements import get_requirements_data
-from .noise_registration import load_metadata, register_with_controller, register_with_consul, metadata
-from .noise_intelligence import generate_and_save_intelligence, get_intelligence_data
 app = Flask(__name__)
 
-PORT = 5002
-DATA_LOG_PATH = "/data/noiseagent_data_log.json"
+PORT = 5003
+DATA_LOG_PATH = "/data/humidity_agent_data_log.json"
+INTELLIGENCE_PATH = "/datahumidity_intelligence.json"
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -18,15 +20,25 @@ def health():
 
 @app.route('/data')
 def data():
+    humidity_value = round(random.uniform(30.0, 90.0), 2)
+
+    if humidity_value < 40:
+        status = "Low"
+    elif humidity_value <= 60:
+        status = "Moderate"
+    else:
+        status = "High"
+
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "noise_level": round(random.uniform(40.0, 90.0), 2)
+        "humidity": humidity_value,
+        "humidity_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
     history = []
     if os.path.exists(DATA_LOG_PATH):
-        with open(DATA_LOG_PATH, "r") as f:
+        with open(DATA_LOG_PATH) as f:
             try:
                 history = json.load(f)
             except json.JSONDecodeError:
@@ -42,7 +54,7 @@ def data():
 @app.route('/data/history')
 def data_history():
     if os.path.exists(DATA_LOG_PATH):
-        with open(DATA_LOG_PATH, "r") as f:
+        with open(DATA_LOG_PATH) as f:
             try:
                 return jsonify(json.load(f))
             except json.JSONDecodeError:
@@ -54,43 +66,42 @@ def export_json():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
 
-    with open(DATA_LOG_PATH, "r") as f:
+    with open(DATA_LOG_PATH) as f:
         try:
-            raw_data = json.load(f)
+            records = json.load(f)
         except json.JSONDecodeError:
             return jsonify({"error": "Invalid data format"}), 500
 
-    formatted = [
+    export = [
         {
             "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
-            "measurement": "Noise",
-            "value": entry["noise_level"]
-        }
-        for entry in raw_data
+            "measurement": "Humidity",
+            "value": entry["humidity"]
+        } for entry in records
     ]
 
-    return jsonify(formatted)
+    return jsonify(export)
 
 @app.route('/data/export/csv')
 def export_csv():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
 
-    with open(DATA_LOG_PATH, "r") as f:
+    with open(DATA_LOG_PATH) as f:
         try:
-            raw_data = json.load(f)
+            records = json.load(f)
         except json.JSONDecodeError:
             return jsonify({"error": "Invalid data format"}), 500
 
     csv_lines = ["Timestamp,Measurement,Value"]
-    for entry in raw_data:
+    for entry in records:
         ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
-        csv_lines.append(f"{ts_epoch},Noise,{entry['noise_level']}")
+        csv_lines.append(f"{ts_epoch},Humidity,{entry['humidity']}")
 
     return Response(
         "\n".join(csv_lines),
         mimetype="text/csv",
-        headers={"Content-Disposition": "attachment; filename=noiseagent_data.csv"}
+        headers={"Content-Disposition": "attachment; filename=humidityagent_data.csv"}
     )
 
 @app.route('/description')
@@ -111,5 +122,5 @@ if __name__ == "__main__":
     time.sleep(5)
     if not load_metadata():
         register_with_controller()
-    register_with_consul(port=5002)
-    app.run(host="0.0.0.0", port=5002)
+    register_with_consul(port=5003)
+    app.run(host="0.0.0.0", port=5003)

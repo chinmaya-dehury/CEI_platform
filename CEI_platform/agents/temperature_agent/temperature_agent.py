@@ -1,17 +1,15 @@
-import os, sys, time, json, random
+from flask import Flask, jsonify, request, send_file, Response
+import os, json, time, random
 from datetime import datetime
-from flask import Flask, jsonify, request, Response
-
-from .humidityagent_requirements import get_requirements_data
-from .humidityagent_intelligence import get_intelligence_data
-from .humidity_registration import load_metadata, register_with_controller, register_with_consul, metadata
-from .humidityagent_intelligence import generate_and_save_intelligence
+from .temperature_intelligence import get_intelligence_data  
+from .temperature_requirements import get_requirements_data
+from .temperature_registration import metadata, load_metadata, register_with_controller, register_with_consul
+from .temperature_intelligence import generate_and_save_intelligence
 
 app = Flask(__name__)
 
-PORT = 5003
-DATA_LOG_PATH = "/data/humidityagent_data_log.json"
-INTELLIGENCE_PATH = "/datahumidity_intelligence.json"
+PORT = 5004
+DATA_LOG_PATH = "/data/temperature_agent_data_log.json"
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -20,19 +18,19 @@ def health():
 
 @app.route('/data')
 def data():
-    humidity_value = round(random.uniform(30.0, 90.0), 2)
+    temp_value = round(random.uniform(20.0, 35.0), 2)
 
-    if humidity_value < 40:
-        status = "Low"
-    elif humidity_value <= 60:
+    if temp_value < 24.0:
+        status = "Cold"
+    elif temp_value <= 30.0:
         status = "Moderate"
     else:
-        status = "High"
+        status = "Hot"
 
     data_point = {
         "timestamp": datetime.utcnow().isoformat(),
-        "humidity": humidity_value,
-        "humidity_status": status
+        "temperature": temp_value,
+        "temperature_status": status
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -61,7 +59,7 @@ def data_history():
                 return jsonify({"error": "History is corrupted"}), 500
     return jsonify([])
 
-@app.route('/data/export/json')
+@app.route('/data/export/json', methods=['GET', 'POST'])
 def export_json():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
@@ -75,14 +73,14 @@ def export_json():
     export = [
         {
             "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
-            "measurement": "Humidity",
-            "value": entry["humidity"]
+            "measurement": "Temperature",
+            "value": entry["temperature"]
         } for entry in records
     ]
 
     return jsonify(export)
 
-@app.route('/data/export/csv')
+@app.route('/data/export/csv', methods=['GET', 'POST'])
 def export_csv():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
@@ -96,12 +94,12 @@ def export_csv():
     csv_lines = ["Timestamp,Measurement,Value"]
     for entry in records:
         ts_epoch = int(datetime.fromisoformat(entry["timestamp"]).timestamp())
-        csv_lines.append(f"{ts_epoch},Humidity,{entry['humidity']}")
+        csv_lines.append(f"{ts_epoch},Temperature,{entry['temperature']}")
 
     return Response(
         "\n".join(csv_lines),
         mimetype="text/csv",
-        headers={"Content-Disposition": "attachment; filename=humidityagent_data.csv"}
+        headers={"Content-Disposition": "attachment; filename=temperatureagent_data.csv"}
     )
 
 @app.route('/description')
@@ -110,17 +108,18 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    # This will both compute and write the file
     result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
     return jsonify(result)
-@app.route('/requirements')
+
+@app.route('/requirements', methods=['GET', 'POST'])
 def req():
-    return jsonify(get_requirements_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"]))
+    return get_requirements_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
     time.sleep(5)
     if not load_metadata():
         register_with_controller()
-    register_with_consul(port=5003)
-    app.run(host="0.0.0.0", port=5003)
+    register_with_consul()
+    app.run(host="0.0.0.0", port=5004)

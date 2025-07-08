@@ -1,21 +1,17 @@
-# agents/temperatureagent/temperature_registration.py
+import os, json, socket, http.client, requests
+from pprint import pprint
 
-import os, json, http.client, socket, requests
-from time import sleep
-
-AGENT_NAME = "temperatureagent"
-PORT = 5004
-UUID_PATH = "/data/temperatureagent_metadata.json"
+AGENT_NAME = "humidity_agent"
+UUID_PATH = "/data/humidity_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
-# -------- Metadata -------- #
 metadata = {
     "uuid": "",
-    "sensor_type": "Temperature Sensor",
+    "sensor_type": "Humidity Sensor",
     "frequency": "Every 10 seconds",
-    "unit": "°C",
-    "location": "Zone E",
-    "data_name": "temperature",
+    "unit": "%",
+    "location": "Zone D",
+    "data_name": "humidity",
     "agent_name": AGENT_NAME
 }
 
@@ -44,16 +40,16 @@ def register_with_controller():
     except Exception as e:
         print(f"[ERROR] Registration exception: {e}")
 
-def register_with_consul():
+def register_with_consul(port):
     try:
         agent_ip = socket.gethostbyname(socket.gethostname())
-        print(f"[INFO] Resolved agent IP: {agent_ip}")
+        print(f"[INFO] Agent IP resolved as: {agent_ip}")
 
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
             "Address": agent_ip,
-            "Port": PORT,
+            "Port": port,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
                 "location": metadata["location"],
@@ -61,7 +57,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{PORT}/health",
+                "HTTP": f"http://{agent_ip}:{port}/health",
                 "Interval": "10s"
             }
         }

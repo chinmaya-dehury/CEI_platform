@@ -1,8 +1,8 @@
 {
-  "average_humidity": 48.72,
-  "timestamp": "2025-07-07T07:13:20.067410",
-  "min_humidity": 35.4,
-  "max_humidity": 64.01,
+  "average_humidity": 57.52,
+  "timestamp": "2025-07-08T06:16:18.309423",
+  "min_humidity": 32.23,
+  "max_humidity": 78.31,
   "data_points_analyzed": 4,
   "unit": "%"
 }

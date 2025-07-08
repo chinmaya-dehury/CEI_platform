@@ -8,5 +8,4 @@ COPY agents/ ./agents/
 
 RUN pip install flask requests
 
-CMD ["python", "-m", "agents.humidityagent.humidityagent"]
-
+CMD ["python", "-m", "agents.temperature_agent.temperature_agent"]

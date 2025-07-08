@@ -1,4 +1,3 @@
-# Use Python base imageFROM python:3.9-slim
 FROM python:3.9-slim
 
 WORKDIR /app
@@ -9,4 +8,5 @@ COPY agents/ ./agents/
 
 RUN pip install flask requests
 
-CMD ["python", "-m", "agents.noiseagent.noiseagent"]
+CMD ["python", "-m", "agents.humidity_agent.humidity_agent"]
+

@@ -1,3 +1,4 @@
+# Use Python base imageFROM python:3.9-slim
 FROM python:3.9-slim
 
 WORKDIR /app
@@ -8,4 +9,4 @@ COPY agents/ ./agents/
 
 RUN pip install flask requests
 
-CMD ["python", "-m", "agents.temperatureagent.temperatureagent"]
+CMD ["python", "-m", "agents.noise_agent.noise_agent"]
