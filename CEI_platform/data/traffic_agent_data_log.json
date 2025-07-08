@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-07-08T13:10:19.966927",
+    "vehicle_count": 37,
+    "congestion_status": "Low Congestion"
+  },
+  {
+    "timestamp": "2025-07-08T13:10:23.442780",
+    "vehicle_count": 91,
+    "congestion_status": "High Congestion"
+  },
+  {
+    "timestamp": "2025-07-08T13:10:24.211371",
+    "vehicle_count": 18,
+    "congestion_status": "Low Congestion"
+  }
+]

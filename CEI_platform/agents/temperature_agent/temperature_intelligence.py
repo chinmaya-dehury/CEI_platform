@@ -2,6 +2,8 @@ import os
 import json
 from datetime import datetime, timedelta
 from collections import Counter
+from . import temperature_statistics as stats
+
 
 INTELLIGENCE_PATH = "/data/temperature_intelligence.json"
 
@@ -28,13 +30,13 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
 
                 result = {
                     "agent": agent_name,
-                    "data_points_analyzed": len(values),
-                    "average_temperature": round(sum(values) / len(values), 2),
-                    "timestamp": datetime.utcnow().isoformat(),
-                    "min_temperature": min(values),
-                    "max_temperature": max(values),
-                    "unit": unit,
-                    "status_distribution": dict(Counter(statuses))
+                    "data_points_analyzed": stats.get_data_point_count(values),
+                    "average_temperature": stats.calculate_average_temperature(values),
+                    "timestamp": stats.get_current_timestamp(),
+                    "min_temperature": stats.calculate_min_temperature(values),
+                    "max_temperature": stats.calculate_max_temperature(values),
+                    "unit": stats.get_unit(),
+                    "status_distribution": stats.get_status_distribution(statuses)
                 }
         # Save to JSON file
         os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)

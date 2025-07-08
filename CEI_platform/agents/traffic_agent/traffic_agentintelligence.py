@@ -2,6 +2,8 @@ import os
 import json
 from datetime import datetime, timedelta
 from collections import Counter
+from . import traffic_statistics as stats
+
 
 INTELLIGENCE_PATH = "/data/traffic_intelligence.json"
 
@@ -28,12 +30,12 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit=None):
 
                     result = {
                         "agent": agent_name,
-                        "average_vehicle_count": round(sum(vehicle_counts) / len(vehicle_counts), 2),
-                        "timestamp": datetime.utcnow().isoformat(),
-                        "min_vehicle_count": min(vehicle_counts),
-                        "max_vehicle_count": max(vehicle_counts),
-                        "most_common_congestion_status": Counter(statuses).most_common(1)[0][0],
-                        "data_points_analyzed": len(recent)
+                        "average_vehicle_count": stats.calculate_average_vehicle_count(vehicle_counts),
+                        "timestamp": stats.get_current_timestamp(),
+                        "min_vehicle_count": stats.calculate_min_vehicle_count(vehicle_counts),
+                        "max_vehicle_count": stats.calculate_max_vehicle_count(vehicle_counts),
+                         "most_common_congestion_status": stats.get_most_common_congestion_status(statuses),
+                         "data_points_analyzed": stats.get_data_point_count(recent)
                     }
                     if unit:
                         result["unit"] = unit

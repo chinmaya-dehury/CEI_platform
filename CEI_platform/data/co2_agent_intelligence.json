@@ -1,8 +1,8 @@
 {
-  "average_co2": 428.67,
-  "timestamp": "2025-07-08T06:16:18.283413",
-  "min_co2": 381,
-  "max_co2": 522,
+  "average_co2": 327.67,
+  "timestamp": "2025-07-08T12:46:46.581428",
+  "min_co2": 320,
+  "max_co2": 342,
   "most_common_co2_status": "Low",
   "data_points_analyzed": 3,
   "unit": "ppm"

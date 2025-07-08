@@ -1,3 +1,10 @@
 {
-  "error": "Data log not found"
+  "agent": "traffic_agent",
+  "average_vehicle_count": 48.67,
+  "timestamp": "2025-07-08T13:10:33.220438",
+  "min_vehicle_count": 18,
+  "max_vehicle_count": 91,
+  "most_common_congestion_status": "Low Congestion",
+  "data_points_analyzed": 3,
+  "unit": "%"
 }

@@ -1,6 +1,6 @@
 import json
 from datetime import datetime, timedelta
-from collections import Counter
+from . import co2_agent_statistics as stats
 
 INTELLIGENCE_PATH = "/data/co2_agent_intelligence.json"
 
@@ -22,16 +22,17 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
             else:
                 co2_values = [r["co2_level"] for r in recent]
                 statuses = [r.get("co2_status", "Unknown") for r in recent]
+
                 result = {
-                    "average_co2": round(sum(co2_values) / len(co2_values), 2),
-                    "timestamp": datetime.utcnow().isoformat(),
-                    "min_co2": min(co2_values),
-                    "max_co2": max(co2_values),
-                    "most_common_co2_status": Counter(statuses).most_common(1)[0][0],
-                    "data_points_analyzed": len(recent),
+                    "average_co2": stats.calculate_average(co2_values),
+                    "timestamp": stats.get_current_timestamp(),
+                    "min_co2": stats.calculate_min(co2_values),
+                    "max_co2": stats.calculate_max(co2_values),
+                    "most_common_co2_status": stats.get_most_common_status(statuses),
+                    "data_points_analyzed": stats.get_data_point_count(recent),
                     "unit": unit
                 }
-        # Save to JSON file
+
         with open(INTELLIGENCE_PATH, "w") as out:
             json.dump(result, out, indent=2)
         return result
@@ -42,9 +43,8 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
             json.dump(error, out, indent=2)
         return error
 
-# Alias for compatibility with your Flask app
+# Alias
 get_intelligence_data = generate_and_save_intelligence
 
-# Optional: Run as script to generate intelligence
 if __name__ == "__main__":
     print(generate_and_save_intelligence("/data/co2_agent_data_log.json", "co2_agent", "ppm"))

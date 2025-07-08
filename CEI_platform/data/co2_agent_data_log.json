@@ -13,5 +13,20 @@
     "timestamp": "2025-07-08T06:15:45.218194",
     "co2_level": 383,
     "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-08T12:46:35.898181",
+    "co2_level": 321,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-08T12:46:40.605065",
+    "co2_level": 342,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-08T12:46:41.455936",
+    "co2_level": 320,
+    "co2_status": "Low"
   }
 ]

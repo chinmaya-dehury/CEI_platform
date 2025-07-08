@@ -1,6 +1,8 @@
 import json
 import os
 from datetime import datetime, timedelta
+from . import noise_statistics as stats
+
 
 INTELLIGENCE_PATH = "/data/noise_intelligence.json"
 
@@ -22,12 +24,12 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
                 result = {"error": "No recent data in last 5 minutes"}
             else:
                 result = {
-                    "average_noise": round(sum(recent) / len(recent), 2),
-                    "timestamp": datetime.utcnow().isoformat(),
-                    "min_noise": min(recent),
-                    "max_noise": max(recent),
-                    "data_points_analyzed": len(recent),
-                    "unit": unit
+     "average_noise": stats.calculate_average_noise(recent),
+    "timestamp": stats.get_current_timestamp(),
+    "min_noise": stats.calculate_min_noise(recent),
+    "max_noise": stats.calculate_max_noise(recent),
+    "data_points_analyzed": stats.get_data_point_count(recent),
+    "unit": stats.get_unit()
                 }
         # Save to JSON file
         os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)

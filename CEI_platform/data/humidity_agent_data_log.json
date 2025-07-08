@@ -48,5 +48,25 @@
     "timestamp": "2025-07-08T06:16:15.076187",
     "humidity": 49.85,
     "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-08T06:21:39.304502",
+    "humidity": 47.99,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-08T12:58:01.318266",
+    "humidity": 30.61,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-08T12:58:04.318572",
+    "humidity": 37.15,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-08T12:58:05.151565",
+    "humidity": 60.86,
+    "humidity_status": "High"
   }
 ]

@@ -3,6 +3,7 @@
 # intelligence.py
 import json
 from datetime import datetime, timedelta
+from . import humidity_statistics as stats
 
 INTELLIGENCE_PATH = "/data/humidity_intelligence.json"
 
@@ -22,14 +23,16 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
             if not recent:
                 result = {"error": "No recent data in last 5 minutes"}
             else:
-                result = {
-                    "average_humidity": round(sum(recent) / len(recent), 2),
-                    "timestamp": datetime.utcnow().isoformat(),
-                    "min_humidity": min(recent),
-                    "max_humidity": max(recent),
-                    "data_points_analyzed": len(recent),
-                    "unit": unit
-                }
+                
+                    result = {
+    "average_humidity": stats.calculate_average_humidity(recent),
+    "timestamp": stats.get_current_timestamp(),
+    "min_humidity": stats.calculate_min_humidity(recent),
+    "max_humidity": stats.calculate_max_humidity(recent),
+    "data_points_analyzed": stats.get_data_point_count(recent),
+    "unit": stats.get_unit()
+}
+
         # Save to JSON file
         with open(INTELLIGENCE_PATH, "w") as out:
             json.dump(result, out, indent=2)

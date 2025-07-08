@@ -13,6 +13,7 @@ from .co2requirements import get_requirements_data
 from .registration import load_metadata, register_with_controller, register_with_consul  #  Use external registration
 
 from .co2_agent_intelligence import generate_and_save_intelligence
+from . import co2_agent_statistics as stats
 
 print("PYTHONPATH:", sys.path)
 
