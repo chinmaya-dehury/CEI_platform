@@ -7,7 +7,7 @@ from . import humidity_statistics as stats
 
 INTELLIGENCE_PATH = "/data/humidity_intelligence.json"
 
-def generate_and_save_intelligence(data_log_path, agent_name, unit):
+def generate_and_save_intelligence(data_log_path, agent_name, unit , port):
     try:
         with open(data_log_path, "r") as f:
             records = json.load(f)
@@ -30,7 +30,9 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
     "min_humidity": stats.calculate_min_humidity(recent),
     "max_humidity": stats.calculate_max_humidity(recent),
     "data_points_analyzed": stats.get_data_point_count(recent),
-    "unit": stats.get_unit()
+    "unit": stats.get_unit(),
+    "agent": agent_name,
+     "agent_url": f"http://localhost:{port}" if port else "unknown"
 }
 
         # Save to JSON file

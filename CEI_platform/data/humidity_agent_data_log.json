@@ -68,5 +68,50 @@
     "timestamp": "2025-07-08T12:58:05.151565",
     "humidity": 60.86,
     "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-09T06:27:46.587347",
+    "humidity": 38.21,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-09T06:27:49.285184",
+    "humidity": 57.63,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-09T06:27:49.791132",
+    "humidity": 57.06,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-09T06:49:22.863194",
+    "humidity": 33.2,
+    "humidity_status": "Low"
+  },
+  {
+    "timestamp": "2025-07-09T07:02:03.300920",
+    "humidity": 50.41,
+    "humidity_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-07-09T07:02:05.903244",
+    "humidity": 72.84,
+    "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-09T07:02:06.065359",
+    "humidity": 71.2,
+    "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-09T07:02:06.661137",
+    "humidity": 85.86,
+    "humidity_status": "High"
+  },
+  {
+    "timestamp": "2025-07-09T07:02:18.468402",
+    "humidity": 60.04,
+    "humidity_status": "High"
   }
 ]

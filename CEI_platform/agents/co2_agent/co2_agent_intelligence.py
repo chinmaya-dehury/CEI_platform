@@ -4,7 +4,7 @@ from . import co2_agent_statistics as stats
 
 INTELLIGENCE_PATH = "/data/co2_agent_intelligence.json"
 
-def generate_and_save_intelligence(data_log_path, agent_name, unit):
+def generate_and_save_intelligence(data_log_path, agent_name, unit , port):
     try:
         with open(data_log_path, "r") as f:
             records = json.load(f)
@@ -30,7 +30,9 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
                     "max_co2": stats.calculate_max(co2_values),
                     "most_common_co2_status": stats.get_most_common_status(statuses),
                     "data_points_analyzed": stats.get_data_point_count(recent),
-                    "unit": unit
+                    "unit": unit,
+                    "agent": agent_name,
+                    "agent_url": f"http://localhost:{port}" if port else "unknown"
                 }
 
         with open(INTELLIGENCE_PATH, "w") as out:

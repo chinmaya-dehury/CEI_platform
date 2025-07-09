@@ -1,8 +1,10 @@
 {
-  "average_humidity": 42.87,
-  "timestamp": "2025-07-08T12:58:10.595141",
-  "min_humidity": 30.61,
-  "max_humidity": 60.86,
-  "data_points_analyzed": 3,
-  "unit": "percent"
+  "average_humidity": 70.08,
+  "timestamp": "2025-07-09T07:02:09.373199",
+  "min_humidity": 50.41,
+  "max_humidity": 85.86,
+  "data_points_analyzed": 4,
+  "unit": "percent",
+  "agent": "humidity_agent",
+  "agent_url": "http://localhost:5003"
 }

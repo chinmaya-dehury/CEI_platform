@@ -135,5 +135,26 @@ services:
       - consul
     restart: unless-stopped
 
+  # ──────────────── Search Service ────────────────
+  search_service:
+    build:
+      context: .
+      dockerfile: search_service/search.dockerfile
+    container_name: search_service
+    hostname: search_service
+    ports:
+      - "5006:5006"
+    volumes:
+      - ./data:/data 
+      - ./search_service:/app
+    working_dir: /app
+    command: python search.py
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+    restart: unless-stopped
+
 networks:
   appnet:

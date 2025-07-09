@@ -1,8 +1,10 @@
 {
-  "average_noise": 81.13,
-  "timestamp": "2025-07-08T13:06:04.842873",
-  "min_noise": 75.99,
-  "max_noise": 86.75,
-  "data_points_analyzed": 3,
-  "unit": "dB"
+  "average_noise": 74.12,
+  "timestamp": "2025-07-09T08:38:27.968651",
+  "min_noise": 74.12,
+  "max_noise": 74.12,
+  "data_points_analyzed": 1,
+  "unit": "dB",
+  "agent": "noise_agent",
+  "agent_url": "http://localhost:5002"
 }

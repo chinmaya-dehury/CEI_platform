@@ -127,7 +127,8 @@ def description():
 @app.route('/intelligence')
 def intelligence():
     # This will both compute and write the file
-    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"], port=PORT)
+
     return jsonify(result)
 
 

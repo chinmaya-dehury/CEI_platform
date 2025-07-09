@@ -4,8 +4,7 @@ from datetime import datetime
 
 from .traffic_registration import metadata, load_metadata, register_with_controller, register_with_consul
 from .traffic_requirements import get_requirements_data
-from .traffic_agentintelligence import get_intelligence_data
-from .traffic_agentintelligence import generate_and_save_intelligence
+from .traffic_agentintelligence import get_intelligence_data, generate_and_save_intelligence
 
 print("PYTHONPATH:", sys.path)
 
@@ -120,33 +119,19 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    # This will both compute and write the file
-    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    result = generate_and_save_intelligence(
+        data_log_path=DATA_LOG_PATH,
+        agent_name=metadata["agent_name"],
+        port=PORT,
+        
+    )
     return jsonify(result)
-@app.route('/requirements', methods=['GET', 'POST'])
-def get_req():  
-    try:
-        if request.method == 'GET':
-            requirement = "average_vehicle_count"
-            duration = 5
-        else:
-            req_data = request.get_json()
-            requirement = req_data.get("requirement")
-            duration = int(req_data.get("duration_minutes", 5))
-            if not requirement:
-                return jsonify({"error": "Missing 'requirement' field"}), 400
 
-        result = get_requirements_data(
-            data_log_path=DATA_LOG_PATH,
-            agent_name=AGENT_NAME,
-            duration=duration,
-            requirement=requirement
-        )
-
-        return jsonify(result)
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+@app.route('/requirements', methods=["GET", "POST"])
+def requirements_endpoint():
+    return jsonify(
+        get_requirements_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"])[0]
+    )
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

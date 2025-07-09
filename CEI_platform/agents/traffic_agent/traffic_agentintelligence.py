@@ -4,10 +4,9 @@ from datetime import datetime, timedelta
 from collections import Counter
 from . import traffic_statistics as stats
 
-
 INTELLIGENCE_PATH = "/data/traffic_intelligence.json"
 
-def generate_and_save_intelligence(data_log_path, agent_name, unit=None):
+def generate_and_save_intelligence(data_log_path, agent_name,   port):
     try:
         if not os.path.exists(data_log_path):
             result = {"error": "Data log not found"}
@@ -34,11 +33,11 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit=None):
                         "timestamp": stats.get_current_timestamp(),
                         "min_vehicle_count": stats.calculate_min_vehicle_count(vehicle_counts),
                         "max_vehicle_count": stats.calculate_max_vehicle_count(vehicle_counts),
-                         "most_common_congestion_status": stats.get_most_common_congestion_status(statuses),
-                         "data_points_analyzed": stats.get_data_point_count(recent)
+                        "most_common_congestion_status": stats.get_most_common_congestion_status(statuses),
+                        "data_points_analyzed": stats.get_data_point_count(recent),
+                        "agent_url": f"http://localhost:{port}" if port else "unknown"
                     }
-                    if unit:
-                        result["unit"] = unit
+                    
 
         # Save to JSON file
         os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
@@ -61,4 +60,5 @@ get_intelligence_data = generate_and_save_intelligence
 
 # Optional: Run as script to generate intelligence manually
 if __name__ == "__main__":
-    print(generate_and_save_intelligence("/data/traffic_agent_data_log.json", "traffic_agent"))
+    print(generate_and_save_intelligence("/data/traffic_agent_data_log.json", "traffic_agent", port="5000"))
+

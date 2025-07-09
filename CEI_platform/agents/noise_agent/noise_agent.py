@@ -7,6 +7,7 @@ from .noise_requirements import get_requirements_data
 from .noise_registration import load_metadata, register_with_controller, register_with_consul, metadata
 from .noise_intelligence import generate_and_save_intelligence, get_intelligence_data
 app = Flask(__name__)
+AGENT_NAME = "noise_agent"
 
 PORT = 5002
 DATA_LOG_PATH = "/data/noise_agent_data_log.json"
@@ -100,12 +101,14 @@ def description():
 @app.route('/intelligence')
 def intelligence():
     # This will both compute and write the file
-    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"], port=PORT)
     return jsonify(result)
-@app.route('/requirements')
-def req():
-    return jsonify(get_requirements_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"]))
 
+@app.route('/requirements', methods=["GET", "POST"])
+def requirements_endpoint():
+    return jsonify(
+        get_requirements_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"])[0]
+    )
 # -------- Main Flow -------- #
 if __name__ == "__main__":
     time.sleep(5)

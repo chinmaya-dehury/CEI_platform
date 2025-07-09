@@ -7,6 +7,7 @@ from .temperature_registration import metadata, load_metadata, register_with_con
 from .temperature_intelligence import generate_and_save_intelligence
 
 app = Flask(__name__)
+AGENT_NAME = "temperature_agent"
 
 PORT = 5004
 DATA_LOG_PATH = "/data/temperature_agent_data_log.json"
@@ -108,13 +109,15 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
+    # This will both compute and write the file
+    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"], port=PORT)
     return jsonify(result)
 
-@app.route('/requirements', methods=['GET', 'POST'])
-def req():
-    return get_requirements_data(DATA_LOG_PATH, metadata["agent_name"], metadata["unit"])
-
+@app.route('/requirements', methods=["GET", "POST"])
+def requirements_endpoint():
+    return jsonify(
+        get_requirements_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"])[0]
+    )
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

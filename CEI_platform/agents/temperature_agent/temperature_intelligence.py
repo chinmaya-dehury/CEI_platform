@@ -7,7 +7,7 @@ from . import temperature_statistics as stats
 
 INTELLIGENCE_PATH = "/data/temperature_intelligence.json"
 
-def generate_and_save_intelligence(data_log_path, agent_name, unit):
+def generate_and_save_intelligence(data_log_path, agent_name, unit , port):
     try:
         if not os.path.exists(data_log_path):
             result = {"error": "Data log not found"}
@@ -36,7 +36,9 @@ def generate_and_save_intelligence(data_log_path, agent_name, unit):
                     "min_temperature": stats.calculate_min_temperature(values),
                     "max_temperature": stats.calculate_max_temperature(values),
                     "unit": stats.get_unit(),
-                    "status_distribution": stats.get_status_distribution(statuses)
+                    "status_distribution": stats.get_status_distribution(statuses),
+                    "agent": agent_name,
+                    "agent_url": f"http://localhost:{port}" if port else "unknown"
                 }
         # Save to JSON file
         os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
