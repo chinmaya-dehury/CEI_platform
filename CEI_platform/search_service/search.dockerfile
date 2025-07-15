@@ -2,9 +2,14 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+# Copy necessary files
 COPY ../data /app/data
 COPY search_service/search.py /app/search.py
-RUN pip install flask
+
+# Install required Python packages
+RUN pip install flask requests python-dateutil
+
+
 
 EXPOSE 5006
 

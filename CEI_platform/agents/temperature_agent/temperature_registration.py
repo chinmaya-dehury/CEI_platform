@@ -1,11 +1,12 @@
-# agents/temperatureagent/temperature_registration.py
-
-import os, json, http.client, socket, requests
-from time import sleep
+import os
+import json
+import requests
+import socket
+import http.client
 
 AGENT_NAME = "temperature_agent"
 PORT = 5004
-UUID_PATH = "/data/temperature_agent_metadata.json"
+UUID_PATH = "/agents/temperature/temperature_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
 # -------- Metadata -------- #
@@ -27,7 +28,8 @@ def save_metadata():
 def load_metadata():
     if os.path.exists(UUID_PATH):
         with open(UUID_PATH) as f:
-            metadata.update(json.load(f))
+            loaded = json.load(f)
+            metadata.update(loaded)
         print(f"[INFO] Loaded metadata and UUID: {metadata['uuid']}")
         return True
     return False
@@ -40,9 +42,9 @@ def register_with_controller():
             print(f"[INFO] UUID received from controller: {metadata['uuid']}")
             save_metadata()
         else:
-            print(f"[ERROR] Failed to register: {response.text}")
+            print(f"[ERROR] Failed to register with controller: {response.text}")
     except Exception as e:
-        print(f"[ERROR] Registration exception: {e}")
+        print(f"[ERROR] Controller registration exception: {e}")
 
 def register_with_consul():
     try:
@@ -61,7 +63,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{PORT}/health",
+                "HTTP": f"http://{agent_ip}:{5004}/health",
                 "Interval": "10s"
             }
         }
@@ -78,4 +80,5 @@ def register_with_consul():
         conn.close()
 
     except Exception as e:
-        print(f"[ERROR] Failed to register with Consul: {e}")
+        print(f"[ERROR] Consul registration exception: {e}")
+

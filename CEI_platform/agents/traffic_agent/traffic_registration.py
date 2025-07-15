@@ -6,7 +6,7 @@ import http.client
 
 AGENT_NAME = "traffic_agent"
 PORT = 5000
-UUID_PATH = "/data/traffic_agent_metadata.json"
+UUID_PATH = "/agents/traffic_agent/traffic_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
 metadata = {

@@ -1,9 +1,15 @@
-import os, json, socket, http.client, requests
+import os
+import json
+import requests
+import socket
+import http.client
 
 AGENT_NAME = "noise_agent"
-UUID_PATH = "/data/noise_agent_metadata.json"
+PORT = 5002
+UUID_PATH = "/agents/noise_agent/noise_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
+# -------- Metadata -------- #
 metadata = {
     "uuid": "",
     "sensor_type": "Noise Sensor",
@@ -35,20 +41,20 @@ def register_with_controller():
             print(f"[INFO] UUID received from controller: {metadata['uuid']}")
             save_metadata()
         else:
-            print(f"[ERROR] Failed to register: {response.text}")
+            print(f"[ERROR] Failed to register with controller: {response.text}")
     except Exception as e:
         print(f"[ERROR] Controller registration exception: {e}")
 
-def register_with_consul(port):
+def register_with_consul():
     try:
         agent_ip = socket.gethostbyname(socket.gethostname())
-        print(f"[INFO] Agent IP resolved as: {agent_ip}")
+        print(f"[INFO] Resolved agent IP: {agent_ip}")
 
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
             "Address": agent_ip,
-            "Port": port,
+            "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
                 "location": metadata["location"],
@@ -56,7 +62,7 @@ def register_with_consul(port):
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{port}/health",
+                "HTTP": f"http://{agent_ip}:{PORT}/health",
                 "Interval": "10s"
             }
         }
@@ -68,9 +74,9 @@ def register_with_consul(port):
             body=json.dumps(service),
             headers={"Content-Type": "application/json"}
         )
-        response = conn.getresponse()
-        print(f"[INFO] Registered with Consul. Status: {response.status} {response.reason}")
+        res = conn.getresponse()
+        print(f"[INFO] Registered with Consul. Status: {res.status} {res.reason}")
         conn.close()
 
     except Exception as e:
-        print(f"[ERROR] Failed to register with Consul: {e}")
+        print(f"[ERROR] Consul registration exception: {e}")

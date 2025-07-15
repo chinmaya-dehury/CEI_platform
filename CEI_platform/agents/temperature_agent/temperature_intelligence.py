@@ -1,64 +1,53 @@
 import os
 import json
 from datetime import datetime, timedelta
-from collections import Counter
-from . import temperature_statistics as stats
+from . import temperature_statistics as stats  # Make sure this file exists with avg/min/max functions
 
-
-INTELLIGENCE_PATH = "/data/temperature_intelligence.json"
-
-def generate_and_save_intelligence(data_log_path, agent_name, unit , port):
+def generate_and_save_intelligence(data_log_path, agent_name, unit, port):
     try:
         if not os.path.exists(data_log_path):
-            result = {"error": "Data log not found"}
-        else:
-            with open(data_log_path, "r") as f:
-                records = json.load(f)
+            return {"error": "Data log not found"}
 
-            # Only consider last 5 minutes of data
-            cutoff = datetime.utcnow() - timedelta(minutes=5)
-            recent_data = [
-                r for r in records
-                if datetime.fromisoformat(r["timestamp"]) > cutoff
-            ]
+        with open(data_log_path, "r") as f:
+            records = json.load(f)
 
-            if not recent_data:
-                result = {"message": "No recent data in last 5 minutes"}
-            else:
-                values = [r["temperature"] for r in recent_data]
-                statuses = [r.get("temperature_status", "Unknown") for r in recent_data]
+        if not records:
+            return {"error": "No data available"}
 
-                result = {
-                    "agent": agent_name,
-                    "data_points_analyzed": stats.get_data_point_count(values),
-                    "average_temperature": stats.calculate_average_temperature(values),
-                    "timestamp": stats.get_current_timestamp(),
-                    "min_temperature": stats.calculate_min_temperature(values),
-                    "max_temperature": stats.calculate_max_temperature(values),
-                    "unit": stats.get_unit(),
-                    "status_distribution": stats.get_status_distribution(statuses),
-                    "agent": agent_name,
-                    "agent_url": f"http://localhost:{port}" if port else "unknown"
+        cutoff = datetime.utcnow() - timedelta(minutes=5)
+        recent = [r for r in records if "timestamp" in r and datetime.fromisoformat(r["timestamp"]) > cutoff]
+
+        if not recent:
+            return {"Nil"}
+
+        latest = recent[-1]
+        temps = [r["temperature"] for r in recent if "temperature" in r]
+
+        result = {
+            "agent": agent_name,
+            "capabilities": [
+                {"parameter": "temperature", "unit": unit}
+            ],
+            "data": {
+                "temperature": {
+                    "value": latest.get("temperature", "Unknown"),
+                    "unit": unit,
+                    "average": stats.calculate_average_temperature(temps),
+                    "max": stats.calculate_max_temperature(temps),
+                    "min": stats.calculate_min_temperature(temps)
                 }
-        # Save to JSON file
-        os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
-        with open(INTELLIGENCE_PATH, "w") as out:
-            json.dump(result, out, indent=2)
+            },
+            "last_updated": datetime.utcnow().isoformat()
+        }
+
         return result
 
     except Exception as e:
-        error = {"error": str(e)}
-        try:
-            os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
-            with open(INTELLIGENCE_PATH, "w") as out:
-                json.dump(error, out, indent=2)
-        except Exception:
-            pass
-        return error
+        return {"error": str(e)}
 
-# Alias for compatibility with your Flask app
+# Alias
 get_intelligence_data = generate_and_save_intelligence
 
-# Optional: Run as script to generate intelligence manually
+# Optional direct test
 if __name__ == "__main__":
-    print(generate_and_save_intelligence("/data/temperature_agent_data_log.json", "temperature_agent", "°C"))
+    print(generate_and_save_intelligence("/data/temperature_agent_data_log.json", "temperature_agent", unit="°C", port="5004"))

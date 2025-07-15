@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request, Response, send_file
 import os, json, random, sys
 from datetime import datetime
+import uuid
+from .traffic_registration import metadata, register_with_controller, register_with_consul
 
-from .traffic_registration import metadata, load_metadata, register_with_controller, register_with_consul
 from .traffic_requirements import get_requirements_data
-from .traffic_agentintelligence import get_intelligence_data, generate_and_save_intelligence
+from .traffic_agentintelligence import generate_and_save_intelligence
+
 
 print("PYTHONPATH:", sys.path)
 
@@ -12,7 +14,7 @@ app = Flask(__name__)
 
 AGENT_NAME = "traffic_agent"
 PORT = 5000
-DATA_LOG_PATH = "/data/traffic_agent_data_log.json"
+DATA_LOG_PATH = "/agents/traffic_agent/traffic_agent_data_log.json"
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -31,9 +33,16 @@ def data():
         congestion_status = "Low Congestion"
 
     data_point = {
-        "timestamp": datetime.utcnow().isoformat(),
-        "vehicle_count": vehicle_count,
-        "congestion_status": congestion_status
+        
+           "timestamp": datetime.utcnow().isoformat(),
+            "vehicle_count": int(uuid.uuid4().int % 100),
+            "congestion_status": "Low Congestion",
+            "sensor_type": metadata["sensor_type"],
+            "frequency": metadata["frequency"],
+            "unit": metadata["unit"],
+            "location": metadata["location"],
+            "data_name": metadata["data_name"],
+            "agent_name": metadata["agent_name"]
     }
 
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
@@ -69,27 +78,23 @@ def export_data():
     else:
         return jsonify({"error": "No data log found"}), 404
 
-@app.route('/data/export/json', methods=['GET', 'POST'])
+@app.route("/data/export/json", methods=["GET"])
 def export_json():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
 
-    with open(DATA_LOG_PATH, "r") as f:
-        try:
+    try:
+        with open(DATA_LOG_PATH, "r") as f:
             raw_data = json.load(f)
-        except json.JSONDecodeError:
-            return jsonify({"error": "Invalid data format"}), 500
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid data format"}), 500
 
-    formatted = [
-        {
-            "timestamp": int(datetime.fromisoformat(entry["timestamp"]).timestamp()),
-            "measurement": "Congestion",
-            "value": entry["vehicle_count"]
-        }
-        for entry in raw_data
-    ]
-
-    return jsonify(formatted), 200
+    response = Response(
+        json.dumps(raw_data, indent=2),
+        mimetype="application/json",
+        headers={"Content-Disposition": "attachment; filename=traffic_agent_data.json"}
+    )
+    return response
 
 @app.route('/data/export/csv', methods=['GET', 'POST'])
 def export_csv():
@@ -120,24 +125,51 @@ def description():
 @app.route('/intelligence')
 def intelligence():
     result = generate_and_save_intelligence(
-        data_log_path=DATA_LOG_PATH,
-        agent_name=metadata["agent_name"],
-        port=PORT,
-        
+        DATA_LOG_PATH,
+        metadata["agent_name"],
+        PORT
     )
     return jsonify(result)
+
+@app.route("/intelligence/export/json", methods=["GET"])
+def export_intelligence_json():
+    result = generate_and_save_intelligence(
+        DATA_LOG_PATH,
+        metadata["agent_name"],
+        PORT
+    )
+
+    if "error" in result:
+        return jsonify(result), 400
+
+    return Response(
+        json.dumps(result, indent=2),
+        mimetype="application/json",
+        headers={"Content-Disposition": "attachment; filename=traffic_agent_intelligence.json"}
+    )
+
+
 
 @app.route('/requirements', methods=["GET", "POST"])
 def requirements_endpoint():
     return jsonify(
         get_requirements_data(DATA_LOG_PATH, AGENT_NAME, metadata["unit"])[0]
     )
+@app.route("/download-uuid", methods=["GET"])
+def download_uuid():
+    uuid_file_path = "/agents/traffic_agent/traffic_agent_metadata.json"
+    try:
+        return send_file(uuid_file_path, as_attachment=True, download_name="traffic_agent_metadata.json")
+    except FileNotFoundError:
+        return jsonify({"error": "UUID file not found"}), 404
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
     import time
     time.sleep(5)
-    if not load_metadata():
-        register_with_controller()
+
+    # Always register with controller to get a fresh UUID
+    register_with_controller()
+
     register_with_consul()
     app.run(host="0.0.0.0", port=5000)
