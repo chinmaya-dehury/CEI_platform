@@ -3,51 +3,84 @@ import json
 from datetime import datetime, timedelta
 from . import co2_agent_statistics as stats
 
-def generate_and_save_intelligence(data_log_path, agent_name, unit, port):
+def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, status="Healthy"):
+    def blank_result(agent_id, now):
+        return {
+            "agent_id": agent_id,
+            "name": agent_name,
+            "value": "NA",
+            "unit": "NA",
+            "average_vehicle_count": "NA",
+            "max_vehicle_count": "NA",
+            "min_vehicle_count": "NA",
+            "last_updated": now,
+            "url": url if url else None,
+            "status": "NA"
+        }
+
     try:
+        now = datetime.utcnow().isoformat()
+
+        # --- Load UUID from metadata if available ---
+        agent_dir = os.path.dirname(data_log_path)
+        metadata_path = os.path.join(agent_dir, f"{agent_name}_metadata.json")
+        if os.path.exists(metadata_path):
+            with open(metadata_path, "r") as f:
+                metadata = json.load(f)
+                agent_id = metadata.get("uuid", agent_name)
+        else:
+            agent_id = agent_name
+
+        # --- Check if data log exists ---
         if not os.path.exists(data_log_path):
-            return {"error": "Data log not found"}
+            return blank_result(agent_id, now)
 
         with open(data_log_path, "r") as f:
             records = json.load(f)
 
-        if not records:
-            return {"error": "No data available"}
+        if not records or not isinstance(records, list):
+            return blank_result(agent_id, now)
 
+        # --- Filter recent 5 minutes ---
         cutoff = datetime.utcnow() - timedelta(minutes=5)
-        recent = [r for r in records if "timestamp" in r and datetime.fromisoformat(r["timestamp"]) > cutoff]
+        recent = [
+            r for r in records
+            if isinstance(r, dict) and "timestamp" in r and datetime.fromisoformat(r["timestamp"]) > cutoff
+        ]
 
         if not recent:
-            return { "Nil"}
+            return blank_result(agent_id, now)
 
-        latest = recent[-1]
         co2_levels = [r["co2_level"] for r in recent if "co2_level" in r]
+        latest = recent[-1]
 
-        result = {
-            "agent": agent_name,
-            "capabilities": [
-                {"parameter": "co2", "unit": unit}
-            ],
-            "data": {
-                "co2": {
-                    "value": latest.get("co2_status", "Unknown"),
-                    "unit": unit,
-                    "average": stats.calculate_average(co2_levels),
-                    "max": stats.calculate_max(co2_levels),
-                    "min": stats.calculate_min(co2_levels)
-                }
-            },
-            "last_updated": datetime.utcnow().isoformat()
+        return {
+            "agent_id": agent_id,
+            "name": agent_name,
+            "value": latest.get("co2_status", "NA"),
+            "unit": "ppm",
+            "average_vehicle_count": stats.calculate_average(co2_levels) if co2_levels else "NA",
+            "max_vehicle_count": stats.calculate_max(co2_levels) if co2_levels else "NA",
+            "min_vehicle_count": stats.calculate_min(co2_levels) if co2_levels else "NA",
+            "last_updated": now,
+            "url": url if url else None,
+            "status": status
         }
 
-        return result
-
     except Exception as e:
-        return {"error": str(e)}
+        fallback = blank_result(agent_name, datetime.utcnow().isoformat())
+        fallback["error"] = str(e)
+        return fallback
 
-# Alias for imports
+# Alias
 get_intelligence_data = generate_and_save_intelligence
 
-# Optional: test the function directly
+# Test
 if __name__ == "__main__":
-    print(generate_and_save_intelligence("/data/co2_agent_data_log.json", "co2_agent", "ppm", port=5001))
+    print(generate_and_save_intelligence(
+        "/agents/co2_agent/co2_agent_data_log.json",
+        "co2_agent",
+        port=5001,
+        url="http://localhost:5001",
+        status="Healthy"
+    ))

@@ -17,7 +17,7 @@ metadata = {
     "unit": "°C",
     "location": "Zone E",
     "data_name": "temperature",
-    "agent_name": AGENT_NAME
+    "agent_name": "temperature_agent"
 }
 
 def save_metadata():

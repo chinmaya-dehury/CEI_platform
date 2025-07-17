@@ -10,31 +10,36 @@ CONSUL_HOST = "consul"
 CONSUL_PORT = 8500
 CONSUL_AGENT_SERVICES_URL = f"http://{CONSUL_HOST}:{CONSUL_PORT}/v1/agent/services"
 
+
 def is_recent(timestamp_str, minutes=5):
     try:
         ts = isoparse(timestamp_str)
         return datetime.utcnow() - ts <= timedelta(minutes=minutes)
     except Exception as e:
-        print(f"Timestamp parse error: {e}")
+        print(f"[Timestamp Parse Error] {e}")
         return False
+
 
 def get_services_from_consul():
     try:
         res = requests.get(CONSUL_AGENT_SERVICES_URL)
         services = res.json()
-        print("\n Discovered services from Consul:", list(services.keys()))
+        print("\n[Discovered Services]:", list(services.keys()))
         return services
     except Exception as e:
-        print(f"[Consul Error] Cannot get services: {e}")
+        print(f"[Consul Error] Could not fetch services: {e}")
         return {}
+
 
 def fetch_intelligence(address, port):
     try:
         url = f"http://{address}:{port}/intelligence"
         res = requests.get(url, timeout=3)
         return res.json(), url
-    except:
+    except Exception as e:
+        print(f"[Fetch Error] Could not reach {address}:{port} - {e}")
         return None, f"http://{address}:{port}"
+
 
 def is_agent_online(address, port):
     try:
@@ -43,91 +48,60 @@ def is_agent_online(address, port):
     except:
         return False
 
+
 def search_intelligence(requirement_key):
     services = get_services_from_consul()
-    exact_matches = []
-    capable_but_stale = []
-    incapable_agents = 0
+    results = {}
+    total_checked = 0
+    total_matched = 0
+
+    requirement_key = requirement_key.lower()
 
     for service_id, meta in services.items():
-        agent_name = meta.get("Service")
+        agent_service_name = meta.get("Service")
         address = meta.get("Address", "localhost")
         port = meta.get("Port")
+        total_checked += 1
 
-        print(f"\n[Checking] {agent_name} at {address}:{port}")
+        print(f"\n[Checking] {agent_service_name} at {address}:{port}")
 
         intelligence, url = fetch_intelligence(address, port)
-        status = "online" if is_agent_online(address, port) else "offline"
+        status = "Healthy" if is_agent_online(address, port) else "Unhealthy"
 
         print(f"[Fetched Intelligence from {url}]: {json.dumps(intelligence, indent=2) if intelligence else 'None'}")
-        print(f"[Status] {agent_name} is {status}")
+        print(f"[Status] {agent_service_name} is {status}")
 
-        if not intelligence or "error" in intelligence:
-            incapable_agents += 1
-            print("[Skip] Invalid intelligence or contains error key")
+        # Use agent_id and name from intelligence JSON if present, else fall back to Consul service name
+        agent_id = intelligence.get("agent_id", agent_service_name) if intelligence else agent_service_name
+        agent_name = intelligence.get("name", agent_service_name) if intelligence else agent_service_name
+
+        # ---- FIX: match on both agent_id and agent_name ----
+        if (requirement_key not in str(agent_id).lower()) and \
+           (requirement_key not in str(agent_name).lower()):
             continue
 
-        agent_id = intelligence.get("agent", agent_name)
-        data = intelligence.get("data", {})
-        capabilities = intelligence.get("capabilities", [])
-        last_updated = intelligence.get("last_updated")
+        total_matched += 1
+        last_updated = intelligence.get("last_updated") if (intelligence and isinstance(intelligence, dict)) else None
+        recent = is_recent(last_updated) if last_updated else False
+        info = intelligence if (intelligence and recent) else {}
 
-        normalized_data = {k.lower(): v for k, v in data.items()}
-        normalized_caps = [{"parameter": cap.get("parameter", "").lower(), "unit": cap.get("unit")} for cap in capabilities]
-
-        print(f"[Capabilities] {normalized_caps}")
-        print(f"[Data Keys] {list(normalized_data.keys())}")
-        print(f"[Last Updated] {last_updated}")
-
-        if requirement_key in normalized_data and is_recent(last_updated):
-            info = normalized_data[requirement_key]
-            result_entry = {
-                "agent_id": agent_id,
-                "value": info.get("value"),
-                "unit": info.get("unit"),
-                "last_updated": last_updated,
-                "url": url,
-                "status": status
-            }
-
-            # Include optional stats if present
-            for key in ["average_vehicle_count", "max_vehicle_count", "min_vehicle_count"]:
-                if key in info:
-                    result_entry[key] = info[key]
-
-            exact_matches.append(result_entry)
-            continue
-
-        if any(cap["parameter"] == requirement_key for cap in normalized_caps):
-            capable_but_stale.append({
-                "agent_id": agent_id,
-                "capability_status": "Capable but no recent data",
-                "last_updated": last_updated or "unknown",
-                "url": url,
-                "status": status
-            })
-        else:
-            incapable_agents += 1
-
-    if exact_matches:
-        return {
-            "status": "Available",
-            "message": f"Agents actively monitoring '{requirement_key}' were found.",
-            "results": exact_matches
+        result_entry = {
+            "name": agent_name,
+            "agent_id": agent_id,
+            "value": info.get("value", "NA"),
+            "unit": info.get("unit", "NA"),
+            "average_vehicle_count": info.get("average_vehicle_count", "NA"),
+            "max_vehicle_count": info.get("max_vehicle_count", "NA"),
+            "min_vehicle_count": info.get("min_vehicle_count", "NA"),
+            "last_updated": last_updated if last_updated else datetime.utcnow().isoformat(),
+            "url": url,
+            "status": status
         }
-    elif capable_but_stale:
-        return {
-            "status": "Partially Available",
-            "message": f"Agents exist that can monitor '{requirement_key}', but no recent data is available.",
-            "results": capable_but_stale
-        }
-    else:
-        return {
-            "status": "Unavailable",
-            "message": f"No agents in the system are currently capable of monitoring '{requirement_key}'.",
-            "agents_checked": len(services),
-            "incapable_agents": incapable_agents
-        }
+
+        results[agent_id] = result_entry
+
+    return total_checked, total_matched, results
+
 
 @app.route("/search", methods=["GET"])
 def search():
@@ -135,8 +109,22 @@ def search():
     if not requirement:
         return jsonify({"error": "Missing 'requirement' parameter"}), 400
 
-    result = search_intelligence(requirement.lower())
-    return jsonify(result), 200
+    total_checked, total_matched, results = search_intelligence(requirement.lower())
+
+    if total_matched == 0:
+        return jsonify({
+            "agents_checked": total_checked,
+            "incapable_agents": total_checked,
+            "message": f"No agents in the system are currently capable of monitoring '{requirement}'.",
+            "status": "Unavailable"
+        }), 200
+
+    return jsonify({
+        "results": results,
+        "message": f"{total_checked} agents checked. {total_matched} matched.",
+        "status": "Partial" if total_matched < total_checked else "Success"
+    }), 200
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5006)

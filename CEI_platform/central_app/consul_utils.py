@@ -35,3 +35,8 @@ def get_registered_agents():
         print(f"Error decoding JSON from Consul: {e}")
 
     return agents
+
+
+
+
+

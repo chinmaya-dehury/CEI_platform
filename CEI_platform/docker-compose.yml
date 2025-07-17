@@ -13,7 +13,7 @@ services:
       - appnet
     restart: unless-stopped
 
-  # ──────────────── Dashboard ────────────────
+  # ──────────────── Dashboard (Central App) ────────────────
   dashboard:
     build:
       context: .
@@ -23,9 +23,13 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/app/data
+      - ./data:/app/data           # keep for exports/data needs
+      - ./central_app.db:/app/central_app.db  # optional: persist the SQLite database file
     networks:
       - appnet
+    depends_on:
+      - controller
+      - consul
     restart: unless-stopped
 
   # ──────────────── Controller ────────────────
@@ -61,6 +65,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
   # ──────────────── Agent 2 ────────────────
@@ -79,6 +84,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
   # ──────────────── Agent 3 ────────────────
@@ -97,6 +103,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
   # ──────────────── Agent 4 ────────────────
@@ -115,6 +122,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
   # ──────────────── Agent 5 ────────────────
@@ -133,6 +141,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
   # ──────────────── Search Service ────────────────
@@ -154,6 +163,7 @@ services:
     depends_on:
       - controller
       - consul
+      - dashboard
     restart: unless-stopped
 
 networks:

@@ -16,7 +16,7 @@ metadata = {
     "unit": "ppm",
     "location": "Zone B",
     "data_name": "co2_level",
-    "agent_name": AGENT_NAME
+    "agent_name": "co2_agent"
 }
 
 def save_metadata():
