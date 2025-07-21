@@ -50,12 +50,15 @@ services:
     restart: unless-stopped
 
   # ──────────────── Agent 1 ────────────────
+ 
   traffic_agent:
     build:
       context: .
       dockerfile: Dockerfiles/traffic_agent.dockerfile
     container_name: traffic_agent
     hostname: traffic_agent
+    environment:
+      - AGENT_HOSTNAME=traffic_agent
     ports:
       - "5000:5000"
     volumes:
@@ -67,6 +70,8 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
+
+
 
   # ──────────────── Agent 2 ────────────────
   co2_agent:

@@ -1,8 +1,26 @@
 from flask import Flask, render_template, request, jsonify
 from consul_utils import get_registered_agents
-from agent_utils import fetch_health, fetch_requirements
+from agent_utils import fetch_health, fetch_requirements , fetch_intelligence 
 from datetime import datetime
 import os, json, requests
+from datetime import datetime
+
+def blank_intelligence(agent_id, agent_name, url, reason=None):
+    result = {
+        "agent_id": agent_id,
+        "name": agent_name,
+        "value": "NA",
+        "unit": "%",
+        "average_humidity": "NA",
+        "max_humidity": "NA",
+        "min_humidity": "NA",
+        "last_updated": datetime.utcnow().isoformat(),
+        "url": url,
+        "status": "Error",
+    }
+    if reason is not None:
+        result["error"] = str(reason)
+    return result
 
 app = Flask(__name__)
 
@@ -22,38 +40,42 @@ def index():
 
 # -------- Get All Intelligence (Live from agents) -------- #
 @app.route('/intelligence')
-def get_all_intelligence():
+
+
+def intelligence():
     services = get_registered_agents()
     agent_info_by_name = {}
 
     for service in services:
         agent_id = service['ID']
+        # Always prefer the registered ServiceName/Service (should be set)
         agent_name = service.get('ServiceName') or service.get('Service') or f"agent_{agent_id[:6]}"
+        address = service.get('Address')  # now this should not be 127.0.0.1 in Docker!
 
         try:
-            response = requests.get(f"http://{service['Address']}:{service['Port']}/intelligence", timeout=2)
+            url = f"http://{address}:{service['Port']}/intelligence"
+            response = requests.get(url, timeout=2)
             if response.status_code == 200:
                 data = response.json()
-                # Safely get name or fallback to agent_name
                 name_key = data.get("name", agent_name)
-                # If name collides, append a suffix with short id
+
                 if name_key in agent_info_by_name:
                     name_key = f"{name_key}_{agent_id[:6]}"
+
                 agent_info_by_name[name_key] = {
-                    "agent_id": data["agent_id"],
-                     "last_updated": data.get("last_updated", "NA"),
+                    "agent_id": data.get("agent_id", agent_id),
+                    "last_updated": data.get("last_updated", "NA"),
                     "name": data.get("name", agent_name),
                     "status": data.get("status", "NA"),
                     "unit": data.get("unit", "NA"),
-                    "url": data.get("url", f"http://{service['Address']}:{service['Port']}/intelligence"),
+                    "url": data.get("url", url),
                     "value": data.get("value", "NA")
                 }
             else:
-                print(f"[WARN] Non-200 from {service['Service']}: {response.status_code}")
+                print(f"[WARN] Non-200 from {agent_name} at {url}: {response.status_code} -- fallback to NA")
                 raise Exception("Bad response code")
         except Exception as e:
-            print(f"[ERROR] Failed to fetch from {agent_name} at {service['Address']}:{service['Port']} → {e}")
-            # For error states, fallback to agent name or use id suffix if duplicated
+            print(f"[ERROR] Failed to fetch from {agent_name} at {address}:{service['Port']} → {e} (Check network, port, and Consul Address field!)")
             fallback_name_key = agent_name
             if fallback_name_key in agent_info_by_name:
                 fallback_name_key = f"{fallback_name_key}_{agent_id[:6]}"
@@ -65,10 +87,11 @@ def get_all_intelligence():
                 "value": "NA",
                 "unit": "NA",
                 "last_updated": datetime.utcnow().isoformat(),
-                "url": f"http://{service['Address']}:{service['Port']}/intelligence"
+                "url": f"http://{address}:{service['Port']}/intelligence"
             }
 
-    return jsonify(agent_info_by_name)
+    return jsonify(fetch_intelligence())
+
 
 # -------- Get Agent by ID -------- #
 @app.route('/central/intelligence/<agent_id>', methods=['GET'])

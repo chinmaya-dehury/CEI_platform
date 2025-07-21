@@ -47,13 +47,14 @@ def register_with_controller():
 
 def register_with_consul():
     try:
-        agent_ip = socket.gethostbyname(socket.gethostname())
-        print(f"[INFO] Resolved agent IP: {agent_ip}")
+        # Use Docker's container hostname/service name if provided, fallback to system hostname
+        agent_ip = os.environ.get('AGENT_HOSTNAME', socket.gethostname())
+        print(f"[INFO] Registering agent using address: {agent_ip}")
 
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
-            "Address": agent_ip,
+            "Address": agent_ip,   # IMPORTANT: Should be a *Docker service/container name*, NOT 127.0.0.1!
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
@@ -69,7 +70,7 @@ def register_with_consul():
 
         conn = http.client.HTTPConnection("consul", 8500)
         conn.request("PUT", "/v1/agent/service/register", body=json.dumps(service),
-                     headers={"Content-Type": "application/json"})
+                    headers={"Content-Type": "application/json"})
         res = conn.getresponse()
         print(f"[INFO] Registered with Consul. Status: {res.status} {res.reason}")
         conn.close()

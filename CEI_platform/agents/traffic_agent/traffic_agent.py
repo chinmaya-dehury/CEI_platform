@@ -143,12 +143,13 @@ def intelligence():
 
     try:
         response = requests.post(CENTRAL_APP_URL, json=wrapped_data)
-        print("📡 POSTED to central app:", response.status_code)
-        print("🔁 Response:", response.text)
+        print(" POSTED to central app:", response.status_code)
+        print(" Response:", response.text)
     except Exception as e:
-        print("❌ Failed to post to central app:", e)
+        print(" Failed to post to central app:", e)
 
-    return jsonify(result)
+    # Return the entire wrapped_data, not just result!
+    return jsonify(wrapped_data)
 
 
 @app.route("/intelligence/export/json", methods=["GET"])

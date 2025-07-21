@@ -20,14 +20,14 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         if not os.path.exists(data_log_path):
             return {
                 "name": agent_name,  
-                "agent_id": agent_id,
+                
                 "value": "NA",
                 "unit": "NA",
                 "average_vehicle_count": "NA",
                 "max_vehicle_count": "NA",
                 "min_vehicle_count": "NA",
                 "last_updated": datetime.utcnow().isoformat(),
-                "url": url,
+                "url": url or f"http://localhost:{port}" if port else "unknown",
                 "status": "NA"
             }
 
@@ -37,14 +37,14 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         if not records:
             return {
                 "name": agent_name,
-                "agent_id": agent_id,
+               
                 "value": "NA",
                 "unit": "NA",
                 "average_vehicle_count": "NA",
                 "max_vehicle_count": "NA",
                 "min_vehicle_count": "NA",
                 "last_updated": datetime.utcnow().isoformat(),
-                "url": url,
+                "url": url or f"http://localhost:{port}" if port else "unknown",
                 "status": "NA"
             }
 
@@ -54,14 +54,14 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         if not recent:
             return {
                 "name": agent_name,
-                "agent_id": agent_id,
+                
                 "value": "NA",
                 "unit": "NA",
                 "average_vehicle_count": "NA",
                 "max_vehicle_count": "NA",
                 "min_vehicle_count": "NA",
                 "last_updated": datetime.utcnow().isoformat(),
-                "url": url,
+                "url": url or f"http://localhost:{port}" if port else "unknown",
                 "status": "NA"
             }
 
@@ -70,14 +70,14 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
 
         result_entry = {
              "name": agent_name,
-            "agent_id": agent_id,
+           
             "value": latest.get("congestion_status", "NA"),
             "unit": "%",
             "average_vehicle_count": stats.calculate_average_vehicle_count(vehicle_counts) if vehicle_counts else "NA",
             "max_vehicle_count": stats.calculate_max_vehicle_count(vehicle_counts) if vehicle_counts else "NA",
             "min_vehicle_count": stats.calculate_min_vehicle_count(vehicle_counts) if vehicle_counts else "NA",
             "last_updated": datetime.utcnow().isoformat(),
-            "url": url,
+            "url": url or f"http://localhost:{port}" if port else "unknown",
             "status": status
         }
 
@@ -86,14 +86,14 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
     except Exception as e:
         return {
              "name": agent_name,
-            "agent_id": agent_name,
+            
             "value": "NA",
             "unit": "NA",
             "average_vehicle_count": "NA",
             "max_vehicle_count": "NA",
             "min_vehicle_count": "NA",
             "last_updated": datetime.utcnow().isoformat(),
-            "url": url,
+            "url": url or f"http://localhost:{port}" if port else "unknown",
             "status": "NA",
             "error": str(e)
         }
