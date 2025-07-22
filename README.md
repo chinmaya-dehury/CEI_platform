@@ -65,8 +65,11 @@ sudo mv consul /usr/local/bin/
 
 INSTALLATION STEPS:-
 git clone: https://github.com/chinmaya-dehury/CEI_platform.git
+
 cd "CEI_platform_fresh"
+
 docker-compose up --build(to build the containers)
+
 docker-compose up(if already built)
 
 How to Use
