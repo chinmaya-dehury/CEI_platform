@@ -34,15 +34,14 @@ This system is a distributed microservice-based infrastructure built for smart c
 
 ***Installation & Configuration
 
-4) Environment
+ Environment
 
- (i) OS: Linux / macOS / Windows
+ (i) OS: Windows
 
 (ii) Docker & Docker Compose
 
  (iii) Python 3.10+
-
-5) IDEs
+IDEs
 
 Visual Studio Code
 
