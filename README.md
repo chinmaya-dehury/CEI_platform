@@ -86,7 +86,10 @@ How to Use
 
 2)Start the Central_app(web app) (app.py)
 
-Open http://localhost:5000/health  (traffic_agent)
+Open
+
+
+     http://localhost:5000/health  (traffic_agent)
      http://localhost:5001/health  (co2_agent)
      http://localhost:5002/health  (noise_agent)
      http://localhost:5003/health  (humidity_agent)
