@@ -1,5 +1,5 @@
 # CEI_platform
-Platform for Cluetered Edge Intelligence with discoverability and obserability capabilities.
+Platform for Clustered Edge Intelligence with discoverability and obserability capabilities.
 
 ## Overall Sy.
 ![Overall Sy](./doc/system_architecture.pdf)
