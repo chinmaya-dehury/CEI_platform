@@ -9,14 +9,7 @@ Platform for Cluetered Edge Intelligence with discoverability and obserability c
 
 Intelligent Agent System with Web Dashboard:-
 *OVERALL SYSTEM:-
-This system is a distributed microservice-based infrastructure built for smart city applications. It integrates several AI-powered sensor agents that monitor environmental and traffic conditions. These agents are registered with a Consul service mesh for health tracking and service discovery. A central Flask-based web application serves as the control and monitoring interface.
-
-**System Architecture:-
-
-
-
-
-
+This system is a distributed microservice-based infrastructure built for smart city applications. It integrates several AI-powered sensor agents that monitor environmental and traffic conditions. These agents are registered with a Consul service mesh for health tracking and service discovery. A central Flask-based web application serves as the control and monitoring interface
 
    Web Application
 1) Introduction:-
@@ -131,7 +124,7 @@ def register_with_consul():
     }
     requests.put(f"http://consul:8500/v1/agent/service/register", json=service)
 
-    Component Access
+component access:-
 
 Consul UI: http://localhost:8500
 
