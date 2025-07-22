@@ -16,6 +16,19 @@ This system is a distributed microservice-based infrastructure built for smart c
 1) Introduction:-
    
      -The central WebApp is built using Flask and provides:
+   
+     -Acts as the main control and monitoring interface for all agents.
+   
+     -Uses Consul for automatic service discovery and health tracking.
+
+     -Offers RESTful API endpoints like:
+
+     -/intelligence, /health, /search, /data/export/json, etc.
+
+     -Supports data export in JSON/CSV format for offline use.
+
+    -Easily scalable — new agents auto-register and appear in the dashboard.
+   
 
 3) Dashboard for all active agents:-
 
@@ -25,12 +38,15 @@ This system is a distributed microservice-based infrastructure built for smart c
 
  Features
 
-1)Auto-discovery of agents via Consul
+(i) Auto-discovery of agents via Consul
 
-2)Data aggregation and analysis endpoints
+(ii) Data aggregation and analysis endpoints
 
-3)JSON/CSV export of intelligence logs
+(iii) JSON/CSV export of intelligence logs
 
+(iv) Health status of all agents available if active shows reachable and if not unreachable 
+
+(v) Shows agents port addresses and locations
 
 ***Installation & Configuration
 
@@ -40,15 +56,16 @@ This system is a distributed microservice-based infrastructure built for smart c
 
 (ii) Docker & Docker Compose
 
- (iii) Python 3.10+
+(iii) Python 3.10+
+
 IDEs
 
-Visual Studio Code
+(i) Visual Studio Code
 
 LIBRARIES:-
-flask
-requests
-python-dateutil
+(i) flask
+(ii) requests
+(iii) python-dateutil
  
 PRE-REQUISITES:-
 
@@ -71,21 +88,21 @@ Installation of python 3 and python3-pip
 
 
 INSTALLATION STEPS:-
-git clone: https://github.com/chinmaya-dehury/CEI_platform.git
+(i) git clone: https://github.com/chinmaya-dehury/CEI_platform.git
 
-cd "CEI_platform_fresh"
+(ii) cd "CEI_platform_fresh"
 
-docker-compose up --build(to build the containers)
+(iii) docker-compose up --build(to build the containers)
 
-docker-compose up(if already built)
+(iv) docker-compose up(if already built)
 
 How to Use
 
-1) It starts Consul and all agent containers
+(i) It starts Consul and all agent containers
 
-2)Start the Central_app(web app) (app.py)
+(ii) Start the Central_app(web app) (app.py)
 
-Open
+For example to discover the health status via an endpoint
 
 
      http://localhost:5000/health  (traffic_agent)
@@ -94,23 +111,20 @@ Open
      http://localhost:5003/health  (humidity_agent)
      http://localhost:5004/health  (temperature_agent)
      http://localhost:5006/search?requirement=co2_agent  (search_app - an example search for one of the agents)
+     
 Explore endpoints like:
 
-/data
+| Endpoint                    | Method | Description                                                                            | Output Format |
+| --------------------------- | ------ | -------------------------------------------------------------------------------------- | ------------- |
+| `/data`                     | GET    | Displays the latest **raw sensor data** from the agent.                                 | JSON          |
+| `/description`              | GET    | Displays **agent metadata**, including name, UUID, unit, frequency, and location.       | JSON          |
+| `/intelligence`             | GET    | Displays **analyzed data** (average, min, max) over recent timeframe (e.g., 5 minutes). | JSON          |
+| `/download-uuid`            | GET    | Provides the agent’s **unique UUID** (identifier).                                     | JSON / Plain  |
+| `/health`                   | GET    | Shows agent's **health status** (`Healthy`, `Unreachable`, etc.).                      | JSON          |
+| `/data/export/json`         | GET    | Exports the **full raw data log** in **JSON** format.                                  | JSON file     |
+| `/data/export/csv`          | GET    | Exports the **full raw data log** in **CSV** format.                                   | CSV file      |
+| `/intelligence/export/json` | GET    | Exports **intelligence records** (aggregated data) in **JSON** format.                 | JSON file     |
 
-/description
-
-/intelligence
-
-/download-uuid
-
-/health
-
-/data/export/json
-
-/data/export/csv
-
-/intelligence/export/json
 
 Testing & Access
 
