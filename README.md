@@ -53,28 +53,23 @@ python-dateutil
  
 PRE-REQUISITES:-
 
-sudo apt install docker.io docker-compose
+Installation of docker.io and docker-compose
 
-       -Installs docker.io that is the docker engine for running containers
-        
-       -Installs docker-compose a tool to run multi-container apps
+        sudo apt install docker.io docker-compose
+            
+Installation of python 3 and python3-pip
+
+       sudo apt install python3 python3-pip
        
-sudo apt install python3 python3-pip
 
-       -python 3 - python interpreter
-       
-       -python3 - pip: python package installer
-wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
+ Installation of consul
 
-unzip consul_1.15.4_linux_amd64.zip
+        wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
 
-sudo mv consul /usr/local/bin/
+         unzip consul_1.15.4_linux_amd64.zip
 
-        -Downloads the Consul binary
-        
-        -Unzips it
-        
-        -Moves it to a system-wide path for command-line access
+        sudo mv consul /usr/local/bin/
+
 
 INSTALLATION STEPS:-
 git clone: https://github.com/chinmaya-dehury/CEI_platform.git
@@ -100,12 +95,19 @@ Open http://localhost:5000/health  (traffic_agent)
 Explore endpoints like:
 
 /data
+
 /description
+
 /intelligence
+
 /download-uuid
+
 /health
+
 /data/export/json
+
 /data/export/csv
+
 /intelligence/export/json
 
 Testing & Access
@@ -127,7 +129,8 @@ WebApp UI: http://localhost:8000(for dashboard central_app)
 Agent Registration (Consul + System)
 
  Auto-Registration Sample
-def register_with_consul():
+
+    def register_with_consul(): 
     service = {
         "ID": metadata["uuid"],
         "Name": AGENT_NAME,
