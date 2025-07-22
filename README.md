@@ -114,7 +114,7 @@ Testing & Access
 
 Consul UI: http://localhost:8500 (for service discoverability)
 
-WebApp UI: http://localhost:8000(for dashboard central_app)
+WebApp UI: http://localhost:8000  (for dashboard central_app) and http://localhost:8000/intelligence (central_app intelligence list)
 
 
 
