@@ -52,17 +52,28 @@ requests
 python-dateutil
  
 PRE-REQUISITES:-
+
 sudo apt install docker.io docker-compose
+
        -Installs docker.io that is the docker engine for running containers
+        
        -Installs docker-compose a tool to run multi-container apps
+       
 sudo apt install python3 python3-pip
+
        -python 3 - python interpreter
+       
        -python3 - pip: python package installer
 wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
+
 unzip consul_1.15.4_linux_amd64.zip
+
 sudo mv consul /usr/local/bin/
+
         -Downloads the Consul binary
+        
         -Unzips it
+        
         -Moves it to a system-wide path for command-line access
 
 INSTALLATION STEPS:-
