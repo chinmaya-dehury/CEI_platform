@@ -8,6 +8,7 @@ Platform for Cluetered Edge Intelligence with discoverability and obserability c
 ![registration process](./doc/agentstraffic.drawio.pdf)
 
 Intelligent Agent System with Web Dashboard:-
+
 *OVERALL SYSTEM:-
 This system is a distributed microservice-based infrastructure built for smart city applications. It integrates several AI-powered sensor agents that monitor environmental and traffic conditions. These agents are registered with a Consul service mesh for health tracking and service discovery. A central Flask-based web application serves as the control and monitoring interface
 
@@ -22,16 +23,16 @@ This system is a distributed microservice-based infrastructure built for smart c
 
  Features
 
-Auto-discovery of agents via Consul
+1)Auto-discovery of agents via Consul
 
-Data aggregation and analysis endpoints
+2)Data aggregation and analysis endpoints
 
-JSON/CSV export of intelligence logs
+3)JSON/CSV export of intelligence logs
 
 
 ***Installation & Configuration
 
-5) Environment
+4) Environment
 
 OS: Linux / macOS / Windows
 
@@ -39,7 +40,7 @@ Docker & Docker Compose
 
 Python 3.10+
 
-6) IDEs
+5) IDEs
 
 Visual Studio Code
 
