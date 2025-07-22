@@ -118,14 +118,16 @@ WebApp UI: http://localhost:8000(for dashboard central_app)
 
 # Agents Overview
 
-| Agent Name         | Intelligence Type  | Endpoint Example         | Info                |
-|                    |                    |                          |                     |
-| `traffic_agent`    | Traffic congestion | `/data`, `/intelligence` | Vehicle counts in % |
-| `co2_agent`        | CO2 emissions      | `/data`, `/intelligence` | CO2 levels in ppm   |
-| `humidityagent`    | Humidity sensing   | `/data`, `/intelligence` | Humidity %          |
-| `temperatureagent` | Temperature        | `/data`, `/intelligence` | Temperature in °C   |
-| `noiseagent`       | Noise pollution    | `/data`, `/intelligence` | Noise in dB         |
- 
+## Agents Overview
+
+| Agent Name        | Intelligence Type   | Endpoint Example          | Info                     |
+|-------------------|---------------------|----------------------------|--------------------------|
+| `traffic_agent`   | Traffic congestion  | `/data`, `/intelligence`  | Vehicle counts in %      |
+| `co2_agent`       | CO₂ emissions        | `/data`, `/intelligence`  | CO₂ levels in ppm        |
+| `humidityagent`   | Humidity sensing    | `/data`, `/intelligence`  | Humidity %               |
+| `temperatureagent`| Temperature         | `/data`, `/intelligence`  | Temperature in °C        |
+| `noiseagent`      | Noise pollution     | `/data`, `/intelligence`  | Noise in dB              |
+
 Agent Registration (Consul + System)
 
  Auto-Registration Sample
