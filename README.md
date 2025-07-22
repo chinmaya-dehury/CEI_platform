@@ -2,7 +2,7 @@
 Platform for Cluetered Edge Intelligence with discoverability and obserability capabilities.
 
 ## Overall Sy.
-![Overall Sy](./doc/Overall_sy.drawio)
+![Overall Sy](./doc/_Mconverter.eu_Overall_sy(1).jpg)
 
 ### Registration process
 ![registration process](./doc/agentstraffic.drawio.pdf)
