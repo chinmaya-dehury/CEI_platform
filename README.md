@@ -14,11 +14,13 @@ This system is a distributed microservice-based infrastructure built for smart c
 
    Web Application
 1) Introduction:-
+   
      -The central WebApp is built using Flask and provides:
 
-2) Dashboard for all active agents:-
+3) Dashboard for all active agents:-
 
     -Access to intelligence data (e.g., CO2, humidity, noise) at localhost:8000/intelligence
+   
     -Shows a table of all active agents with their health status whether reachable or not
 
  Features
@@ -34,11 +36,11 @@ This system is a distributed microservice-based infrastructure built for smart c
 
 4) Environment
 
-OS: Linux / macOS / Windows
+ (i) OS: Linux / macOS / Windows
 
-Docker & Docker Compose
+(ii) Docker & Docker Compose
 
-Python 3.10+
+ (iii) Python 3.10+
 
 5) IDEs
 
