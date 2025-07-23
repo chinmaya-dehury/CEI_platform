@@ -12,6 +12,10 @@ Intelligent Agent System with Web Dashboard:-
 *OVERALL SYSTEM:-
 This system is a distributed microservice-based infrastructure built for smart city applications. It integrates several AI-powered sensor agents that monitor environmental and traffic conditions. These agents are registered with a Consul service mesh for health tracking and service discovery. A central Flask-based web application serves as the control and monitoring interface
 
+**SYSTEM ARCHITECTURE:-
+![Sys arch](./doc/total_sys_arch.pdf)
+
+
    Web Application
 1) Introduction:-
    
