@@ -41,21 +41,13 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
 
    Web Application
 1) Introduction:-
-   
-     - **Auto-discovery of agents via Consul**
-- Acts as the main control and monitoring interface for all agents
-- Uses Consul for automatic service discovery and health tracking
-- Offers RESTful API endpoints like:
-  - `/intelligence`, `/health`, `/search`, `/data/export/json`, etc.
-- Supports data export in JSON/CSV format for offline use
-- Easily scalable — new agents auto-register and appear in the dashboard
-
+   The web application acts as the main centre for control and monitoring interface for all agents, providing a centralized system for managing distributed components. It leverages Consul for automatic service discovery and management of real-time health tracking of each agent. The system offers a range of RESTful API endpoints such as '/intelligence' , '/health' , '/search' , and '/data/export/json' , enabling access to sensor data and system intelligence. It also supports exporting this data in both JSON and CSV formats for offline analysis and reporting. This architecture is designed to be highly scalable, allowing new agents to automatically register themselves and become visible on the dashboard and become visible on dashboard without requiring manual configuration. 
 
 3) Dashboard for all active agents:-
 
-    -Access to intelligence data (e.g., CO2, humidity, noise) at localhost:8000/intelligence
+    - Access to intelligence data (e.g., CO2, humidity, noise) at localhost:8000/intelligence
    
-    -Shows a table of all active agents with their health status whether reachable or not
+    - Shows a table of all active agents with their health status whether reachable or not
 
 ## Features
 - Auto-discovery of agents via Consul
@@ -82,16 +74,21 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
  
 ## PRE-REQUISITES:-
 
-- Installation of docker.io and docker-compose
-```sudo apt install docker.io docker-compose```
-- Installation of python 3 and python3-pip
-```sudo apt install python3 python3-pip```
-- Installation of consul
-```sh
-wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
-unzip consul_1.15.4_linux_amd64.zip
-sudo mv consul /usr/local/bin/
-```
+## ✅ PRE-REQUISITES (For Windows)
+
+### 1.  Install Docker Desktop
+- Download from: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+- Run the installer.
+- Enable **WSL 2 support** if prompted (optional, not required for this project).
+- Make sure Docker is running — check for the Docker whale icon in the system tray.
+
+### 2.  Install Python 3 and pip
+- Download Python from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- During installation, make sure to **check "Add Python to PATH"**
+- After installation, open **CMD or PowerShell** and run:
+  ```bash
+  python --version
+  pip --version
 
 
 ## INSTALLATION STEPS:-
