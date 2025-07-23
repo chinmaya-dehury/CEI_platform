@@ -82,8 +82,6 @@ Agent is a self-contained microservice responsible for collecting, processing, a
   pip install python-dateutil
 
 
-## PRE-REQUISITES:-
-
 ##  PRE-REQUISITES (For Windows)
 
 ### 1.  Install Docker Desktop
