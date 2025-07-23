@@ -42,7 +42,7 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
    Web Application
 1) Introduction:-
    
-     -The central WebApp is built using Flask and provides:
+     - The central WebApp is built using Flask and provides:
    
      -Acts as the main control and monitoring interface for all agents.
    
