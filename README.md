@@ -67,7 +67,7 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 - **Installation**:
   ```bash
   pip install requests
-### `python-dateutil`
+### 3. `python-dateutil`
 
 - **Purpose**:  
   This library simplifies date and time manipulation beyond what's available in Python’s built-in `datetime` module.
