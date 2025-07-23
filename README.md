@@ -13,7 +13,30 @@ Intelligent Agent System with Web Dashboard:-
 This system is a distributed microservice-based infrastructure built for smart city applications. It integrates several AI-powered sensor agents that monitor environmental and traffic conditions. These agents are registered with a Consul service mesh for health tracking and service discovery. A central Flask-based web application serves as the control and monitoring interface
 
 **SYSTEM ARCHITECTURE:-
+
 ![Sys arch](./doc/sys_arch.drawio.pdf)
+
+🧠 CEI Platform 
+The CEI Platform is a microservice system that gathers and exposes real-time traffic and environmental data.
+
+(i)Agents simulate or collect sensor data and register with Consul.
+
+(ii)Each agent receives a UUID from the Controller and shares its metadata.
+
+(iii)Data is stored locally and processed into intelligence.
+
+(iv)The Main App aggregates data, supports search, and exposes APIs.
+
+(v)A Web UI displays agent health and insights.
+
+🤖 Agent
+(i)Each agent is a self-contained unit that collects, processes, and shares sensor intelligence:
+
+(ii)Stores recent raw data in local memory (holds data for a few days).
+
+(iii)Generates intelligence summaries (average, min, max, etc.) 
+
+(iv)Exposes intelligence via REST endpoints (e.g., /intelligence), which are accessed by the Web Server to power the central dashboard.
 
 
    Web Application
