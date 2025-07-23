@@ -63,81 +63,62 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
    
     -Shows a table of all active agents with their health status whether reachable or not
 
- Features
+## Features
+- Auto-discovery of agents via Consul
+- Data aggregation and analysis endpoints
+- JSON/CSV export of intelligence logs
+- Health status of all agents available if active shows reachable and if not unreachable 
+- Shows agents port addresses and locations
 
-(i) Auto-discovery of agents via Consul
-
-(ii) Data aggregation and analysis endpoints
-
-(iii) JSON/CSV export of intelligence logs
-
-(iv) Health status of all agents available if active shows reachable and if not unreachable 
-
-(v) Shows agents port addresses and locations
-
-***Installation & Configuration
+# Installation & Configuration
 
  Environment
+- OS: Windows
+- Docker & Docker Compose
+- Python 3.10+
 
- (i) OS: Windows
+## IDEs
 
-(ii) Docker & Docker Compose
+- Visual Studio Code
 
-(iii) Python 3.10+
-
-IDEs
-
-(i) Visual Studio Code
-
-LIBRARIES:-
-(i) flask
-(ii) requests
-(iii) python-dateutil
+## LIBRARIES:-
+1. `flask`
+2. `requests`
+3. `python-dateutil`
  
-PRE-REQUISITES:-
+## PRE-REQUISITES:-
 
-Installation of docker.io and docker-compose
-
-        sudo apt install docker.io docker-compose
-            
-Installation of python 3 and python3-pip
-
-       sudo apt install python3 python3-pip
-       
-
- Installation of consul
-
-        wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
-
-         unzip consul_1.15.4_linux_amd64.zip
-
-        sudo mv consul /usr/local/bin/
+- Installation of docker.io and docker-compose
+```sudo apt install docker.io docker-compose```
+- Installation of python 3 and python3-pip
+```sudo apt install python3 python3-pip```
+- Installation of consul
+```sh
+wget https://releases.hashicorp.com/consul/1.15.4/consul_1.15.4_linux_amd64.zip
+unzip consul_1.15.4_linux_amd64.zip
+sudo mv consul /usr/local/bin/
+```
 
 
-INSTALLATION STEPS:-
-(i) git clone: https://github.com/chinmaya-dehury/CEI_platform.git
-
-(ii) cd "CEI_platform_fresh"
-
-(iii) docker-compose up --build(to build the containers)
-
-(iv) docker-compose up(if already built)
-
-How to Use
-
-(i) It starts Consul and all agent containers
-
-(ii) Start the Central_app(web app) (app.py)
-
+## INSTALLATION STEPS:-
+```sh 
+git clone: https://github.com/chinmaya-dehury/CEI_platform.git
+cd "CEI_platform_fresh"
+docker-compose up --build(to build the containers)
+docker-compose up(if already built)
+```
+## How to Use
+1. It starts Consul and all agent containers
+2. Start the Central_app(web app) (`app.py`)
 For example to discover the health status via an endpoint
-
-
+```
      http://localhost:5000/health  (traffic_agent)
      http://localhost:5001/health  (co2_agent)
      http://localhost:5002/health  (noise_agent)
      http://localhost:5003/health  (humidity_agent)
      http://localhost:5004/health  (temperature_agent)
      http://localhost:5006/search?requirement=co2_agent  (search_app - an example search for one of the agents)
+```     
      
 Explore endpoints like:
 
@@ -153,11 +134,9 @@ Explore endpoints like:
 | `/intelligence/export/json` | GET    | Exports **intelligence records** (aggregated data) in **JSON** format.                 | JSON file     |
 
 
-Testing & Access
-
-Consul UI: http://localhost:8500 (for service discoverability)
-
-WebApp UI: http://localhost:8000  (for dashboard central_app) and http://localhost:8000/intelligence (central_app intelligence list)
+## Testing & Access
+- Consul UI: http://localhost:8500 (for service discoverability)
+- WebApp UI: http://localhost:8000  (for dashboard central_app) and http://localhost:8000/intelligence (central_app intelligence list)
 
 
 
@@ -171,10 +150,10 @@ WebApp UI: http://localhost:8000  (for dashboard central_app) and http://localho
 | `temperatureagent`| Temperature         | `/data`, `/intelligence`  | Temperature in °C        |
 | `noiseagent`      | Noise pollution     | `/data`, `/intelligence`  | Noise in dB              |
 
-Agent Registration (Consul + System)
+## Agent Registration (Consul + System)
 
  Auto-Registration Sample
-
+```py
     def register_with_consul(): 
     service = {
         "ID": metadata["uuid"],
@@ -188,12 +167,12 @@ Agent Registration (Consul + System)
         }
     }
     requests.put(f"http://consul:8500/v1/agent/service/register", json=service)
+```
 
-component access:-
+### component access:-
 
-Consul UI: http://localhost:8500
-
-WebApp: http://localhost:5006
+- Consul UI: http://localhost:8500
+- WebApp: http://localhost:5006
 
 Agents: Registered and accessed via Docker hostnames (e.g., http://localhost:5000/health)
 
