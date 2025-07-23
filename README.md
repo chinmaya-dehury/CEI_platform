@@ -56,7 +56,7 @@ Agent is a self-contained microservice responsible for collecting, processing, a
   pip install flask
   
   
-###2. 'requests'
+### 2. `requests`
 - **Purpose**: `requests` is a simple HTTP library for sending and receiving HTTP requests in Python.
 
 - **Usage in CEI Platform**:
