@@ -42,20 +42,14 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
    Web Application
 1) Introduction:-
    
-     - Auto-discovery of agents via Consul
-   
-     -Acts as the main control and monitoring interface for all agents.
-   
-     -Uses Consul for automatic service discovery and health tracking.
+     - **Auto-discovery of agents via Consul**
+- Acts as the main control and monitoring interface for all agents
+- Uses Consul for automatic service discovery and health tracking
+- Offers RESTful API endpoints like:
+  - `/intelligence`, `/health`, `/search`, `/data/export/json`, etc.
+- Supports data export in JSON/CSV format for offline use
+- Easily scalable — new agents auto-register and appear in the dashboard
 
-     -Offers RESTful API endpoints like:
-
-     -/intelligence, /health, /search, /data/export/json, etc.
-
-     -Supports data export in JSON/CSV format for offline use.
-
-    -Easily scalable — new agents auto-register and appear in the dashboard.
-   
 
 3) Dashboard for all active agents:-
 
