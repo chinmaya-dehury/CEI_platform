@@ -16,28 +16,9 @@ This system is a distributed microservice-based infrastructure built for smart c
 
 ![Sys arch](./doc/sys_arch.drawio.pdf)
 
-🧠 CEI Platform 
-The CEI Platform is a microservice system that gathers and exposes real-time traffic and environmental data.
+CEI Platform is a microservice-based system designed to collect, process, and expose real-time traffic and environmental data. Individual agents either simulate or collect sensor data and register themselves with Consul for service discovery. Upon registration, each agent receives a unique UUID from the Controller and shares its metadata for identification and tracking. The collected data is stored locally within each agent and processed into meaningful intelligence. The Main Application aggregates this intelligence, provides search functionality, and exposes RESTful APIs for data access. A web-based user interface presents real-time insights and health status of all active agents in a centralized dashboard.
 
-(i)Agents simulate or collect sensor data and register with Consul.
-
-(ii)Each agent receives a UUID from the Controller and shares its metadata.
-
-(iii)Data is stored locally and processed into intelligence.
-
-(iv)The Main App aggregates data, supports search, and exposes APIs.
-
-(v)A Web UI displays agent health and insights.
-
-🤖 Agent
-(i)Each agent is a self-contained unit that collects, processes, and shares sensor intelligence:
-
-(ii)Stores recent raw data in local memory (holds data for a few days).
-
-(iii)Generates intelligence summaries (average, min, max, etc.) 
-
-(iv)Exposes intelligence via REST endpoints (e.g., /intelligence), which are accessed by the Web Server to power the central dashboard.
-
+Agent is a self-contained microservice responsible for collecting, processing, and sharing sensor-based intelligence. Each agent maintains recent raw data in local memory, typically retaining it for a few days. It continuously analyzes this data to generate intelligence summaries such as averages, minimums, and maximums. These insights are exposed through RESTful endpoints (e.g., /intelligence), which are accessed by the Web Server to populate the central dashboard with real-time information.
 
    Web Application
 1) Introduction:-
@@ -46,7 +27,6 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
 3) Dashboard for all active agents:-
 
     - Access to intelligence data (e.g., CO2, humidity, noise) at localhost:8000/intelligence
-   
     - Shows a table of all active agents with their health status whether reachable or not
 
 ## Features
@@ -68,13 +48,41 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
 - Visual Studio Code
 
 ## LIBRARIES:-
-1. `flask`
-2. `requests`
-3. `python-dateutil`
- 
+### 1. `flask`
+- **Purpose**: Flask is a lightweight web framework used to build RESTful APIs for each agent. It handles routing for endpoints like `/data`, `/intelligence`, `/health`, and others.
+- **Usage in CEI Platform**: Every agent runs a Flask app to expose its sensor data and processed intelligence to the controller and web interface.
+- **Installation**:
+  ```bash
+  pip install flask
+  ### 2. `requests`
+- **Purpose**: `requests` is a simple HTTP library for sending and receiving HTTP requests in Python.
+
+- **Usage in CEI Platform**:
+  - Register with the controller or Consul
+  - Send metadata and health status
+  - Fetch configuration or control messages
+
+- **Installation**:
+  ```bash
+  pip install requests
+### `python-dateutil`
+
+- **Purpose**:  
+  This library simplifies date and time manipulation beyond what's available in Python’s built-in `datetime` module.
+
+- **Usage in CEI Platform**:
+  - Parsing timestamps from logs
+  - Calculating time differences (e.g., when data was last updated)
+  - Managing time windows for intelligence summaries (like last 5 minutes)
+
+- **Installation**:
+  ```bash
+  pip install python-dateutil
+
+
 ## PRE-REQUISITES:-
 
-## ✅ PRE-REQUISITES (For Windows)
+##  PRE-REQUISITES (For Windows)
 
 ### 1.  Install Docker Desktop
 - Download from: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
@@ -94,7 +102,7 @@ The CEI Platform is a microservice system that gathers and exposes real-time tra
 ## INSTALLATION STEPS:-
 ```sh 
 git clone: https://github.com/chinmaya-dehury/CEI_platform.git
-cd "CEI_platform_fresh"
+cd "CEI_platform"
 docker-compose up --build(to build the containers)
 docker-compose up(if already built)
 ```
