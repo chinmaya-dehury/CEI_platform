@@ -47,6 +47,22 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 
 - Visual Studio Code
 
+##  PRE-REQUISITES (For Windows)
+
+### 1.  Install Docker Desktop
+- Download from: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+- Run the installer.
+- Enable **WSL 2 support** if prompted (optional, not required for this project).
+- Make sure Docker is running — check for the Docker whale icon in the system tray.
+
+### 2.  Install Python 3 and pip
+- Download Python from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- During installation, make sure to **check "Add Python to PATH"**
+- After installation, open **CMD or PowerShell** and run:
+  ```bash
+  python --version
+  pip --version
+
 ## LIBRARIES:-
 ### 1. `flask`
 - **Purpose**: Flask is a lightweight web framework used to build RESTful APIs for each agent. It handles routing for endpoints like `/data`, `/intelligence`, `/health`, and others.
@@ -67,8 +83,8 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 - **Installation**:
   ```bash
   pip install requests
+  
 ### 3. `python-dateutil`
-
 - **Purpose**:  
   This library simplifies date and time manipulation beyond what's available in Python’s built-in `datetime` module.
 
@@ -80,23 +96,6 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 - **Installation**:
   ```bash
   pip install python-dateutil
-
-
-##  PRE-REQUISITES (For Windows)
-
-### 1.  Install Docker Desktop
-- Download from: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
-- Run the installer.
-- Enable **WSL 2 support** if prompted (optional, not required for this project).
-- Make sure Docker is running — check for the Docker whale icon in the system tray.
-
-### 2.  Install Python 3 and pip
-- Download Python from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-- During installation, make sure to **check "Add Python to PATH"**
-- After installation, open **CMD or PowerShell** and run:
-  ```bash
-  python --version
-  pip --version
 
 
 ## INSTALLATION STEPS:-
