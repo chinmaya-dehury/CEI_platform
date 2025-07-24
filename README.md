@@ -101,7 +101,7 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 
 ## INSTALLATION STEPS:-
 ```sh 
-git clone: https://github.com/chinmaya-dehury/CEI_platform.git
+git clone https://github.com/chinmaya-dehury/CEI_platform.git
 cd "CEI_platform"
 docker-compose up --build(to build the containers)
 docker-compose up(if already built)
