@@ -157,22 +157,47 @@ Explore endpoints like:
 | `noiseagent`      | Noise pollution     | `/data`, `/intelligence`  | Noise in dB              |
 
 ## Agent Registration (Consul + System)
+### Registration process
+![registration process](./doc/agentstraffic.drawio.pdf)
+
 
  Auto-Registration Sample
 ```py
-    def register_with_consul(): 
-    service = {
-        "ID": metadata["uuid"],
-        "Name": AGENT_NAME,
-        "Address": AGENT_NAME,
-        "Port": PORT,
-        "Meta": {"type": "sensor", "location": "sector-5"},
-        "Check": {
-            "HTTP": f"http://{AGENT_NAME}:{PORT}/health",
-            "Interval": "10s"
+   def register_with_consul():
+    try:
+        agent_ip = socket.gethostbyname(socket.gethostname())
+        print(f"[INFO] Resolved agent IP: {agent_ip}")
+
+        service = {
+            "ID": metadata["uuid"],
+            "Name": metadata["agent_name"],
+            "Address": agent_ip,
+            "Port": PORT,
+            "Meta": {
+                "sensor_type": metadata["sensor_type"],
+                "location": metadata["location"],
+                "unit": metadata["unit"],
+                "frequency": metadata["frequency"]
+            },
+            "Check": {
+                "HTTP": f"http://{agent_ip}:{PORT}/health",
+                "Interval": "10s"
+            }
         }
-    }
-    requests.put(f"http://consul:8500/v1/agent/service/register", json=service)
+
+        conn = http.client.HTTPConnection("consul", 8500)
+        conn.request(
+            "PUT",
+            "/v1/agent/service/register",
+            body=json.dumps(service),
+            headers={"Content-Type": "application/json"}
+        )
+        res = conn.getresponse()
+        print(f"[INFO] Registered with Consul. Status: {res.status} {res.reason}")
+        conn.close()
+
+    except Exception as e:
+        print(f"[ERROR] Consul registration exception: {e}")    
 ```
 
 ### component access:-
