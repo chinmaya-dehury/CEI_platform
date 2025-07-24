@@ -108,7 +108,7 @@ docker-compose up(if already built)
 ```
 ## How to Use
 1. It starts Consul and all agent containers to view agents on consul ui http://localhost:8500
-2. Start the Central_app(web app) (`app.py`) at  http://localhost:5006
+2. Start the Central_app(web app) (`app.py`) at  http://localhost:8000
 3. To stop all the running containers
     ```bash
     docker-compose down
@@ -178,7 +178,8 @@ Explore endpoints like:
 ### component access:-
 
 - Consul UI: http://localhost:8500
-- WebApp: http://localhost:5006
+- WebApp: http://localhost:8000
+- searchpy: http://localhost:5006/search?requirement=traffic_agent(this is for traffic_agent and similarly for others 
 
 Agents: Registered and accessed via Docker hostnames (e.g., http://localhost:5000/health)
 
