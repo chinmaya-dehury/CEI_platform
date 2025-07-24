@@ -57,6 +57,7 @@ Agent is a self-contained microservice responsible for collecting, processing, a
 
 ### 2.  Install Python 3 and pip
 - Download Python from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- Run the Installer and double-click the downloaded `.exe` file to start the Python installation process.
 - During installation, make sure to **check "Add Python to PATH"**
 - After installation, open **CMD or PowerShell** and run:
   ```bash
