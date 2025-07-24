@@ -2,7 +2,7 @@
 Platform for Clustered Edge Intelligence with discoverability and obserability capabilities.
 
 ## Overall Sy.
-![Overall Sy](./doc/Overall_sy.jpg)
+![Overall Sy](./doc/Overall_systems.jpg)
 
 Intelligent Agent System with Web Dashboard:-
 
