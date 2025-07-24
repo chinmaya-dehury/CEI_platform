@@ -107,8 +107,14 @@ docker-compose up --build(to build the containers)
 docker-compose up(if already built)
 ```
 ## How to Use
-1. It starts Consul and all agent containers
-2. Start the Central_app(web app) (`app.py`)
+1. It starts Consul and all agent containers to view agents on consul ui http://localhost:8500
+2. Start the Central_app(web app) (`app.py`) at  http://localhost:5006
+3. To stop all the running containers
+    ```bash
+    docker-compose down
+4. To stop any one of agents container, the below one is for traffic_agent and can be exceuted similarly for others
+   ```bash
+    docker-compose down traffic_agent
 For example to discover the health status via an endpoint
 ```
      http://localhost:5000/health  (traffic_agent)
