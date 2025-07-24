@@ -99,7 +99,7 @@ Agent is a self-contained microservice responsible for collecting, processing, a
   pip install python-dateutil
 
 
-## INSTALLATION STEPS:-
+## EXECUTION STEPS:-
 ```sh 
 git clone https://github.com/chinmaya-dehury/CEI_platform.git
 cd "CEI_platform"
