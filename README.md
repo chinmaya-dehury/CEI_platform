@@ -4,9 +4,6 @@ Platform for Clustered Edge Intelligence with discoverability and obserability c
 ## Overall Sy.
 ![Overall Sy](./doc/Overall_sy.jpg)
 
-### Registration process
-![registration process](./doc/agentstraffic.drawio.pdf)
-
 Intelligent Agent System with Web Dashboard:-
 
 *OVERALL SYSTEM:-
@@ -160,6 +157,52 @@ Explore endpoints like:
 ### Registration process
 ![registration process](./doc/agentstraffic.drawio.pdf)
 
+##  Agent Initialization Flow
+
+- **Agent Starts**  
+  The agent process is triggered.
+
+- **Sleep 5s**  
+  A short delay to ensure dependent services like the Controller or Consul are up.
+
+- **Load Metadata (JSON file)**  
+  The agent reads its configuration from a JSON file, which includes:
+  - `sensor_type`
+  - `frequency`
+  - `unit`
+  - `location`
+  - `data_name`
+  - `agent_name`
+
+- **Check if Metadata is Loaded**:
+  - **If YES**: Proceeds to registration.
+  - **If NO**: Likely retries or exits.
+
+---
+
+## Registration Process
+
+- **Register with Controller**  
+  Sends a request to the central controller with its metadata.
+
+- **UUID Received**  
+  The controller responds with a unique identifier (`uuid`) for the agent.
+
+- **Save Metadata**  
+  The agent updates its local metadata with the received `uuid`.
+
+- **Register with Consul**  
+  The agent registers itself as a service in the Consul service registry for discoverability.
+
+---
+
+##  Controller Side
+
+- **Receives Request**  
+  The controller parses the incoming agent metadata.
+
+- **Generates UUID**  
+  Assigns a unique identifier to the agent and returns it in the response.
 
  Auto-Registration Sample
 ```py
