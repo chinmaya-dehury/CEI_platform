@@ -115,6 +115,10 @@ docker-compose up(if already built)
 4. To stop any one of agents container, the below one is for traffic_agent and can be exceuted similarly for others
    ```bash
     docker-compose down traffic_agent
+5. To remove an existing container(for example this is for controller container)
+    ```bash
+     docker stop comtroller
+     docker rm controller
 For example to discover the health status via an endpoint
 ```
      http://localhost:5000/health  (traffic_agent)
