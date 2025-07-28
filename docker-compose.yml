@@ -62,7 +62,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./data:/data
+      - ./agents/traffic_agent:/app/agents/traffic_agent 
     networks:
       - appnet
     depends_on:
@@ -70,7 +70,7 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
-
+     
 
 
   # ──────────────── Agent 2 ────────────────
@@ -83,7 +83,7 @@ services:
     ports:
       - "5001:5001"
     volumes:
-      - ./data:/data
+      - ./agents/co2_agent:/app/agents/co2_agent 
     networks:
       - appnet
     depends_on:
@@ -102,7 +102,7 @@ services:
     ports:
       - "5002:5002"
     volumes:
-      - ./data:/data
+      - ./agents/noise_agent:/app/agents/noise_agent 
     networks:
       - appnet
     depends_on:
@@ -111,8 +111,9 @@ services:
       - dashboard
     restart: unless-stopped
 
+
   # ──────────────── Agent 4 ────────────────
-  humidity_agent:
+ humidity_agent:
     build:
       context: .
       dockerfile: Dockerfiles/humidity_agent.dockerfile
@@ -121,7 +122,7 @@ services:
     ports:
       - "5003:5003"
     volumes:
-      - ./data:/data
+      - ./agents/humidity_agent:/app/agents/humidity_agent 
     networks:
       - appnet
     depends_on:
@@ -129,7 +130,6 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
-
   # ──────────────── Agent 5 ────────────────
   temperature_agent:
     build:
@@ -140,7 +140,7 @@ services:
     ports:
       - "5004:5004"
     volumes:
-      - ./data:/data
+      - ./agents/temperature_agent:/app/agents/temperature_agent 
     networks:
       - appnet
     depends_on:
@@ -148,9 +148,9 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
-
   # ──────────────── Search Service ────────────────
-  search_service:
+  
+     search_service:
     build:
       context: .
       dockerfile: search_service/search.dockerfile
@@ -173,3 +173,5 @@ services:
 
 networks:
   appnet:
+    driver: bridge
+
