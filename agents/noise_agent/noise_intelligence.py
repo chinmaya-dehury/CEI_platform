@@ -1,32 +1,60 @@
 import os
 import json
+import random
 from datetime import datetime, timedelta
 from . import noise_statistics as stats  # Ensure this has avg/min/max/count functions
 
+DATA_LOG_PATH = "/app/agents/noise_agent/noise_agent_data_log.json"
+
+def append_synthetic_data(data_log_path):
+    os.makedirs(os.path.dirname(data_log_path), exist_ok=True)
+
+    # Generate synthetic Noise data
+    new_entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "noise_level": round(random.uniform(30, 120), 2),  # dB
+        "noise_status": random.choice(["Low", "Moderate", "High"])
+    }
+
+    # Load existing data
+    if os.path.exists(data_log_path):
+        with open(data_log_path, "r") as f:
+            try:
+                records = json.load(f)
+                if not isinstance(records, list):
+                    records = []
+            except json.JSONDecodeError:
+                records = []
+    else:
+        records = []
+
+    # Append new entry and save back
+    records.append(new_entry)
+    with open(data_log_path, "w") as f:
+        json.dump(records[-200:], f, indent=2)  # retain last 200 records
+
 def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, status="Healthy"):
-    def blank_result(agent_id, error=None):
-        result = {
-            "name": agent_name,
+    def blank_result(agent_id, now):
+        return {
             "agent_id": agent_id,
+            "name": agent_name,
             "value": "NA",
             "unit": "dB",
             "average_noise": "NA",
             "max_noise": "NA",
             "min_noise": "NA",
             "data_point_count": "NA",
-            "last_updated": datetime.utcnow().isoformat(),
-            "url": url or f"http://localhost:{port}" if port else "unknown",
+            "last_updated": now,
+            "url": url or None,
             "status": "NA"
         }
-        if error:
-            result["error"] = str(error)
-        return result
 
     try:
-        # Load agent UUID from metadata if available
+        now = datetime.utcnow().isoformat()
+
+        # --- Load UUID from metadata file ---
         agent_dir = os.path.dirname(data_log_path)
         metadata_path = os.path.join(agent_dir, f"{agent_name}_metadata.json")
-
         if os.path.exists(metadata_path):
             with open(metadata_path, "r") as f:
                 metadata = json.load(f)
@@ -34,56 +62,63 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         else:
             agent_id = agent_name
 
+        # --- Check if the data log exists ---
         if not os.path.exists(data_log_path):
-            return blank_result(agent_id)
+            return blank_result(agent_id, now)
 
         with open(data_log_path, "r") as f:
             records = json.load(f)
 
-        if not records:
-            return blank_result(agent_id)
+        if not records or not isinstance(records, list):
+            return blank_result(agent_id, now)
 
-        # Filter for data within last 5 minutes
+        # --- Filter only last 5 minutes ---
         cutoff = datetime.utcnow() - timedelta(minutes=5)
         recent = [
             r for r in records
-            if "timestamp" in r and datetime.fromisoformat(r["timestamp"]) > cutoff
+            if isinstance(r, dict)
+            and "timestamp" in r
+            and datetime.fromisoformat(r["timestamp"]) > cutoff
         ]
 
         if not recent:
-            return blank_result(agent_id)
+            return blank_result(agent_id, now)
 
-        noise_values = [r["noise_level"] for r in recent if "noise_level" in r]
+        # --- Extract noise levels ---
+        noise_levels = [r.get("noise_level") for r in recent if isinstance(r.get("noise_level"), (int, float))]
+        latest = recent[-1]
 
-        result_entry = {
-            "name": agent_name,
+        return {
             "agent_id": agent_id,
-            "value": noise_values[-1] if noise_values else "NA",
+            "name": agent_name,
+            "value": latest.get("noise_status", "NA"),
             "unit": "dB",
-            "average_noise": stats.calculate_average_noise(noise_values) if noise_values else "NA",
-            "max_noise": stats.calculate_max_noise(noise_values) if noise_values else "NA",
-            "min_noise": stats.calculate_min_noise(noise_values) if noise_values else "NA",
-            "data_point_count": stats.get_data_point_count(noise_values) if noise_values else "NA",
-            "last_updated": datetime.utcnow().isoformat(),
-            "url": url or f"http://localhost:{port}" if port else "unknown",
+            "average_noise": stats.calculate_average_noise(noise_levels) if noise_levels else "NA",
+            "max_noise": stats.calculate_max_noise(noise_levels) if noise_levels else "NA",
+            "min_noise": stats.calculate_min_noise(noise_levels) if noise_levels else "NA",
+            "data_point_count": stats.get_data_point_count(noise_levels) if noise_levels else "NA",
+            "last_updated": now,
+            "url": url or None,
             "status": status
         }
 
-        return result_entry
-
     except Exception as e:
-        return blank_result(agent_name, error=str(e))
+        fallback = blank_result(agent_name, datetime.utcnow().isoformat())
+        fallback["error"] = str(e)
+        return fallback
 
-
-# Alias for controller/dashboard
+# Alias
 get_intelligence_data = generate_and_save_intelligence
 
-# Optional standalone test
+# Optional Test
 if __name__ == "__main__":
-    print(generate_and_save_intelligence(
-        "/agents/noise_agent/noise_agent_data_log.json",
-        "noise_agent",
+    path = "/app/agents/noise_agent/noise_agent_data_log.json"
+    append_synthetic_data(path)
+
+    print(json.dumps(generate_and_save_intelligence(
+        data_log_path=path,
+        agent_name="noise_agent",
         port=5002,
         url="http://localhost:5002",
         status="Healthy"
-    ))
+    ), indent=2))

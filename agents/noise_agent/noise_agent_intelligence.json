@@ -1,0 +1,13 @@
+{
+  "agent_id": "d25c823b-4f18-48a8-9e6f-683fd7767c1e",
+  "name": "noise_agent",
+  "value": "NA",
+  "unit": "dB",
+  "average_noise": "NA",
+  "max_noise": "NA",
+  "min_noise": "NA",
+  "data_point_count": "NA",
+  "last_updated": "2025-07-28T12:31:40.549755",
+  "url": 5002,
+  "status": "NA"
+}

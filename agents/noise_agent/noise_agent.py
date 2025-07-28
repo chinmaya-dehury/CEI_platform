@@ -5,6 +5,7 @@ from flask import Flask, jsonify, request, Response, send_file
 from .noise_requirements import get_requirements_data
 from .noise_registration import metadata, register_with_controller, register_with_consul
 from .noise_intelligence import generate_and_save_intelligence
+from agents.noise_agent.noise_intelligence import append_synthetic_data
 
 print("PYTHONPATH:", sys.path)
 
@@ -12,7 +13,15 @@ app = Flask(__name__)
 
 AGENT_NAME = "noise_agent"
 PORT = 5002
-DATA_LOG_PATH = "/agents/noise/noise_agent_data_log.json"
+DATA_LOG_PATH = "/app/agents/noise_agent/noise_agent_data_log.json"
+METADATA_PATH = "/app/agents/noise_agent/noise_agent_metadata.json"
+INTELLIGENCE_PATH = "/app/agents/noise_agent/noise_agent_intelligence.json"
+
+# -------- Utility -------- #
+def save_metadata_to_json(metadata, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w") as f:
+        json.dump(metadata, f, indent=4)
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -22,7 +31,7 @@ def health():
 @app.route('/data')
 def data():
     noise_level = round(random.uniform(40.0, 90.0), 2)
-    
+
     if noise_level < 50.0:
         status = "Low Noise"
     elif noise_level <= 75.0:
@@ -31,6 +40,7 @@ def data():
         status = "High Noise"
 
     data_point = {
+        "uuid": metadata.get("uuid", "NA"),
         "timestamp": datetime.utcnow().isoformat(),
         "noise_level": noise_level,
         "noise_status": status,
@@ -116,22 +126,23 @@ def intelligence():
         metadata["unit"],
         PORT
     )
+
+    os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
+    with open(INTELLIGENCE_PATH, "w") as f:
+        json.dump(result, f, indent=2)
+
     return jsonify(result)
 
 @app.route("/intelligence/export/json", methods=["GET"])
 def export_intelligence_json():
-    result = generate_and_save_intelligence(
-        DATA_LOG_PATH,
-        metadata["agent_name"],
-        metadata["unit"],
-        PORT
-    )
+    if not os.path.exists(INTELLIGENCE_PATH):
+        return jsonify({"error": "No intelligence available"}), 404
 
-    if "error" in result:
-        return jsonify(result), 400
+    with open(INTELLIGENCE_PATH, "r") as f:
+        raw_data = json.load(f)
 
     return Response(
-        json.dumps(result, indent=2),
+        json.dumps(raw_data, indent=2),
         mimetype="application/json",
         headers={"Content-Disposition": "attachment; filename=noise_agent_intelligence.json"}
     )
@@ -149,7 +160,7 @@ def requirements_endpoint():
 @app.route("/download-uuid", methods=["GET"])
 def download_uuid():
     try:
-        return send_file("/agents/noise_agent/noise_agent_metadata.json", as_attachment=True, download_name="noise_agent_metadata.json")
+        return send_file(METADATA_PATH, as_attachment=True, download_name="noise_agent_metadata.json")
     except FileNotFoundError:
         return jsonify({"error": "UUID file not found"}), 404
 
@@ -159,4 +170,10 @@ if __name__ == "__main__":
 
     register_with_controller()
     register_with_consul()
+
+    save_metadata_to_json(metadata, METADATA_PATH)
+
+    os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
+    append_synthetic_data(DATA_LOG_PATH)
+
     app.run(host="0.0.0.0", port=5002)
