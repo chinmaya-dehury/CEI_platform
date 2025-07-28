@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2025-07-28T11:04:02.134615",
+    "humidity": 36.35,
+    "humidity_status": "Low",
+    "sensor_type": "Humidity Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Zone D",
+    "data_name": "humidity",
+    "agent_name": "humidity_agent"
+  }
+]

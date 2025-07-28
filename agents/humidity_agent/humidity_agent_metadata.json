@@ -1,0 +1,9 @@
+{
+    "uuid": "38ac1673-0739-494a-8bea-86830ee8e70d",
+    "sensor_type": "Humidity Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Zone D",
+    "data_name": "humidity",
+    "agent_name": "humidity_agent"
+}

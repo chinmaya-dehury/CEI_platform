@@ -1,0 +1,12 @@
+{
+  "agent_id": "38ac1673-0739-494a-8bea-86830ee8e70d",
+  "name": "humidity_agent",
+  "value": "NA",
+  "unit": "%",
+  "average_humidity": "NA",
+  "max_humidity": "NA",
+  "min_humidity": "NA",
+  "last_updated": "2025-07-28T12:31:40.729253",
+  "url": null,
+  "status": "NA"
+}

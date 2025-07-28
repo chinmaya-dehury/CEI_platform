@@ -6,6 +6,14 @@ import uuid
 from .humidity_registration import metadata, register_with_controller, register_with_consul
 from .humidityagent_requirements import get_requirements_data
 from .humidityagent_intelligence import generate_and_save_intelligence
+from .humidityagent_intelligence import append_synthetic_data
+metadata_path = "/app/agents/humidity_agent/humidity_agent_metadata.json"
+
+
+def save_metadata_to_json(metadata, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w") as f:
+        json.dump(metadata, f, indent=4)
 
 print("PYTHONPATH:", sys.path)
 
@@ -13,7 +21,8 @@ app = Flask(__name__)
 
 AGENT_NAME = "humidity_agent"
 PORT = 5003
-DATA_LOG_PATH = "/agents/humidity_agent/humidity_agent_data_log.json"
+DATA_LOG_PATH = "/app/agents/humidity_agent/humidity_agent_data_log.json"
+intelligence_path = "/app/agents/humidity_agent/humidity_agent_intelligence.json"
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -115,7 +124,16 @@ def intelligence():
         metadata["agent_name"],
         PORT
     )
+    
+    intelligence_path = "/app/agents/humidity_agent/humidity_agent_intelligence.json"
+
+    os.makedirs(os.path.dirname(intelligence_path), exist_ok=True)
+    with open(intelligence_path, "w") as f:
+        json.dump(result, f, indent=2)
+
     return jsonify(result)
+
+
 
 @app.route("/intelligence/export/json", methods=["GET"])
 def export_intelligence_json():
@@ -159,4 +177,5 @@ if __name__ == "__main__":
 
     register_with_controller()
     register_with_consul()
+    save_metadata_to_json(metadata, metadata_path)
     app.run(host="0.0.0.0", port=5003)
