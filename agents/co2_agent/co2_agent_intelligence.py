@@ -9,19 +9,19 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
             "agent_id": agent_id,
             "name": agent_name,
             "value": "NA",
-            "unit": "NA",
-            "average_vehicle_count": "NA",
-            "max_vehicle_count": "NA",
-            "min_vehicle_count": "NA",
+            "unit": "ppm",
+            "average_co2_level": "NA",
+            "max_co2_level": "NA",
+            "min_co2_level": "NA",
             "last_updated": now,
-            "url": url if url else None,
+            "url": url or None,
             "status": "NA"
         }
 
     try:
         now = datetime.utcnow().isoformat()
 
-        # --- Load UUID from metadata if available ---
+        # --- Load UUID from metadata file ---
         agent_dir = os.path.dirname(data_log_path)
         metadata_path = os.path.join(agent_dir, f"{agent_name}_metadata.json")
         if os.path.exists(metadata_path):
@@ -31,7 +31,7 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         else:
             agent_id = agent_name
 
-        # --- Check if data log exists ---
+        # --- Check if the data log exists ---
         if not os.path.exists(data_log_path):
             return blank_result(agent_id, now)
 
@@ -41,17 +41,20 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
         if not records or not isinstance(records, list):
             return blank_result(agent_id, now)
 
-        # --- Filter recent 5 minutes ---
+        # --- Filter only last 5 minutes ---
         cutoff = datetime.utcnow() - timedelta(minutes=5)
         recent = [
             r for r in records
-            if isinstance(r, dict) and "timestamp" in r and datetime.fromisoformat(r["timestamp"]) > cutoff
+            if isinstance(r, dict)
+            and "timestamp" in r
+            and datetime.fromisoformat(r["timestamp"]) > cutoff
         ]
 
         if not recent:
             return blank_result(agent_id, now)
 
-        co2_levels = [r["co2_level"] for r in recent if "co2_level" in r]
+        # --- Extract CO₂ levels ---
+        co2_levels = [r.get("co2_level") for r in recent if isinstance(r.get("co2_level"), (int, float))]
         latest = recent[-1]
 
         return {
@@ -59,11 +62,11 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
             "name": agent_name,
             "value": latest.get("co2_status", "NA"),
             "unit": "ppm",
-            "average_vehicle_count": stats.calculate_average(co2_levels) if co2_levels else "NA",
-            "max_vehicle_count": stats.calculate_max(co2_levels) if co2_levels else "NA",
-            "min_vehicle_count": stats.calculate_min(co2_levels) if co2_levels else "NA",
+            "average_co2_level": stats.calculate_average(co2_levels) if co2_levels else "NA",
+            "max_co2_level": stats.calculate_max(co2_levels) if co2_levels else "NA",
+            "min_co2_level": stats.calculate_min(co2_levels) if co2_levels else "NA",
             "last_updated": now,
-            "url": url if url else None,
+            "url": url or None,
             "status": status
         }
 
@@ -75,12 +78,13 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
 # Alias
 get_intelligence_data = generate_and_save_intelligence
 
-# Test
+# Optional Test
 if __name__ == "__main__":
-    print(generate_and_save_intelligence(
-        "/agents/co2_agent/co2_agent_data_log.json",
-        "co2_agent",
+    print(json.dumps(generate_and_save_intelligence(
+        data_log_path="agents/co2_agent/co2_agent_data_log.json",
+        agent_name="co2_agent",
         port=5001,
         url="http://localhost:5001",
         status="Healthy"
-    ))
+    ), indent=2))
+

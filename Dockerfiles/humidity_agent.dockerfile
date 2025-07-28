@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 
 
-COPY agents/ ./agents/
+COPY agents/humidity_agent ./agents/humidity_agent
 
 RUN pip install flask requests
 

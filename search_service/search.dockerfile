@@ -3,7 +3,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy necessary files
-COPY ../data /app/data
+
 COPY search_service/search.py /app/search.py
 
 # Install required Python packages
