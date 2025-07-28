@@ -1,0 +1,12 @@
+{
+  "agent_id": "47b2724b-20bc-47e0-9767-9501fd2c815d",
+  "name": "temperature_agent",
+  "value": "NA",
+  "unit": "\u00b0C",
+  "average_temperature": "NA",
+  "max_temperature": "NA",
+  "min_temperature": "NA",
+  "last_updated": "2025-07-28T12:31:40.833127",
+  "url": null,
+  "status": "NA"
+}

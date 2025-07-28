@@ -1,10 +1,13 @@
-from flask import Flask, jsonify, request, Response, send_file
-import os, json, random, sys
+import os, sys, time, json, random
 from datetime import datetime
-import uuid
-from .temperature_registration import metadata, register_with_controller, register_with_consul
+from flask import Flask, jsonify, request, Response, send_file
+
 from .temperature_requirements import get_requirements_data
+from .temperature_registration import metadata, register_with_controller, register_with_consul
 from .temperature_intelligence import generate_and_save_intelligence
+from agents.temperature_agent.temperature_intelligence import append_synthetic_data
+
+
 
 print("PYTHONPATH:", sys.path)
 
@@ -12,7 +15,15 @@ app = Flask(__name__)
 
 AGENT_NAME = "temperature_agent"
 PORT = 5004
-DATA_LOG_PATH = "/agents/temperature_agent/temperature_agent_data_log.json"
+DATA_LOG_PATH = "/app/agents/temperature_agent/temperature_agent_data_log.json"
+METADATA_PATH = "/app/agents/temperature_agent/temperature_agent_metadata.json"
+INTELLIGENCE_PATH = "/app/agents/temperature_agent/temperature_agent_intelligence.json"
+
+# -------- Utility -------- #
+def save_metadata_to_json(metadata, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w") as f:
+        json.dump(metadata, f, indent=4)
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -22,15 +33,10 @@ def health():
 @app.route('/data')
 def data():
     temp_value = round(random.uniform(20.0, 35.0), 2)
-
-    if temp_value < 24.0:
-        status = "Cold"
-    elif temp_value <= 30.0:
-        status = "Moderate"
-    else:
-        status = "Hot"
+    status = "Cold" if temp_value < 24.0 else "Moderate" if temp_value <= 30.0 else "Hot"
 
     data_point = {
+        "uuid": metadata.get("uuid", "NA"),
         "timestamp": datetime.utcnow().isoformat(),
         "temperature": temp_value,
         "temperature_status": status,
@@ -68,13 +74,6 @@ def data_history():
                 return jsonify({"error": "History is corrupted"}), 500
     return jsonify([])
 
-@app.route('/data/export')
-def export_data():
-    if os.path.exists(DATA_LOG_PATH):
-        return send_file(DATA_LOG_PATH, as_attachment=True)
-    else:
-        return jsonify({"error": "No data log found"}), 404
-
 @app.route("/data/export/json", methods=["GET"])
 def export_json():
     if not os.path.exists(DATA_LOG_PATH):
@@ -86,23 +85,22 @@ def export_json():
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid data format"}), 500
 
-    response = Response(
+    return Response(
         json.dumps(raw_data, indent=2),
         mimetype="application/json",
         headers={"Content-Disposition": "attachment; filename=temperature_agent_data.json"}
     )
-    return response
 
-@app.route('/data/export/csv', methods=['GET', 'POST'])
+@app.route("/data/export/csv", methods=["GET"])
 def export_csv():
     if not os.path.exists(DATA_LOG_PATH):
         return jsonify({"error": "No data available"}), 404
 
-    with open(DATA_LOG_PATH, "r") as f:
-        try:
+    try:
+        with open(DATA_LOG_PATH, "r") as f:
             raw_data = json.load(f)
-        except json.JSONDecodeError:
-            return jsonify({"error": "Invalid data format"}), 500
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid data format"}), 500
 
     csv_lines = ["Timestamp,Measurement,Value"]
     for entry in raw_data:
@@ -115,11 +113,7 @@ def export_csv():
         headers={"Content-Disposition": "attachment; filename=temperature_agent_data.csv"}
     )
 
-@app.route('/description')
-def description():
-    return jsonify(metadata)
-
-@app.route('/intelligence')
+@app.route("/intelligence")
 def intelligence():
     result = generate_and_save_intelligence(
         DATA_LOG_PATH,
@@ -127,25 +121,30 @@ def intelligence():
         metadata["unit"],
         PORT
     )
+
+    os.makedirs(os.path.dirname(INTELLIGENCE_PATH), exist_ok=True)
+    with open(INTELLIGENCE_PATH, "w") as f:
+        json.dump(result, f, indent=2)
+
     return jsonify(result)
 
 @app.route("/intelligence/export/json", methods=["GET"])
 def export_intelligence_json():
-    result = generate_and_save_intelligence(
-        DATA_LOG_PATH,
-        metadata["agent_name"],
-        metadata["unit"],
-        PORT
-    )
+    if not os.path.exists(INTELLIGENCE_PATH):
+        return jsonify({"error": "No intelligence available"}), 404
 
-    if "error" in result:
-        return jsonify(result), 400
+    with open(INTELLIGENCE_PATH, "r") as f:
+        raw_data = json.load(f)
 
     return Response(
-        json.dumps(result, indent=2),
+        json.dumps(raw_data, indent=2),
         mimetype="application/json",
         headers={"Content-Disposition": "attachment; filename=temperature_agent_intelligence.json"}
     )
+
+@app.route('/description')
+def description():
+    return jsonify(metadata)
 
 @app.route('/requirements', methods=["GET", "POST"])
 def requirements_endpoint():
@@ -155,17 +154,20 @@ def requirements_endpoint():
 
 @app.route("/download-uuid", methods=["GET"])
 def download_uuid():
-    uuid_file_path = "/agents/temperature_agent/temperature_agent_metadata.json"
     try:
-        return send_file(uuid_file_path, as_attachment=True, download_name="temperature_agent_metadata.json")
+        return send_file(METADATA_PATH, as_attachment=True, download_name="temperature_agent_metadata.json")
     except FileNotFoundError:
         return jsonify({"error": "UUID file not found"}), 404
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":
-    import time
     time.sleep(5)
 
     register_with_controller()
     register_with_consul()
+
+    save_metadata_to_json(metadata, METADATA_PATH)
+    os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
+    append_synthetic_data(DATA_LOG_PATH)
+
     app.run(host="0.0.0.0", port=5004)
