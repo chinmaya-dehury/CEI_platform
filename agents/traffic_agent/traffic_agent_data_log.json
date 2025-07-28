@@ -1,0 +1,25 @@
+[
+  {
+    "timestamp": "2025-07-28T12:19:40.307325",
+    "vehicle_count": 21,
+    "congestion_status": "High Congestion",
+    "sensor_type": "Traffic Congestion Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
+    "agent_name": "traffic_agent"
+  },
+  {
+    "uuid": "f61299e4-0361-43e3-84d6-34618d3879ba",
+    "timestamp": "2025-07-28T12:31:05.138827",
+    "vehicle_count": 82,
+    "congestion_status": "Low Congestion",
+    "sensor_type": "Traffic Congestion Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
+    "agent_name": "traffic_agent"
+  }
+]

@@ -1,0 +1,9 @@
+{
+    "uuid": "f61299e4-0361-43e3-84d6-34618d3879ba",
+    "sensor_type": "Traffic Congestion Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
+    "agent_name": "traffic_agent"
+}

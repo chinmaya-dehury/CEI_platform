@@ -5,11 +5,17 @@ import uuid
 from .traffic_registration import metadata, register_with_controller, register_with_consul
 from .traffic_requirements import get_requirements_data
 from .traffic_agentintelligence import generate_and_save_intelligence
+from .traffic_agentintelligence import append_synthetic_data
+metadata_path = "/app/agents/humidity_agent/humidity_agent_metadata.json"
+
 import requests
 
 CENTRAL_APP_URL = "http://dashboard:8000/receive_data"
-INTELLIGENCE_FILE = "/agents/traffic_agent/traffic_agent_01_intelligence.json"
-DATA_LOG_PATH = "/agents/traffic_agent/traffic_agent_data_log.json"
+DATA_LOG_PATH = "/app/agents/traffic_agent/traffic_agent_data_log.json"
+intelligence_path = "/app/agents/traffic_agent/traffic_agent_intelligence.json"
+metadata_path = "/app/agents/traffic_agent/traffic_agent_metadata.json"
+
+
 AGENT_NAME = "traffic_agent"
 PORT = 5000
 
@@ -17,6 +23,10 @@ print("PYTHONPATH:", sys.path)
 
 app = Flask(__name__)
 
+def save_metadata_to_json(metadata, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w") as f:
+        json.dump(metadata, f, indent=4)
 # -------- Flask Endpoints -------- #
 
 @app.route('/health')
@@ -34,6 +44,7 @@ def data():
     )
 
     data_point = {
+        "uuid": metadata.get("uuid", "NA"),
         "timestamp": datetime.utcnow().isoformat(),
         "vehicle_count": int(uuid.uuid4().int % 100),
         "congestion_status": congestion_status,
@@ -128,28 +139,20 @@ def description():
 
 @app.route('/intelligence')
 def intelligence():
-    result = generate_and_save_intelligence(DATA_LOG_PATH, metadata["agent_name"], PORT)
+    result = generate_and_save_intelligence(
+        DATA_LOG_PATH,
+        metadata["agent_name"],
+        metadata["unit"],
+        PORT
+    )
 
-    wrapped_data = {
-        "agent_name": metadata["agent_name"],
-        "agent_id": "traffic_agent_01",
-        "agent_description": "Monitors traffic at junction X",
-        "intelligence": result
-    }
+    # Save the intelligence result to a file like in co2_agent
+    intelligence_path = "/app/agents/traffic_agent/traffic_agent_intelligence.json"
+    os.makedirs(os.path.dirname(intelligence_path), exist_ok=True)
+    with open(intelligence_path, "w") as f:
+        json.dump(result, f, indent=2)
 
-    os.makedirs(os.path.dirname(INTELLIGENCE_FILE), exist_ok=True)
-    with open(INTELLIGENCE_FILE, "w") as f:
-        json.dump(wrapped_data, f, indent=2)
-
-    try:
-        response = requests.post(CENTRAL_APP_URL, json=wrapped_data)
-        print(" POSTED to central app:", response.status_code)
-        print(" Response:", response.text)
-    except Exception as e:
-        print(" Failed to post to central app:", e)
-
-    # Return the entire wrapped_data, not just result!
-    return jsonify(wrapped_data)
+    return jsonify(result)
 
 
 @app.route("/intelligence/export/json", methods=["GET"])
@@ -213,4 +216,5 @@ if __name__ == "__main__":
     time.sleep(5)
     register_with_controller()
     register_with_consul()
+    save_metadata_to_json(metadata, metadata_path)
     app.run(host="0.0.0.0", port=5000)
