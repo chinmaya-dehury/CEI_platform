@@ -1,0 +1,14 @@
+[
+  {
+    "uuid": "6ec7deba-826a-4047-b547-85b7eeaf6e6c",
+    "timestamp": "2025-07-28T09:30:54.363953",
+    "co2_level": 469,
+    "co2_status": "Moderate",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
+  }
+]

@@ -6,14 +6,25 @@ import uuid
 from .registration import metadata, register_with_controller, register_with_consul
 from .co2requirements import get_requirements_data
 from .co2_agent_intelligence import generate_and_save_intelligence
-
+import os
+from agents.co2_agent.co2_agent_intelligence import append_synthetic_data
 print("PYTHONPATH:", sys.path)
+
+def save_metadata_to_json(metadata, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w") as f:
+        json.dump(metadata, f, indent=4)
+
 
 app = Flask(__name__)
 
 AGENT_NAME = "co2_agent"
 PORT = 5001
-DATA_LOG_PATH = "/agents/co2_agent/co2_agent_data_log.json"
+DATA_LOG_PATH = "/app/agents/co2_agent/co2_agent_data_log.json"
+intelligence_path = "/app/agents/co2_agent/co2_agent_intelligence.json"
+metadata_path = "/app/agents/co2_agent/co2_agent_metadata.json"
+
+
 
 # -------- Flask Endpoints -------- #
 @app.route('/health')
@@ -26,6 +37,7 @@ def data():
     status = "Low" if co2_level < 400 else "Moderate" if co2_level <= 500 else "High"
 
     data_point = {
+        "uuid": metadata.get("uuid", "NA"),
         "timestamp": datetime.utcnow().isoformat(),
         "co2_level": co2_level,
         "co2_status": status,
@@ -115,6 +127,15 @@ def intelligence():
         metadata["unit"],
         PORT
     )
+
+    # Define path to save the latest intelligence result
+    intelligence_path = "/app/agents/co2_agent/co2_agent_intelligence.json"
+    
+    # Make sure the directory exists and save (overwrite)
+    os.makedirs(os.path.dirname(intelligence_path), exist_ok=True)
+    with open(intelligence_path, "w") as f:
+        json.dump(result, f, indent=2)
+
     return jsonify(result)
 
 @app.route("/intelligence/export/json", methods=["GET"])
@@ -149,11 +170,18 @@ def download_uuid():
     except FileNotFoundError:
         return jsonify({"error": "UUID file not found"}), 404
 
-# -------- Main Flow -------- #
 if __name__ == "__main__":
     import time
     time.sleep(5)
 
     register_with_controller()
     register_with_consul()
+    metadata_path = "/app/agents/co2_agent/co2_agent_metadata.json"
+    save_metadata_to_json(metadata, metadata_path)
+
+    #  Force synthetic data on startup
+    from agents.co2_agent.co2_agent_intelligence import append_synthetic_data
+    os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
+    append_synthetic_data(DATA_LOG_PATH)
+
     app.run(host="0.0.0.0", port=5001)

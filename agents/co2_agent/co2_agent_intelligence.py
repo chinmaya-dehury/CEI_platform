@@ -1,7 +1,38 @@
 import os
 import json
+import random
 from datetime import datetime, timedelta
-from . import co2_agent_statistics as stats
+from agents.co2_agent import co2_agent_statistics as stats
+DATA_LOG_PATH = "/app/agents/co2_agent/co2_agent_data_log.json"
+
+def append_synthetic_data(data_log_path):
+    os.makedirs(os.path.dirname(data_log_path), exist_ok=True)
+    
+
+    # Generate synthetic CO₂ data
+    new_entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "co2_level": round(random.uniform(300, 900), 2),  # ppm
+        "co2_status": random.choice(["Low", "Moderate", "High"])
+    }
+
+    # Load existing data
+    if os.path.exists(data_log_path):
+        with open(data_log_path, "r") as f:
+            try:
+                records = json.load(f)
+                if not isinstance(records, list):
+                    records = []
+            except json.JSONDecodeError:
+                records = []
+    else:
+        records = []
+
+    # Append new entry and save back
+    records.append(new_entry)
+    with open(data_log_path, "w") as f:
+        json.dump(records[-200:], f, indent=2)  # retain last 200 records
+
 
 def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, status="Healthy"):
     def blank_result(agent_id, now):
@@ -80,8 +111,11 @@ get_intelligence_data = generate_and_save_intelligence
 
 # Optional Test
 if __name__ == "__main__":
+    path = "/app/agents/co2_agent/co2_agent_data_log.json"
+    append_synthetic_data(path)
+
     print(json.dumps(generate_and_save_intelligence(
-        data_log_path="agents/co2_agent/co2_agent_data_log.json",
+        data_log_path=path,
         agent_name="co2_agent",
         port=5001,
         url="http://localhost:5001",
