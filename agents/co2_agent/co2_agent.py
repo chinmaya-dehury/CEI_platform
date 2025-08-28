@@ -1,5 +1,4 @@
-
-from flask import Flask, jsonify, request, send_file, Response
+from flask import Flask, jsonify, request, send_file, Response, render_template, url_for
 import os, json, random, sys
 from datetime import datetime
 import uuid
@@ -16,7 +15,24 @@ def save_metadata_to_json(metadata, file_path):
         json.dump(metadata, f, indent=4)
 
 
-app = Flask(__name__)
+from flask import Blueprint
+from flask import Flask
+from jinja2 import Environment, FileSystemLoader
+import pathlib
+
+TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+app = Flask(__name__, template_folder=TEMPLATE_DIR)
+
+# Load menu structure from JSON file
+import json as _json
+MENU_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'endpoints_menu.json')
+with open(MENU_PATH, 'r') as f:
+    ENDPOINTS_MENU = _json.load(f)
+
+# Landing page with sidebar and main panel
+@app.route('/')
+def index():
+    return render_template('co2_agent_index.html', endpoints_menu=ENDPOINTS_MENU)
 
 AGENT_NAME = "co2_agent"
 PORT = 5001
@@ -184,4 +200,4 @@ if __name__ == "__main__":
     os.makedirs(os.path.dirname(DATA_LOG_PATH), exist_ok=True)
     append_synthetic_data(DATA_LOG_PATH)
 
-    app.run(host="0.0.0.0", port=5001)
+    app.run(host="0.0.0.0", port=5001, debug=True)

@@ -10,5 +10,171 @@
     "location": "Zone B",
     "data_name": "co2_level",
     "agent_name": "co2_agent"
+  },
+  {
+    "timestamp": "2025-08-16T07:14:30.209090",
+    "co2_level": 465.71,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-16T07:23:23.785565",
+    "co2_level": 543.12,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-16T07:32:55.297996",
+    "co2_level": 629.87,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-16T07:40:37.345016",
+    "co2_level": 341.9,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-16T07:40:42.712622",
+    "co2_level": 886.04,
+    "co2_status": "Moderate"
+  },
+  {
+    "uuid": "705e3d5f-4cd7-4a84-a677-e8df11ae020b",
+    "timestamp": "2025-08-16T07:40:56.497662",
+    "co2_level": 543,
+    "co2_status": "High",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
+  },
+  {
+    "timestamp": "2025-08-16T07:47:04.852708",
+    "co2_level": 402.16,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-16T07:49:59.541165",
+    "co2_level": 370.18,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-16T07:50:04.852904",
+    "co2_level": 837.15,
+    "co2_status": "High"
+  },
+  {
+    "uuid": "b4e67bd6-bb93-4b6c-ad06-670b54d905cc",
+    "timestamp": "2025-08-16T07:51:03.139193",
+    "co2_level": 494,
+    "co2_status": "Moderate",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
+  },
+  {
+    "timestamp": "2025-08-16T07:54:45.689029",
+    "co2_level": 330.19,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-16T07:54:51.094911",
+    "co2_level": 699.31,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:06:40.079611",
+    "co2_level": 386.97,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-17T05:06:45.476373",
+    "co2_level": 487.76,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:17:56.923471",
+    "co2_level": 672.54,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:18:02.276142",
+    "co2_level": 341.96,
+    "co2_status": "Moderate"
+  },
+  {
+    "uuid": "9f90daf3-7465-4fed-8fad-93367be45ce4",
+    "timestamp": "2025-08-17T05:18:53.566705",
+    "co2_level": 494,
+    "co2_status": "Moderate",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
+  },
+  {
+    "timestamp": "2025-08-17T05:30:18.554093",
+    "co2_level": 671.35,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-17T05:36:38.951221",
+    "co2_level": 841.69,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-08-17T05:39:41.908730",
+    "co2_level": 710.68,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:39:47.283819",
+    "co2_level": 447.35,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:47:44.226926",
+    "co2_level": 779.09,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-08-17T05:47:49.549436",
+    "co2_level": 806.74,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-08-17T11:39:33.985738",
+    "co2_level": 527.07,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-08-17T11:39:44.590396",
+    "co2_level": 432.78,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-08-17T11:39:49.975097",
+    "co2_level": 587.36,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-17T11:55:25.393298",
+    "co2_level": 882.56,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-08-17T11:55:30.705529",
+    "co2_level": 754.08,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-08-17T12:07:15.312544",
+    "co2_level": 564.81,
+    "co2_status": "Moderate"
   }
 ]

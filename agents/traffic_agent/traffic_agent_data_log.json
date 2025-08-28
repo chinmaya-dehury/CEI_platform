@@ -21,5 +21,17 @@
     "location": "Junction A1",
     "data_name": "congestion_level",
     "agent_name": "traffic_agent"
+  },
+  {
+    "uuid": "598ce598-2e19-4445-b8b8-eff887d299eb",
+    "timestamp": "2025-08-16T07:28:26.622996",
+    "vehicle_count": 97,
+    "congestion_status": "High Congestion",
+    "sensor_type": "Traffic Congestion Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Junction A1",
+    "data_name": "congestion_level",
+    "agent_name": "traffic_agent"
   }
 ]

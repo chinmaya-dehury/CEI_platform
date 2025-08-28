@@ -2,7 +2,7 @@ import os
 import json
 import random
 from datetime import datetime, timedelta
-from agents.co2_agent import co2_agent_statistics as stats
+from agents.co2_agent import co2_agent_intelligence_definition as intel 
 DATA_LOG_PATH = "/app/agents/co2_agent/co2_agent_data_log.json"
 
 def append_synthetic_data(data_log_path):
@@ -93,9 +93,9 @@ def generate_and_save_intelligence(data_log_path, agent_name, port, url=None, st
             "name": agent_name,
             "value": latest.get("co2_status", "NA"),
             "unit": "ppm",
-            "average_co2_level": stats.calculate_average(co2_levels) if co2_levels else "NA",
-            "max_co2_level": stats.calculate_max(co2_levels) if co2_levels else "NA",
-            "min_co2_level": stats.calculate_min(co2_levels) if co2_levels else "NA",
+            "average_co2_level": intel.calculate_average(co2_levels) if co2_levels else "NA",
+            "max_co2_level": intel.calculate_max(co2_levels) if co2_levels else "NA",
+            "min_co2_level": intel.calculate_min(co2_levels) if co2_levels else "NA",
             "last_updated": now,
             "url": url or None,
             "status": status

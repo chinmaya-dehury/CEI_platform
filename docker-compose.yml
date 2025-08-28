@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   # ──────────────── Consul ────────────────
   consul:
@@ -113,7 +111,7 @@ services:
 
 
   # ──────────────── Agent 4 ────────────────
- humidity_agent:
+  humidity_agent:
     build:
       context: .
       dockerfile: Dockerfiles/humidity_agent.dockerfile
@@ -150,7 +148,7 @@ services:
     restart: unless-stopped
   # ──────────────── Search Service ────────────────
   
-     search_service:
+  search_service:
     build:
       context: .
       dockerfile: search_service/search.dockerfile

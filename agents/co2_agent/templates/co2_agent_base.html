@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CO2 Agent</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0; width: 240px; height: 100%;
+            background: #222e3c; color: #fff;
+            display: flex; flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #f7c873; }
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar ul li { margin: 0; }
+        .sidebar ul li a {
+            color: #fff; text-decoration: none; padding: 12px 24px; display: block;
+            border-radius: 4px; transition: background 0.2s;
+            position: relative;
+        }
+        .sidebar ul li a:hover { background: #31415a; }
+        .sidebar ul li.has-submenu > a:after {
+            content: '\25B6'; /* right arrow */
+            position: absolute;
+            right: 18px;
+            font-size: 0.8em;
+            transition: transform 0.2s;
+        }
+        .sidebar ul li.has-submenu.open > a:after {
+            transform: rotate(90deg);
+        }
+        .sidebar ul .submenu {
+            padding-left: 18px;
+        }
+        .sidebar ul .submenu li a {
+            padding-left: 36px;
+            font-size: 0.97em;
+        }
+        .main-content { margin-left: 260px; padding: 30px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>CO2 Agent Endpoints</h2>
+        <ul>
+            {% for item in endpoints_menu %}
+                {% if item.submenu %}
+                    <li class="has-submenu intelligence-menu">
+                        <a href="#" onclick="showIntelligenceMenu(this, '{{ item.name|lower }}'); return false;">{{ item.name }}</a>
+                        <ul class="submenu" style="display:none;">
+                            {% for sub in item.submenu %}
+                                {% if sub.name|lower == 'current intelligence' %}
+                                    <li><a href="#" onclick="showCurrentIntelligence(); return false;">{{ sub.name }}</a></li>
+                                {% else %}
+                                    <li><a href="#" onclick="loadEndpoint('{{ sub.endpoint }}'); return false;">{{ sub.name }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="#" onclick="loadEndpoint('{{ item.endpoint }}'); return false;">{{ item.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="main-content" id="main-content">
+        {% block content %}{% endblock %}
+    </div>
+    <script>
+        function loadEndpoint(endpoint) {
+            fetch(endpoint)
+                .then(resp => {
+                    const contentType = resp.headers.get('content-type') || '';
+                    if (contentType.includes('application/json')) {
+                        return resp.json().then(data => ({ type: 'json', data }));
+                    } else if (contentType.includes('text/csv')) {
+                        return resp.text().then(data => ({ type: 'csv', data }));
+                    } else if (contentType.includes('text/plain')) {
+                        return resp.text().then(data => ({ type: 'text', data }));
+                    } else {
+                        return resp.text().then(data => ({ type: 'other', data }));
+                    }
+                })
+                .then(result => {
+                    let html = '<h2>' + endpoint + '</h2>';
+                    if (result.type === 'json') {
+                        html += '<pre>' + JSON.stringify(result.data, null, 2) + '</pre>';
+                    } else if (result.type === 'csv') {
+                        html += '<pre>' + result.data + '</pre>';
+                    } else if (result.type === 'text') {
+                        html += '<pre>' + result.data + '</pre>';
+                    } else {
+                        html += '<pre>' + result.data + '</pre>';
+                    }
+                    document.getElementById('main-content').innerHTML = html;
+                })
+                .catch(err => {
+                    document.getElementById('main-content').innerHTML = '<h2>' + endpoint + '</h2><pre>Error: ' + err + '</pre>';
+                });
+        }
+
+        function showCurrentIntelligence() {
+            fetch('/intelligence')
+                .then(resp => resp.json())
+                .then(data => {
+                    let html = '<h2>Current Intelligence</h2>';
+                    html += '<table style="width:100%;border-collapse:collapse;">';
+                    for (const key in data) {
+                        html += '<tr><td style="font-weight:bold;border:1px solid #ccc;padding:4px;">' + key + '</td>';
+                        html += '<td style="border:1px solid #ccc;padding:4px;">' + data[key] + '</td></tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('main-content').innerHTML = html;
+                })
+                .catch(err => {
+                    document.getElementById('main-content').innerHTML = '<h2>Current Intelligence</h2><pre>Error: ' + err + '</pre>';
+                });
+        }
+        function toggleSubmenu(link) {
+            var submenu = link.nextElementSibling;
+            var parentLi = link.parentElement;
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+                parentLi.classList.add('open');
+            } else {
+                submenu.style.display = 'none';
+                parentLi.classList.remove('open');
+            }
+        }
+        function showIntelligenceMenu(link, menuName) {
+            toggleSubmenu(link);
+            if (menuName === 'intelligence') {
+                fetch('/intelligence_json')
+                    .then(resp => resp.json())
+                    .then(data => {
+                        let html = '<h2>Intelligence Summary</h2>';
+                        html += '<table style="width:100%;border-collapse:collapse;">';
+                        for (const key in data) {
+                            html += '<tr><td style="font-weight:bold;border:1px solid #ccc;padding:4px;">' + key + '</td>';
+                            html += '<td style="border:1px solid #ccc;padding:4px;">' + data[key] + '</td></tr>';
+                        }
+                        html += '</table>';
+                        document.getElementById('main-content').innerHTML = html;
+                    })
+                    .catch(err => {
+                        document.getElementById('main-content').innerHTML = '<h2>Intelligence Summary</h2><pre>Error: ' + err + '</pre>';
+                    });
+            }
+        }
+    </script>
+</body>
+</html>
