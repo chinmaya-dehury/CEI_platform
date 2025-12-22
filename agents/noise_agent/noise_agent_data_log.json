@@ -103,5 +103,20 @@
     "timestamp": "2025-12-22T15:13:12.266302",
     "noise_level": 107.65,
     "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-12-22T17:22:57.890895",
+    "noise_level": 82.66,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-22T17:45:13.836301",
+    "noise_level": 119.24,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-22T17:47:13.328353",
+    "noise_level": 40.04,
+    "noise_status": "Low"
   }
 ]

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Response, send_file
+from flask import Flask, jsonify, request, Response, send_file, render_template
 import os, json, random, sys
 from datetime import datetime
 import uuid
@@ -22,6 +22,11 @@ PORT = 5000
 print("PYTHONPATH:", sys.path)
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 def save_metadata_to_json(metadata, file_path):
     os.makedirs(os.path.dirname(file_path), exist_ok=True)

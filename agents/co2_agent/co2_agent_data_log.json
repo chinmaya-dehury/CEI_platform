@@ -382,5 +382,47 @@
     "timestamp": "2025-12-22T15:13:18.135873",
     "co2_level": 722.73,
     "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-12-22T17:22:57.961277",
+    "co2_level": 392.44,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-12-22T17:23:03.283405",
+    "co2_level": 653.91,
+    "co2_status": "High"
+  },
+  {
+    "uuid": "ad09d1dc-c356-497c-8aeb-53deef66edaf",
+    "timestamp": "2025-12-22T17:23:58.041392",
+    "co2_level": 580,
+    "co2_status": "High",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
+  },
+  {
+    "timestamp": "2025-12-22T17:45:13.826335",
+    "co2_level": 449.61,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-12-22T17:45:19.556543",
+    "co2_level": 872.25,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-22T17:47:13.399673",
+    "co2_level": 422.95,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-22T17:47:19.060923",
+    "co2_level": 732.72,
+    "co2_status": "Moderate"
   }
 ]

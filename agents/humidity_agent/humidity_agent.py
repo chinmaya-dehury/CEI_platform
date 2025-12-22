@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Response, send_file
+from flask import Flask, jsonify, request, Response, send_file, render_template
 import os, json, random, sys
 from datetime import datetime
 import uuid
@@ -18,6 +18,11 @@ def save_metadata_to_json(metadata, file_path):
 print("PYTHONPATH:", sys.path)
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 AGENT_NAME = "humidity_agent"
 PORT = 5003

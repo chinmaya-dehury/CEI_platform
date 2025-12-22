@@ -103,5 +103,20 @@
     "timestamp": "2025-12-22T15:13:12.500551",
     "temperature": 31.52,
     "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-22T17:22:57.874984",
+    "temperature": 27.87,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-22T17:45:13.923766",
+    "temperature": 14.53,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-22T17:47:13.293928",
+    "temperature": 20.94,
+    "status": "Critical"
   }
 ]

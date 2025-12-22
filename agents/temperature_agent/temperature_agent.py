@@ -1,6 +1,6 @@
 import os, sys, time, json, random
 from datetime import datetime
-from flask import Flask, jsonify, request, Response, send_file
+from flask import Flask, jsonify, request, Response, send_file, render_template
 
 from .temperature_requirements import get_requirements_data
 from .temperature_registration import metadata, register_with_controller, register_with_consul
@@ -12,6 +12,11 @@ from agents.temperature_agent.temperature_intelligence import append_synthetic_d
 print("PYTHONPATH:", sys.path)
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 AGENT_NAME = "temperature_agent"
 PORT = 5004

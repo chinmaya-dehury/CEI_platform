@@ -1,6 +1,6 @@
 import os, sys, time, json, random
 from datetime import datetime
-from flask import Flask, jsonify, request, Response, send_file
+from flask import Flask, jsonify, request, Response, send_file, render_template
 
 from .noise_requirements import get_requirements_data
 from .noise_registration import metadata, register_with_controller, register_with_consul
@@ -10,6 +10,11 @@ from agents.noise_agent.noise_intelligence import append_synthetic_data
 print("PYTHONPATH:", sys.path)
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 AGENT_NAME = "noise_agent"
 PORT = 5002
