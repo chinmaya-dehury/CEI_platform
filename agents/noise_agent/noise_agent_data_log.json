@@ -48,5 +48,60 @@
     "timestamp": "2025-08-17T11:35:40.028599",
     "noise_level": 70.18,
     "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-09-01T12:05:17.265309",
+    "noise_level": 75.61,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-09-01T12:13:32.726263",
+    "noise_level": 80.53,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-09-02T09:56:25.908013",
+    "noise_level": 51.14,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-09-02T09:59:22.470018",
+    "noise_level": 34.16,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-09-02T10:01:18.585785",
+    "noise_level": 47.95,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-09-02T10:23:38.473430",
+    "noise_level": 64.78,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-09-02T17:06:02.052393",
+    "noise_level": 96.45,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-09-03T04:51:27.721364",
+    "noise_level": 40.56,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-09-03T12:01:12.850280",
+    "noise_level": 91.9,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-09-03T12:13:22.701918",
+    "noise_level": 60.94,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-12-22T15:13:12.266302",
+    "noise_level": 107.65,
+    "noise_status": "High"
   }
 ]

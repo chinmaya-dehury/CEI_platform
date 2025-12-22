@@ -86,9 +86,12 @@ def data_history():
     if os.path.exists(DATA_LOG_PATH):
         with open(DATA_LOG_PATH, "r") as f:
             try:
-                return jsonify(json.load(f))
+                data = json.load(f)
             except json.JSONDecodeError:
-                return jsonify({"error": "History is corrupted"}), 500
+                return jsonify([])
+        if not isinstance(data, list) or not data:
+            return jsonify([])
+        return jsonify(data)
     return jsonify([])
 
 @app.route("/data/export/json", methods=["GET"])
