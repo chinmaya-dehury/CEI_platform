@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ agent_title or 'Agent' }}</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .sidebar { position: fixed; left: 0; top: 0; width: 240px; height: 100%; background: #222e3c; color: #fff; display: flex; flex-direction: column; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+        .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #f7c873; }
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar ul li { margin: 0; }
+        .sidebar ul li a { color: #fff; text-decoration: none; padding: 12px 24px; display: block; border-radius: 4px; transition: background 0.2s; position: relative; }
+        .sidebar ul li a:hover { background: #31415a; }
+        .sidebar ul li.has-submenu > a:after { content: '\25B6'; position: absolute; right: 18px; font-size: 0.8em; transition: transform 0.2s; }
+        .sidebar ul li.has-submenu.open > a:after { transform: rotate(90deg); }
+        .sidebar ul .submenu { padding-left: 18px; }
+        .sidebar ul .submenu li a { padding-left: 36px; font-size: 0.97em; }
+        .main-content { margin-left: 260px; padding: 30px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f7c873; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>{{ agent_title or 'Agent' }}</h2>
+        <ul>
+            {% for item in endpoints_menu %}
+                {% if item.submenu %}
+                    <li class="has-submenu">
+                        <a href="#" onclick="toggleSubmenu(this); return false;">{{ item.name }}</a>
+                        <ul class="submenu" style="display:none;">
+                            {% for sub in item.submenu %}
+                                <li><a href="#" onclick="loadEndpoint('{{ sub.endpoint }}'); return false;">{{ sub.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="#" onclick="loadEndpoint('{{ item.endpoint }}'); return false;">{{ item.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="main-content" id="main-content">
+        {% block content %}{% endblock %}
+    </div>
+    <script>
+        function loadEndpoint(endpoint) {
+            fetch(endpoint)
+                .then(resp => {
+                    const ct = resp.headers.get('content-type') || '';
+                    if (ct.includes('application/json')) return resp.json().then(d => ({type:'json', data:d}));
+                    return resp.text().then(d => ({type:'text', data:d}));
+                })
+                .then(result => {
+                    if (result.type === 'json') {
+                        if (Array.isArray(result.data)) {
+                            if (result.data.length === 0) { document.getElementById('main-content').innerHTML = '<h2>Data</h2><p>No data available.</p>'; return; }
+                            const columns = Object.keys(result.data[0]);
+                            let html = '<h2>Data History</h2><table><thead><tr>';
+                            columns.forEach(c => html += '<th>'+c+'</th>'); html += '</tr></thead><tbody>';
+                            result.data.forEach(row => { html += '<tr>'; columns.forEach(c => html += '<td>'+(row[c] !== undefined ? row[c] : '')+'</td>'); html += '</tr>'; });
+                            html += '</tbody></table>'; document.getElementById('main-content').innerHTML = html; return;
+                        }
+                        let html = '<h2>' + endpoint + '</h2><table>';
+                        for (const k in result.data) html += '<tr><th>'+k+'</th><td>'+result.data[k]+'</td></tr>';
+                        html += '</table>'; document.getElementById('main-content').innerHTML = html;
+                    } else { document.getElementById('main-content').innerHTML = '<h2>' + endpoint + '</h2><pre>' + result.data + '</pre>'; }
+                })
+                .catch(err => { document.getElementById('main-content').innerHTML = '<pre>Error: '+err+'</pre>'; });
+        }
+        function toggleSubmenu(link){ const submenu = link.nextElementSibling; const parent = link.parentElement; if (!submenu) return; if (submenu.style.display === 'block') { submenu.style.display='none'; parent.classList.remove('open'); } else { submenu.style.display='block'; parent.classList.add('open'); } }
+    </script>
+</body>
+</html>

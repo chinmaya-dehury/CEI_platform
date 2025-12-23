@@ -118,5 +118,45 @@
     "timestamp": "2025-12-22T17:47:13.293928",
     "temperature": 20.94,
     "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T06:01:52.583018",
+    "temperature": 21.54,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T06:29:40.827480",
+    "temperature": 22.24,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T06:42:40.049279",
+    "temperature": 27.29,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T07:24:46.832460",
+    "temperature": 38.48,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-12-23T08:25:38.389115",
+    "temperature": 24.37,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-12-23T08:31:16.989854",
+    "temperature": 27.51,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T08:37:23.865000",
+    "temperature": 20.07,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T08:39:18.133920",
+    "temperature": 10.21,
+    "status": "Critical"
   }
 ]

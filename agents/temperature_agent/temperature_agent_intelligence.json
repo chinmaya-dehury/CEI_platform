@@ -1,12 +1,12 @@
 {
-  "agent_id": "0a993165-b287-4301-a953-682de7c0c033",
+  "agent_id": "de4943d2-4856-40a2-90f2-6eb9f11939af",
   "name": "temperature_agent",
-  "value": 25.75,
+  "value": 20.07,
   "unit": "\u00b0C",
-  "average_temperature": 25.75,
-  "max_temperature": 25.75,
-  "min_temperature": 25.75,
-  "last_updated": "2025-08-17T05:07:31.077537",
+  "average_temperature": 20.07,
+  "max_temperature": 20.07,
+  "min_temperature": 20.07,
+  "last_updated": "2025-12-23T08:38:21.964990",
   "url": null,
   "status": "Healthy"
 }

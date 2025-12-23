@@ -1,12 +1,12 @@
 {
-  "agent_id": "62d16532-aadf-41d8-9460-4f6671c681f2",
+  "agent_id": "f4c36f6e-97a8-4f68-9e29-be110cea2a3f",
   "name": "humidity_agent",
-  "value": "High",
+  "value": "Low",
   "unit": "%",
-  "average_humidity": 72.48,
-  "max_humidity": 72.48,
-  "min_humidity": 72.48,
-  "last_updated": "2025-12-22T17:47:59.291348",
+  "average_humidity": 38.81,
+  "max_humidity": 38.81,
+  "min_humidity": 38.81,
+  "last_updated": "2025-12-23T06:35:13.348541",
   "url": null,
   "status": "Healthy"
 }

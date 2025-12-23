@@ -17,12 +17,20 @@ def save_metadata_to_json(metadata, file_path):
 
 print("PYTHONPATH:", sys.path)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+
+# Load menu structure from JSON file for template
+MENU_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'endpoints_menu.json')
+try:
+    with open(MENU_PATH, 'r') as _m:
+        ENDPOINTS_MENU = json.load(_m)
+except Exception:
+    ENDPOINTS_MENU = []
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('humidity_agent_index.html', endpoints_menu=ENDPOINTS_MENU)
 
 AGENT_NAME = "humidity_agent"
 PORT = 5003

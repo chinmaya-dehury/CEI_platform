@@ -20,5 +20,27 @@
     "location": "Zone D",
     "data_name": "humidity",
     "agent_name": "humidity_agent"
+  },
+  {
+    "timestamp": "2025-12-23T06:08:10.586028",
+    "humidity": 87.45,
+    "humidity_status": "High",
+    "sensor_type": "Humidity Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Zone D",
+    "data_name": "humidity",
+    "agent_name": "humidity_agent"
+  },
+  {
+    "timestamp": "2025-12-23T06:35:09.827510",
+    "humidity": 38.81,
+    "humidity_status": "Low",
+    "sensor_type": "Humidity Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "%",
+    "location": "Zone D",
+    "data_name": "humidity",
+    "agent_name": "humidity_agent"
   }
 ]

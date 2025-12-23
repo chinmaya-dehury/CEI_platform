@@ -424,5 +424,55 @@
     "timestamp": "2025-12-22T17:47:19.060923",
     "co2_level": 732.72,
     "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-23T06:01:52.921818",
+    "co2_level": 333.86,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:01:58.198514",
+    "co2_level": 757.73,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:29:40.706807",
+    "co2_level": 405.82,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:29:46.010521",
+    "co2_level": 544.79,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-23T06:42:39.984322",
+    "co2_level": 409.68,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-12-23T06:42:45.235148",
+    "co2_level": 743.64,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-23T07:24:46.883002",
+    "co2_level": 576.83,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-23T07:24:52.130857",
+    "co2_level": 435.88,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2025-12-23T08:25:38.413233",
+    "co2_level": 533.74,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2025-12-23T08:25:43.647016",
+    "co2_level": 897.98,
+    "co2_status": "High"
   }
 ]

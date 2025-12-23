@@ -1,12 +1,12 @@
 {
-  "agent_id": "81113565-83f0-4733-a8b2-359180c6dcdf",
+  "agent_id": "2e59277e-973b-4345-81c7-73e386427b05",
   "name": "traffic_agent",
   "value": "NA",
   "unit": "%",
   "average_vehicle_count": "NA",
   "max_vehicle_count": "NA",
   "min_vehicle_count": "NA",
-  "last_updated": "2025-08-17T05:07:31.133754",
+  "last_updated": "2025-12-23T08:41:52.743155",
   "url": 5000,
   "status": "NA"
 }

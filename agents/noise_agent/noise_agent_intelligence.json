@@ -1,13 +1,13 @@
 {
-  "agent_id": "14e1274e-2927-4b9f-b9f7-a4d9ba137dc1",
+  "agent_id": "083f6e1e-3740-408e-9fe4-b62207045cef",
   "name": "noise_agent",
-  "value": "High",
+  "value": "NA",
   "unit": "dB",
-  "average_noise": 104.8,
-  "max_noise": 104.8,
-  "min_noise": 104.8,
-  "data_point_count": 1,
-  "last_updated": "2025-08-17T05:40:05.322386",
+  "average_noise": "NA",
+  "max_noise": "NA",
+  "min_noise": "NA",
+  "data_point_count": "NA",
+  "last_updated": "2025-12-23T06:48:08.095185",
   "url": 5002,
-  "status": "Healthy"
+  "status": "NA"
 }

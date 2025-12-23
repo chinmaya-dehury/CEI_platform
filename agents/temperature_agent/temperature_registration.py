@@ -6,7 +6,7 @@ import http.client
 
 AGENT_NAME = "temperature_agent"
 PORT = 5004
-UUID_PATH = "/agents/temperature/temperature_agent_metadata.json"
+UUID_PATH = "/agents/temperature_agent/temperature_agent_metadata.json"
 CONTROLLER_URL = "http://controller:9000/register"
 
 # -------- Metadata -------- #
@@ -48,8 +48,8 @@ def register_with_controller():
 
 def register_with_consul():
     try:
-        agent_ip = socket.gethostbyname(socket.gethostname())
-        print(f"[INFO] Resolved agent IP: {agent_ip}")
+        agent_ip = os.environ.get('AGENT_HOSTNAME', socket.gethostname())
+        print(f"[INFO] Registering agent using address: {agent_ip}")
 
         service = {
             "ID": metadata["uuid"],
@@ -63,7 +63,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{5004}/health",
+                "HTTP": f"http://{agent_ip}:{PORT}/health",
                 "Interval": "10s"
             }
         }

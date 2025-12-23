@@ -1,0 +1,18 @@
+[
+  { "name": "Health", "endpoint": "/health" },
+  { "name": "Data", "submenu": [
+      { "name": "Current Data", "endpoint": "/data" },
+      { "name": "History", "endpoint": "/data/history" },
+      { "name": "Export JSON", "endpoint": "/data/export/json" },
+      { "name": "Export CSV", "endpoint": "/data/export/csv" }
+    ]
+  },
+  { "name": "Description", "endpoint": "/description" },
+  { "name": "Intelligence", "submenu": [
+      { "name": "Current Intelligence", "endpoint": "/intelligence" },
+      { "name": "Export Intelligence JSON", "endpoint": "/intelligence/export/json" }
+    ]
+  },
+  { "name": "Requirements", "endpoint": "/requirements" },
+  { "name": "Download UUID", "endpoint": "/download-uuid" }
+]

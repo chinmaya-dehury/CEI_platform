@@ -118,5 +118,30 @@
     "timestamp": "2025-12-22T17:47:13.328353",
     "noise_level": 40.04,
     "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:01:52.623163",
+    "noise_level": 67.62,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:29:40.784217",
+    "noise_level": 88.56,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T06:42:39.972352",
+    "noise_level": 87.02,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2025-12-23T07:24:46.850981",
+    "noise_level": 38.11,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2025-12-23T08:25:38.427107",
+    "noise_level": 40.7,
+    "noise_status": "Low"
   }
 ]
