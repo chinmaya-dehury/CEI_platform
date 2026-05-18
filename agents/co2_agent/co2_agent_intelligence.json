@@ -1,12 +1,12 @@
 {
-  "agent_id": "ad09d1dc-c356-497c-8aeb-53deef66edaf",
+  "agent_id": "b33f2df3-6220-423c-b03a-c53e7e6d1078",
   "name": "co2_agent",
-  "value": "High",
+  "value": "Low",
   "unit": "ppm",
-  "average_co2_level": 542.12,
-  "max_co2_level": 653.91,
-  "min_co2_level": 392.44,
-  "last_updated": "2025-12-22T17:24:49.178489",
+  "average_co2_level": 313.0,
+  "max_co2_level": 313,
+  "min_co2_level": 313,
+  "last_updated": "2026-05-18T05:00:37.529646",
   "url": 5001,
   "status": "Healthy"
 }

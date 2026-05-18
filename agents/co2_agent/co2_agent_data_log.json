@@ -474,5 +474,27 @@
     "timestamp": "2025-12-23T08:25:43.647016",
     "co2_level": 897.98,
     "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-18T04:40:34.900341",
+    "co2_level": 775.65,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-18T04:40:40.439459",
+    "co2_level": 860.31,
+    "co2_status": "Moderate"
+  },
+  {
+    "uuid": "b33f2df3-6220-423c-b03a-c53e7e6d1078",
+    "timestamp": "2026-05-18T05:00:16.030097",
+    "co2_level": 313,
+    "co2_status": "Low",
+    "sensor_type": "CO2 Sensor",
+    "frequency": "Every 10 seconds",
+    "unit": "ppm",
+    "location": "Zone B",
+    "data_name": "co2_level",
+    "agent_name": "co2_agent"
   }
 ]
