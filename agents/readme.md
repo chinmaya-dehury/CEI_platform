@@ -84,5 +84,4 @@
 - Periodic data generation every 30 seconds.
 - Auto-registers with controller and Consul.
 - Logs temperature data using Docker volume.
-
 ---
