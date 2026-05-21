@@ -85,7 +85,4 @@
 - Auto-registers with controller and Consul.
 - Logs temperature data using Docker volume.
 
-### TO-DO list
-- [] Location - Location name with longitude(x):latitude(y) coordinate 
-
 ---

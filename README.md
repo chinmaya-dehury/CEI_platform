@@ -251,6 +251,9 @@ Explore endpoints like:
 
 Agents: Registered and accessed via Docker hostnames (e.g., http://localhost:5000/health)
 
+### TO-DO list
+- [] Location - Location name with longitude(x):latitude(y) coordinate 
+
 
 
 
