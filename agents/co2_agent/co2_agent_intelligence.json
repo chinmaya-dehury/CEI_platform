@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "agent_id": "",
   "name": "co2_agent",
   "value": "Moderate",
@@ -7,6 +8,16 @@
   "max_co2_level": 673.84,
   "min_co2_level": 515.3,
   "last_updated": "2026-05-20T10:23:06.587001",
+=======
+  "agent_id": "b33f2df3-6220-423c-b03a-c53e7e6d1078",
+  "name": "co2_agent",
+  "value": "Low",
+  "unit": "ppm",
+  "average_co2_level": 313.0,
+  "max_co2_level": 313,
+  "min_co2_level": 313,
+  "last_updated": "2026-05-18T05:00:37.529646",
+>>>>>>> origin/main
   "url": 5001,
   "status": "Healthy"
 }

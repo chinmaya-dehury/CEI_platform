@@ -148,6 +148,7 @@
     "timestamp": "2026-05-18T04:40:35.023830",
     "noise_level": 118.32,
     "noise_status": "Low"
+<<<<<<< HEAD
   },
   {
     "timestamp": "2026-05-20T04:43:40.424978",
@@ -173,5 +174,7 @@
     "timestamp": "2026-05-20T10:33:01.645707",
     "noise_level": 74.89,
     "noise_status": "Moderate"
+=======
+>>>>>>> origin/main
   }
 ]

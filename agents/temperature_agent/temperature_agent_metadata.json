@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "uuid": "52734f7a-851f-4989-a4d9-4ea1ac46177a",
+=======
+    "uuid": "bd3f6b99-0607-42a8-b790-045ce1e40260",
+>>>>>>> origin/main
     "sensor_type": "Temperature Sensor",
     "frequency": "Every 10 seconds",
     "unit": "\u00b0C",

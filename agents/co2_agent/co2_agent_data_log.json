@@ -496,6 +496,7 @@
     "location": "Zone B",
     "data_name": "co2_level",
     "agent_name": "co2_agent"
+<<<<<<< HEAD
   },
   {
     "timestamp": "2026-05-20T04:43:40.823096",
@@ -566,5 +567,7 @@
     "timestamp": "2026-05-20T10:33:07.609443",
     "co2_level": 855.21,
     "co2_status": "Moderate"
+=======
+>>>>>>> origin/main
   }
 ]

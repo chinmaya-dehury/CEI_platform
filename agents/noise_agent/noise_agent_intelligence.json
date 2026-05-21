@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "agent_id": "",
   "name": "noise_agent",
   "value": "Low",
@@ -10,4 +11,17 @@
   "last_updated": "2026-05-20T10:23:06.659257",
   "url": 5002,
   "status": "Healthy"
+=======
+  "agent_id": "083f6e1e-3740-408e-9fe4-b62207045cef",
+  "name": "noise_agent",
+  "value": "NA",
+  "unit": "dB",
+  "average_noise": "NA",
+  "max_noise": "NA",
+  "min_noise": "NA",
+  "data_point_count": "NA",
+  "last_updated": "2025-12-23T06:48:08.095185",
+  "url": 5002,
+  "status": "NA"
+>>>>>>> origin/main
 }
