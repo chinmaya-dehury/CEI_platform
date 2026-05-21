@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Agent Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100%;
+            background: #222e3c;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #f7c873;
+        }
+        .menu {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu > ul > li {
+            margin: 0;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .menu a:hover, .menu .submenu a:hover {
+            background: #31415a;
+        }
+        .submenu {
+            display: none;
+            flex-direction: column;
+            background: #26344a;
+            margin-left: 10px;
+            border-left: 2px solid #f7c873;
+        }
+        .submenu li {
+            margin: 0;
+        }
+        .menu .has-submenu > a {
+            cursor: pointer;
+            position: relative;
+        }
+        .menu .has-submenu > a:after {
+            content: '\25BC';
+            position: absolute;
+            right: 20px;
+            font-size: 0.7em;
+            transition: transform 0.2s;
+        }
+        .menu .has-submenu.open > a:after {
+            transform: rotate(-180deg);
+        }
+        .menu .has-submenu.open .submenu {
+            display: flex;
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f7c873;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var showAgents = document.getElementById('show-agents');
+            if (showAgents) {
+                showAgents.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var agentsTable = document.getElementById('agents-table');
+                    if (agentsTable) {
+                        agentsTable.style.display = 'block';
+                        document.getElementById('main-content').innerHTML = agentsTable.outerHTML;
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <nav class="menu">
+            <ul>
+                <li><a href="http://localhost:8000">Home</a></li>
+                <li><a href="http://localhost:9000" target="_blank">Controller</a></li>
+                <li><a href="http://localhost:8500" target="_blank">Consul</a></li>
+                <li><a href="#" id="show-agents">Agents</a></li>
+                <li><a href="http://localhost:5006" target="_blank">Search Service</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content" id="main-content">
+        <div id="agents-table" style="display:none;">
+            <h1>Connected Agents</h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address:Port</th>
+                    <th>Source</th>
+                    <th>Health</th>
+                    <th>Requirements</th>
+                </tr>
+                {% for agent in agents %}
+                <tr>
+                    <td>{{ agent.ID[:5] }}</td>
+                    <td>
+                        {% set url = None %}
+                        {% if agent.Name.lower().startswith('traffic') %}
+                            {% set url = 'http://localhost:5000' %}
+                        {% elif agent.Name.lower().startswith('co2') %}
+                            {% set url = 'http://localhost:5001' %}
+                        {% elif agent.Name.lower().startswith('noise') %}
+                            {% set url = 'http://localhost:5002' %}
+                        {% elif agent.Name.lower().startswith('humidity') %}
+                            {% set url = 'http://localhost:5003' %}
+                        {% elif agent.Name.lower().startswith('temperature') %}
+                            {% set url = 'http://localhost:5004' %}
+                        {% endif %}
+                        {% if url %}
+                            <a href="{{ url }}" target="_blank">{{ agent.Name }}</a>
+                        {% else %}
+                            {{ agent.Name }}
+                        {% endif %}
+                    </td>
+                    <td>{{ agent.Address }}:{{ agent.Port }}</td>
+                    <td>{{ agent.Location }}</td>
+                    <td>{{ agent.Health }}</td>
+                    <td>{{ agent.Requirements }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p>
+                <a href="/intelligence">Export Intelligence JSON</a> |
+                <a href="/data/export/csv">Export Intelligence CSV</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+services:
+  # ──────────────── Consul ────────────────
+  consul:
+    image: hashicorp/consul:1.21
+    container_name: consul
+    hostname: consul
+    ports:
+      - "8500:8500"
+    command: "agent -dev -client=0.0.0.0"
+    networks:
+      - appnet
+    restart: unless-stopped
+
+  # ──────────────── Dashboard (Central App) ────────────────
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard.dockerfile
+    container_name: dashboard
+    hostname: dashboard
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data           # keep for exports/data needs
+      - ./central_app.db:/app/central_app.db  # optional: persist the SQLite database file
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+    restart: unless-stopped
+
+  # ──────────────── Controller ────────────────
+  controller:
+    build:
+      context: .
+      dockerfile: controller/controller.dockerfile
+    container_name: controller
+    hostname: controller
+    volumes:
+      - ./controller:/app
+    working_dir: /app
+    command: python controller.py
+    ports:
+      - "9000:9000"
+    networks:
+      - appnet
+    restart: unless-stopped
+
+  # ──────────────── Agent 1 ────────────────
+ 
+  traffic_agent:
+    build:
+      context: .
+      dockerfile: Dockerfiles/traffic_agent.dockerfile
+    container_name: traffic_agent
+    hostname: traffic_agent
+    environment:
+      - AGENT_HOSTNAME=traffic_agent
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./agents/traffic_agent:/app/agents/traffic_agent 
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+     
+
+
+  # ──────────────── Agent 2 ────────────────
+  co2_agent:
+    build:
+      context: .
+      dockerfile: Dockerfiles/co2_agent.dockerfile
+    container_name: co2_agent
+    hostname: co2_agent
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./agents/co2_agent:/app/agents/co2_agent 
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+
+  # ──────────────── Agent 3 ────────────────
+  noise_agent:
+    build:
+      context: .
+      dockerfile: Dockerfiles/noise_agent.dockerfile
+    container_name: noise_agent
+    hostname: noise_agent
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./agents/noise_agent:/app/agents/noise_agent 
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+
+
+  # ──────────────── Agent 4 ────────────────
+  humidity_agent:
+    build:
+      context: .
+      dockerfile: Dockerfiles/humidity_agent.dockerfile
+    container_name: humidity_agent
+    hostname: humidity_agent
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./agents/humidity_agent:/app/agents/humidity_agent 
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+  # ──────────────── Agent 5 ────────────────
+  temperature_agent:
+    build:
+      context: .
+      dockerfile: Dockerfiles/temperature_agent.dockerfile
+    container_name: temperature_agent
+    hostname: temperature_agent
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./agents/temperature_agent:/app/agents/temperature_agent 
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+  # ──────────────── Search Service ────────────────
+  
+  search_service:
+    build:
+      context: .
+      dockerfile: search_service/search.dockerfile
+    container_name: search_service
+    hostname: search_service
+    ports:
+      - "5006:5006"
+    volumes:
+      - ./data:/data 
+      - ./search_service:/app
+    working_dir: /app
+    command: python search.py
+    networks:
+      - appnet
+    depends_on:
+      - controller
+      - consul
+      - dashboard
+    restart: unless-stopped
+
+networks:
+  appnet:
+    driver: bridge
+

@@ -1,0 +1,12 @@
+{
+  "agent_id": "",
+  "name": "traffic_agent",
+  "value": "NA",
+  "unit": "%",
+  "average_vehicle_count": "NA",
+  "max_vehicle_count": "NA",
+  "min_vehicle_count": "NA",
+  "last_updated": "2026-05-20T10:23:06.726801",
+  "url": 5000,
+  "status": "NA"
+}

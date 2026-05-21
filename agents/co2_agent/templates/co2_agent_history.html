@@ -1,0 +1,28 @@
+{% extends "co2_agent_base.html" %}
+{% block content %}
+<h2>CO2 Agent Data History</h2>
+{% if tables %}
+  {% for table in tables %}
+    <table style="width:100%;border-collapse:collapse;margin-bottom:30px;">
+      <thead>
+        <tr>
+          {% for col in table.columns %}
+            <th style="border:1px solid #ccc;padding:6px;background:#f7c873;">{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in table.rows %}
+          <tr>
+            {% for col in table.columns %}
+              <td style="border:1px solid #ccc;padding:6px;">{{ row.get(col, '') }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+{% else %}
+  <p>No data available.</p>
+{% endif %}
+{% endblock %}

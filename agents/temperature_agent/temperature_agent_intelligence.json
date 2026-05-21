@@ -1,0 +1,12 @@
+{
+  "agent_id": "",
+  "name": "temperature_agent",
+  "value": 24.36,
+  "unit": "\u00b0C",
+  "average_temperature": 24.36,
+  "max_temperature": 24.36,
+  "min_temperature": 24.36,
+  "last_updated": "2026-05-20T10:23:06.689617",
+  "url": null,
+  "status": "Healthy"
+}

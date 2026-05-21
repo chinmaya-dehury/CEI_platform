@@ -1,0 +1,13 @@
+{
+  "agent_id": "",
+  "name": "noise_agent",
+  "value": "Low",
+  "unit": "dB",
+  "average_noise": 105.98,
+  "max_noise": 105.98,
+  "min_noise": 105.98,
+  "data_point_count": 1,
+  "last_updated": "2026-05-20T10:23:06.659257",
+  "url": 5002,
+  "status": "Healthy"
+}

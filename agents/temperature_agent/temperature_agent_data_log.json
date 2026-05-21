@@ -1,0 +1,192 @@
+[
+  {
+    "timestamp": "2025-07-28T11:57:36.698414",
+    "temperature": 25.76,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-08-16T07:14:30.007273",
+    "temperature": 39.16,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-08-16T07:23:23.797387",
+    "temperature": 26.16,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-08-16T07:32:55.350118",
+    "temperature": 34.61,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-08-17T05:06:40.023228",
+    "temperature": 25.75,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-08-17T05:17:57.033513",
+    "temperature": 18.31,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-08-17T05:39:42.144337",
+    "temperature": 27.48,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-08-17T05:47:44.235282",
+    "temperature": 32.46,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-08-17T11:33:12.137879",
+    "temperature": 22.85,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-08-17T11:35:39.972764",
+    "temperature": 34.43,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-09-01T12:05:17.188340",
+    "temperature": 21.31,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-09-01T12:13:32.771438",
+    "temperature": 20.01,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-09-02T09:56:25.881405",
+    "temperature": 10.28,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-09-02T09:59:22.465097",
+    "temperature": 15.62,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-09-02T10:01:18.496866",
+    "temperature": 37.75,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-09-02T10:23:38.333358",
+    "temperature": 13.05,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-09-02T17:06:02.090393",
+    "temperature": 17.01,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-09-03T04:51:27.515718",
+    "temperature": 23.34,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-09-03T12:01:12.911708",
+    "temperature": 11.9,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-09-03T12:13:23.008092",
+    "temperature": 38.93,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-12-22T15:13:12.500551",
+    "temperature": 31.52,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-22T17:22:57.874984",
+    "temperature": 27.87,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-22T17:45:13.923766",
+    "temperature": 14.53,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-22T17:47:13.293928",
+    "temperature": 20.94,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T06:01:52.583018",
+    "temperature": 21.54,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T06:29:40.827480",
+    "temperature": 22.24,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T06:42:40.049279",
+    "temperature": 27.29,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2025-12-23T07:24:46.832460",
+    "temperature": 38.48,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-12-23T08:25:38.389115",
+    "temperature": 24.37,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2025-12-23T08:31:16.989854",
+    "temperature": 27.51,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T08:37:23.865000",
+    "temperature": 20.07,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2025-12-23T08:39:18.133920",
+    "temperature": 10.21,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-18T04:40:34.936238",
+    "temperature": 15.88,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-20T04:43:40.383774",
+    "temperature": 11.45,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-20T09:58:54.773718",
+    "temperature": 37.57,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-20T10:18:40.670920",
+    "temperature": 24.36,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-20T10:27:17.464393",
+    "temperature": 27.01,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-20T10:33:01.626407",
+    "temperature": 19.32,
+    "status": "Elevated"
+  }
+]

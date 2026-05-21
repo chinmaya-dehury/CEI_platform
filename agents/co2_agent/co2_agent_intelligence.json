@@ -1,0 +1,12 @@
+{
+  "agent_id": "",
+  "name": "co2_agent",
+  "value": "Moderate",
+  "unit": "ppm",
+  "average_co2_level": 594.57,
+  "max_co2_level": 673.84,
+  "min_co2_level": 515.3,
+  "last_updated": "2026-05-20T10:23:06.587001",
+  "url": 5001,
+  "status": "Healthy"
+}

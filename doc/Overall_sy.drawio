@@ -1,0 +1,160 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="2bi3LV0N5xY3qcntG5ps">
+    <mxGraphModel dx="1428" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-5" value="Give Avg CO2 of local XYZ in last 1hr.&amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Mlepfucc1mYTzwGkjZDK-2" target="Mlepfucc1mYTzwGkjZDK-3" edge="1">
+          <mxGeometry x="-0.1045" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-2" value="USer" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="350" width="50" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-3" value="Some middleware" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="305" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="Mlepfucc1mYTzwGkjZDK-4" target="Mlepfucc1mYTzwGkjZDK-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-4" value="CO2_Agent" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="571" y="345" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="Mlepfucc1mYTzwGkjZDK-7" target="Mlepfucc1mYTzwGkjZDK-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-7" value="humidity_Agent" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="571" y="415" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-8" value="Temp&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;_Agent&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="571" y="485" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="Mlepfucc1mYTzwGkjZDK-9" target="Mlepfucc1mYTzwGkjZDK-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-9" value="TrafficFlow&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;_Agent&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="571" y="555" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.983;entryY=0.367;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Mlepfucc1mYTzwGkjZDK-8" target="Mlepfucc1mYTzwGkjZDK-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-14" value="- Talk to Consul&lt;div&gt;- Get list of Agents (URL)&lt;/div&gt;&lt;div&gt;- Compile the list of capabilities from their &lt;b&gt;/capabilities&lt;/b&gt; endpoint&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="70" y="540" width="400" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Mlepfucc1mYTzwGkjZDK-15" value="- Run as a Flask web app&lt;div&gt;- Get list of Agents (URL)&lt;br&gt;&lt;div&gt;- Expose &lt;b&gt;/req&lt;/b&gt;&amp;nbsp;(requirement) endpoint&lt;/div&gt;&lt;div&gt;- Expose &lt;b&gt;/cap&lt;/b&gt; (capabilities) endpoint (complete list of capabilities of all agents registered with Consul)&lt;br&gt;&lt;div&gt;- Get the requirement from User. User will refer &lt;b&gt;/req&lt;/b&gt; endpoint for his/her query&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="70" y="640" width="400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-1" value="CO2_Agent" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=18;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="50" y="790" width="710" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.018;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-3" target="vVtMvJslRY4RqWRJ2qOC-19" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-3" value="Intelligence-101.py&lt;div&gt;&lt;ul style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;&lt;li&gt;inteligence-1()&lt;/li&gt;&lt;li&gt;inteligence-2()&lt;/li&gt;&lt;li&gt;inteligence-3()&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;size=20;verticalAlign=bottom;spacing=0;spacingBottom=-7;fontColor=#0000CC;" parent="1" vertex="1">
+          <mxGeometry x="220" y="850" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-15" value="Intelligence-201.py&lt;div&gt;&lt;ul style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;&lt;li&gt;inteligence-1()&lt;/li&gt;&lt;li&gt;inteligence-2()&lt;/li&gt;&lt;li&gt;inteligence-3()&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;size=20;verticalAlign=bottom;spacing=0;spacingBottom=-7;fontColor=#0000CC;" parent="1" vertex="1">
+          <mxGeometry x="220" y="970" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-15" target="vVtMvJslRY4RqWRJ2qOC-19" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410.99" y="898.01" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="390" y="1000" />
+              <mxPoint x="390" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-19" target="vVtMvJslRY4RqWRJ2qOC-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-19" value="intelligence.json&lt;div&gt;&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;{&lt;/span&gt;&lt;div style=&quot;text-wrap-mode: wrap;&quot;&gt;...&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: wrap;&quot;&gt;...&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: wrap;&quot;&gt;...&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: wrap;&quot;&gt;}&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="420" y="880" width="110" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.611;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-20" target="vVtMvJslRY4RqWRJ2qOC-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="626" y="985" />
+              <mxPoint x="650" y="985" />
+              <mxPoint x="650" y="981" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-20" value="expose_inetlligence.py&lt;div&gt;(localhost:port)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="561" y="895" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-22" value="Data" style="image;html=1;image=img/lib/clip_art/computers/Data_Filtering_128x128.png;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="90" y="905" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.015;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-22" target="vVtMvJslRY4RqWRJ2qOC-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.517;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-22" target="vVtMvJslRY4RqWRJ2qOC-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-25" value="Requiremnts.py" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="1090" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PqnpmxmaVgLtCyjOzANq-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="vVtMvJslRY4RqWRJ2qOC-26" target="PqnpmxmaVgLtCyjOzANq-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-26" value="Web Server/app" style="rounded=1;whiteSpace=wrap;html=1;horizontal=0;" parent="1" vertex="1">
+          <mxGeometry x="710" y="794" width="40" height="306" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-25" target="vVtMvJslRY4RqWRJ2qOC-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-31" value="to get its UUID" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-29" target="vVtMvJslRY4RqWRJ2qOC-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-29" target="vVtMvJslRY4RqWRJ2qOC-32" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-29" value="Registration.py" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="1130" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-30" value="Controller" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="840" y="1130" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-32" value="Consul" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="840" y="1180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-34" value="Metadata" style="verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.data2;spacing=0;spacingBottom=50;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1137.5" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-35" target="vVtMvJslRY4RqWRJ2qOC-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-35" target="vVtMvJslRY4RqWRJ2qOC-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-35" target="vVtMvJslRY4RqWRJ2qOC-34" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vVtMvJslRY4RqWRJ2qOC-35" target="vVtMvJslRY4RqWRJ2qOC-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="354" y="1090" />
+              <mxPoint x="105" y="1090" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vVtMvJslRY4RqWRJ2qOC-35" value="Agent&#39;s brain&lt;div&gt;(e.g. CO2_agent.py&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="shape=mxgraph.signs.healthcare.brain;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="305" y="1125" width="98" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="PqnpmxmaVgLtCyjOzANq-4" value="&lt;b&gt;Search.py&lt;/b&gt;&lt;div&gt;- Requirement.py will send very specific requirement (e.g. CO2_max) to search.py&lt;/div&gt;&lt;div&gt;- Search.py will go through all the intelligence and will return:&lt;br&gt;&amp;nbsp; &amp;nbsp;&amp;gt; intelligence value&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;gt; source Agent ID&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;gt; Soruce agent url&lt;/div&gt;&lt;div&gt;- This will return no such inteligence availbale, in case of its unavaibility.&amp;nbsp;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1280" width="380" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="PqnpmxmaVgLtCyjOzANq-5" value="Main App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="860" y="890" width="120" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="PqnpmxmaVgLtCyjOzANq-6" value="Search.py" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="1010" width="100" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

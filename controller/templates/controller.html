@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Controller</title>
+    <style>
+        :root {
+            --sidebar: #222e3c;
+            --sidebar-hover: #31415a;
+            --accent: #f7c873;
+            --blue: #1e5aa8;
+            --border: #d8dee8;
+            --surface: #ffffff;
+            --page: #f5f7fb;
+            --text: #202733;
+            --muted: #596579;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--page);
+            color: var(--text);
+        }
+        .layout {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+        }
+        .sidebar {
+            background: var(--sidebar);
+            color: #fff;
+            padding: 22px 16px;
+        }
+        .sidebar h1 {
+            color: var(--accent);
+            font-size: 20px;
+            margin: 0 0 22px;
+        }
+        .sidebar a {
+            color: #fff;
+            display: block;
+            padding: 10px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .sidebar a:hover { background: var(--sidebar-hover); }
+        main { padding: 28px; }
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+        h2 {
+            margin: 0 0 16px;
+            font-size: 20px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 14px 18px;
+        }
+        label {
+            display: grid;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        input {
+            border: 1px solid #b9c3d3;
+            border-radius: 4px;
+            padding: 10px;
+            font: inherit;
+        }
+        button {
+            align-self: end;
+            border: 0;
+            border-radius: 4px;
+            padding: 11px 16px;
+            background: var(--blue);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .result {
+            display: none;
+            border-left: 4px solid var(--blue);
+            background: #eef5ff;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 9px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: var(--accent); }
+        code {
+            background: #eef1f5;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        @media (max-width: 760px) {
+            .layout { grid-template-columns: 1fr; }
+            form { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1>Controller</h1>
+            <a href="http://localhost:8000">Dashboard</a>
+            <a href="http://localhost:8500" target="_blank">Consul</a>
+            <a href="http://localhost:5006" target="_blank">Search Service</a>
+            <a href="#" data-endpoint="/registrations" target="_blank">Registrations JSON</a>
+        </aside>
+
+        <main>
+            <section class="panel">
+                <h2>Register Agent</h2>
+                <div class="result" id="result-box"></div>
+                <form id="register-form">
+                    <label>Agent Name <input name="agent_name" placeholder="co2_agent" required></label>
+                    <label>Sensor Type <input name="sensor_type" placeholder="co2"></label>
+                    <label>Location <input name="location" placeholder="Building A"></label>
+                    <label>Unit <input name="unit" placeholder="ppm"></label>
+                    <label>Frequency <input name="frequency" placeholder="5s"></label>
+                    <label>Data Name <input name="data_name" placeholder="co2_level"></label>
+                    <button type="submit">Register</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Registered Agents</h2>
+                <div id="registrations-table">Loading registrations...</div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:9000' : '';
+
+        function apiUrl(endpoint) {
+            return API_BASE + endpoint;
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderRegistrations(items) {
+            if (!items.length) {
+                return '<p>No registered agents yet.</p>';
+            }
+
+            let html = '<table><thead><tr>';
+            html += '<th>UUID</th><th>Agent</th><th>Sensor</th><th>Location</th><th>Unit</th><th>Frequency</th><th>Registered At</th>';
+            html += '</tr></thead><tbody>';
+            items.forEach(item => {
+                html += '<tr>';
+                html += '<td><code>' + escapeHtml(item.uuid || '') + '</code></td>';
+                html += '<td>' + escapeHtml(item.agent_name || '') + '</td>';
+                html += '<td>' + escapeHtml(item.sensor_type || '') + '</td>';
+                html += '<td>' + escapeHtml(item.location || '') + '</td>';
+                html += '<td>' + escapeHtml(item.unit || '') + '</td>';
+                html += '<td>' + escapeHtml(item.frequency || '') + '</td>';
+                html += '<td>' + escapeHtml(item.registered_at || '') + '</td>';
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function loadRegistrations() {
+            fetch(apiUrl('/registrations'))
+                .then(response => response.json())
+                .then(items => {
+                    document.getElementById('registrations-table').innerHTML = renderRegistrations(items);
+                })
+                .catch(error => {
+                    document.getElementById('registrations-table').innerHTML = '<pre>' + escapeHtml(error) + '</pre>';
+                });
+        }
+
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const data = Object.fromEntries(new FormData(event.target).entries());
+
+            fetch(apiUrl('/register'), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    const registration = result.registration || {};
+                    const box = document.getElementById('result-box');
+                    box.innerHTML = 'Registered <strong>' + escapeHtml(registration.agent_name || '') +
+                        '</strong> with UUID <code>' + escapeHtml(registration.uuid || '') + '</code>.';
+                    box.style.display = 'block';
+                    event.target.reset();
+                    loadRegistrations();
+                });
+        });
+
+        document.querySelectorAll('[data-endpoint]').forEach(link => {
+            link.href = apiUrl(link.getAttribute('data-endpoint'));
+        });
+
+        loadRegistrations();
+    </script>
+</body>
+</html>

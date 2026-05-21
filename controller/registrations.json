@@ -1,0 +1,21 @@
+[
+  {
+    "uuid": "fd4f5367-019f-461a-af20-58393672e0e4",
+    "agent_name": "co2_agent",
+    "sensor_type": "CO2 Sensor",
+    "location": "Zone B",
+    "unit": "ppm",
+    "frequency": "Every 10 seconds",
+    "data_name": "co2_level",
+    "registered_at": "2026-05-20T10:33:07.543754",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "CO2 Sensor",
+      "frequency": "Every 10 seconds",
+      "unit": "ppm",
+      "location": "Zone B",
+      "data_name": "co2_level",
+      "agent_name": "co2_agent"
+    }
+  }
+]
