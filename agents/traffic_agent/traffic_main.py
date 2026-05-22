@@ -1,54 +1,73 @@
+import os
 import uuid
+import importlib
 
 from flask import Flask, jsonify
-
-from agents.traffic_agent.intel_definitions.traffic_alert import detect_traffic_congestion
-
-from agents.traffic_agent.intel_definitions.traffic_trend import analyze_traffic_trend
-
-from agents.traffic_agent.intel_definitions.calculate_average_traffic import calculate_average_traffic
-
-from agents.traffic_agent.intel_definitions.classify_traffic_level import classify_traffic_level
 
 
 app = Flask(__name__)
 
 
-intelligence_registry = [
+INTELLIGENCE_FOLDER = "agents.traffic_agent.intel_definitions"
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Traffic Congestion Intelligence",
-        "description": "Detects heavy traffic congestion",
-        "category": "transport",
-        "intelligence_data" : detect_traffic_congestion(80)  # Example value for traffic density    
-    },
+FOLDER_PATH = "agents/traffic_agent/intel_definitions"
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Traffic Trend Intelligence",
-        "description": "Analyzes long term traffic trends",
-        "category": "analytics",
-        "intelligence_data" : analyze_traffic_trend([50, 60, 70, 80])  # Example traffic data
-    },
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Traffic Average Analysis",
-        "description": "Calculates average traffic density",
-        "category": "statistics",
-        "intelligence_data" : calculate_average_traffic([50, 60, 70, 80])  # Example traffic data
-    },
+intelligence_registry = []
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Traffic Level Classification",
-        "description": "Classifies road traffic conditions",
-        "category": "transport",
-        "intelligence_data" : classify_traffic_level(80)  # Example value for traffic density
-    }
 
-]
+def load_intelligences():
+
+    for file in os.listdir(FOLDER_PATH):
+
+        if file.endswith(".py") and file != "__init__.py":
+
+            module_name = file[:-3]
+
+            full_module = f"{INTELLIGENCE_FOLDER}.{module_name}"
+
+            module = importlib.import_module(full_module)
+
+            if hasattr(module, "INTELLIGENCE_INFO"):
+
+                info = module.INTELLIGENCE_INFO.copy()
+
+                function_name = info["function_name"]
+
+                sample_data = info["sample_data"]
+
+                intelligence_function = getattr(
+                    module,
+                    function_name
+                )
+
+                intelligence_output = intelligence_function(
+                    sample_data
+                )
+
+                registry_item = {
+
+                    "intelligence_id": str(uuid.uuid4()),
+
+                    "intelligence_name":
+                        info["intelligence_name"],
+
+                    "description":
+                        info["description"],
+
+                    "category":
+                        info["category"],
+
+                    "intelligence_data":
+                        intelligence_output
+                }
+
+                intelligence_registry.append(
+                    registry_item
+                )
+
+
+load_intelligences()
 
 
 @app.route("/intelligence", methods=["GET"])

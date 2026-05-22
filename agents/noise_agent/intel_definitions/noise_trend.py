@@ -19,5 +19,20 @@ def analyze_noise_trend(noise_data):
         trend = "Stable"
 
     return {
+        "status": "success",
         "trend": trend
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Noise Trend Intelligence",
+
+    "description": "Analyzes environmental noise trends",
+
+    "category": "analytics",
+
+    "function_name": "analyze_noise_trend",
+
+    "sample_data": [40, 50, 65, 80]
+}

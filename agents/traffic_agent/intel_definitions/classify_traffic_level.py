@@ -19,3 +19,17 @@ def classify_traffic_level(traffic_value):
     return {
         "traffic_level": level
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Traffic Level Classification",
+
+    "description": "Classifies road traffic conditions",
+
+    "category": "transport",
+
+    "function_name": "classify_traffic_level",
+
+    "sample_data": 90
+}

@@ -12,3 +12,17 @@ def detect_abnormal_temperature(temperature_value):
     return {
         "status": "normal"
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Temperature Alert Intelligence",
+
+    "description": "Detects abnormal temperature increase",
+
+    "category": "environment",
+
+    "function_name": "detect_abnormal_temperature",
+
+    "sample_data": 45
+}

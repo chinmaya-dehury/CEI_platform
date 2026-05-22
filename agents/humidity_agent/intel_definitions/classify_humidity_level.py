@@ -8,15 +8,24 @@ def classify_humidity_level(humidity_value):
 
         level = "Comfortable"
 
-    elif humidity_value < 80:
+    else:
 
         level = "Humid"
 
-    else:
-
-        level = "Very Humid"
-
     return {
-        "status": "success",
         "humidity_level": level
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Humidity Level Classification",
+
+    "description": "Classifies humidity conditions",
+
+    "category": "environment",
+
+    "function_name": "classify_humidity_level",
+
+    "sample_data": 75
+}

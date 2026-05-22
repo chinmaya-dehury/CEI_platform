@@ -12,3 +12,17 @@ def calculate_average_temperature(temperature_data):
     return {
         "average_temperature": round(average, 2)
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Temperature Average Analysis",
+
+    "description": "Calculates average temperature values",
+
+    "category": "statistics",
+
+    "function_name": "calculate_average_temperature",
+
+    "sample_data": [25, 28, 30, 35]
+}

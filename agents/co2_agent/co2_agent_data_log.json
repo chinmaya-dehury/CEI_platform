@@ -220,5 +220,35 @@
     "timestamp": "2026-05-22T08:37:18.481781",
     "co2_level": 310.25,
     "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-22T09:28:29.463964",
+    "co2_level": 465.0,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-22T09:28:40.680925",
+    "co2_level": 491.65,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-22T09:38:32.155390",
+    "co2_level": 452.08,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-22T09:38:46.698893",
+    "co2_level": 468.55,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-22T09:56:38.738953",
+    "co2_level": 476.0,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-22T09:56:59.659037",
+    "co2_level": 491.33,
+    "co2_status": "High"
   }
 ]

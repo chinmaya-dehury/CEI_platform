@@ -21,3 +21,17 @@ def analyze_temperature_trend(temperature_data):
     return {
         "trend": trend
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Temperature Trend Intelligence",
+
+    "description": "Analyzes temperature trends",
+
+    "category": "analytics",
+
+    "function_name": "analyze_temperature_trend",
+
+    "sample_data": [25, 28, 30, 35]
+}

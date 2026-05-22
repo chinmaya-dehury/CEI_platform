@@ -1,54 +1,73 @@
+import os
 import uuid
+import importlib
 
 from flask import Flask, jsonify
-
-from agents.co2_agent.intel_definitions.pollution_alert import detect_abnormal_co2
-
-from agents.co2_agent.intel_definitions.carbon_trend import analyze_carbon_trend
-
-from agents.co2_agent.intel_definitions.calculate_average_co2 import calculate_average_co2
-
-from agents.co2_agent.intel_definitions.detect_air_quality_level import detect_air_quality_level
 
 
 app = Flask(__name__)
 
 
-intelligence_registry = [
+INTELLIGENCE_FOLDER = "agents.co2_agent.intel_definitions"
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Pollution Alert Intelligence",
-        "description": "Detects abnormal CO2 increase",
-        "category": "environment",
-        "intelligence_data" : detect_abnormal_co2(850)  # Example value f
-    },
+FOLDER_PATH = "agents/co2_agent/intel_definitions"
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Carbon Trend Intelligence",
-        "description": "Analyzes long term CO2 trends",
-        "category": "analytics",
-        "intelligence_data" : analyze_carbon_trend([400, 420, 450, 480, 500])  # Example values
-    },
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "CO2 Average Analysis",
-        "description": "Calculates average CO2 levels from collected data",
-        "category": "statistics",
-        "intelligence_data": calculate_average_co2([400, 420, 450, 480, 500])  # Example values
-    },
+intelligence_registry = []
 
-    {
-        "intelligence_id": str(uuid.uuid4()),
-        "intelligence_name": "Air Quality Classification Intelligence",
-        "description": "Classifies air quality based on CO2 concentration",
-        "category": "environment",
-        "intelligence_data": detect_air_quality_level(850)  # Example value
-    }
 
-]
+def load_intelligences():
+
+    for file in os.listdir(FOLDER_PATH):
+
+        if file.endswith(".py") and file != "__init__.py":
+
+            module_name = file[:-3]
+
+            full_module = f"{INTELLIGENCE_FOLDER}.{module_name}"
+
+            module = importlib.import_module(full_module)
+
+            if hasattr(module, "INTELLIGENCE_INFO"):
+
+                info = module.INTELLIGENCE_INFO.copy()
+
+                function_name = info["function_name"]
+
+                sample_data = info["sample_data"]
+
+                intelligence_function = getattr(
+                    module,
+                    function_name
+                )
+
+                intelligence_output = intelligence_function(
+                    sample_data
+                )
+
+                registry_item = {
+
+                    "intelligence_id": str(uuid.uuid4()),
+
+                    "intelligence_name":
+                        info["intelligence_name"],
+
+                    "description":
+                        info["description"],
+
+                    "category":
+                        info["category"],
+
+                    "intelligence_data":
+                        intelligence_output
+                }
+
+                intelligence_registry.append(
+                    registry_item
+                )
+
+
+load_intelligences()
 
 
 @app.route("/intelligence", methods=["GET"])

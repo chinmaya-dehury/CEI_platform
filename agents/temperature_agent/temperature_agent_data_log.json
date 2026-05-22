@@ -293,5 +293,20 @@
     "timestamp": "2026-05-22T08:37:03.283733",
     "temperature": 15.31,
     "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T09:28:29.317311",
+    "temperature": 16.91,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T09:38:32.488074",
+    "temperature": 35.33,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-22T09:56:39.166699",
+    "temperature": 34.15,
+    "status": "Elevated"
   }
 ]

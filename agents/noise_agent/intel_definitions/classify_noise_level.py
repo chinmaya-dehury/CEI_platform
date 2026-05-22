@@ -19,3 +19,17 @@ def classify_noise_level(noise_value):
     return {
         "noise_level": level
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Noise Level Classification",
+
+    "description": "Classifies environmental noise conditions",
+
+    "category": "environment",
+
+    "function_name": "classify_noise_level",
+
+    "sample_data": 95
+}

@@ -21,3 +21,17 @@ def analyze_traffic_trend(traffic_data):
     return {
         "trend": trend
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Traffic Trend Intelligence",
+
+    "description": "Analyzes traffic congestion trends",
+
+    "category": "analytics",
+
+    "function_name": "analyze_traffic_trend",
+
+    "sample_data": [20, 35, 50, 70]
+}

@@ -19,3 +19,17 @@ def classify_temperature_level(temperature_value):
     return {
         "temperature_level": level
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Temperature Level Classification",
+
+    "description": "Classifies environmental temperature conditions",
+
+    "category": "environment",
+
+    "function_name": "classify_temperature_level",
+
+    "sample_data": 45
+}

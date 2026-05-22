@@ -17,5 +17,25 @@ def detect_air_quality_level(co2_value):
         quality = "Hazardous"
 
     return {
+        "status": "success",
         "air_quality": quality
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name":
+        "Air Quality Classification Intelligence",
+
+    "description":
+        "Classifies air quality based on CO2 concentration",
+
+    "category":
+        "environment",
+
+    "function_name":
+        "detect_air_quality_level",
+
+    "sample_data":
+        850
+}

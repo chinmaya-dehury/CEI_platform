@@ -12,3 +12,17 @@ def detect_abnormal_noise(noise_value):
     return {
         "status": "normal"
     }
+
+
+INTELLIGENCE_INFO = {
+
+    "intelligence_name": "Noise Alert Intelligence",
+
+    "description": "Detects abnormal noise levels",
+
+    "category": "environment",
+
+    "function_name": "detect_abnormal_noise",
+
+    "sample_data": 95
+}
