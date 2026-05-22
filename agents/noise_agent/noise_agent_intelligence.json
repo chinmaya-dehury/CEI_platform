@@ -1,27 +1,13 @@
 {
-<<<<<<< HEAD
-  "agent_id": "",
+  "agent_id": "30f019dc-d8ff-45a5-a046-e914e150b5da",
   "name": "noise_agent",
-  "value": "Low",
+  "value": "Moderate",
   "unit": "dB",
-  "average_noise": 105.98,
-  "max_noise": 105.98,
-  "min_noise": 105.98,
+  "average_noise": 68.63,
+  "max_noise": 68.63,
+  "min_noise": 68.63,
   "data_point_count": 1,
-  "last_updated": "2026-05-20T10:23:06.659257",
+  "last_updated": "2026-05-21T16:28:38.646654",
   "url": 5002,
   "status": "Healthy"
-=======
-  "agent_id": "083f6e1e-3740-408e-9fe4-b62207045cef",
-  "name": "noise_agent",
-  "value": "NA",
-  "unit": "dB",
-  "average_noise": "NA",
-  "max_noise": "NA",
-  "min_noise": "NA",
-  "data_point_count": "NA",
-  "last_updated": "2025-12-23T06:48:08.095185",
-  "url": 5002,
-  "status": "NA"
->>>>>>> origin/main
 }

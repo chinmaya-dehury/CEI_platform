@@ -68,7 +68,30 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
+
+  # ────────────────traffic agent (Intelligence Service) ────────────────
      
+  traffic_intelligence_service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/traffic_agent.dockerfile
+
+    container_name: traffic_intelligence_service
+
+    hostname: traffic_intelligence_service
+
+    command: python agents/traffic_agent/traffic_main.py
+
+    ports:
+      - "5014:5014"
+
+    networks:
+      - appnet
+
+    depends_on:
+      - dashboard
+
+    restart: unless-stopped
 
 
   # ──────────────── Agent 2 ────────────────
@@ -90,6 +113,29 @@ services:
       - dashboard
     restart: unless-stopped
 
+# ─────────────── co2 (Intelligence Service) ────────────────
+  co2_intelligence_service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/co2_agent.dockerfile
+
+    container_name: co2_intelligence_service
+
+    hostname: co2_intelligence_service
+
+    command: python agents/co2_agent/co2_main.py
+
+    ports:
+      - "5010:5010"
+
+    networks:
+      - appnet
+
+    depends_on:
+      - dashboard
+
+    restart: unless-stopped
+
   # ──────────────── Agent 3 ────────────────
   noise_agent:
     build:
@@ -107,6 +153,29 @@ services:
       - controller
       - consul
       - dashboard
+    restart: unless-stopped
+
+  # ──────────────── Noise agent (Intelligence Service) ────────────────
+  noise_intelligence_service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/noise_agent.dockerfile
+
+    container_name: noise_intelligence_service
+
+    hostname: noise_intelligence_service
+
+    command: python agents/noise_agent/noise_main.py
+
+    ports:
+      - "5012:5012"
+
+    networks:
+      - appnet
+
+    depends_on:
+      - dashboard
+
     restart: unless-stopped
 
 
@@ -128,6 +197,29 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
+
+  # ─────────────── humidity agent (Intelligence Service) ────────────────
+  humidity_intelligence_service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/humidity_agent.dockerfile
+
+    container_name: humidity_intelligence_service
+
+    hostname: humidity_intelligence_service
+
+    command: python agents/humidity_agent/humidity_main.py
+
+    ports:
+      - "5011:5011"
+
+    networks:
+      - appnet
+
+    depends_on:
+      - dashboard
+
+    restart: unless-stopped
   # ──────────────── Agent 5 ────────────────
   temperature_agent:
     build:
@@ -146,6 +238,30 @@ services:
       - consul
       - dashboard
     restart: unless-stopped
+
+  # ──────────────── temperature agent (Intelligence Service) ────────────────
+  temperature_intelligence_service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/temperature_agent.dockerfile
+
+    container_name: temperature_intelligence_service
+
+    hostname: temperature_intelligence_service
+
+    command: python agents/temperature_agent/temperature_main.py
+
+    ports:
+      - "5013:5013"
+
+    networks:
+      - appnet
+
+    depends_on:
+      - dashboard
+
+    restart: unless-stopped
+
   # ──────────────── Search Service ────────────────
   
   search_service:
@@ -172,4 +288,3 @@ services:
 networks:
   appnet:
     driver: bridge
-

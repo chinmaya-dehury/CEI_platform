@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
     "uuid": "fd4f5367-019f-461a-af20-58393672e0e4",
-=======
-    "uuid": "b33f2df3-6220-423c-b03a-c53e7e6d1078",
->>>>>>> origin/main
     "sensor_type": "CO2 Sensor",
     "frequency": "Every 10 seconds",
     "unit": "ppm",

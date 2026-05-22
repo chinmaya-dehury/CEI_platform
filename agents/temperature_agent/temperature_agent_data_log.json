@@ -188,5 +188,110 @@
     "timestamp": "2026-05-20T10:33:01.626407",
     "temperature": 19.32,
     "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T08:55:26.593800",
+    "temperature": 23.65,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T09:54:10.782262",
+    "temperature": 22.04,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T10:11:05.682158",
+    "temperature": 31.92,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-21T10:18:55.961852",
+    "temperature": 32.14,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-21T10:28:10.666722",
+    "temperature": 33.91,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T10:30:22.463643",
+    "temperature": 25.49,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T10:40:11.645272",
+    "temperature": 20.35,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T10:44:33.137746",
+    "temperature": 35.19,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T16:15:17.232405",
+    "temperature": 24.01,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T16:17:58.850595",
+    "temperature": 30.62,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T16:21:59.392690",
+    "temperature": 37.67,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-21T16:28:18.575266",
+    "temperature": 29.73,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T04:35:52.259775",
+    "temperature": 26.0,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-22T04:41:34.974960",
+    "temperature": 24.18,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T04:50:13.371754",
+    "temperature": 21.97,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-22T04:59:26.415365",
+    "temperature": 15.76,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-05-22T05:46:30.802770",
+    "temperature": 36.92,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T05:49:13.421752",
+    "temperature": 16.54,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T06:22:05.462256",
+    "temperature": 22.41,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-05-22T08:33:46.211163",
+    "temperature": 24.86,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-05-22T08:37:03.283733",
+    "temperature": 15.31,
+    "status": "Critical"
   }
 ]

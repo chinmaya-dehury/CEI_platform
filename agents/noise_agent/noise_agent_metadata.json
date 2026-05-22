@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-    "uuid": "ec8f7c5b-74a1-4354-be1c-56b82100fd15",
-=======
-    "uuid": "11c7cd31-7c2e-4c29-8c4e-df0e3b8efe45",
->>>>>>> origin/main
+    "uuid": "30f019dc-d8ff-45a5-a046-e914e150b5da",
     "sensor_type": "Noise Sensor",
     "frequency": "Every 10 seconds",
     "unit": "dB",

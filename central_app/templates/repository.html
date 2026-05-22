@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Central Repository</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            margin: 30px;
+            background:#f5f5f5;
+        }
+
+        .agent-card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:25px;
+            box-shadow:0px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .intel-card{
+            border:1px solid #ddd;
+            padding:15px;
+            margin-top:15px;
+            border-radius:8px;
+            background:#fafafa;
+        }
+
+        h1{
+            color:#333;
+        }
+
+        h2{
+            color:#0066cc;
+        }
+
+        p{
+            margin:6px 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div style="
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+">
+
+    <a href="/"
+       style="
+            background:#007bff;
+            color:white;
+            padding:10px 15px;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:bold;
+       ">
+        ← Back
+    </a>
+
+    <h1 style="margin:0;">
+        Central Intelligence Repository
+    </h1>
+
+</div>
+
+{% for item in repository %}
+
+<div class="agent-card">
+
+    <h2>{{ item.agent_name }}</h2>
+
+    {% for intel in item.intelligence %}
+
+    <div class="intel-card">
+
+        <p><b>Intelligence Name:</b>
+        {{ intel.intelligence_name }}</p>
+
+        <p><b>Description:</b>
+        {{ intel.description }}</p>
+
+        <p><b>Category:</b>
+        {{ intel.category }}</p>
+
+        <p><b>Intelligence ID:</b>
+        {{ intel.intelligence_id }}</p>
+
+        <p><b>Intelligence Data:</b>
+        {{ intel.intelligence_data }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>

@@ -42,7 +42,6 @@
     "location": "Zone D",
     "data_name": "humidity",
     "agent_name": "humidity_agent"
-<<<<<<< HEAD
   },
   {
     "timestamp": "2026-05-20T05:04:28.008632",
@@ -54,7 +53,5 @@
     "location": "Zone D",
     "data_name": "humidity",
     "agent_name": "humidity_agent"
-=======
->>>>>>> origin/main
   }
 ]

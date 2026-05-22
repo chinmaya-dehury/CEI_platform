@@ -1,25 +1,13 @@
 {
-<<<<<<< HEAD
-  "agent_id": "",
+  "agent_id": "humidity_agent",
   "name": "humidity_agent",
   "value": "NA",
   "unit": "%",
   "average_humidity": "NA",
   "max_humidity": "NA",
   "min_humidity": "NA",
-  "last_updated": "2026-05-20T10:23:06.625844",
+  "last_updated": "2026-05-21T09:57:21.219472",
   "url": null,
-  "status": "NA"
-=======
-  "agent_id": "f4c36f6e-97a8-4f68-9e29-be110cea2a3f",
-  "name": "humidity_agent",
-  "value": "Low",
-  "unit": "%",
-  "average_humidity": 38.81,
-  "max_humidity": 38.81,
-  "min_humidity": 38.81,
-  "last_updated": "2025-12-23T06:35:13.348541",
-  "url": null,
-  "status": "Healthy"
->>>>>>> origin/main
+  "status": "NA",
+  "error": "Expecting ',' delimiter: line 45 column 1 (char 1163)"
 }

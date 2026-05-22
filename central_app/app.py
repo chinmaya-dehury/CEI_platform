@@ -4,6 +4,7 @@ from agent_utils import fetch_health, fetch_requirements , fetch_intelligence
 from datetime import datetime
 import os, json, requests
 from datetime import datetime
+from repository_service import collect_repository
 
 def blank_intelligence(agent_id, agent_name, url, reason=None):
     result = {
@@ -123,6 +124,24 @@ def get_agent(agent_id):
 @app.route('/requirements')
 def requirements():
     return jsonify(fetch_requirements())
+
+# -------- Get Repository -------- #
+
+@app.route("/repository")
+def repository():
+
+    data = collect_repository()
+
+    return render_template(
+        "repository.html",
+        repository=data
+    )
+
+
+@app.route("/api/repository")
+def api_repository():
+
+    return jsonify(collect_repository())
 
 # -------- Start App -------- #
 if __name__ == '__main__':

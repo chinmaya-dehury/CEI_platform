@@ -17,5 +17,81 @@
       "data_name": "co2_level",
       "agent_name": "co2_agent"
     }
+  },
+  {
+    "uuid": "30f019dc-d8ff-45a5-a046-e914e150b5da",
+    "agent_name": "noise_agent",
+    "sensor_type": "Noise Sensor",
+    "location": "Zone C",
+    "unit": "dB",
+    "frequency": "Every 10 seconds",
+    "data_name": "noise_level",
+    "registered_at": "2026-05-21T08:55:24.975176",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Noise Sensor",
+      "frequency": "Every 10 seconds",
+      "unit": "dB",
+      "location": "Zone C",
+      "data_name": "noise_level",
+      "agent_name": "noise_agent"
+    }
+  },
+  {
+    "uuid": "b48dbf56-29c2-4135-8a03-6d8ed12dabbb",
+    "agent_name": "traffic_agent",
+    "sensor_type": "Traffic Congestion Sensor",
+    "location": "Junction A1",
+    "unit": "%",
+    "frequency": "Every 10 seconds",
+    "data_name": "congestion_level",
+    "registered_at": "2026-05-21T08:55:26.105669",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Traffic Congestion Sensor",
+      "frequency": "Every 10 seconds",
+      "unit": "%",
+      "location": "Junction A1",
+      "data_name": "congestion_level",
+      "agent_name": "traffic_agent"
+    }
+  },
+  {
+    "uuid": "610122b9-d099-4e7b-a6e4-66dd35cc74c1",
+    "agent_name": "temperature_agent",
+    "sensor_type": "Temperature Sensor",
+    "location": "Zone E",
+    "unit": "\u00b0C",
+    "frequency": "Every 10 seconds",
+    "data_name": "temperature",
+    "registered_at": "2026-05-21T08:55:25.353399",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Temperature Sensor",
+      "frequency": "Every 10 seconds",
+      "unit": "\u00b0C",
+      "location": "Zone E",
+      "data_name": "temperature",
+      "agent_name": "temperature_agent"
+    }
+  },
+  {
+    "uuid": "79ee65c1-9f9d-4980-99d0-37748006b73c",
+    "agent_name": "humidity_agent",
+    "sensor_type": "Humidity Sensor",
+    "location": "Zone D",
+    "unit": "%",
+    "frequency": "Every 10 seconds",
+    "data_name": "humidity",
+    "registered_at": "2026-05-21T09:54:10.676815",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Humidity Sensor",
+      "frequency": "Every 10 seconds",
+      "unit": "%",
+      "location": "Zone D",
+      "data_name": "humidity",
+      "agent_name": "humidity_agent"
+    }
   }
 ]
