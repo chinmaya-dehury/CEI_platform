@@ -16,7 +16,8 @@
       "location": "Zone B",
       "data_name": "co2_level",
       "agent_name": "co2_agent"
-    }
+    },
+    "intelligence_id": "fd4f5367-019f-461a-af20-58393672e0e4"
   },
   {
     "uuid": "30f019dc-d8ff-45a5-a046-e914e150b5da",
@@ -35,7 +36,8 @@
       "location": "Zone C",
       "data_name": "noise_level",
       "agent_name": "noise_agent"
-    }
+    },
+    "intelligence_id": "30f019dc-d8ff-45a5-a046-e914e150b5da"
   },
   {
     "uuid": "b48dbf56-29c2-4135-8a03-6d8ed12dabbb",
@@ -54,7 +56,8 @@
       "location": "Junction A1",
       "data_name": "congestion_level",
       "agent_name": "traffic_agent"
-    }
+    },
+    "intelligence_id": "b48dbf56-29c2-4135-8a03-6d8ed12dabbb"
   },
   {
     "uuid": "610122b9-d099-4e7b-a6e4-66dd35cc74c1",
@@ -73,7 +76,8 @@
       "location": "Zone E",
       "data_name": "temperature",
       "agent_name": "temperature_agent"
-    }
+    },
+    "intelligence_id": "610122b9-d099-4e7b-a6e4-66dd35cc74c1"
   },
   {
     "uuid": "79ee65c1-9f9d-4980-99d0-37748006b73c",
@@ -92,6 +96,318 @@
       "location": "Zone D",
       "data_name": "humidity",
       "agent_name": "humidity_agent"
+    },
+    "intelligence_id": "79ee65c1-9f9d-4980-99d0-37748006b73c"
+  },
+  {
+    "uuid": "9124b137-7daa-483f-acf2-da764288fcd1",
+    "agent_name": "temperature_agent",
+    "sensor_type": "",
+    "location": "",
+    "unit": "",
+    "frequency": "",
+    "data_name": "",
+    "registered_at": "2026-05-27T04:50:44.264553",
+    "metadata": {
+      "type": "intelligence",
+      "agent_name": "temperature_agent",
+      "name": "detect_temp",
+      "description": "detect temperature anomaly",
+      "implementation_path": "agents/temperature_agent/intel_definitions/detect_temp.py"
+    }
+  },
+  {
+    "uuid": "dc369345-675c-44c5-b673-3c6092059f86",
+    "agent_name": "humidity_agent",
+    "sensor_type": "",
+    "location": "",
+    "unit": "",
+    "frequency": "",
+    "data_name": "",
+    "registered_at": "2026-05-28T12:58:43.945456",
+    "metadata": {
+      "type": "intelligence",
+      "agent_name": "humidity_agent",
+      "name": "Humidity Alert",
+      "description": "alerts when humidity level changes",
+      "implementation_path": "agents/humidity_agent/intel_definitions/humidity_alert.py",
+      "engine": "python",
+      "version": "3.10"
+    }
+  },
+  {
+    "uuid": "da4705e1-763f-4560-b198-2f6c110b093a",
+    "agent_name": "co2_agent",
+    "sensor_type": "",
+    "location": "",
+    "unit": "",
+    "frequency": "",
+    "data_name": "",
+    "registered_at": "2026-05-28T13:02:48.238259",
+    "metadata": {
+      "type": "intelligence",
+      "agent_name": "co2_agent",
+      "name": "co2",
+      "description": "co2 level",
+      "implementation_path": "agents/co2_agent/intel_definitions/co2.py",
+      "engine": "python",
+      "version": "3.10"
+    }
+  },
+  {
+    "uuid": "254df6d4-2e0e-4d55-b181-738cfeb5b85e",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "humidity_alert",
+    "registered_at": "2026-05-29T06:28:26.656549",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "humidity_alert",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "b1f78436-3348-4a38-8c62-e775eb36a8c8",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "f",
+    "registered_at": "2026-05-29T06:35:25.079144",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "f",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "2b838eee-27bf-4611-ba1d-ff51392cddd6",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2_level_alert",
+    "registered_at": "2026-05-29T10:17:02.747983",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2_level_alert",
+      "agent_name": "co2_agent"
+    },
+    "intelligence_id": "2b838eee-27bf-4611-ba1d-ff51392cddd6"
+  },
+  {
+    "uuid": "c32ca7d6-f600-473f-8ddf-1434a31250c3",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "jbfbdjks",
+    "registered_at": "2026-05-29T10:33:18.606294",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "jbfbdjks",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "2236f3d5-9cad-4213-b726-5f719d447bad",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2_alert_level",
+    "registered_at": "2026-05-29T11:28:01.444714",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2_alert_level",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "4418f491-ec9e-40c0-88fb-afbfdf4e1b10",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2",
+    "registered_at": "2026-05-31T14:02:02.754859",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2",
+      "agent_name": "co2_agent"
+    },
+    "intelligence_id": "4418f491-ec9e-40c0-88fb-afbfdf4e1b10"
+  },
+  {
+    "uuid": "b19ba9a9-b655-44e6-bc19-1ea4ff385c64",
+    "intelligence_id": "b19ba9a9-b655-44e6-bc19-1ea4ff385c64",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "niharika",
+    "registered_at": "2026-06-02T08:15:35.333930",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "niharika",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "f40fd87b-3707-45aa-9873-ae8511a10564",
+    "intelligence_id": "f40fd87b-3707-45aa-9873-ae8511a10564",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2_agent_level",
+    "registered_at": "2026-06-02T08:16:16.227635",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2_agent_level",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "4fdc8a73-809e-477e-b51e-72993f39f808",
+    "intelligence_id": "4fdc8a73-809e-477e-b51e-72993f39f808",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2_alert",
+    "registered_at": "2026-06-02T15:55:48.472532",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2_alert",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "e01c09cd-8f46-4b25-b782-3db6533beb80",
+    "intelligence_id": "e01c09cd-8f46-4b25-b782-3db6533beb80",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "pollution",
+    "registered_at": "2026-06-03T04:40:17.772572",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "pollution",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "69d2facd-c497-4630-b81a-2330273e59d1",
+    "intelligence_id": "69d2facd-c497-4630-b81a-2330273e59d1",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "pollution_detection",
+    "registered_at": "2026-06-03T05:03:55.771448",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "pollution_detection",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "e1b19974-da42-4fd7-8be3-bb25b265cd24",
+    "intelligence_id": "e1b19974-da42-4fd7-8be3-bb25b265cd24",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "poll",
+    "registered_at": "2026-06-03T06:40:57.809740",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "poll",
+      "agent_name": "co2_agent"
+    }
+  },
+  {
+    "uuid": "529eb02a-ba7f-4684-be27-69177d0a1a1e",
+    "intelligence_id": "529eb02a-ba7f-4684-be27-69177d0a1a1e",
+    "agent_name": "co2_agent",
+    "sensor_type": "Intelligence Module",
+    "location": "CO2 Agent",
+    "unit": "N/A",
+    "frequency": "On-demand",
+    "data_name": "co2_pollution",
+    "registered_at": "2026-06-03T13:49:27.767017",
+    "metadata": {
+      "uuid": "",
+      "sensor_type": "Intelligence Module",
+      "frequency": "On-demand",
+      "unit": "N/A",
+      "location": "CO2 Agent",
+      "data_name": "co2_pollution",
+      "agent_name": "co2_agent"
     }
   }
 ]

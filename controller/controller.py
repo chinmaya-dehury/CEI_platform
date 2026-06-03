@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from datetime import datetime
-# from flask_cors import CORS
 import json
 import os
 import uuid
 
 app = Flask(__name__)
-# CORS(app)
 
 REGISTRATIONS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "registrations.json")
 
@@ -34,6 +32,7 @@ def create_registration(data):
 
     registration = {
         "uuid": new_uuid,
+        "intelligence_id": new_uuid,
         "agent_name": agent_name,
         "sensor_type": data.get("sensor_type", ""),
         "location": data.get("location", ""),
@@ -49,11 +48,18 @@ def create_registration(data):
         (
             r for r in registrations
             if r.get("agent_name") == agent_name
+            and r.get("metadata", {}).get("name") == data.get("name")
+            and r.get("metadata", {}).get("data_name") == data.get("data_name")
         ),
         None
     )
 
     if existing:
+        if "intelligence_id" not in existing:
+            existing["intelligence_id"] = existing.get("uuid")
+
+            save_registrations(registrations)
+
         return existing
 
     registrations.append(registration)
@@ -77,12 +83,14 @@ def register():
     if request.is_json:
         return jsonify({
             "uuid": registration["uuid"],
+            "intelligence_id": registration["intelligence_id"],
             "address": registration["agent_name"],
             "registration": registration
         })
 
     return jsonify({
         "uuid": registration["uuid"],
+        "intelligence_id": registration["intelligence_id"],
         "address": registration["agent_name"],
         "registration": registration
     })

@@ -1,0 +1,15 @@
+[
+  {
+    "uuid": "dc369345-675c-44c5-b673-3c6092059f86",
+    "intelligence_name": "Humidity Alert",
+    "description": "alerts when humidity level changes",
+    "implementation_path": "agents/humidity_agent/intel_definitions/humidity_alert.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "execution_data": {},
+    "result_path": "intel_results/humidity_alert.json",
+    "created_at": "2026-05-28T12:58:46.240445",
+    "status": "active"
+  }
+]

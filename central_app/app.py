@@ -5,6 +5,7 @@ from datetime import datetime
 import os, json, requests
 from datetime import datetime
 from repository_service import collect_repository
+from intelligence_creator import forward_intelligence_to_agent
 
 def blank_intelligence(agent_id, agent_name, url, reason=None):
     result = {
@@ -142,6 +143,119 @@ def repository():
 def api_repository():
 
     return jsonify(collect_repository())
+
+# -------- Add Intelligence -------- #
+@app.route('/add-intelligence', methods=['POST'])
+def add_intelligence():
+
+    try:
+
+        file = request.files.get("file")
+
+        agent_name = request.form.get("agent_name")
+
+        intelligence_name = request.form.get("intelligence_name")
+
+        description = request.form.get("description", "")
+
+        engine = request.form.get("engine", "").strip()
+
+        version = request.form.get("version", "").strip()
+
+        if not file:
+            return jsonify({
+                "error": "No file uploaded"
+            }), 400
+
+        if not agent_name:
+            return jsonify({
+                "error": "Agent name missing"
+            }), 400
+
+        result = forward_intelligence_to_agent(
+            agent_name=agent_name,
+            intelligence_name=intelligence_name,
+            description=description,
+            file=file,
+            engine=engine,
+            version=version,
+        )
+
+        if result["status"] != "success":
+            message = result.get("message", "Upload failed")
+            http_status = result.get("http_status", 500)
+            status_code = 500
+            if http_status in (400, 409):
+                status_code = http_status
+            elif "already exists" in message.lower():
+                status_code = 409
+
+            return jsonify({
+                "status": "error",
+                "message": message,
+                "error": message,
+                "code": "VALIDATION_FAILED" if status_code == 409 else "UPLOAD_FAILED",
+            }), status_code
+
+        agent_response = result.get("response") or {}
+        metadata = agent_response.get("metadata") or {}
+        registry_entry = agent_response.get("registry_entry") or {}
+
+        payload = {
+            "status": "success",
+            "agent_name": result.get("agent_name"),
+            "intelligence_name": result.get("intelligence_name"),
+            "uuid": registry_entry.get("uuid") or metadata.get("intelligence_id"),
+            "intelligence_id": (
+                registry_entry.get("intelligence_id")
+                or registry_entry.get("uuid")
+                or metadata.get("intelligence_id")
+            ),
+            "description": registry_entry.get("description") or description,
+            "implementation_path": registry_entry.get("implementation_path") or metadata.get("implementation_path"),
+            "result_path": registry_entry.get("result_path"),
+            "data": agent_response.get("execution_data") or registry_entry.get("result_data"),
+            "created_at": registry_entry.get("created_at") or metadata.get("created_at"),
+            "extension": registry_entry.get("extension") or "py",
+            "engine": registry_entry.get("engine") or engine,
+            "version": registry_entry.get("version") or version,
+            "engine_installation": registry_entry.get("engine_installation") or metadata.get("engine_installation"),
+            "message": agent_response.get("message", "Upload successful"),
+        }
+
+        # #region agent log
+        try:
+            import json as _json
+            _log_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "debug-552a44.log")
+            with open(_log_path, "a", encoding="utf-8") as _lf:
+                _lf.write(_json.dumps({"sessionId": "552a44", "location": "app.py:add_intelligence", "message": "success payload", "data": {"keys": list(payload.keys()), "hasUuid": bool(payload.get("uuid")), "hasPath": bool(payload.get("implementation_path"))}, "timestamp": int(datetime.utcnow().timestamp() * 1000), "hypothesisId": "A"}) + "\n")
+        except Exception:
+            pass
+        # #endregion
+
+        return jsonify(payload), 200
+
+    except Exception as e:
+
+        return jsonify({
+            "error": str(e)
+        }), 500
+
+# -------- Get Agents List -------- #
+@app.route('/get-agents', methods=['GET'])
+def get_agents():
+    """Get list of available agents. Returns hardcoded list for fast response."""
+    
+    # Known agents in the system - FALLBACK LIST with correct ports
+    DEFAULT_AGENTS = [
+        {"name": "traffic_agent", "id": "traffic_agent", "port": 5000},
+        {"name": "co2_agent", "id": "co2_agent", "port": 5001},
+        {"name": "noise_agent", "id": "noise_agent", "port": 5002},
+        {"name": "humidity_agent", "id": "humidity_agent", "port": 5003},
+        {"name": "temperature_agent", "id": "temperature_agent", "port": 5004},
+    ]
+    
+    return jsonify(DEFAULT_AGENTS), 200
 
 # -------- Start App -------- #
 if __name__ == '__main__':

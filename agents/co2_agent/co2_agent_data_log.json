@@ -1,222 +1,5 @@
 [
   {
-    "timestamp": "2026-05-21T08:55:26.198401",
-    "co2_level": 819.62,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T08:55:33.037210",
-    "co2_level": 576.52,
-    "co2_status": "Moderate"
-  },
-  {
-    "uuid": "fd4f5367-019f-461a-af20-58393672e0e4",
-    "timestamp": "2026-05-21T09:29:50.876685",
-    "co2_level": 563,
-    "co2_status": "High",
-    "sensor_type": "CO2 Sensor",
-    "frequency": "Every 10 seconds",
-    "unit": "ppm",
-    "location": "Zone B",
-    "data_name": "co2_level",
-    "agent_name": "co2_agent"
-  },
-  {
-    "timestamp": "2026-05-21T09:54:10.737589",
-    "co2_level": 423.48,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T09:54:17.016314",
-    "co2_level": 469.51,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T10:11:05.730652",
-    "co2_level": 556.68,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T10:11:11.474868",
-    "co2_level": 848.05,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T10:18:55.900584",
-    "co2_level": 665.27,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T10:19:01.524159",
-    "co2_level": 666.16,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-21T10:28:10.710338",
-    "co2_level": 607.66,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T10:28:16.468327",
-    "co2_level": 643.95,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T10:30:22.409389",
-    "co2_level": 424.02,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T10:30:34.315054",
-    "co2_level": 407.55,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T10:40:11.837676",
-    "co2_level": 626.86,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-21T10:40:27.051482",
-    "co2_level": 858.91,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T10:44:33.403127",
-    "co2_level": 624.48,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T10:44:38.920782",
-    "co2_level": 857.69,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T16:15:16.289404",
-    "co2_level": 845.44,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-21T16:15:22.971230",
-    "co2_level": 877.5,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-21T16:17:58.888558",
-    "co2_level": 770.73,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T16:18:12.228856",
-    "co2_level": 520.65,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-21T16:21:59.301796",
-    "co2_level": 685.01,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T16:22:11.471848",
-    "co2_level": 355.0,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-21T16:28:18.648969",
-    "co2_level": 557.01,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-21T16:28:25.641859",
-    "co2_level": 627.3,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T04:35:52.314186",
-    "co2_level": 789.18,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T04:36:02.777032",
-    "co2_level": 719.33,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T04:41:34.984610",
-    "co2_level": 326.34,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-22T04:41:46.043808",
-    "co2_level": 579.27,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T04:50:13.343158",
-    "co2_level": 784.66,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-22T04:50:27.401334",
-    "co2_level": 729.17,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T04:59:26.403734",
-    "co2_level": 802.25,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-22T04:59:38.605569",
-    "co2_level": 501.92,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T05:46:30.758037",
-    "co2_level": 348.95,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T05:46:46.011959",
-    "co2_level": 713.92,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T05:49:13.450916",
-    "co2_level": 873.62,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T05:49:19.039376",
-    "co2_level": 734.58,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T06:22:05.688035",
-    "co2_level": 355.5,
-    "co2_status": "High"
-  },
-  {
-    "timestamp": "2026-05-22T06:22:11.259206",
-    "co2_level": 832.24,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-22T08:33:46.770701",
-    "co2_level": 305.2,
-    "co2_status": "Moderate"
-  },
-  {
-    "timestamp": "2026-05-22T08:33:57.666417",
-    "co2_level": 809.28,
-    "co2_status": "Low"
-  },
-  {
-    "timestamp": "2026-05-22T08:37:03.133620",
-    "co2_level": 550.96,
-    "co2_status": "Moderate"
-  },
-  {
     "timestamp": "2026-05-22T08:37:18.481781",
     "co2_level": 310.25,
     "co2_status": "Moderate"
@@ -250,5 +33,1118 @@
     "timestamp": "2026-05-22T09:56:59.659037",
     "co2_level": 491.33,
     "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-26T07:43:09.157946",
+    "co2_level": 813.18,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T07:43:14.740352",
+    "co2_level": 442.21,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T08:35:17.741653",
+    "co2_level": 655.78,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T08:35:23.282196",
+    "co2_level": 579.59,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-26T08:40:34.330392",
+    "co2_level": 411.63,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T08:40:40.002514",
+    "co2_level": 540.17,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-26T08:45:22.249233",
+    "co2_level": 341.7,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-26T08:45:27.936587",
+    "co2_level": 300.35,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-26T09:28:07.366616",
+    "co2_level": 424.09,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T09:28:21.502449",
+    "co2_level": 358.9,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T09:30:50.184147",
+    "co2_level": 548.2,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-26T09:31:07.459528",
+    "co2_level": 679.13,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-26T09:46:26.497051",
+    "co2_level": 771.56,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-26T09:46:32.355934",
+    "co2_level": 370.14,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T04:03:13.257955",
+    "co2_level": 363.62,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-27T04:03:20.689836",
+    "co2_level": 498.55,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T04:04:33.088924",
+    "co2_level": 760.03,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T04:04:49.845883",
+    "co2_level": 705.35,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T04:25:09.866193",
+    "co2_level": 513.52,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T04:25:21.677113",
+    "co2_level": 330.35,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T04:44:24.774623",
+    "co2_level": 613.07,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T04:44:36.244829",
+    "co2_level": 820.02,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T09:23:28.768651",
+    "co2_level": 737.47,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T09:23:38.759914",
+    "co2_level": 497.5,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-27T09:28:43.317292",
+    "co2_level": 661.02,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T09:30:52.341782",
+    "co2_level": 788.07,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-27T09:30:58.262632",
+    "co2_level": 315.98,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T10:16:15.333606",
+    "co2_level": 786.74,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-27T10:16:32.238401",
+    "co2_level": 572.5,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T12:28:46.649847",
+    "co2_level": 622.01,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:29:03.096733",
+    "co2_level": 599.11,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:30:26.921485",
+    "co2_level": 711.01,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:30:33.068049",
+    "co2_level": 392.58,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:36:23.310680",
+    "co2_level": 880.88,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-28T12:38:39.832471",
+    "co2_level": 444.13,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T12:39:05.179322",
+    "co2_level": 595.3,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T12:39:23.612202",
+    "co2_level": 814.07,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:41:21.917725",
+    "co2_level": 560.89,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T12:44:00.191323",
+    "co2_level": 442.23,
+    "co2_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-05-28T12:44:05.978941",
+    "co2_level": 797.49,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-28T12:50:04.169919",
+    "co2_level": 506.06,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-28T12:50:22.220631",
+    "co2_level": 666.12,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T12:57:30.326213",
+    "co2_level": 566.57,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-28T12:57:45.896447",
+    "co2_level": 891.19,
+    "co2_status": "High"
+  },
+  {
+    "timestamp": "2026-05-28T13:14:35.478515",
+    "co2_level": 428.47,
+    "co2_status": "Low"
+  },
+  {
+    "timestamp": "2026-05-28T13:15:01.063140",
+    "co2_level": 447.96,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-28T13:15:24.233882",
+    "co2_level": 721.75,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-28T13:18:54.158215",
+    "co2_level": 699.47,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T04:00:56.446809",
+    "co2_level": 602.26,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T04:01:02.549715",
+    "co2_level": 531.29,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T04:06:01.894620",
+    "co2_level": 756.21,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T04:08:52.375729",
+    "co2_level": 355.16,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T04:15:07.663087",
+    "co2_level": 895.27,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:25:04.047034",
+    "co2_level": 490.17,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:26:30.719544",
+    "co2_level": 569.09,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:26:46.858541",
+    "co2_level": 806.81,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:42:18.974715",
+    "co2_level": 701.85,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:42:25.397427",
+    "co2_level": 634.38,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:44:12.512935",
+    "co2_level": 370.77,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:44:18.816271",
+    "co2_level": 609.48,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:48:36.942648",
+    "co2_level": 560.71,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:48:43.590017",
+    "co2_level": 865.07,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:49:46.288614",
+    "co2_level": 882.38,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T06:49:59.397751",
+    "co2_level": 484.53,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:02:39.605879",
+    "co2_level": 394.73,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:03:22.430317",
+    "co2_level": 718.53,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:03:28.319157",
+    "co2_level": 637.79,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:11:17.925422",
+    "co2_level": 384.39,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:11:23.485913",
+    "co2_level": 847.2,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:48:24.082335",
+    "co2_level": 899.64,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:49:29.927469",
+    "co2_level": 341.61,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T08:49:35.451337",
+    "co2_level": 434.23,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:06:37.642278",
+    "co2_level": 382.16,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:06:45.678990",
+    "co2_level": 461.59,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:10:44.478605",
+    "co2_level": 325.02,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:10:59.946712",
+    "co2_level": 472.52,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:20:11.679278",
+    "co2_level": 647.27,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T09:20:22.475159",
+    "co2_level": 319.6,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:08:31.644885",
+    "co2_level": 408.25,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:08:48.012567",
+    "co2_level": 756.84,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:12:46.799111",
+    "co2_level": 803.18,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:12:59.082328",
+    "co2_level": 609.84,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:24:02.009270",
+    "co2_level": 668.76,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:24:15.786900",
+    "co2_level": 500.24,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:29:03.720953",
+    "co2_level": 747.01,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:29:09.309663",
+    "co2_level": 790.43,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:32:38.137675",
+    "co2_level": 892.99,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T10:32:49.904318",
+    "co2_level": 527.67,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T11:25:58.045533",
+    "co2_level": 441.46,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T11:26:46.045509",
+    "co2_level": 407.52,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-29T11:26:58.680168",
+    "co2_level": 403.94,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-31T13:58:18.898562",
+    "co2_level": 561.53,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-31T13:58:35.934818",
+    "co2_level": 742.42,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-31T15:02:44.840630",
+    "co2_level": 560.95,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-05-31T15:10:57.605725",
+    "co2_level": 794.08,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T03:59:57.269303",
+    "co2_level": 310.26,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T04:00:10.050333",
+    "co2_level": 717.83,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T04:01:53.792732",
+    "co2_level": 370.83,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T04:15:17.041553",
+    "co2_level": 718.02,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T04:15:33.471206",
+    "co2_level": 386.7,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:43:16.286840",
+    "co2_level": 820.31,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:43:22.176667",
+    "co2_level": 826.59,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:44:16.748448",
+    "co2_level": 596.06,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:44:22.447363",
+    "co2_level": 367.29,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:47:32.831328",
+    "co2_level": 838.09,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:49:37.280168",
+    "co2_level": 747.64,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:49:53.345431",
+    "co2_level": 876.58,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:56:19.638798",
+    "co2_level": 601.73,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:56:32.286600",
+    "co2_level": 485.38,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:58:20.043640",
+    "co2_level": 457.84,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:58:25.914198",
+    "co2_level": 562.99,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:59:33.674964",
+    "co2_level": 605.41,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T05:59:49.082730",
+    "co2_level": 784.03,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:41:42.411644",
+    "co2_level": 767.55,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:41:47.859748",
+    "co2_level": 480.32,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:45:01.928313",
+    "co2_level": 443.64,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:45:16.363796",
+    "co2_level": 789.56,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:54:19.682469",
+    "co2_level": 708.13,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T06:54:31.149625",
+    "co2_level": 405.95,
+    "co2_status": "Moderate",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T07:09:07.811020",
+    "co2_level": 399.33,
+    "co2_status": "Low",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T07:09:19.335855",
+    "co2_level": 534.75,
+    "co2_status": "High",
+    "data_source": "openweather_api"
+  },
+  {
+    "timestamp": "2026-06-01T09:31:25.686553",
+    "co2_level": 604.29,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:31:31.330294",
+    "co2_level": 340.26,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:31:56.257307",
+    "co2_level": 612.29,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:32:05.347390",
+    "co2_level": 874.14,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:33:25.308636",
+    "co2_level": 676.49,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:33:37.037985",
+    "co2_level": 335.56,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:34:54.376289",
+    "co2_level": 585.63,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:35:07.829358",
+    "co2_level": 751.44,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:36:24.036803",
+    "co2_level": 582.18,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:36:31.478572",
+    "co2_level": 315.0,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-01T09:50:17.629694",
+    "co2_level": 872.71,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T06:39:38.955990",
+    "co2_level": 585.56,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T06:39:44.718117",
+    "co2_level": 448.35,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:26:49.479414",
+    "co2_level": 827.86,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:30:17.127375",
+    "co2_level": 603.15,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:30:52.581778",
+    "co2_level": 821.44,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:32:07.021358",
+    "co2_level": 866.77,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:32:21.371859",
+    "co2_level": 322.77,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:32:43.158136",
+    "co2_level": 446.93,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:33:23.840871",
+    "co2_level": 380.09,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T07:33:37.443455",
+    "co2_level": 488.04,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T08:13:12.469338",
+    "co2_level": 367.72,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T08:13:27.685873",
+    "co2_level": 716.81,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T08:14:12.713408",
+    "co2_level": 526.13,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T08:14:18.286921",
+    "co2_level": 708.33,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T15:51:49.198389",
+    "co2_level": 512.49,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T15:52:00.666171",
+    "co2_level": 445.57,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T15:54:14.613851",
+    "co2_level": 407.42,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T15:54:33.002321",
+    "co2_level": 435.0,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T16:09:43.473083",
+    "co2_level": 391.5,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-02T16:09:51.988403",
+    "co2_level": 391.53,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T03:49:56.800933",
+    "co2_level": 588.55,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T03:50:08.984335",
+    "co2_level": 602.94,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:35:32.936017",
+    "co2_level": 448.21,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:35:49.418326",
+    "co2_level": 460.89,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:37:36.728550",
+    "co2_level": 856.82,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:37:44.686511",
+    "co2_level": 828.7,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:58:33.758581",
+    "co2_level": 830.11,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T04:58:39.180083",
+    "co2_level": 531.97,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:02:28.112354",
+    "co2_level": 814.15,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:08:56.164902",
+    "co2_level": 554.23,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:09:52.453545",
+    "co2_level": 734.44,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:11:19.102764",
+    "co2_level": 556.42,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:17:49.560622",
+    "co2_level": 384.56,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:20:38.893445",
+    "co2_level": 496.86,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:24:40.859444",
+    "co2_level": 510.99,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:51:44.153981",
+    "co2_level": 795.13,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T05:52:14.889929",
+    "co2_level": 645.87,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T06:38:12.476224",
+    "co2_level": 428.21,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T06:38:24.547721",
+    "co2_level": 469.98,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T06:40:05.484407",
+    "co2_level": 499.04,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T06:40:11.498588",
+    "co2_level": 444.25,
+    "co2_status": "Moderate",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:13:29.924822",
+    "co2_level": 861.44,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:13:35.504993",
+    "co2_level": 365.88,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:16:31.624702",
+    "co2_level": 643.3,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:22:52.323114",
+    "co2_level": 871.52,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:24:41.725702",
+    "co2_level": 892.57,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:24:58.558535",
+    "co2_level": 677.05,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:25:15.921339",
+    "co2_level": 649.78,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:37:02.839891",
+    "co2_level": 541.17,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:37:17.561379",
+    "co2_level": 634.96,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:38:53.436627",
+    "co2_level": 701.05,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:39:07.784173",
+    "co2_level": 731.31,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:40:22.998947",
+    "co2_level": 627.79,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:40:28.652234",
+    "co2_level": 596.09,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:46:20.235346",
+    "co2_level": 638.88,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:46:33.604065",
+    "co2_level": 803.85,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:48:12.618988",
+    "co2_level": 603.37,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:48:18.631936",
+    "co2_level": 615.91,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:56:42.941755",
+    "co2_level": 525.66,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T13:59:52.630620",
+    "co2_level": 688.31,
+    "co2_status": "High",
+    "data_source": "fallback_synthetic"
+  },
+  {
+    "timestamp": "2026-06-03T14:01:03.843598",
+    "co2_level": 306.73,
+    "co2_status": "Low",
+    "data_source": "fallback_synthetic"
   }
 ]

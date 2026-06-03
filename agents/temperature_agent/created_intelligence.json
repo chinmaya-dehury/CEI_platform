@@ -1,0 +1,12 @@
+[
+  {
+    "uuid": "9124b137-7daa-483f-acf2-da764288fcd1",
+    "intelligence_name": "detect_temp",
+    "description": "detect temperature anomaly",
+    "implementation_path": "agents/temperature_agent/intel_definitions/detect_temp.py",
+    "extension": "py",
+    "execution_data": {},
+    "created_at": "2026-05-27T04:50:44.311342",
+    "status": "active"
+  }
+]

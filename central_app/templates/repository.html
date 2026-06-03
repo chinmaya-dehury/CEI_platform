@@ -101,6 +101,59 @@
 
     {% endfor %}
 
+    <!-- Created Intelligence Section -->
+    {% if item.created_intelligence and item.created_intelligence|length > 0 %}
+    
+    <h3 style="color: #28a745; margin-top: 20px;">Created Intelligence</h3>
+    
+    {% for intel in item.created_intelligence %}
+    
+    <div class="intel-card" style="border-left: 4px solid #28a745;">
+
+        <p><b>Intelligence Name:</b> {{ intel.intelligence_name }}</p>
+
+        <p><b>Intelligence ID:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.intelligence_id or intel.uuid }}</code></p>
+
+        <p><b>Description:</b> {{ intel.description }}</p>
+
+        <p><b>Implementation Path:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.implementation_path }}</code></p>
+
+        <p><b>Extension:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.extension or 'py' }}</code></p>
+
+        <p><b>Engine:</b> {{ intel.engine if intel.engine else 'n/a' }}</p>
+        
+        <p><b>Version:</b> {{ intel.version if intel.version else 'n/a' }}</p>
+        
+        {% if intel.engine_installation %}
+        {% set eng_install = intel.engine_installation %}
+        <p><b>Engine Installation Status:</b>
+            {% if eng_install.installed or eng_install.status == true or eng_install.status == 'installed' %}
+            <span style="background: #d4edda; padding: 2px 8px; border-radius: 3px; color: #155724; font-weight: bold;">✓ Installed</span>
+            {% elif eng_install.status == 'pending' %}
+            <span style="background: #fff3cd; padding: 2px 8px; border-radius: 3px; color: #856404; font-weight: bold;">⏳ In Progress</span>
+            {% else %}
+            <span style="background: #f8d7da; padding: 2px 8px; border-radius: 3px; color: #721c24; font-weight: bold;">✗ Failed</span>
+            {% endif %}
+        </p>
+        <p><b>Installation Message:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px; display:block; margin-top:5px;">{{ eng_install.message or 'No message' }}</code></p>
+        {% endif %}
+        <!-- <p><b>Result File:</b> {{ intel.result_path or 'Not available' }}</p> -->
+
+        <p><b>Status:</b> <span style="background: #d4edda; padding: 2px 8px; border-radius: 3px; color: #155724;">{{ intel.status }}</span></p>
+
+        <p><b>Created At:</b> {{ intel.created_at }}</p>
+
+        <p><b>Data File:</b> intel_definitions/{{ intel.intelligence_name }}.data</p>
+
+        <p><b>Intelligence Data:</b></p>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;">{{ (intel.result_data or intel.execution_data or {})|tojson(indent=2) }}</pre>
+
+    </div>
+    
+    {% endfor %}
+    
+    {% endif %}
+
 </div>
 
 {% endfor %}

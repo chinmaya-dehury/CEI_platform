@@ -167,11 +167,11 @@
             }
 
             let html = '<table><thead><tr>';
-            html += '<th>UUID</th><th>Agent</th><th>Sensor</th><th>Location</th><th>Unit</th><th>Frequency</th><th>Registered At</th>';
+            html += '<th>Intelligence ID</th><th>Agent</th><th>Sensor</th><th>Location</th><th>Unit</th><th>Frequency</th><th>Registered At</th>';
             html += '</tr></thead><tbody>';
             items.forEach(item => {
                 html += '<tr>';
-                html += '<td><code>' + escapeHtml(item.uuid || '') + '</code></td>';
+                html += '<td><code>' + escapeHtml(item.intelligence_id || item.uuid || '') + '</code></td>';
                 html += '<td>' + escapeHtml(item.agent_name || '') + '</td>';
                 html += '<td>' + escapeHtml(item.sensor_type || '') + '</td>';
                 html += '<td>' + escapeHtml(item.location || '') + '</td>';
@@ -209,7 +209,7 @@
                     const registration = result.registration || {};
                     const box = document.getElementById('result-box');
                     box.innerHTML = 'Registered <strong>' + escapeHtml(registration.agent_name || '') +
-                        '</strong> with UUID <code>' + escapeHtml(registration.uuid || '') + '</code>.';
+                        '</strong> with Intelligence ID <code>' + escapeHtml(registration.intelligence_id || registration.uuid || '') + '</code>.';
                     box.style.display = 'block';
                     event.target.reset();
                     loadRegistrations();

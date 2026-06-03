@@ -12,17 +12,3 @@ def detect_abnormal_humidity(humidity_value):
     return {
         "status": "normal"
     }
-
-
-INTELLIGENCE_INFO = {
-
-    "intelligence_name": "Humidity Alert Intelligence",
-
-    "description": "Detects abnormal humidity increase",
-
-    "category": "environment",
-
-    "function_name": "detect_abnormal_humidity",
-
-    "sample_data": 85
-}

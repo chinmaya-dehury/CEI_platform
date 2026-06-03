@@ -4,6 +4,8 @@
     "frequency": "Every 10 seconds",
     "unit": "ppm",
     "location": "Zone B",
+    "latitude": 40.7128,
+    "longitude": -74.006,
     "data_name": "co2_level",
     "agent_name": "co2_agent"
 }

@@ -20,10 +20,14 @@ def fetch_intelligence(agent_id=None):
 
         try:
             url = f"http://{agent_address}:{agent['Port']}/intelligence"
-            resp = requests.get(url).json()
+            resp = requests.get(url, timeout=2).json()
             data[agent['ID']] = resp
-        except:
-            data[agent['ID']] = {"error": "Failed to fetch"}
+        except requests.RequestException as e:
+            print(f"[ERROR] Failed to fetch intelligence from {agent_address}:{agent['Port']}: {e}")
+            data[agent['ID']] = {"error": f"Failed to fetch: {str(e)}"}
+        except Exception as e:
+            print(f"[ERROR] Unexpected error fetching intelligence: {e}")
+            data[agent['ID']] = {"error": f"Unexpected error: {str(e)}"}
     return data
 
 
@@ -41,8 +45,12 @@ def fetch_health(agent_id=None):
             url = f"http://{agent_address}:{agent['Port']}/health"
             resp = requests.get(url, timeout=2).json()
             data[agent['ID']] = resp
-        except:
-            data[agent['ID']] = {"status": "unreachable"}
+        except requests.RequestException as e:
+            print(f"[ERROR] Health check failed for {agent_address}:{agent['Port']}: {e}")
+            data[agent['ID']] = {"status": "unreachable", "error": str(e)}
+        except Exception as e:
+            print(f"[ERROR] Unexpected error checking health: {e}")
+            data[agent['ID']] = {"status": "unreachable", "error": str(e)}
     return data
 
 
@@ -58,8 +66,12 @@ def fetch_requirements(agent_id=None):
 
         try:
             url = f"http://{agent_address}:{agent['Port']}/requirements"
-            resp = requests.get(url).json()
+            resp = requests.get(url, timeout=2).json()
             data[agent['ID']] = resp
-        except:
-            data[agent['ID']] = {"error": "Failed to fetch"}
+        except requests.RequestException as e:
+            print(f"[ERROR] Failed to fetch requirements from {agent_address}:{agent['Port']}: {e}")
+            data[agent['ID']] = {"error": f"Failed to fetch: {str(e)}"}
+        except Exception as e:
+            print(f"[ERROR] Unexpected error fetching requirements: {e}")
+            data[agent['ID']] = {"error": f"Unexpected error: {str(e)}"}
     return data

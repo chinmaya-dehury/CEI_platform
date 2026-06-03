@@ -15,6 +15,8 @@ metadata = {
     "frequency": "Every 10 seconds",
     "unit": "ppm",
     "location": "Zone B",
+    "latitude": 40.7128,
+    "longitude": -74.0060,
     "data_name": "co2_level",
     "agent_name": "co2_agent"
 }
@@ -47,12 +49,14 @@ def register_with_controller():
 
 def register_with_consul():
     try:
-        agent_ip = socket.gethostbyname(socket.gethostname())
+        # Use Docker's container hostname/service name if provided, fallback to container hostname
+        agent_address = os.environ.get('AGENT_HOSTNAME', socket.gethostname())
+        print(f"[INFO] Registering agent with address: {agent_address}")
 
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
-            "Address": agent_ip,
+            "Address": agent_address,
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
@@ -61,7 +65,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{PORT}/health",
+                "HTTP": f"http://{agent_address}:{PORT}/health",
                 "Interval": "10s"
             }
         }

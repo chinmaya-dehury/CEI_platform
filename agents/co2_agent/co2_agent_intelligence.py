@@ -2,18 +2,37 @@ import os
 import json
 import random
 from datetime import datetime, timedelta
-from agents.co2_agent import co2_agent_intelligence_definition as intel 
+from . import co2_agent_intelligence_definition as intel
+
+
 DATA_LOG_PATH = "/app/agents/co2_agent/co2_agent_data_log.json"
 
 def append_synthetic_data(data_log_path):
     os.makedirs(os.path.dirname(data_log_path), exist_ok=True)
     
+    # Initialize API client to get real data
+    # api_client = WeatherAPIClient()
+    
+    # Get CO2 data from API (use default NYC coordinates)
+    # api_result = api_client.get_co2_level()
+    
+    # Use API data if successful, otherwise fall back to synthetic
+    # if api_result.get('status') == 'success':
+    #     co2_value = api_result.get('co2_level', round(random.uniform(300, 900), 2))
+    #     data_source = 'openweather_api'
+    # else:
+    #     co2_value = round(random.uniform(300, 900), 2)
+    #     data_source = 'fallback_synthetic'
 
-    # Generate synthetic CO₂ data
+    co2_value = round(random.uniform(300, 900), 2)
+    data_source = "fallback_synthetic"
+    
+    # Generate CO₂ data entry
     new_entry = {
         "timestamp": datetime.utcnow().isoformat(),
-        "co2_level": round(random.uniform(300, 900), 2),  # ppm
-        "co2_status": random.choice(["Low", "Moderate", "High"])
+        "co2_level": co2_value,  # ppm
+        "co2_status": "Low" if co2_value < 400 else "Moderate" if co2_value <= 500 else "High",
+        "data_source": data_source
     }
 
     # Load existing data

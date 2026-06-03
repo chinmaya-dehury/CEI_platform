@@ -47,13 +47,14 @@ def register_with_controller():
 
 def register_with_consul():
     try:
-        agent_ip = socket.gethostbyname(socket.gethostname())
-        print(f"[INFO] Resolved agent IP: {agent_ip}")
+        # Use Docker's container hostname/service name if provided, fallback to container hostname
+        agent_address = os.environ.get('AGENT_HOSTNAME', socket.gethostname())
+        print(f"[INFO] Registering agent with address: {agent_address}")
 
         service = {
             "ID": metadata["uuid"],
             "Name": metadata["agent_name"],
-            "Address": agent_ip,
+            "Address": agent_address,
             "Port": PORT,
             "Meta": {
                 "sensor_type": metadata["sensor_type"],
@@ -62,7 +63,7 @@ def register_with_consul():
                 "frequency": metadata["frequency"]
             },
             "Check": {
-                "HTTP": f"http://{agent_ip}:{PORT}/health",
+                "HTTP": f"http://{agent_address}:{PORT}/health",
                 "Interval": "10s"
             }
         }

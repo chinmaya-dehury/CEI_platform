@@ -1,0 +1,395 @@
+[
+  {
+    "uuid": "fd4f5367-019f-461a-af20-58393672e0e4",
+    "intelligence_name": "test_calc",
+    "description": "Test calculation",
+    "implementation_path": "agents/co2_agent/intel_definitions/test_calc.py",
+    "extension": "py",
+    "execution_data": {
+      "result": 42,
+      "status": "success"
+    },
+    "created_at": "2026-05-27T04:05:56.341539",
+    "status": "active"
+  },
+  {
+    "uuid": "fd4f5367-019f-461a-af20-58393672e0e4",
+    "intelligence_name": "calc_average",
+    "description": "calculate average",
+    "implementation_path": "agents/co2_agent/intel_definitions/calc_average.py",
+    "extension": "py",
+    "execution_data": {
+      "average": 166.25,
+      "count": 5
+    },
+    "created_at": "2026-05-27T04:17:28.966446",
+    "status": "active"
+  },
+  {
+    "uuid": "b1f78436-3348-4a38-8c62-e775eb36a8c8",
+    "intelligence_name": "f",
+    "description": "Uploaded intelligence",
+    "implementation_path": "/app/agents/co2_agent/intel_definitions/f.py",
+    "result_path": "intel_definitions/f.data",
+    "created_at": "2026-05-29T06:53:27.534764",
+    "status": "active"
+  },
+  {
+    "uuid": "b1f78436-3348-4a38-8c62-e775eb36a8c8",
+    "intelligence_name": "f",
+    "description": "Uploaded intelligence",
+    "implementation_path": "/app/agents/co2_agent/intel_definitions/f.py",
+    "result_path": "intel_definitions/f.data",
+    "created_at": "2026-05-29T08:13:42.177383",
+    "status": "active"
+  },
+  {
+    "uuid": "b1f78436-3348-4a38-8c62-e775eb36a8c8",
+    "intelligence_name": "f",
+    "description": "Uploaded intelligence",
+    "implementation_path": "/app/agents/co2_agent/intel_definitions/f.py",
+    "result_path": "intel_definitions/f.data",
+    "created_at": "2026-05-29T09:22:07.093276",
+    "status": "active"
+  },
+  {
+    "uuid": "c32ca7d6-f600-473f-8ddf-1434a31250c3",
+    "intelligence_name": "jbfbdjks",
+    "description": "ljeifhikjnk",
+    "implementation_path": "agents/co2_agent/intel_definitions/jbfbdjks.py",
+    "extension": "py",
+    "result_path": "intel_definitions/jbfbdjks.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 564,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 564,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-05-29T10:33:21.013135",
+    "status": "active"
+  },
+  {
+    "uuid": "2236f3d5-9cad-4213-b726-5f719d447bad",
+    "intelligence_name": "co2_alert_level",
+    "description": "co2",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2_alert_level.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/co2_alert_level.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 462,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 462,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-05-29T11:28:01.665856",
+    "status": "active"
+  },
+  {
+    "uuid": "4418f491-ec9e-40c0-88fb-afbfdf4e1b10",
+    "intelligence_name": "co2",
+    "description": "co2",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/co2.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 335,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 335,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-06-02T06:43:17.886443",
+    "status": "active",
+    "engine_installation": {
+      "status": false,
+      "message": "apt install failed: /bin/sh: 1: sudo: not found\n",
+      "engine": "python",
+      "version": "3.10",
+      "installed": false
+    }
+  },
+  {
+    "uuid": "b19ba9a9-b655-44e6-bc19-1ea4ff385c64",
+    "intelligence_name": "niharika",
+    "description": "niharika",
+    "implementation_path": "agents/co2_agent/intel_definitions/niharika.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/niharika.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 325,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 325,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-06-02T08:15:35.488836",
+    "status": "active"
+  },
+  {
+    "uuid": "f40fd87b-3707-45aa-9873-ae8511a10564",
+    "intelligence_name": "co2_agent_level",
+    "description": "niharika",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2_agent_level.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/co2_agent_level.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 379,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 379,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-06-02T08:16:16.380076",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.10 installed successfully via uv at /root/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/bin/python3.10",
+      "engine": "python",
+      "version": "3.10",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "4fdc8a73-809e-477e-b51e-72993f39f808",
+    "intelligence_name": "co2_alert",
+    "description": "co2 level alert",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2_alert.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/co2_alert.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 725,
+        "status": "HIGH",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 725,
+        "status": "HIGH",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-06-02T15:55:49.507326",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "2b838eee-27bf-4611-ba1d-ff51392cddd6",
+    "intelligence_name": "co2_level_alert",
+    "description": "co2",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2_level_alert.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/co2_level_alert.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 362,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 362,
+        "status": "NORMAL",
+        "message": "Pollution detected successfully"
+      }
+    },
+    "created_at": "2026-06-02T16:12:00.973040",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "e01c09cd-8f46-4b25-b782-3db6533beb80",
+    "intelligence_name": "pollution",
+    "description": "pollution detection",
+    "implementation_path": "agents/co2_agent/intel_definitions/pollution.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/pollution.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 768,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 768,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "created_at": "2026-06-03T04:40:17.850382",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "69d2facd-c497-4630-b81a-2330273e59d1",
+    "intelligence_name": "pollution_detection",
+    "description": "pollution detection",
+    "implementation_path": "agents/co2_agent/intel_definitions/pollution_detection.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/pollution_detection.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 373,
+        "status": "NORMAL",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 373,
+        "status": "NORMAL",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "created_at": "2026-06-03T05:03:56.093210",
+    "status": "active",
+    "engine_installation": {
+      "status": false,
+      "message": "apt install failed: W: Failed to fetch http://deb.debian.org/debian/dists/trixie/InRelease  Could not resolve 'deb.debian.org'\nW: Failed to fetch http://deb.debian.org/debian/dists/trixie-updates/InRelease  Could not resolve 'deb.debian.org'\nW: Failed to fetch http://deb.debian.org/debian-security/dists/trixie-security/InRelease  Could not resolve 'deb.debian.org'\nW: Some index files failed to download. They have been ignored, or old ones used instead.\nE: Unable to locate package python3.10\nE: Couldn't find any package by glob 'python3.10'\nE: Couldn't find any package by regex 'python3.10'. uv fallback failed: error: Failed to install cpython-3.10.20-linux-x86_64-gnu\n  Caused by: Request failed after 3 retries in 10.5s\n  Caused by: Failed to download https://github.com/astral-sh/python-build-standalone/releases/download/20260510/cpython-3.10.20%2B20260510-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz\n  Caused by: error sending request for url (https://github.com/astral-sh/python-build-standalone/releases/download/20260510/cpython-3.10.20%2B20260510-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz)\n  Caused by: client error (Connect)\n  Caused by: dns error\n  Caused by: failed to lookup address information: Name or service not known",
+      "engine": "python",
+      "version": "3.10",
+      "installed": false
+    }
+  },
+  {
+    "uuid": "e1b19974-da42-4fd7-8be3-bb25b265cd24",
+    "intelligence_name": "poll",
+    "description": "pollution",
+    "implementation_path": "agents/co2_agent/intel_definitions/poll.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/poll.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 383,
+        "status": "NORMAL",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 383,
+        "status": "NORMAL",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "created_at": "2026-06-03T06:40:57.916050",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "529eb02a-ba7f-4684-be27-69177d0a1a1e",
+    "intelligence_name": "co2_pollution",
+    "description": "pollution detection",
+    "implementation_path": "agents/co2_agent/intel_definitions/co2_pollution.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/co2_pollution.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 880,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 880,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "created_at": "2026-06-03T13:49:29.121722",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  }
+]

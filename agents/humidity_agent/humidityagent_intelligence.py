@@ -2,7 +2,7 @@ import os
 import json
 import random
 from datetime import datetime, timedelta
-from agents.humidity_agent import humidity_statistics as stats
+from . import humidity_statistics as stats
 
 DATA_LOG_PATH = "/app/agents/humidity_agent/humidity_agent_data_log.json"
 

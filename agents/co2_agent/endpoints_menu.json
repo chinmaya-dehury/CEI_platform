@@ -6,10 +6,22 @@
   {
     "name": "Data",
     "submenu": [
-      { "name": "Current Data", "endpoint": "/data" },
-      { "name": "History", "endpoint": "/data/history" },
-      { "name": "Export JSON", "endpoint": "/data/export/json" },
-      { "name": "Export CSV", "endpoint": "/data/export/csv" }
+      {
+        "name": "Current Data",
+        "endpoint": "/data"
+      },
+      {
+        "name": "History",
+        "endpoint": "/data/history"
+      },
+      {
+        "name": "Export JSON",
+        "endpoint": "/data/export/json"
+      },
+      {
+        "name": "Export CSV",
+        "endpoint": "/data/export/csv"
+      }
     ]
   },
   {
@@ -19,8 +31,47 @@
   {
     "name": "Intelligence",
     "submenu": [
-      { "name": "Current Intelligence", "endpoint": "/intelligence" },
-      { "name": "Export Intelligence JSON", "endpoint": "/intelligence/export/json" }
+      {
+        "name": "Current Intelligence",
+        "endpoint": "/intelligence"
+      },
+      {
+        "name": "Export Intelligence JSON",
+        "endpoint": "/intelligence/export/json"
+      },
+      {
+        "name": "test_calc",
+        "endpoint": "/intelligence/test_calc"
+      },
+      {
+        "name": "calc_average",
+        "endpoint": "/intelligence/calc_average"
+      },
+      {
+        "name": "co2",
+        "endpoint": "/intelligence/co2"
+      },
+      {
+        "name": "co2",
+        "endpoint": "/intelligence/co2"
+      }
+    ]
+  },
+  {
+    "name": "Intelligence Upload",
+    "submenu": [
+      {
+        "name": "Upload Instructions",
+        "endpoint": "/upload-instructions"
+      },
+      {
+        "name": "Upload Intelligence Module",
+        "endpoint": "/upload-intelligence"
+      },
+      {
+        "name": "View Uploaded Modules",
+        "endpoint": "/uploaded-intelligences"
+      }
     ]
   },
   {

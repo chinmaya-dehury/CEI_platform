@@ -2,10 +2,16 @@ import os, sys, time, json, random
 from datetime import datetime
 from flask import Flask, jsonify, request, Response, send_file, render_template
 
-from .temperature_requirements import get_requirements_data
-from .temperature_registration import metadata, register_with_controller, register_with_consul
-from .temperature_intelligence import generate_and_save_intelligence
-from agents.temperature_agent.temperature_intelligence import append_synthetic_data
+try:
+    from .temperature_requirements import get_requirements_data
+    from .temperature_registration import metadata, register_with_controller, register_with_consul
+    from .temperature_intelligence import generate_and_save_intelligence
+    from agents.temperature_agent.temperature_intelligence import append_synthetic_data
+except ImportError:
+    from temperature_requirements import get_requirements_data
+    from temperature_registration import metadata, register_with_controller, register_with_consul
+    from temperature_intelligence import generate_and_save_intelligence
+    from temperature_intelligence import append_synthetic_data
 
 
 

@@ -2,10 +2,16 @@ import os, sys, time, json, random
 from datetime import datetime
 from flask import Flask, jsonify, request, Response, send_file, render_template
 
-from .noise_requirements import get_requirements_data
-from .noise_registration import metadata, register_with_controller, register_with_consul
-from .noise_intelligence import generate_and_save_intelligence
-from agents.noise_agent.noise_intelligence import append_synthetic_data
+try:
+    from .noise_requirements import get_requirements_data
+    from .noise_registration import metadata, register_with_controller, register_with_consul
+    from .noise_intelligence import generate_and_save_intelligence
+    from agents.noise_agent.noise_intelligence import append_synthetic_data
+except ImportError:
+    from noise_requirements import get_requirements_data
+    from noise_registration import metadata, register_with_controller, register_with_consul
+    from noise_intelligence import generate_and_save_intelligence
+    from noise_intelligence import append_synthetic_data
 
 print("PYTHONPATH:", sys.path)
 

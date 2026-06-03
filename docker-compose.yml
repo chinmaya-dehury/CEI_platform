@@ -23,6 +23,7 @@ services:
     volumes:
       - ./data:/app/data           # keep for exports/data needs
       - ./central_app.db:/app/central_app.db  # optional: persist the SQLite database file
+      - ./agents:/app/agents  # optional: if you want to access agent code from the dashboard
     networks:
       - appnet
     depends_on:
@@ -83,7 +84,7 @@ services:
     command: python agents/traffic_agent/traffic_main.py
 
     ports:
-      - "5014:5014"
+      - "5014:5010"
 
     networks:
       - appnet
@@ -101,6 +102,9 @@ services:
       dockerfile: Dockerfiles/co2_agent.dockerfile
     container_name: co2_agent
     hostname: co2_agent
+    environment:
+      - AGENT_HOSTNAME=co2_agent
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY:-}
     ports:
       - "5001:5001"
     volumes:
@@ -123,10 +127,16 @@ services:
 
     hostname: co2_intelligence_service
 
+    environment:
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY:-}
+
     command: python agents/co2_agent/co2_main.py
 
     ports:
       - "5010:5010"
+
+    volumes:
+      - ./agents/co2_agent:/app/agents/co2_agent
 
     networks:
       - appnet
@@ -143,6 +153,8 @@ services:
       dockerfile: Dockerfiles/noise_agent.dockerfile
     container_name: noise_agent
     hostname: noise_agent
+    environment:
+      - AGENT_HOSTNAME=noise_agent
     ports:
       - "5002:5002"
     volumes:
@@ -168,7 +180,7 @@ services:
     command: python agents/noise_agent/noise_main.py
 
     ports:
-      - "5012:5012"
+      - "5012:5010"
 
     networks:
       - appnet
@@ -186,6 +198,8 @@ services:
       dockerfile: Dockerfiles/humidity_agent.dockerfile
     container_name: humidity_agent
     hostname: humidity_agent
+    environment:
+      - AGENT_HOSTNAME=humidity_agent
     ports:
       - "5003:5003"
     volumes:
@@ -211,7 +225,7 @@ services:
     command: python agents/humidity_agent/humidity_main.py
 
     ports:
-      - "5011:5011"
+      - "5011:5010"
 
     networks:
       - appnet
@@ -227,6 +241,8 @@ services:
       dockerfile: Dockerfiles/temperature_agent.dockerfile
     container_name: temperature_agent
     hostname: temperature_agent
+    environment:
+      - AGENT_HOSTNAME=temperature_agent
     ports:
       - "5004:5004"
     volumes:
@@ -252,7 +268,7 @@ services:
     command: python agents/temperature_agent/temperature_main.py
 
     ports:
-      - "5013:5013"
+      - "5013:5010"
 
     networks:
       - appnet

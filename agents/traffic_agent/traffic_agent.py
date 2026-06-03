@@ -2,10 +2,16 @@ from flask import Flask, jsonify, request, Response, send_file, render_template
 import os, json, random, sys
 from datetime import datetime
 import uuid
-from .traffic_registration import metadata, register_with_controller, register_with_consul
-from .traffic_requirements import get_requirements_data
-from .traffic_agentintelligence import generate_and_save_intelligence
-from .traffic_agentintelligence import append_synthetic_data
+try:
+    from .traffic_registration import metadata, register_with_controller, register_with_consul
+    from .traffic_requirements import get_requirements_data
+    from .traffic_agentintelligence import generate_and_save_intelligence
+    from .traffic_agentintelligence import append_synthetic_data
+except ImportError:
+    from traffic_registration import metadata, register_with_controller, register_with_consul
+    from traffic_requirements import get_requirements_data
+    from traffic_agentintelligence import generate_and_save_intelligence
+    from traffic_agentintelligence import append_synthetic_data
 metadata_path = "/app/agents/humidity_agent/humidity_agent_metadata.json"
 
 import requests

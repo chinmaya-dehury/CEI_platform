@@ -3,10 +3,16 @@ import os, json, random, sys
 from datetime import datetime
 import uuid
 
-from .humidity_registration import metadata, register_with_controller, register_with_consul
-from .humidityagent_requirements import get_requirements_data
-from .humidityagent_intelligence import generate_and_save_intelligence
-from .humidityagent_intelligence import append_synthetic_data
+try:
+    from .humidity_registration import metadata, register_with_controller, register_with_consul
+    from .humidityagent_requirements import get_requirements_data
+    from .humidityagent_intelligence import generate_and_save_intelligence
+    from .humidityagent_intelligence import append_synthetic_data
+except ImportError:
+    from humidity_registration import metadata, register_with_controller, register_with_consul
+    from humidityagent_requirements import get_requirements_data
+    from humidityagent_intelligence import generate_and_save_intelligence
+    from humidityagent_intelligence import append_synthetic_data
 metadata_path = "/app/agents/humidity_agent/humidity_agent_metadata.json"
 
 
