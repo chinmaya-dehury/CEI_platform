@@ -498,5 +498,45 @@
     "timestamp": "2026-06-03T13:48:12.437805",
     "noise_level": 33.6,
     "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-06-03T14:33:00.553141",
+    "noise_level": 72.49,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-06-04T04:51:19.175163",
+    "noise_level": 105.57,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-06-04T05:07:24.690852",
+    "noise_level": 32.34,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2026-06-04T05:28:58.074936",
+    "noise_level": 67.23,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-06-04T13:24:29.683240",
+    "noise_level": 34.97,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2026-06-04T14:52:24.688394",
+    "noise_level": 66.84,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-06-04T15:17:53.800201",
+    "noise_level": 108.56,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-06-05T03:53:06.090899",
+    "noise_level": 48.9,
+    "noise_status": "High"
   }
 ]

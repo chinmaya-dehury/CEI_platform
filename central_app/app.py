@@ -1,3 +1,14 @@
+"""
+Main application service for the intelligence platform.
+
+Responsibilities:
+- Serve dashboard and repository pages.
+- Expose APIs for intelligence and requirements data.
+- Forward intelligence uploads to target agents.
+- Aggregate and return agent information to the frontend.
+- Act as the central coordinator between users, agents, and repository services.
+"""
+
 from flask import Flask, render_template, request, jsonify
 from consul_utils import get_registered_agents
 from agent_utils import fetch_health, fetch_requirements , fetch_intelligence 
@@ -248,8 +259,8 @@ def get_agents():
     
     # Known agents in the system - FALLBACK LIST with correct ports
     DEFAULT_AGENTS = [
-        {"name": "traffic_agent", "id": "traffic_agent", "port": 5000},
         {"name": "co2_agent", "id": "co2_agent", "port": 5001},
+        {"name": "traffic_agent", "id": "traffic_agent", "port": 5000},
         {"name": "noise_agent", "id": "noise_agent", "port": 5002},
         {"name": "humidity_agent", "id": "humidity_agent", "port": 5003},
         {"name": "temperature_agent", "id": "temperature_agent", "port": 5004},

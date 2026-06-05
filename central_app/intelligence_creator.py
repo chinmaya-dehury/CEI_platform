@@ -1,3 +1,20 @@
+"""
+Intelligence Forwarding Service
+
+This module acts as a gateway between the central Flask application and individual agents.
+It receives intelligence upload requests, resolves the target agent's URL, prepares the
+uploaded file and metadata, and forwards them to the agent's /upload-intelligence endpoint.
+
+Key Responsibilities:
+- Generate safe Python filenames from intelligence names.
+- Resolve agent URLs using Docker service names, localhost, or environment variables.
+- Forward intelligence files and metadata to the appropriate agent.
+- Handle connection, timeout, and validation errors.
+- Return agent responses back to the central application.
+
+"""
+
+
 import re
 import requests
 from werkzeug.utils import secure_filename
@@ -14,12 +31,10 @@ DEFAULT_AGENT_PORTS = {
 
 
 def is_running_in_docker():
-    """Best-effort detection for Docker Compose service-to-service URLs."""
     return os.path.exists("/.dockerenv")
 
-
+# Generate safe Python filename
 def module_filename_from_intelligence_name(intelligence_name):
-    """Derive a safe .py filename from the form intelligence name."""
     base = secure_filename(intelligence_name.strip().lower().replace(" ", "_"))
     if not base:
         return None

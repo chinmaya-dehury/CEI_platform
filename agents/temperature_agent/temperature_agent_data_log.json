@@ -683,5 +683,45 @@
     "timestamp": "2026-06-03T13:48:12.760446",
     "temperature": 31.01,
     "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-03T14:32:59.544768",
+    "temperature": 33.84,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-04T04:51:19.349724",
+    "temperature": 18.89,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-04T05:07:24.776638",
+    "temperature": 31.48,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-04T05:28:58.104361",
+    "temperature": 36.46,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-04T13:24:27.288184",
+    "temperature": 39.61,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-04T14:52:21.723815",
+    "temperature": 35.17,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-04T15:17:53.930246",
+    "temperature": 26.15,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-05T03:53:06.288612",
+    "temperature": 37.17,
+    "status": "Normal"
   }
 ]

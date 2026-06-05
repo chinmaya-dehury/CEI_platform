@@ -1,3 +1,22 @@
+"""
+Repository Service
+
+This module collects and aggregates intelligence information from all agents.
+It retrieves intelligence data either directly from agent intelligence services
+or from locally stored registry files when services are unavailable.
+
+Key Responsibilities:
+- Fetch intelligence information from agent intelligence services.
+- Read created_intelligence.json registry files.
+- Resolve and load intelligence result (.data) files.
+- Read intelligence metadata files when needed.
+- Merge registry, metadata, and execution results into a unified structure.
+- Provide repository data for display in the central dashboard and repository UI.
+- Support fallback data retrieval when agent services are offline.
+
+Its purpose is to discover, read, and aggregate intelligence artifacts that already exist.
+"""
+
 import requests
 import os
 import re
