@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 
 
-COPY agents/traffic_agent ./agents/traffic_agent
+COPY agents ./agents
 
 RUN pip install flask requests
 

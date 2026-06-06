@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 
 
-COPY agents/noise_agent ./agents/noise_agent
+COPY agents ./agents
 
 RUN pip install flask requests
 

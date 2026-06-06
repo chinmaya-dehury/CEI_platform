@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 
 
-COPY agents/co2_agent ./agents/co2_agent
+COPY agents ./agents
 
 RUN pip install flask requests
 

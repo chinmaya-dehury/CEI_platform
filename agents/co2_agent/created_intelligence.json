@@ -327,39 +327,6 @@
     }
   },
   {
-    "uuid": "e1b19974-da42-4fd7-8be3-bb25b265cd24",
-    "intelligence_name": "poll",
-    "description": "pollution",
-    "implementation_path": "agents/co2_agent/intel_definitions/poll.py",
-    "extension": "py",
-    "engine": "python",
-    "version": "3.11",
-    "result_path": "intel_definitions/poll.data",
-    "execution_data": {
-      "detect_pollution": {
-        "co2_level": 383,
-        "status": "NORMAL",
-        "message": "CO2 level analyzed successfully"
-      }
-    },
-    "result_data": {
-      "detect_pollution": {
-        "co2_level": 383,
-        "status": "NORMAL",
-        "message": "CO2 level analyzed successfully"
-      }
-    },
-    "created_at": "2026-06-03T06:40:57.916050",
-    "status": "active",
-    "engine_installation": {
-      "status": true,
-      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
-      "engine": "python",
-      "version": "3.11",
-      "installed": true
-    }
-  },
-  {
     "uuid": "529eb02a-ba7f-4684-be27-69177d0a1a1e",
     "intelligence_name": "co2_pollution",
     "description": "pollution detection",
@@ -390,6 +357,39 @@
       "engine": "python",
       "version": "3.11",
       "installed": true
+    }
+  },
+  {
+    "uuid": "9c22dfdb2bf2",
+    "intelligence_name": "poll",
+    "description": "poll",
+    "implementation_path": "agents/co2_agent/intel_definitions/poll.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/poll.data",
+    "execution_data": {
+      "detect_pollution": {
+        "co2_level": 724,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "result_data": {
+      "detect_pollution": {
+        "co2_level": 724,
+        "status": "HIGH",
+        "message": "CO2 level analyzed successfully"
+      }
+    },
+    "created_at": "2026-06-06T06:19:59.219764",
+    "status": "active",
+    "engine_installation": {
+      "status": "pending",
+      "message": "Engine installation running in background",
+      "engine": "python",
+      "version": "3.11",
+      "installed": false
     }
   }
 ]

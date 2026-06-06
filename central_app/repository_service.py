@@ -239,9 +239,13 @@ def collect_repository():
             response = requests.get(url, timeout=3)
             if response.status_code == 200:
                 service_data = response.json()
+                print(
+                    f"{agent_name}:",
+                    service_data.get("created_intelligence")
+                )
                 agent_data["intelligence"] = service_data.get("intelligence", [])
                 created_from_service = service_data.get("created_intelligence")
-                if created_from_service is not None:
+                if created_from_service and len(created_from_service) > 0:
                     agent_data["created_intelligence"] = created_from_service
                 else:
                     agent_data["created_intelligence"] = get_created_intelligence(

@@ -723,5 +723,95 @@
     "timestamp": "2026-06-05T03:53:06.288612",
     "temperature": 37.17,
     "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-05T11:15:54.803813",
+    "temperature": 39.84,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-05T11:24:02.627067",
+    "temperature": 29.57,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-05T16:44:54.536794",
+    "temperature": 37.05,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-05T16:45:57.328999",
+    "temperature": 39.34,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-06T05:05:07.480121",
+    "temperature": 21.34,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-06T05:06:14.431881",
+    "temperature": 18.29,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T05:44:25.308625",
+    "temperature": 15.57,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T05:50:57.611395",
+    "temperature": 38.49,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-06T06:00:14.589383",
+    "temperature": 13.54,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-06T06:07:35.186879",
+    "temperature": 31.64,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T06:14:45.960987",
+    "temperature": 19.75,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-06T06:19:15.002742",
+    "temperature": 33.77,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T06:21:16.249601",
+    "temperature": 33.79,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-06T07:17:34.332814",
+    "temperature": 24.61,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-06T14:58:14.595029",
+    "temperature": 19.35,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-06T14:59:23.245105",
+    "temperature": 15.66,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T15:14:05.343022",
+    "temperature": 20.92,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-06T15:28:59.869230",
+    "temperature": 16.87,
+    "status": "Critical"
   }
 ]

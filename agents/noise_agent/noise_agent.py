@@ -3,15 +3,30 @@ from datetime import datetime
 from flask import Flask, jsonify, request, Response, send_file, render_template
 
 try:
-    from .noise_requirements import get_requirements_data
-    from .noise_registration import metadata, register_with_controller, register_with_consul
-    from .noise_intelligence import generate_and_save_intelligence
-    from agents.noise_agent.noise_intelligence import append_synthetic_data
+    from agents.noise_agent.noise_registration import (
+        metadata,
+        register_with_controller,
+        register_with_consul,
+    )
+    from agents.noise_agent.noise_requirements import get_requirements_data
+    from agents.noise_agent.noise_intelligence import (
+        generate_and_save_intelligence,
+        append_synthetic_data,
+    )
+    from agents.shared.intelligence_upload_handler import IntelligenceUploadHandler
+
 except ImportError:
-    from noise_requirements import get_requirements_data
-    from noise_registration import metadata, register_with_controller, register_with_consul
-    from noise_intelligence import generate_and_save_intelligence
-    from noise_intelligence import append_synthetic_data
+    from .noise_registration import (
+        metadata,
+        register_with_controller,
+        register_with_consul,
+    )
+    from .noise_requirements import get_requirements_data
+    from .noise_intelligence import (
+        generate_and_save_intelligence,
+        append_synthetic_data,
+    )
+    from agents.shared.intelligence_upload_handler import IntelligenceUploadHandler
 
 print("PYTHONPATH:", sys.path)
 
@@ -182,6 +197,185 @@ def download_uuid():
         return send_file(METADATA_PATH, as_attachment=True, download_name="noise_agent_metadata.json")
     except FileNotFoundError:
         return jsonify({"error": "UUID file not found"}), 404
+    
+
+@app.route("/upload-intelligence", methods=["POST"])
+def upload_intelligence():
+    """
+    Upload a custom intelligence module with automatic OpenWeather API integration
+    
+    Expected form data:
+    - file: Python file (.py)
+    - replace: Optional bool to replace existing file
+    
+    Returns: JSON with upload status
+    """
+    
+    # Check if file is in request
+    if 'file' not in request.files:
+        return jsonify({"error": "No file provided", "code": "NO_FILE"}), 400
+    
+    file = request.files['file']
+    
+    if file.filename == '':
+        return jsonify({"error": "No file selected", "code": "NO_FILENAME"}), 400
+    
+    # Check file size
+    file.seek(0, os.SEEK_END)
+    file_size = file.tell()
+    file.seek(0)
+    
+    if file_size > IntelligenceUploadHandler.MAX_FILE_SIZE:
+        return jsonify({
+            "error": f"File too large. Maximum size: {IntelligenceUploadHandler.MAX_FILE_SIZE} bytes",
+            "code": "FILE_TOO_LARGE"
+        }), 413
+    
+    # Check if file extension is allowed
+    if not IntelligenceUploadHandler.allowed_file(file.filename):
+        return jsonify({
+            "error": "Only .py files are allowed",
+            "code": "INVALID_EXTENSION"
+        }), 400
+    
+    try:
+        # Read file content
+        code = file.read().decode('utf-8')
+
+        intelligence_name = request.form.get("intelligence_name", "").strip()
+        description = request.form.get("description", "").strip()
+        engine = request.form.get("engine", "").strip()
+        version = request.form.get("version", "").strip()
+
+        # Save uploaded file with API integration and auto-generated metadata
+        success, message, metadata, registry_entry, execution_data = (
+            IntelligenceUploadHandler.save_uploaded_file(
+                file.filename,
+                code,
+                AGENT_NAME,
+                intelligence_name=intelligence_name or None,
+                description=description or None,
+                engine=engine or None,
+                version=version or None,
+            )
+        )
+        
+        if success:
+            status_code = 200 if "already exists" in message.lower() else 201
+            return jsonify({
+                "status": "success",
+                "message": message,
+                "metadata": metadata,
+                "registry_entry": registry_entry,
+                "execution_data": execution_data,
+                "next_steps": [
+                    f"Call GET /intelligence to see '{metadata['module_name']}' in the registry"
+                ]
+            }), status_code
+        else:
+            return jsonify({
+                "status": "error",
+                "message": message,
+                "code": "VALIDATION_FAILED"
+            }), 400
+    
+    except UnicodeDecodeError:
+        return jsonify({
+            "error": "File is not a valid UTF-8 text file",
+            "code": "DECODE_ERROR"
+        }), 400
+    except Exception as e:
+        return jsonify({
+            "error": f"Unexpected error: {str(e)}",
+            "code": "UNKNOWN_ERROR"
+        }), 500
+
+@app.route("/upload-instructions", methods=["GET"])
+def upload_instructions():
+    """Get instructions for uploading intelligence modules"""
+    
+    instructions = IntelligenceUploadHandler.get_upload_instructions()
+    
+    return jsonify({
+        "status": "success",
+        "upload_endpoint": "/upload-intelligence",
+        "method": "POST",
+        "content_type": "multipart/form-data",
+        **instructions
+    }), 200
+
+@app.route("/uploaded-intelligences", methods=["GET"])
+def list_uploaded_intelligences():
+    """List all uploaded intelligence modules with auto-generated metadata"""
+    
+    intel_path = f"/app/agents/noise_agent/intel_definitions"
+    uploaded = []
+    
+    try:
+        for filename in os.listdir(intel_path):
+            if filename.endswith("_metadata.json"):
+                metadata_file = os.path.join(intel_path, filename)
+                with open(metadata_file, 'r') as f:
+                    meta = json.load(f)
+                    uploaded.append(meta)
+        
+        return jsonify({
+            "status": "success",
+            "count": len(uploaded),
+            "uploaded_modules": uploaded
+        }), 200
+    
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+@app.route("/uploaded-intelligences/<filename>", methods=["DELETE"])
+def delete_uploaded_intelligence(filename):
+    """Delete an uploaded intelligence module"""
+    
+    # Secure filename
+    from werkzeug.utils import secure_filename
+    filename = secure_filename(filename)
+    
+    intel_path = f"/app/agents/noise_agent/intel_definitions"
+    filepath = os.path.join(intel_path, filename)
+    metadata_filepath = os.path.join(intel_path, f"{filename[:-3]}_metadata.json")
+    data_filepath = os.path.join(intel_path, f"{filename[:-3]}.data")
+    
+    try:
+        # Check if file exists
+        if not os.path.exists(filepath):
+            return jsonify({
+                "status": "error",
+                "message": f"File '{filename}' not found"
+            }), 404
+        
+        # Delete the module file
+        os.remove(filepath)
+        print(f"[INFO] Deleted intelligence module: {filename}")
+        
+        # Delete metadata file if it exists
+        if os.path.exists(metadata_filepath):
+            os.remove(metadata_filepath)
+        
+        # Delete data file if it exists
+        if os.path.exists(data_filepath):
+            os.remove(data_filepath)
+        
+        return jsonify({
+            "status": "success",
+            "message": f"Intelligence module '{filename}' deleted successfully",
+            "deleted_file": filename,
+            "next_steps": "Restart the humidity_intelligence_service to apply changes"
+        }), 200
+    
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Error deleting file: {str(e)}"
+        }), 500
 
 # -------- Main Flow -------- #
 if __name__ == "__main__":

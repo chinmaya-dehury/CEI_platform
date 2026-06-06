@@ -10,13 +10,13 @@ try:
     )
     from agents.co2_agent.co2requirements import get_requirements_data
     from .co2_agent_intelligence import generate_and_save_intelligence
-    from .intel_definitions.intelligence_upload_handler import IntelligenceUploadHandler
+    from agents.shared.intelligence_upload_handler import IntelligenceUploadHandler
     from agents.co2_agent.co2_agent_intelligence import append_synthetic_data
 except ImportError:
     from registration import metadata, register_with_controller, register_with_consul
     from co2requirements import get_requirements_data
     from co2_agent_intelligence import generate_and_save_intelligence
-    from intel_definitions.intelligence_upload_handler import IntelligenceUploadHandler
+    from agents.shared.intelligence_upload_handler import IntelligenceUploadHandler
     from co2_agent_intelligence import append_synthetic_data
 print("PYTHONPATH:", sys.path)
 
@@ -277,6 +277,7 @@ def upload_intelligence():
             IntelligenceUploadHandler.save_uploaded_file(
                 file.filename,
                 code,
+                AGENT_NAME,
                 intelligence_name=intelligence_name or None,
                 description=description or None,
                 engine=engine or None,
@@ -332,7 +333,7 @@ def upload_instructions():
 def list_uploaded_intelligences():
     """List all uploaded intelligence modules with auto-generated metadata"""
     
-    intel_path = "/app/agents/co2_agent/intel_definitions"
+    intel_path = f"/app/agents/co2_agent/intel_definitions"
     uploaded = []
     
     try:
@@ -363,7 +364,7 @@ def delete_uploaded_intelligence(filename):
     from werkzeug.utils import secure_filename
     filename = secure_filename(filename)
     
-    intel_path = "/app/agents/co2_agent/intel_definitions"
+    intel_path = f"/app/agents/co2_agent/intel_definitions"
     filepath = os.path.join(intel_path, filename)
     metadata_filepath = os.path.join(intel_path, f"{filename[:-3]}_metadata.json")
     data_filepath = os.path.join(intel_path, f"{filename[:-3]}.data")

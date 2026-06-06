@@ -18,30 +18,32 @@ import threading
 
 from datetime import datetime
 from werkzeug.utils import secure_filename
-try:
-    from .engine_installer import EngineInstaller
-except ImportError:
-    from engine_installer import EngineInstaller
+from agents.shared.engine_installer import EngineInstaller
 
 
 class IntelligenceUploadHandler:
-
-    _DOCKER_INTEL_PATH = "/app/agents/co2_agent/intel_definitions"
-    _LOCAL_INTEL_PATH = os.path.dirname(os.path.abspath(__file__))
-
-    INTEL_DEFINITIONS_PATH = (
-        _DOCKER_INTEL_PATH
-        if os.path.isdir(_DOCKER_INTEL_PATH)
-        else _LOCAL_INTEL_PATH
-    )
-
-    AGENT_BASE_PATH = os.path.dirname(INTEL_DEFINITIONS_PATH)
-
-    CONTROLLER_URL = "http://controller:9000/register"
-
     ALLOWED_EXTENSIONS = {"py"}
+    MAX_FILE_SIZE = 10 * 1024 * 1024 
 
-    MAX_FILE_SIZE = 100 * 1024
+    @staticmethod
+    def get_intel_path(agent_name):
+        docker_path = f"/app/agents/{agent_name}/intel_definitions"
+
+        if os.path.isdir(docker_path):
+            return docker_path
+
+        return os.path.join(
+            os.getcwd(),
+            "agents",
+            agent_name,
+            "intel_definitions"
+        )
+
+    @staticmethod
+    def get_agent_base_path(agent_name):
+        return os.path.dirname(
+            IntelligenceUploadHandler.get_intel_path(agent_name)
+        )
 
     # ---------------------------------------------------
     # Validate extension
@@ -61,7 +63,7 @@ class IntelligenceUploadHandler:
     # ---------------------------------------------------
 
     @staticmethod
-    def validate_filename(filename):
+    def validate_filename(filename, agent_name):
 
         if not filename:
             return None, "Filename is empty"
@@ -78,8 +80,10 @@ class IntelligenceUploadHandler:
         if filename in reserved:
             return None, f"{filename} is reserved"
 
+        intel_path = f"/app/agents/{agent_name}/intel_definitions"
+
         file_path = os.path.join(
-            IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH,
+            intel_path,
             filename
         )
 
@@ -89,15 +93,17 @@ class IntelligenceUploadHandler:
         return filename, None
 
     @staticmethod
-    def _load_existing_upload(secure_name):
+    def _load_existing_upload(secure_name,agent_name):
         """Return saved upload artifacts when the module was already created."""
-        base_path = IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH
+        base_path = f"/app/agents/{agent_name}/intel_definitions"
         module_name = secure_name[:-3]
         file_path = os.path.join(base_path, secure_name)
         metadata_path = os.path.join(base_path, f"{module_name}_metadata.json")
         data_path = os.path.join(base_path, f"{module_name}.data")
+        agent_base_path = f"/app/agents/{agent_name}"
+
         registry_path = os.path.join(
-            IntelligenceUploadHandler.AGENT_BASE_PATH,
+            agent_base_path,
             "created_intelligence.json",
         )
 
@@ -130,13 +136,13 @@ class IntelligenceUploadHandler:
                 "description": "Uploaded intelligence",
                 "implementation_path": metadata.get(
                     "implementation_path",
-                    f"agents/co2_agent/intel_definitions/{secure_name}",
+                    f"agents/{agent_name}/intel_definitions/{secure_name}"
                 ),
                 "extension": "py",
                 "engine": "python",
                 "version": "",
                 "result_path": metadata.get(
-                    "result_path", f"intel_definitions/{module_name}.data"
+                    "result_path", f"agents/{agent_name}/intel_definitions/{module_name}.data"
                 ),
                 "execution_data": execution_result,
                 "result_data": execution_result,
@@ -331,45 +337,45 @@ class IntelligenceUploadHandler:
     # ---------------------------------------------------
 
     @staticmethod
-    def get_uuid_from_controller(intelligence_name):
+    def get_uuid_from_controller(intelligence_name, agent_name):
 
-        payload = {
+        # payload = {
 
-            "uuid": "",
+        #     "uuid": "",
 
-            "sensor_type": "Intelligence Module",
+        #     "sensor_type": "Intelligence Module",
 
-            "frequency": "On-demand",
+        #     "frequency": "On-demand",
 
-            "unit": "N/A",
+        #     "unit": "N/A",
 
-            "location": "CO2 Agent",
+        #     "location": agent_name,
 
-            "data_name": intelligence_name,
+        #     "data_name": intelligence_name,
 
-            "agent_name": "co2_agent"
-        }
+        #     "agent_name": agent_name
+        # }
 
-        try:
+        # try:
 
-            response = requests.post(
+        #     response = requests.post(
 
-                IntelligenceUploadHandler.CONTROLLER_URL,
+        #         IntelligenceUploadHandler.CONTROLLER_URL,
 
-                json=payload,
+        #         json=payload,
 
-                timeout=5
-            )
+        #         timeout=5
+        #     )
 
-            if response.status_code == 200:
+        #     if response.status_code == 200:
 
-                result = response.json()
+        #         result = response.json()
 
-                return result.get("uuid")
+        #         return result.get("uuid")
 
-        except Exception as e:
+        # except Exception as e:
 
-            print(f"[ERROR] Controller UUID failed: {e}")
+        #     print(f"[ERROR] Controller UUID failed: {e}")
 
         return uuid.uuid4().hex[:12]
 
@@ -378,11 +384,12 @@ class IntelligenceUploadHandler:
     # ---------------------------------------------------
 
     @staticmethod
-    def create_metadata(filename, functions, lines):
+    def create_metadata(filename, functions, lines, agent_name, description=None):
 
         intelligence_uuid = (
             IntelligenceUploadHandler.get_uuid_from_controller(
-                filename[:-3]
+                filename[:-3],
+                agent_name
             )
         )
 
@@ -394,26 +401,21 @@ class IntelligenceUploadHandler:
 
             "module_name": filename[:-3],
 
+            "description": description or "",
+
             "created_at": datetime.utcnow().isoformat(),
 
             "status": "active",
 
             "functions": functions,
 
-            "statistics": {
-
-                "total_functions": len(functions),
-
-                "total_lines": lines
-            },
-
             "data_file": (
-                f"/app/agents/co2_agent/intel_definitions/"
+                f"/app/agents/{agent_name}/intel_definitions/"
                 f"{filename[:-3]}.data"
             ),
 
             "metadata_file": (
-                f"/app/agents/co2_agent/intel_definitions/"
+                f"/app/agents/{agent_name}/intel_definitions/"
                 f"{filename[:-3]}_metadata.json"
             )
         }
@@ -424,10 +426,12 @@ class IntelligenceUploadHandler:
     # Save uploaded intelligence
     # ---------------------------------------------------
 
+   
     @staticmethod
     def save_uploaded_file(
         filename,
         code_content,
+        agent_name,
         intelligence_name=None,
         description=None,
         engine=None,
@@ -498,12 +502,13 @@ class IntelligenceUploadHandler:
 
         secure_name, error = (
             IntelligenceUploadHandler.validate_filename(
-                target_filename
+                target_filename,
+                agent_name
             )
         )
 
         if error:
-            existing = IntelligenceUploadHandler._load_existing_upload(secure_name)
+            existing = IntelligenceUploadHandler._load_existing_upload(secure_name, agent_name)
             if existing:
                 metadata, registry_entry, execution_result = existing
                 return (
@@ -533,17 +538,18 @@ class IntelligenceUploadHandler:
             # -----------------------------------------
             # Save uploaded .py file
             # -----------------------------------------
-
+            intel_path = f"/app/agents/{agent_name}/intel_definitions"
+            agent_base_path = f"/app/agents/{agent_name}"
             os.makedirs(
 
-                IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH,
+                intel_path,
 
                 exist_ok=True
             )
 
             file_path = os.path.join(
 
-                IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH,
+                intel_path,
 
                 secure_name
             )
@@ -563,13 +569,17 @@ class IntelligenceUploadHandler:
 
                     functions,
 
-                    len(code_content.split("\n"))
+                    len(code_content.split("\n")),
+
+                    agent_name,
+
+                    description
                 )
             )
 
             metadata_path = os.path.join(
 
-                IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH,
+                intel_path,
 
                 f"{secure_name[:-3]}_metadata.json"
             )
@@ -586,11 +596,11 @@ class IntelligenceUploadHandler:
                 sys.path.insert(0, os.getcwd())
 
             module_name = (
-                f"agents.co2_agent.intel_definitions.{secure_name[:-3]}"
+                f"agents.{agent_name}.intel_definitions.{secure_name[:-3]}"
             )
 
             print("========== DEBUG IMPORT ==========")
-            print("INTEL_PATH:", IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH)
+            print("INTEL_PATH:", intel_path)
             print("MODULE_NAME:", module_name)
             print("CURRENT_DIR:", os.getcwd())
             print("SYS_PATH:", sys.path[:5])
@@ -658,7 +668,7 @@ class IntelligenceUploadHandler:
 
             data_file_path = os.path.join(
 
-                IntelligenceUploadHandler.INTEL_DEFINITIONS_PATH,
+                intel_path,
 
                 f"{secure_name[:-3]}.data"
             )
@@ -672,7 +682,7 @@ class IntelligenceUploadHandler:
             # -----------------------------------------
 
             registry_path = os.path.join(
-                IntelligenceUploadHandler.AGENT_BASE_PATH,
+                agent_base_path,
                 "created_intelligence.json",
             )
 
@@ -692,7 +702,7 @@ class IntelligenceUploadHandler:
 
             module_name = secure_name[:-3]
             rel_impl_path = (
-                f"agents/co2_agent/intel_definitions/{secure_name}"
+                f"agents/{agent_name}/intel_definitions/{secure_name}"
             )
             rel_result_path = f"intel_definitions/{module_name}.data"
 
