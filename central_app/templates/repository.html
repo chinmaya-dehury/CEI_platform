@@ -1,163 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html>
-
-<head>
-
+  <head>
     <title>Central Repository</title>
 
     <style>
+      body {
+        font-family: Arial;
+        margin: 30px;
+        background: #f5f5f5;
+      }
 
-        body{
-            font-family: Arial;
-            margin: 30px;
-            background:#f5f5f5;
-        }
+      .agent-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
 
-        .agent-card{
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            margin-bottom:25px;
-            box-shadow:0px 2px 5px rgba(0,0,0,0.1);
-        }
+      .intel-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 8px;
+        background: #fafafa;
+      }
 
-        .intel-card{
-            border:1px solid #ddd;
-            padding:15px;
-            margin-top:15px;
-            border-radius:8px;
-            background:#fafafa;
-        }
+      h1 {
+        color: #333;
+      }
 
-        h1{
-            color:#333;
-        }
+      h2 {
+        color: #0066cc;
+      }
 
-        h2{
-            color:#0066cc;
-        }
+      p {
+        margin: 6px 0;
+      }
 
-        p{
-            margin:6px 0;
-        }
+      .toolbar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
 
+      .toolbar input,
+      .toolbar select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #007bff;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .details {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
-<div style="
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-">
-
-    <a href="/"
-       style="
-            background:#007bff;
-            color:white;
-            padding:10px 15px;
-            border-radius:8px;
-            text-decoration:none;
-            font-weight:bold;
-       ">
+  <body>
+    <div
+      style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px"
+    >
+      <a
+        href="/"
+        style="
+          background: #007bff;
+          color: white;
+          padding: 10px 15px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+        "
+      >
         ← Back
-    </a>
+      </a>
 
-    <h1 style="margin:0;">
-        Central Intelligence Repository
-    </h1>
-
-</div>
-
-{% for item in repository %}
-
-<div class="agent-card">
-
-    <h2>{{ item.agent_name }}</h2>
-
-    {% for intel in item.intelligence %}
-
-    <div class="intel-card">
-
-        <p><b>Intelligence Name:</b>
-        {{ intel.intelligence_name }}</p>
-
-        <p><b>Description:</b>
-        {{ intel.description }}</p>
-
-        <p><b>Category:</b>
-        {{ intel.category }}</p>
-
-        <p><b>Intelligence ID:</b>
-        {{ intel.intelligence_id }}</p>
-
-        <p><b>Intelligence Data:</b>
-        {{ intel.intelligence_data }}</p>
-
+      <h1 style="margin: 0">Central Intelligence Repository</h1>
     </div>
 
-    {% endfor %}
+    <div class="toolbar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search..."
+      />
 
-    <!-- Created Intelligence Section -->
-    {% if item.created_intelligence and item.created_intelligence|length > 0 %}
-    
-    <h3 style="color: #28a745; margin-top: 20px;">Created Intelligence</h3>
-    
-    {% for intel in item.created_intelligence %}
-    
-    <div class="intel-card" style="border-left: 4px solid #28a745;">
+      <select id="agentFilter">
+        <option value="">All Agents</option>
 
-        <p><b>Intelligence Name:</b> {{ intel.intelligence_name }}</p>
-
-        <p><b>Intelligence ID:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.intelligence_id or intel.uuid }}</code></p>
-
-        <p><b>Description:</b> {{ intel.description }}</p>
-
-        <p><b>Implementation Path:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.implementation_path }}</code></p>
-
-        <p><b>Extension:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px;">{{ intel.extension or 'py' }}</code></p>
-
-        <p><b>Engine:</b> {{ intel.engine if intel.engine else 'n/a' }}</p>
-        
-        <p><b>Version:</b> {{ intel.version if intel.version else 'n/a' }}</p>
-        
-        {% if intel.engine_installation %}
-        {% set eng_install = intel.engine_installation %}
-        <p><b>Engine Installation Status:</b>
-            {% if eng_install.installed or eng_install.status == true or eng_install.status == 'installed' %}
-            <span style="background: #d4edda; padding: 2px 8px; border-radius: 3px; color: #155724; font-weight: bold;">✓ Installed</span>
-            {% elif eng_install.status == 'pending' %}
-            <span style="background: #fff3cd; padding: 2px 8px; border-radius: 3px; color: #856404; font-weight: bold;">⏳ In Progress</span>
-            {% else %}
-            <span style="background: #f8d7da; padding: 2px 8px; border-radius: 3px; color: #721c24; font-weight: bold;">✗ Failed</span>
-            {% endif %}
-        </p>
-        <p><b>Installation Message:</b> <code style="background:#ddd; padding:2px 5px; border-radius:3px; display:block; margin-top:5px;">{{ eng_install.message or 'No message' }}</code></p>
-        {% endif %}
-        <!-- <p><b>Result File:</b> {{ intel.result_path or 'Not available' }}</p> -->
-
-        <p><b>Status:</b> <span style="background: #d4edda; padding: 2px 8px; border-radius: 3px; color: #155724;">{{ intel.status }}</span></p>
-
-        <p><b>Created At:</b> {{ intel.created_at }}</p>
-
-        <p><b>Data File:</b> intel_definitions/{{ intel.intelligence_name }}.data</p>
-
-        <p><b>Intelligence Data:</b></p>
-        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;">{{ (intel.result_data or intel.execution_data or {})|tojson(indent=2) }}</pre>
-
+        {% for item in repository %}
+        <option value="{{ item.agent_name }}">{{ item.agent_name }}</option>
+        {% endfor %}
+      </select>
     </div>
-    
-    {% endfor %}
-    
-    {% endif %}
 
-</div>
+    <table id="repositoryTable">
+      <thead>
+        <tr>
+          <th>Intelligence ID</th>
+          <th>Description</th>
+          <th>Data / Result</th>
+          <th>Agent Name</th>
+          <th>URL</th>
+          <th>Details</th>
+        </tr>
+      </thead>
 
-{% endfor %}
+      <tbody>
+        {% for item in repository %} {% for intel in item.created_intelligence
+        %}
 
-</body>
+        <tr>
+          <td>{{ intel.intelligence_id or intel.uuid }}</td>
 
+          <td
+            class="description-cell"
+            data-id="{{ intel.intelligence_id or intel.uuid }}"
+          >
+            <a
+              target="_blank"
+              href="http://localhost:{{ item.port }}/intelligence/{{ intel.intelligence_id or intel.uuid }}"
+            >
+              {{ intel.description }}
+            </a>
+          </td>
+
+          <td>
+            <pre>
+{{ (intel.result_data or intel.execution_data or {})|tojson(indent=2) }}
+</pre
+            >
+          </td>
+
+          <td>{{ item.agent_name }}</td>
+
+          <td>
+            <a
+              target="_blank"
+              href="http://localhost:{{ item.port }}/intelligence"
+            >
+              http://localhost:{{ item.port }}/intelligence
+            </a>
+          </td>
+
+          <td class="details">
+            <b>Implementation:</b><br />
+            {{ intel.implementation_path }}
+
+            <br /><br />
+
+            <b>Extension:</b>
+            {{ intel.extension or 'py' }}
+
+            <br />
+
+            <b>Engine:</b>
+            {{ intel.engine or 'n/a' }}
+
+            <br />
+
+            <b>Version:</b>
+            {{ intel.version or 'n/a' }}
+
+            <br />
+
+            <b>Created:</b>
+            {{ intel.created_at }}
+          </td>
+        </tr>
+
+        {% endfor %} {% endfor %}
+      </tbody>
+    </table>
+
+    <script>
+      document
+        .getElementById("searchInput")
+        .addEventListener("keyup", filterRows);
+
+      document
+        .getElementById("agentFilter")
+        .addEventListener("change", filterRows);
+
+      function filterRows() {
+        const search = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        const agent = document
+          .getElementById("agentFilter")
+          .value.toLowerCase();
+
+        document
+          .querySelectorAll("#repositoryTable tbody tr")
+          .forEach((row) => {
+            const text = row.innerText.toLowerCase();
+
+            const agentName = row.cells[3].innerText.toLowerCase();
+
+            const matchesSearch = text.includes(search);
+
+            const matchesAgent = !agent || agentName === agent;
+
+            row.style.display = matchesSearch && matchesAgent ? "" : "none";
+          });
+      }
+    </script>
+  </body>
 </html>

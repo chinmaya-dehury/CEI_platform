@@ -24,32 +24,11 @@ import json
 
 
 INTELLIGENCE_SERVICES = [
-
-    (
-        "co2_agent",
-        "http://co2_intelligence_service:5010/intelligence"
-    ),
-
-    (
-        "humidity_agent",
-        "http://humidity_intelligence_service:5010/intelligence"
-    ),
-
-    (
-        "noise_agent",
-        "http://noise_intelligence_service:5010/intelligence"
-    ),
-
-    (
-        "temperature_agent",
-        "http://temperature_intelligence_service:5010/intelligence"
-    ),
-
-    (
-        "traffic_agent",
-        "http://traffic_intelligence_service:5010/intelligence"
-    )
-
+    ("co2_agent", "http://co2_intelligence_service:5010/intelligence", 5001),
+    ("humidity_agent", "http://humidity_intelligence_service:5010/intelligence", 5003),
+    ("noise_agent", "http://noise_intelligence_service:5010/intelligence", 5002),
+    ("temperature_agent", "http://temperature_intelligence_service:5010/intelligence", 5004),
+    ("traffic_agent", "http://traffic_intelligence_service:5010/intelligence", 5000)
 ]
 
 AGENTS_BASE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "agents")
@@ -226,10 +205,11 @@ def collect_repository():
 
     repository = []
 
-    for agent_name, url in INTELLIGENCE_SERVICES:
+    for agent_name, url, port in INTELLIGENCE_SERVICES:
 
         agent_data = {
             "agent_name": agent_name,
+            "port": port,
             "intelligence": [],
             "created_intelligence": []
         }

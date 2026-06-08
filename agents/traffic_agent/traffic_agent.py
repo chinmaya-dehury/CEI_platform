@@ -172,22 +172,84 @@ def description():
     return jsonify(metadata)
 
 
-@app.route('/intelligence')
+@app.route("/intelligence")
 def intelligence():
-    result = generate_and_save_intelligence(
-        DATA_LOG_PATH,
-        metadata["agent_name"],
-        metadata["unit"],
-        PORT
-    )
 
-    # Save the intelligence result to a file like in co2_agent
-    intelligence_path = "/app/agents/traffic_agent/traffic_agent_intelligence.json"
-    os.makedirs(os.path.dirname(intelligence_path), exist_ok=True)
-    with open(intelligence_path, "w") as f:
-        json.dump(result, f, indent=2)
+    registry_path = "/app/agents/traffic_agent/created_intelligence.json"
+
+    if not os.path.exists(registry_path):
+        return jsonify([])
+
+    with open(registry_path, "r") as f:
+        registry = json.load(f)
+
+    result = []
+
+    for intel in registry:
+
+        result_path = intel.get("result_path")
+
+        if not result_path:
+            continue
+
+        abs_path = os.path.join(
+            "/app/agents/traffic_agent",
+            result_path
+        )
+
+        if not os.path.exists(abs_path):
+            continue
+
+        try:
+            with open(abs_path, "r") as rf:
+                data = json.load(rf)
+
+            result.append({
+                "intelligence_id": (
+                    intel.get("intelligence_id")
+                    or intel.get("uuid")
+                ),
+                "intelligence_name": intel.get("intelligence_name"),
+                "data": data
+            })
+
+        except Exception:
+            pass
 
     return jsonify(result)
+
+
+@app.route("/intelligence/<intelligence_id>")
+def intelligence_by_id(intelligence_id):
+
+    with open(
+        "/app/agents/traffic_agent/created_intelligence.json",
+        "r"
+    ) as f:
+        registry = json.load(f)
+
+    for intel in registry:
+
+        current_id = (
+            intel.get("intelligence_id")
+            or intel.get("uuid")
+        )
+
+        if current_id == intelligence_id:
+
+            result_path = intel.get("result_path")
+
+            abs_path = os.path.join(
+                "/app/agents/traffic_agent",
+                result_path
+            )
+
+            with open(abs_path, "r") as rf:
+                return jsonify(json.load(rf))
+
+    return jsonify({
+        "error": "Not found"
+    }), 404
 
 
 @app.route("/intelligence/export/json", methods=["GET"])
@@ -261,6 +323,24 @@ def upload_intelligence():
         return jsonify({"error": "No file provided", "code": "NO_FILE"}), 400
     
     file = request.files['file']
+
+    engine = request.form.get("engine", "").strip()
+
+    extension = file.filename.rsplit(".", 1)[-1].lower()
+
+    allowed_extensions = {
+        "python": ["py"],
+        "node": ["js"],
+        "java": ["java"]
+    }
+
+    if extension not in allowed_extensions.get(engine, []):
+
+        return jsonify({
+            "status": "error",
+            "message":
+                f"File extension .{extension} does not match runtime engine '{engine}'"
+        }), 400
     
     if file.filename == '':
         return jsonify({"error": "No file selected", "code": "NO_FILENAME"}), 400

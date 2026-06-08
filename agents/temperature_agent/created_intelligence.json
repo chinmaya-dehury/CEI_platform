@@ -41,5 +41,55 @@
       "version": "3.11",
       "installed": true
     }
+  },
+  {
+    "uuid": "1ea969300b6d",
+    "intelligence_name": "avg",
+    "description": "average",
+    "implementation_path": "agents/temperature_agent/intel_definitions/avg.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/avg.data",
+    "execution_data": {
+      "output": "Module executed successfully"
+    },
+    "result_data": {
+      "output": "Module executed successfully"
+    },
+    "created_at": "2026-06-08T04:23:20.794379",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "e861864a171a",
+    "intelligence_name": "avgg",
+    "description": "average",
+    "implementation_path": "agents/temperature_agent/intel_definitions/avgg.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/avgg.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-08T04:37:53.394705",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
   }
 ]

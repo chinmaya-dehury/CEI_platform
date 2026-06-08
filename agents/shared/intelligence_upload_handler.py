@@ -19,7 +19,8 @@ import threading
 from datetime import datetime
 from werkzeug.utils import secure_filename
 from agents.shared.engine_installer import EngineInstaller
-
+import io
+from contextlib import redirect_stdout
 
 class IntelligenceUploadHandler:
     ALLOWED_EXTENSIONS = {"py"}
@@ -530,8 +531,7 @@ class IntelligenceUploadHandler:
             )
         )
 
-        if not functions:
-            return False, "No functions found", None, None, None
+        
 
         try:
 
@@ -613,7 +613,14 @@ class IntelligenceUploadHandler:
 
                 importlib.invalidate_caches()
 
-                module = importlib.import_module(module_name)
+                captured_output = io.StringIO()
+
+                with redirect_stdout(captured_output):
+                    module = importlib.import_module(module_name)
+
+                execution_result = {
+                    "output": captured_output.getvalue()
+                }
 
             except Exception:
                 print("========== IMPORT FAILED ==========")
@@ -638,29 +645,31 @@ class IntelligenceUploadHandler:
                 "noise": random.randint(40, 120)
             }
 
-            execution_result = {}
+            execution_result = {
+                "output": captured_output.getvalue()
+            }
 
             # -----------------------------------------
             # Execute all discovered functions
             # -----------------------------------------
 
-            for func in functions:
+            # for func in functions:
 
-                func_name = func["name"]
+            #     func_name = func["name"]
 
-                if hasattr(module, func_name):
+            #     if hasattr(module, func_name):
 
-                    callable_func = getattr(module, func_name)
+            #         callable_func = getattr(module, func_name)
 
-                    try:
+            #         try:
 
-                        result = callable_func(sample_data)
+            #             result = callable_func(sample_data)
 
-                    except TypeError:
+            #         except TypeError:
 
-                        result = callable_func()
+            #             result = callable_func()
 
-                    execution_result[func_name] = result
+            #         execution_result[func_name] = result
 
             # -----------------------------------------
             # Store output in .data file

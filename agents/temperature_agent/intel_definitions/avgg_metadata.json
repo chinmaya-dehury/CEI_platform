@@ -1,0 +1,20 @@
+{
+  "intelligence_id": "e861864a171a",
+  "filename": "avgg.py",
+  "module_name": "avgg",
+  "description": "average",
+  "created_at": "2026-06-08T04:37:53.318028",
+  "status": "active",
+  "functions": [],
+  "data_file": "/app/agents/temperature_agent/intel_definitions/avgg.data",
+  "metadata_file": "/app/agents/temperature_agent/intel_definitions/avgg_metadata.json",
+  "implementation_path": "agents/temperature_agent/intel_definitions/avgg.py",
+  "result_path": "intel_definitions/avgg.data",
+  "engine_installation": {
+    "status": true,
+    "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+    "engine": "python",
+    "version": "3.11",
+    "installed": true
+  }
+}
