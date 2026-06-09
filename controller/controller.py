@@ -106,5 +106,12 @@ def health():
         "status": "healthy"
     })
 
+@app.route("/generate-uuid", methods=["POST"])
+def generate_uuid():
+
+    return jsonify({
+        "uuid": str(uuid.uuid4())
+    })
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=9000)

@@ -91,5 +91,130 @@
       "version": "3.11",
       "installed": true
     }
+  },
+  {
+    "uuid": "0053cef4-f7bb-4f68-930e-28898a5b4bd0",
+    "intelligence_name": "pollution_alerteness",
+    "description": "when pollution level increases it gives alert",
+    "implementation_path": "agents/temperature_agent/intel_definitions/pollution_alerteness.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/pollution_alerteness.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-09T04:41:31.404065",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "d5d63b7c-dc1f-453a-9366-4d612bb9c416",
+    "intelligence_name": "air_quality_index",
+    "description": "air quality index measurement",
+    "implementation_path": "agents/temperature_agent/intel_definitions/air_quality_index.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/air_quality_index.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-09T04:43:08.666593",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.10 installed successfully via uv at /root/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/bin/python3.10",
+      "engine": "python",
+      "version": "3.10",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "e4d05494-4860-45dc-ae46-127ff28cc5cf",
+    "intelligence_name": "pollution_alert",
+    "description": "alert when pollution increases",
+    "implementation_path": "agents/temperature_agent/intel_definitions/pollution_alert.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/pollution_alert.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-09T05:09:06.692416",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "34f165a8-76a7-49d0-8e8a-025943fff0ba",
+    "intelligence_name": "again",
+    "description": "again",
+    "implementation_path": "agents/temperature_agent/intel_definitions/again.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.11",
+    "result_path": "intel_definitions/again.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-09T05:09:37.065469",
+    "status": "active",
+    "engine_installation": {
+      "status": true,
+      "message": "Python 3.11 is installed via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+      "engine": "python",
+      "version": "3.11",
+      "installed": true
+    }
+  },
+  {
+    "uuid": "0f992a10-79a4-4bd9-a650-2562aca4dbca",
+    "intelligence_name": "name",
+    "description": "name",
+    "implementation_path": "agents/temperature_agent/intel_definitions/average.py",
+    "extension": "py",
+    "engine": "python",
+    "version": "3.10",
+    "result_path": "intel_definitions/average.data",
+    "execution_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "result_data": {
+      "output": "False\n1\n1\n0\nx= 5\n"
+    },
+    "created_at": "2026-06-09T05:33:13.564876",
+    "status": "active",
+    "engine_installation": {
+      "status": "pending",
+      "message": "Engine installation running in background",
+      "engine": "python",
+      "version": "3.10",
+      "installed": false
+    }
   }
 ]

@@ -1,0 +1,20 @@
+{
+  "intelligence_id": "e4d05494-4860-45dc-ae46-127ff28cc5cf",
+  "filename": "pollution_alert.py",
+  "module_name": "pollution_alert",
+  "description": "alert when pollution increases",
+  "created_at": "2026-06-09T05:09:06.443447",
+  "status": "active",
+  "functions": [],
+  "data_file": "/app/agents/temperature_agent/intel_definitions/pollution_alert.data",
+  "metadata_file": "/app/agents/temperature_agent/intel_definitions/pollution_alert_metadata.json",
+  "implementation_path": "agents/temperature_agent/intel_definitions/pollution_alert.py",
+  "result_path": "intel_definitions/pollution_alert.data",
+  "engine_installation": {
+    "status": true,
+    "message": "Python 3.11 installed successfully via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+    "engine": "python",
+    "version": "3.11",
+    "installed": true
+  }
+}

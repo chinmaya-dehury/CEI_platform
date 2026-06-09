@@ -129,17 +129,11 @@ def forward_intelligence_to_agent(
         base_url = resolve_agent_url(agent_name, port=port)
         upload_url = f"{base_url}/upload-intelligence"
 
-        module_filename = module_filename_from_intelligence_name(intelligence_name)
-        if not module_filename:
-            return {
-                "status": "error",
-                "message": "Invalid intelligence name",
-            }
-
+        
         file.stream.seek(0)
         files = {
             "file": (
-                module_filename,
+                file.filename,
                 file.stream,
                 "text/x-python"
             )

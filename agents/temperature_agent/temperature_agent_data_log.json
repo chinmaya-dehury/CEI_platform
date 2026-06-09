@@ -873,5 +873,35 @@
     "timestamp": "2026-06-08T11:25:47.477353",
     "temperature": 31.29,
     "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-09T04:28:17.062014",
+    "temperature": 23.46,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-09T04:30:07.174124",
+    "temperature": 26.07,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-06-09T04:40:22.141136",
+    "temperature": 20.51,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-06-09T05:08:10.884777",
+    "temperature": 18.45,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-09T05:21:58.033214",
+    "temperature": 18.42,
+    "status": "Critical"
+  },
+  {
+    "timestamp": "2026-06-09T05:32:46.824245",
+    "temperature": 21.01,
+    "status": "Critical"
   }
 ]

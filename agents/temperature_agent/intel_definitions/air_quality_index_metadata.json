@@ -1,0 +1,20 @@
+{
+  "intelligence_id": "d5d63b7c-dc1f-453a-9366-4d612bb9c416",
+  "filename": "air_quality_index.py",
+  "module_name": "air_quality_index",
+  "description": "air quality index measurement",
+  "created_at": "2026-06-09T04:43:08.604488",
+  "status": "active",
+  "functions": [],
+  "data_file": "/app/agents/temperature_agent/intel_definitions/air_quality_index.data",
+  "metadata_file": "/app/agents/temperature_agent/intel_definitions/air_quality_index_metadata.json",
+  "implementation_path": "agents/temperature_agent/intel_definitions/air_quality_index.py",
+  "result_path": "intel_definitions/air_quality_index.data",
+  "engine_installation": {
+    "status": true,
+    "message": "Python 3.10 installed successfully via uv at /root/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/bin/python3.10",
+    "engine": "python",
+    "version": "3.10",
+    "installed": true
+  }
+}

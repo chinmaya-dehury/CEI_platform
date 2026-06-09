@@ -5,10 +5,14 @@ Stores uploaded intelligence, executes it using sample data,
 and stores output in filename.data
 """
 
+from fileinput import filename
+from fileinput import filename
 import os
 import json
 import re
 import ast
+from urllib import response
+from urllib import response
 import uuid
 import random
 import requests
@@ -89,7 +93,7 @@ class IntelligenceUploadHandler:
         )
 
         if os.path.exists(file_path):
-            return filename, f"{filename} already exists"
+            return filename, "FILE_EXISTS"
 
         return filename, None
 
@@ -324,7 +328,6 @@ class IntelligenceUploadHandler:
                             "name": node.name,
 
                             "description": ast.get_docstring(node)
-                            or "Custom intelligence function"
                         })
 
         except Exception as e:
@@ -339,64 +342,38 @@ class IntelligenceUploadHandler:
 
     @staticmethod
     def get_uuid_from_controller(intelligence_name, agent_name):
+        response = requests.post(
+        "http://controller:9000/generate-uuid",
+        timeout=5
+        )
 
-        # payload = {
+        response.raise_for_status()
 
-        #     "uuid": "",
+        return response.json()["uuid"]
 
-        #     "sensor_type": "Intelligence Module",
-
-        #     "frequency": "On-demand",
-
-        #     "unit": "N/A",
-
-        #     "location": agent_name,
-
-        #     "data_name": intelligence_name,
-
-        #     "agent_name": agent_name
-        # }
-
-        # try:
-
-        #     response = requests.post(
-
-        #         IntelligenceUploadHandler.CONTROLLER_URL,
-
-        #         json=payload,
-
-        #         timeout=5
-        #     )
-
-        #     if response.status_code == 200:
-
-        #         result = response.json()
-
-        #         return result.get("uuid")
-
-        # except Exception as e:
-
-        #     print(f"[ERROR] Controller UUID failed: {e}")
-
-        return uuid.uuid4().hex[:12]
 
     # ---------------------------------------------------
     # Create metadata
     # ---------------------------------------------------
 
     @staticmethod
-    def create_metadata(filename, functions, lines, agent_name, description=None):
+    def create_metadata(filename, functions, lines, agent_name, description=None, existing_uuid=None, intelligence_name=None,):
 
-        intelligence_uuid = (
-            IntelligenceUploadHandler.get_uuid_from_controller(
-                filename[:-3],
-                agent_name
+        if existing_uuid:
+            intelligence_uuid = existing_uuid
+        else:
+            intelligence_uuid = (
+                IntelligenceUploadHandler.get_uuid_from_controller(
+                    filename[:-3],
+                    agent_name
+                )
             )
-        )
 
         metadata = {
 
             "intelligence_id": intelligence_uuid,
+
+            "intelligence_name": intelligence_name,
 
             "filename": filename,
 
@@ -452,16 +429,7 @@ class IntelligenceUploadHandler:
         if not valid:
             return False, message, None, None, None
 
-        # Use form intelligence name for module/file naming when provided
-        target_filename = filename
-        if intelligence_name:
-            sanitized = secure_filename(
-                intelligence_name.strip().lower().replace(" ", "_")
-            )
-            if sanitized:
-                if not sanitized.endswith(".py"):
-                    sanitized = f"{sanitized}.py"
-                target_filename = sanitized
+        target_filename = secure_filename(filename)
 
         #region agent log
         try:
@@ -508,18 +476,7 @@ class IntelligenceUploadHandler:
             )
         )
 
-        if error:
-            existing = IntelligenceUploadHandler._load_existing_upload(secure_name, agent_name)
-            if existing:
-                metadata, registry_entry, execution_result = existing
-                return (
-                    True,
-                    "Intelligence already exists",
-                    metadata,
-                    registry_entry,
-                    execution_result,
-                )
-            return False, error, None, None, None
+        is_update = (error == "FILE_EXISTS")
 
         # -----------------------------------------
         # Extract functions
@@ -531,7 +488,17 @@ class IntelligenceUploadHandler:
             )
         )
 
-        
+        existing_uuid = None
+
+        if is_update:
+            existing = IntelligenceUploadHandler._load_existing_upload(
+                secure_name,
+                agent_name
+            )
+
+            if existing:
+                old_metadata, _, _ = existing
+                existing_uuid = old_metadata.get("intelligence_id")
 
         try:
 
@@ -561,6 +528,21 @@ class IntelligenceUploadHandler:
             # -----------------------------------------
             # Create metadata
             # -----------------------------------------
+            
+            existing_uuid = None
+
+            metadata_path = os.path.join(
+                intel_path,
+                f"{secure_name[:-3]}_metadata.json"
+            )
+
+            if os.path.exists(metadata_path):
+
+                with open(metadata_path, "r", encoding="utf-8") as mf:
+
+                    old_metadata = json.load(mf)
+
+                existing_uuid = old_metadata.get("intelligence_id")
 
             metadata = (
                 IntelligenceUploadHandler.create_metadata(
@@ -573,7 +555,9 @@ class IntelligenceUploadHandler:
 
                     agent_name,
 
-                    description
+                    description,
+                    existing_uuid,
+                    intelligence_name
                 )
             )
 
@@ -723,7 +707,7 @@ class IntelligenceUploadHandler:
 
             registry_entry = {
                 "uuid": metadata["intelligence_id"],
-                "intelligence_name": module_name,
+                "intelligence_name": intelligence_name or module_name,
                 "description": description or "Uploaded intelligence",
                 "implementation_path": rel_impl_path,
                 "extension": file_extension,
@@ -739,7 +723,7 @@ class IntelligenceUploadHandler:
             registry = [
                 entry
                 for entry in registry
-                if entry.get("intelligence_name") != module_name
+                if entry.get("uuid") != metadata["intelligence_id"]
             ]
             registry.append(registry_entry)
 

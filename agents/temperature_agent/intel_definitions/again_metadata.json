@@ -1,0 +1,20 @@
+{
+  "intelligence_id": "34f165a8-76a7-49d0-8e8a-025943fff0ba",
+  "filename": "again.py",
+  "module_name": "again",
+  "description": "again",
+  "created_at": "2026-06-09T05:09:36.834301",
+  "status": "active",
+  "functions": [],
+  "data_file": "/app/agents/temperature_agent/intel_definitions/again.data",
+  "metadata_file": "/app/agents/temperature_agent/intel_definitions/again_metadata.json",
+  "implementation_path": "agents/temperature_agent/intel_definitions/again.py",
+  "result_path": "intel_definitions/again.data",
+  "engine_installation": {
+    "status": true,
+    "message": "Python 3.11 is installed via uv at /root/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11",
+    "engine": "python",
+    "version": "3.11",
+    "installed": true
+  }
+}
