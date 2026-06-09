@@ -84,6 +84,40 @@
         margin: 0;
         white-space: pre-wrap;
       }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background: white;
+        width: 700px;
+        max-width: 90%;
+        margin: 8% auto;
+        padding: 25px;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 28px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .close-btn:hover {
+        color: red;
+      }
     </style>
   </head>
 
@@ -109,11 +143,7 @@
     </div>
 
     <div class="toolbar">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search..."
-      />
+      <input type="text" id="searchInput" placeholder="Search..." />
 
       <select id="agentFilter">
         <option value="">All Agents</option>
@@ -129,9 +159,7 @@
         <tr>
           <th>Intelligence ID</th>
           <th>Description</th>
-          <th>Data / Result</th>
           <th>Agent Name</th>
-          <th>URL</th>
           <th>Details</th>
         </tr>
       </thead>
@@ -141,8 +169,14 @@
         %}
 
         <tr>
-          <td>{{ intel.intelligence_id or intel.uuid }}</td>
-
+          <td>
+            <a
+              target="_blank"
+              href="http://localhost:{{ item.port }}/intelligence/{{ intel.intelligence_id or intel.uuid }}"
+            >
+              {{ (intel.intelligence_id or intel.uuid)[:4] }}
+            </a>
+          </td>
           <td
             class="description-cell"
             data-id="{{ intel.intelligence_id or intel.uuid }}"
@@ -155,54 +189,30 @@
             </a>
           </td>
 
-          <td>
-            <pre>
-{{ (intel.result_data or intel.execution_data or {})|tojson(indent=2) }}
-</pre
-            >
-          </td>
-
           <td>{{ item.agent_name }}</td>
-
           <td>
-            <a
-              target="_blank"
-              href="http://localhost:{{ item.port }}/intelligence"
+            <button
+              data-implementation="{{ intel.implementation_path }}"
+              data-extension="{{ intel.extension or 'py' }}"
+              data-engine="{{ intel.engine or 'n/a' }}"
+              data-version="{{ intel.version or 'n/a' }}"
+              data-created="{{ intel.created_at }}"
+              onclick="showDetailsFromButton(this)"
             >
-              http://localhost:{{ item.port }}/intelligence
-            </a>
-          </td>
-
-          <td class="details">
-            <b>Implementation:</b><br />
-            {{ intel.implementation_path }}
-
-            <br /><br />
-
-            <b>Extension:</b>
-            {{ intel.extension or 'py' }}
-
-            <br />
-
-            <b>Engine:</b>
-            {{ intel.engine or 'n/a' }}
-
-            <br />
-
-            <b>Version:</b>
-            {{ intel.version or 'n/a' }}
-
-            <br />
-
-            <b>Created:</b>
-            {{ intel.created_at }}
+              View Details
+            </button>
           </td>
         </tr>
 
         {% endfor %} {% endfor %}
       </tbody>
     </table>
-
+    <div id="detailsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeDetails()">&times;</span>
+        <div id="detailsContent"></div>
+      </div>
+    </div>
     <script>
       document
         .getElementById("searchInput")
@@ -226,7 +236,7 @@
           .forEach((row) => {
             const text = row.innerText.toLowerCase();
 
-            const agentName = row.cells[3].innerText.toLowerCase();
+            const agentName = row.cells[2].innerText.toLowerCase();
 
             const matchesSearch = text.includes(search);
 
@@ -235,6 +245,49 @@
             row.style.display = matchesSearch && matchesAgent ? "" : "none";
           });
       }
+
+      function showDetailsFromButton(btn) {
+        showDetails(
+          btn.dataset.implementation,
+          btn.dataset.extension,
+          btn.dataset.engine,
+          btn.dataset.version,
+          btn.dataset.created,
+        );
+      }
+      function showDetails(
+        implementation,
+        extension,
+        engine,
+        version,
+        created,
+      ) {
+        document.getElementById("detailsContent").innerHTML = `
+          <p><b>Implementation:</b><br>${implementation}</p>
+
+          <p><b>Extension:</b> ${extension}</p>
+
+          <p><b>Engine:</b> ${engine}</p>
+
+          <p><b>Version:</b> ${version}</p>
+
+          <p><b>Created:</b> ${created}</p>
+        `;
+
+        document.getElementById("detailsModal").style.display = "block";
+      }
+
+      function closeDetails() {
+        document.getElementById("detailsModal").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("detailsModal");
+
+        if (event.target === modal) {
+          closeDetails();
+        }
+      };
     </script>
   </body>
 </html>

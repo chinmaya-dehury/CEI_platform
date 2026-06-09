@@ -251,6 +251,61 @@ def intelligence_by_id(intelligence_id):
         "error": "Not found"
     }), 404
 
+@app.route("/intelligence/<intelligence_id>/<key>")
+def intelligence_value_by_id(intelligence_id, key):
+
+    with open(
+        "/app/agents/traffic_agent/created_intelligence.json",
+        "r"
+    ) as f:
+        registry = json.load(f)
+
+    for intel in registry:
+
+        current_id = (
+            intel.get("intelligence_id")
+            or intel.get("uuid")
+        )
+
+        if current_id == intelligence_id:
+
+            result_path = intel.get("result_path")
+
+            abs_path = os.path.join(
+                "/app/agents/traffic_agent",
+                result_path
+            )
+
+            if not os.path.exists(abs_path):
+                return jsonify({
+                    "error": "Result file not found"
+                }), 404
+
+            with open(abs_path, "r") as rf:
+                data = json.load(rf)
+
+            # top level key
+            if key in data:
+                return jsonify({
+                    key: data[key]
+                })
+
+            # nested key
+            for value in data.values():
+
+                if isinstance(value, dict) and key in value:
+
+                    return jsonify({
+                        key: value[key]
+                    })
+
+            return jsonify({
+                "error": f"Key '{key}' not found"
+            }), 404
+
+    return jsonify({
+        "error": "Intelligence not found"
+    }), 404
 
 @app.route("/intelligence/export/json", methods=["GET"])
 def export_intelligence_json():
