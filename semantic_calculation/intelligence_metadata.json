@@ -4,6 +4,7 @@
     "name": "Heatwave Detection",
     "domain": "Environment",
     "context": "Weather",
+    "description": "Monitors thermal atmospheric anomalies, tracking surface heat absorption and prolonged high-temperature trends to safeguard public health and ecological balances.",
     "tasks": [
       {
         "name": "Heatwave Warning",
@@ -24,6 +25,7 @@
     "name": "Storm Risk Assessment",
     "domain": "Environment",
     "context": "Weather",
+    "description": "Analyzes cyclonic dynamics, pressure differentials, and precipitation volumes to map severe weather vulnerability structures.",
     "tasks": [
       {
         "name": "Storm Prediction",
@@ -44,6 +46,7 @@
     "name": "Traffic Congestion Estimation",
     "domain": "Transportation",
     "context": "Traffic",
+    "description": "Utilizes spatial vehicle telemetry and loop detector inputs to map road saturation indexes and predict urban gridlock bottlenecks.",
     "tasks": [
       {
         "name": "Congestion Detection",
@@ -64,6 +67,7 @@
     "name": "Vehicle Speed Analysis",
     "domain": "Transportation",
     "context": "Traffic",
+    "description": "Evaluates instantaneous radar velocity datasets across highway corridors to profile flow behavior and structural bottlenecks.",
     "tasks": [
       {
         "name": "Congestion Detection",
@@ -84,6 +88,7 @@
     "name": "Accident Risk Detection",
     "domain": "Transportation",
     "context": "Traffic",
+    "description": "Combines historic accident blackspot matrices with structural road design constraints to actively flag volatile traffic zones.",
     "tasks": [
       {
         "name": "Emergency Detection",
@@ -104,6 +109,7 @@
     "name": "Smoke Detection",
     "domain": "Emergency",
     "context": "Fire",
+    "description": "Processes low-latency image feeds and physical ionization metrics to isolate initial combustion and early smoke plume formations.",
     "tasks": [
       {
         "name": "Fire Detection",
@@ -120,6 +126,7 @@
     "name": "Temperature Spike Detection",
     "domain": "Emergency",
     "context": "Fire",
+    "description": "Constantly evaluates thermal sensor profiles to isolate extreme, unnatural spikes indicating mechanical or infrastructural ignition points.",
     "tasks": [
       {
         "name": "Fire Detection",
@@ -136,6 +143,7 @@
     "name": "Flame Recognition",
     "domain": "Emergency",
     "context": "Fire",
+    "description": "An advanced optical neural model trained to recognize glowing embers, thermal bands, and dynamic structural fire boundaries.",
     "tasks": [
       {
         "name": "Fire Detection",
@@ -152,6 +160,7 @@
     "name": "Patient Risk Assessment",
     "domain": "Healthcare",
     "context": "Health",
+    "description": "Tracks patient physiological historical baselines against acute clinical data to systematically flag systemic medical decay curves.",
     "tasks": [
       {
         "name": "Emergency Detection",
@@ -172,6 +181,7 @@
     "name": "ECG Anomaly Detection",
     "domain": "Healthcare",
     "context": "Health",
+    "description": "An algorithmic parser that analyzes long-term continuous ECG printouts to highlight erratic cardiovascular rhythms.",
     "tasks": [
       {
         "name": "Patient Monitoring",
@@ -188,6 +198,7 @@
     "name": "Battery Health Analysis",
     "domain": "SmartGrid",
     "context": "Energy",
+    "description": "Monitors grid-tied storage hardware arrays, assessing micro-internal resistance profiles and lifecycle degradation parameters.",
     "tasks": [
       {
         "name": "Battery Monitoring",
@@ -208,6 +219,7 @@
     "name": "Load Demand Forecasting",
     "domain": "SmartGrid",
     "context": "Energy",
+    "description": "Aggregates environmental factors, seasonal history, and local urban behavior profiles to simulate dynamic grid load balances.",
     "tasks": [
       {
         "name": "Energy Optimization",
@@ -228,6 +240,7 @@
     "name": "Solar Generation Assessment",
     "domain": "SmartGrid",
     "context": "Energy",
+    "description": "Processes micro-irradiance indices and spatial cloud coverage tracking vectors to predict solar array plant outputs.",
     "tasks": [
       {
         "name": "Renewable Forecasting",
@@ -248,6 +261,7 @@
     "name": "Irrigation Requirement Analysis",
     "domain": "Agriculture",
     "context": "Crop",
+    "description": "Computes plant moisture requirements by cross-evaluating leaf turgidity metrics against ambient evapotranspiration trends.",
     "tasks": [
       {
         "name": "Crop Monitoring",
@@ -268,6 +282,7 @@
     "name": "Crop Heat Stress Detection",
     "domain": "Agriculture",
     "context": "Crop",
+    "description": "Monitors canopy temperatures utilizing multispectral imagery arrays to trigger targeted agricultural mitigation steps.",
     "tasks": [
       {
         "name": "Crop Monitoring",
@@ -288,6 +303,7 @@
     "name": "Soil Moisture Analysis",
     "domain": "Agriculture",
     "context": "Crop",
+    "description": "Tracks subsoil fluid saturation constants over varying geological layers to predict optimal irrigation planning schedules.",
     "tasks": [
       {
         "name": "Crop Monitoring",
@@ -300,6 +316,74 @@
       {
         "name": "Irrigation Planning",
         "description": "Incorporate real-time soil dryout curves to build adaptive, predictive watering schedules for the week."
+      }
+    ]
+  },
+  {
+    "id": "I17",
+    "name": "Phishing & Fraud Interception",
+    "domain": "CyberSecurity",
+    "context": "Network",
+    "description": "Analyzes real-time text layouts, header structural markers, and inbound packet anomalies to drop malicious enterprise attacks.",
+    "tasks": [
+      {
+        "name": "Threat Classification",
+        "description": "Identify and isolate malicious email patterns, spoofed structural configurations, and deceptive URL redirects."
+      },
+      {
+        "name": "Risk Mitigation",
+        "description": "Enforce dynamic sandboxing, auto-quarantine parameters, and global internal credential lockdowns instantly."
+      }
+    ]
+  },
+  {
+    "id": "I18",
+    "name": "Credit Risk Profiler",
+    "domain": "Fintech",
+    "context": "Banking",
+    "description": "Calculates borrowing limits and loan structural profiles by processing traditional metrics along with real-time transactional velocity data.",
+    "tasks": [
+      {
+        "name": "Risk Assessment",
+        "description": "Evaluate multi-bank historical repayment structures to determine accurate credit-worthiness rankings."
+      },
+      {
+        "name": "Liquidity Optimization",
+        "description": "Tailor unique micro-lending loan packages to fit consumer real-time transactional velocity margins perfectly."
+      }
+    ]
+  },
+  {
+    "id": "I19",
+    "name": "Vibration Anomaly Parser",
+    "domain": "Industrial_IoT",
+    "context": "Manufacturing",
+    "description": "Processes continuous micro-frequency acoustic and structural vibration data arrays from heavy rotary machinery assets.",
+    "tasks": [
+      {
+        "name": "Equipment Monitoring",
+        "description": "Map baseline harmonic frequencies across localized manufacturing assembly lines to flag immediate imbalances."
+      },
+      {
+        "name": "Maintenance Prediction",
+        "description": "Analyze high-frequency mechanical bearing stress signatures to target proactive maintenance schedules."
+      }
+    ]
+  },
+  {
+    "id": "I20",
+    "name": "Cold Chain Telemetry Optimizer",
+    "domain": "Logistics",
+    "context": "SupplyChain",
+    "description": "Monitors spatial humidity vectors and micro-temperature shifts inside cross-border cold chain storage containers during shipping runs.",
+    "tasks": [
+      {
+        "name": "Spoilage Mitigation",
+        "description": "Predict perishable shelf-life decay thresholds dynamically during unpredictable transit delays."
+      },
+      {
+        "name": "Route Optimization",
+        "description": "Reroute long-haul transport assets to adjacent hubs if deep freezer hardware arrays show functional degradation."
       }
     ]
   }

@@ -1,0 +1,121 @@
+{
+  "expected_clusters": "(added by sid: threshold TR = 0.4) working work - SR Pair: I3 <--> I4 (0.922), I3 <--> I5 (0.840), I4 <--> I5 (0.836)",
+  "target_task": "Monitor city road traffic speeds, isolate major highway gridlocks, and calculate alternative navigation routes for vehicles.",
+  "thresholds": {
+    "sr_theta_1": 0.7,
+    "tr_theta_2": 0.4
+  },
+  "summary": {
+    "total_evaluated": 20,
+    "total_active": 3,
+    "total_eliminated": 17,
+    "total_clusters": 1
+  },
+  "clusters": [
+    {
+      "cluster_id": "Cluster-1",
+      "size": 3,
+      "agents": [
+        {
+          "id": "I3",
+          "name": "Traffic Congestion Estimation"
+        },
+        {
+          "id": "I4",
+          "name": "Vehicle Speed Analysis"
+        },
+        {
+          "id": "I5",
+          "name": "Accident Risk Detection"
+        }
+      ]
+    }
+  ],
+  "eliminated": [
+    {
+      "id": "I1",
+      "name": "Heatwave Detection",
+      "tr_score": 0.246
+    },
+    {
+      "id": "I2",
+      "name": "Storm Risk Assessment",
+      "tr_score": 0.283
+    },
+    {
+      "id": "I6",
+      "name": "Smoke Detection",
+      "tr_score": 0.249
+    },
+    {
+      "id": "I7",
+      "name": "Temperature Spike Detection",
+      "tr_score": 0.273
+    },
+    {
+      "id": "I8",
+      "name": "Flame Recognition",
+      "tr_score": 0.191
+    },
+    {
+      "id": "I9",
+      "name": "Patient Risk Assessment",
+      "tr_score": 0.188
+    },
+    {
+      "id": "I10",
+      "name": "ECG Anomaly Detection",
+      "tr_score": 0.208
+    },
+    {
+      "id": "I11",
+      "name": "Battery Health Analysis",
+      "tr_score": 0.22
+    },
+    {
+      "id": "I12",
+      "name": "Load Demand Forecasting",
+      "tr_score": 0.216
+    },
+    {
+      "id": "I13",
+      "name": "Solar Generation Assessment",
+      "tr_score": 0.227
+    },
+    {
+      "id": "I14",
+      "name": "Irrigation Requirement Analysis",
+      "tr_score": 0.205
+    },
+    {
+      "id": "I15",
+      "name": "Crop Heat Stress Detection",
+      "tr_score": 0.136
+    },
+    {
+      "id": "I16",
+      "name": "Soil Moisture Analysis",
+      "tr_score": 0.164
+    },
+    {
+      "id": "I17",
+      "name": "Phishing & Fraud Interception",
+      "tr_score": 0.192
+    },
+    {
+      "id": "I18",
+      "name": "Credit Risk Profiler",
+      "tr_score": 0.194
+    },
+    {
+      "id": "I19",
+      "name": "Vibration Anomaly Parser",
+      "tr_score": 0.223
+    },
+    {
+      "id": "I20",
+      "name": "Cold Chain Telemetry Optimizer",
+      "tr_score": 0.281
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+Here are 5 diverse task entries to test your system, along with the predicted cluster groups they should form:
+
+### Task Entry 1
+
+* **Input:** `Analyze high-frequency mechanical vibration signatures to identify machine faults and flag needed repairs.`
+* **Expected Active Cluster:** * `I19 -> Vibration Anomaly Parser` (Single-agent cluster or paired with `I7` depending on threshold if equipment monitoring overlaps).
+
+### Task Entry 2
+
+* **Input:** `Detect active fires in buildings and trigger automated emergency alarms.`
+* **Expected Active Cluster:**
+* `Cluster-1`: `I6 -> Smoke Detection`, `I7 -> Temperature Spike Detection`, `I8 -> Flame Recognition`
+
+
+
+### Task Entry 3
+
+* **Input:** `Evaluate soil moisture retention rates alongside canopy temperature variations to calculate daily crop irrigation schedules.`
+* **Expected Active Cluster:**
+* `Cluster-1`: `I14 -> Irrigation Requirement Analysis`, `I15 -> Crop Heat Stress Detection`, `I16 -> Soil Moisture Analysis`
+
+
+
+### Task Entry 4
+
+* **Input:** `Monitor city road traffic speeds, isolate major highway gridlocks, and calculate alternative navigation routes for vehicles.`
+* **Expected Active Cluster:**
+* `Cluster-1`: `I3 -> Traffic Congestion Estimation`, `I4 -> Vehicle Speed Analysis` (May also pull in `I5` if emergency management paths overlap).
+
+
+
+### Task Entry 5
+
+* **Input:** `Forecast upcoming solar power grid injection spikes and optimize commercial battery pack storage charging cycles.`
+* **Expected Active Cluster:**
+* `Cluster-1`: `I11 -> Battery Health Analysis`, `I12 -> Load Demand Forecasting`, `I13 -> Solar Generation Assessment`
