@@ -1,0 +1,174 @@
+[
+  {
+    "id": "I1",
+    "name": "Heatwave Detection",
+    "domain": "Environment",
+    "context": "Weather",
+    "tasks": [
+      "Heatwave Warning",
+      "Crop Stress Assessment",
+      "Public Safety Alert"
+    ]
+  },
+  {
+    "id": "I2",
+    "name": "Storm Risk Assessment",
+    "domain": "Environment",
+    "context": "Weather",
+    "tasks": [
+      "Storm Prediction",
+      "Drone Safety Assessment",
+      "Emergency Planning"
+    ]
+  },
+  {
+    "id": "I3",
+    "name": "Traffic Congestion Estimation",
+    "domain": "Transportation",
+    "context": "Traffic",
+    "tasks": [
+      "Congestion Detection",
+      "Route Optimization",
+      "Traffic Management"
+    ]
+  },
+  {
+    "id": "I4",
+    "name": "Vehicle Speed Analysis",
+    "domain": "Transportation",
+    "context": "Traffic",
+    "tasks": [
+      "Congestion Detection",
+      "Traffic Flow Analysis",
+      "Bottleneck Detection"
+    ]
+  },
+  {
+    "id": "I5",
+    "name": "Accident Risk Detection",
+    "domain": "Transportation",
+    "context": "Traffic",
+    "tasks": [
+      "Emergency Detection",
+      "Traffic Management",
+      "Risk Assessment"
+    ]
+  },
+  {
+    "id": "I6",
+    "name": "Smoke Detection",
+    "domain": "Emergency",
+    "context": "Fire",
+    "tasks": [
+      "Fire Detection",
+      "Emergency Detection"
+    ]
+  },
+  {
+    "id": "I7",
+    "name": "Temperature Spike Detection",
+    "domain": "Emergency",
+    "context": "Fire",
+    "tasks": [
+      "Fire Detection",
+      "Equipment Monitoring"
+    ]
+  },
+  {
+    "id": "I8",
+    "name": "Flame Recognition",
+    "domain": "Emergency",
+    "context": "Fire",
+    "tasks": [
+      "Fire Detection",
+      "Emergency Detection"
+    ]
+  },
+  {
+    "id": "I9",
+    "name": "Patient Risk Assessment",
+    "domain": "Healthcare",
+    "context": "Health",
+    "tasks": [
+      "Emergency Detection",
+      "Patient Monitoring",
+      "Risk Assessment"
+    ]
+  },
+  {
+    "id": "I10",
+    "name": "ECG Anomaly Detection",
+    "domain": "Healthcare",
+    "context": "Health",
+    "tasks": [
+      "Patient Monitoring",
+      "Cardiac Risk Detection"
+    ]
+  },
+  {
+    "id": "I11",
+    "name": "Battery Health Analysis",
+    "domain": "SmartGrid",
+    "context": "Energy",
+    "tasks": [
+      "Battery Monitoring",
+      "Maintenance Prediction",
+      "Energy Optimization"
+    ]
+  },
+  {
+    "id": "I12",
+    "name": "Load Demand Forecasting",
+    "domain": "SmartGrid",
+    "context": "Energy",
+    "tasks": [
+      "Energy Optimization",
+      "Demand Prediction",
+      "Load Balancing"
+    ]
+  },
+  {
+    "id": "I13",
+    "name": "Solar Generation Assessment",
+    "domain": "SmartGrid",
+    "context": "Energy",
+    "tasks": [
+      "Renewable Forecasting",
+      "Energy Optimization",
+      "Load Balancing"
+    ]
+  },
+  {
+    "id": "I14",
+    "name": "Irrigation Requirement Analysis",
+    "domain": "Agriculture",
+    "context": "Crop",
+    "tasks": [
+      "Crop Monitoring",
+      "Water Management",
+      "Yield Optimization"
+    ]
+  },
+  {
+    "id": "I15",
+    "name": "Crop Heat Stress Detection",
+    "domain": "Agriculture",
+    "context": "Crop",
+    "tasks": [
+      "Crop Monitoring",
+      "Yield Optimization",
+      "Risk Assessment"
+    ]
+  },
+  {
+    "id": "I16",
+    "name": "Soil Moisture Analysis",
+    "domain": "Agriculture",
+    "context": "Crop",
+    "tasks": [
+      "Crop Monitoring",
+      "Water Management",
+      "Irrigation Planning"
+    ]
+  }
+]
