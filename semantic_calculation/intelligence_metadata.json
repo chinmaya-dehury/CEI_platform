@@ -5,9 +5,18 @@
     "domain": "Environment",
     "context": "Weather",
     "tasks": [
-      "Heatwave Warning",
-      "Crop Stress Assessment",
-      "Public Safety Alert"
+      {
+        "name": "Heatwave Warning",
+        "description": "Trigger automated alerts when ambient temperatures breach extreme historical thresholds for prolonged periods."
+      },
+      {
+        "name": "Crop Stress Assessment",
+        "description": "Evaluate the physiological impact of sustained thermal stress on agricultural vegetation and soil moisture depletion."
+      },
+      {
+        "name": "Public Safety Alert",
+        "description": "Broadcast critical health advisories and cooling resource locations to vulnerable urban and rural populations."
+      }
     ]
   },
   {
@@ -16,9 +25,18 @@
     "domain": "Environment",
     "context": "Weather",
     "tasks": [
-      "Storm Prediction",
-      "Drone Safety Assessment",
-      "Emergency Planning"
+      {
+        "name": "Storm Prediction",
+        "description": "Analyze barometric pressure, wind vectors, and radar data to project severe tempest trajectories and landfall intensity."
+      },
+      {
+        "name": "Drone Safety Assessment",
+        "description": "Calculate wind shear and precipitation thresholds to determine go/no-go parameters for unmanned aerial vehicles."
+      },
+      {
+        "name": "Emergency Planning",
+        "description": "Formulate evacuation staging protocols and municipal structural reinforcement steps prior to extreme weather events."
+      }
     ]
   },
   {
@@ -27,9 +45,18 @@
     "domain": "Transportation",
     "context": "Traffic",
     "tasks": [
-      "Congestion Detection",
-      "Route Optimization",
-      "Traffic Management"
+      {
+        "name": "Congestion Detection",
+        "description": "Identify dense vehicle crowding and slow commute speeds across major arterial roads using camera feeds and GPS telemetry."
+      },
+      {
+        "name": "Route Optimization",
+        "description": "Dynamically recalculate navigational paths to divert active traffic away from heavily bottlenecked grid segments."
+      },
+      {
+        "name": "Traffic Management",
+        "description": "Adjust traffic signal cycle lengths and lane configurations to clear active blockages and improve general throughput."
+      }
     ]
   },
   {
@@ -38,9 +65,18 @@
     "domain": "Transportation",
     "context": "Traffic",
     "tasks": [
-      "Congestion Detection",
-      "Traffic Flow Analysis",
-      "Bottleneck Detection"
+      {
+        "name": "Congestion Detection",
+        "description": "Flag sudden drops in average vehicle velocity indicating gridlock patterns or stop-and-go conditions."
+      },
+      {
+        "name": "Traffic Flow Analysis",
+        "description": "Measure the velocity profile and volumetric density of passing vehicles to calculate total roadway efficiency."
+      },
+      {
+        "name": "Bottleneck Detection",
+        "description": "Pinpoint spatial choke points where infrastructural lane reductions cause recurring traffic deceleration."
+      }
     ]
   },
   {
@@ -49,9 +85,18 @@
     "domain": "Transportation",
     "context": "Traffic",
     "tasks": [
-      "Emergency Detection",
-      "Traffic Management",
-      "Risk Assessment"
+      {
+        "name": "Emergency Detection",
+        "description": "Instantly spot severe roadway collisions, disabled vehicles, or hazardous debris requiring immediate dispatcher response."
+      },
+      {
+        "name": "Traffic Management",
+        "description": "Deploy variable message signs and lane closures to protect first responders and manage passing vehicle flow."
+      },
+      {
+        "name": "Risk Assessment",
+        "description": "Evaluate historical collision patterns alongside real-time inclement weather to map out high-probability accident zones."
+      }
     ]
   },
   {
@@ -60,8 +105,14 @@
     "domain": "Emergency",
     "context": "Fire",
     "tasks": [
-      "Fire Detection",
-      "Emergency Detection"
+      {
+        "name": "Fire Detection",
+        "description": "Use visual sensors and particulate detectors to spot active combustion signatures and rising ambient smoke columns."
+      },
+      {
+        "name": "Emergency Detection",
+        "description": "Identify life-threatening building or wilderness hazards to automatically trigger localized suppression systems."
+      }
     ]
   },
   {
@@ -70,8 +121,14 @@
     "domain": "Emergency",
     "context": "Fire",
     "tasks": [
-      "Fire Detection",
-      "Equipment Monitoring"
+      {
+        "name": "Fire Detection",
+        "description": "Monitor thermodynamic sensors for sudden, uncharacteristic ambient heat escalation indicating an out-of-control fire."
+      },
+      {
+        "name": "Equipment Monitoring",
+        "description": "Track machinery thermal profiles to detect overheating hardware components before catastrophic failure or ignition occurs."
+      }
     ]
   },
   {
@@ -80,8 +137,14 @@
     "domain": "Emergency",
     "context": "Fire",
     "tasks": [
-      "Fire Detection",
-      "Emergency Detection"
+      {
+        "name": "Fire Detection",
+        "description": "Process computer vision inputs to identify open fire plumes and glowing embers visually."
+      },
+      {
+        "name": "Emergency Detection",
+        "description": "Assess the rate of fire spread across spatial coordinates to determine the necessity of an immediate structural evacuation."
+      }
     ]
   },
   {
@@ -90,9 +153,18 @@
     "domain": "Healthcare",
     "context": "Health",
     "tasks": [
-      "Emergency Detection",
-      "Patient Monitoring",
-      "Risk Assessment"
+      {
+        "name": "Emergency Detection",
+        "description": "Flag sudden, critical drops in patient vital signs requiring immediate intervention by ICU staff or code teams."
+      },
+      {
+        "name": "Patient Monitoring",
+        "description": "Continuously log and visualize vital metric trajectories including heart rate, oxygen levels, and blood pressure."
+      },
+      {
+        "name": "Risk Assessment",
+        "description": "Cross-reference baseline demographic profiles with current clinical data to forecast potential acute health deterioration."
+      }
     ]
   },
   {
@@ -101,8 +173,14 @@
     "domain": "Healthcare",
     "context": "Health",
     "tasks": [
-      "Patient Monitoring",
-      "Cardiac Risk Detection"
+      {
+        "name": "Patient Monitoring",
+        "description": "Continuously scan electrocardiogram waveforms to map rhythmic cardiac patterns over extended observation periods."
+      },
+      {
+        "name": "Cardiac Risk Detection",
+        "description": "Analyze electrophysiological irregularities to identify immediate cardiac threats like arrhythmias or myocardial infarctions."
+      }
     ]
   },
   {
@@ -111,9 +189,18 @@
     "domain": "SmartGrid",
     "context": "Energy",
     "tasks": [
-      "Battery Monitoring",
-      "Maintenance Prediction",
-      "Energy Optimization"
+      {
+        "name": "Battery Monitoring",
+        "description": "Track State of Charge (SoC) and internal resistance across distributed grid-tied energy storage units."
+      },
+      {
+        "name": "Maintenance Prediction",
+        "description": "Predict remaining useful life and imminent degradation faults in electrical storage systems to minimize down-time."
+      },
+      {
+        "name": "Energy Optimization",
+        "description": "Balance charging schedules to capture excess green energy generation while preventing overheating and over-cycling."
+      }
     ]
   },
   {
@@ -122,9 +209,18 @@
     "domain": "SmartGrid",
     "context": "Energy",
     "tasks": [
-      "Energy Optimization",
-      "Demand Prediction",
-      "Load Balancing"
+      {
+        "name": "Energy Optimization",
+        "description": "Adjust supply schedules to minimize consumption costs during peak usage pricing hours."
+      },
+      {
+        "name": "Demand Prediction",
+        "description": "Utilize historical grid usage logs and weather forecasts to predict regional power draw for the next 24 hours."
+      },
+      {
+        "name": "Load Balancing",
+        "description": "Dynamically reroute power or dispatch peaking plants to prevent substation overloads during extreme demand surges."
+      }
     ]
   },
   {
@@ -133,9 +229,18 @@
     "domain": "SmartGrid",
     "context": "Energy",
     "tasks": [
-      "Renewable Forecasting",
-      "Energy Optimization",
-      "Load Balancing"
+      {
+        "name": "Renewable Forecasting",
+        "description": "Model solar irradiance levels and cloud cover to predict the hourly power output of photovoltaic arrays."
+      },
+      {
+        "name": "Energy Optimization",
+        "description": "Coordinate the storage and release of solar power to align green generation cycles with regional grid needs."
+      },
+      {
+        "name": "Load Balancing",
+        "description": "Compensate for immediate solar drops caused by cloud shading by throttling alternate energy reserves smoothly."
+      }
     ]
   },
   {
@@ -144,9 +249,18 @@
     "domain": "Agriculture",
     "context": "Crop",
     "tasks": [
-      "Crop Monitoring",
-      "Water Management",
-      "Yield Optimization"
+      {
+        "name": "Crop Monitoring",
+        "description": "Assess structural plant turgidity and leaf water potential to identify underlying hydration trends across plots."
+      },
+      {
+        "name": "Water Management",
+        "description": "Calculate exact volume delivery and irrigation timing to match natural evapotranspiration losses precisely."
+      },
+      {
+        "name": "Yield Optimization",
+        "description": "Regulate precise water stress conditions at specific growth stages to maximize crop quality and harvest volume."
+      }
     ]
   },
   {
@@ -155,9 +269,18 @@
     "domain": "Agriculture",
     "context": "Crop",
     "tasks": [
-      "Crop Monitoring",
-      "Yield Optimization",
-      "Risk Assessment"
+      {
+        "name": "Crop Monitoring",
+        "description": "Utilize canopy temperature tracking and multispectral imagery to isolate signs of heat-induced crop stress."
+      },
+      {
+        "name": "Yield Optimization",
+        "description": "Deploy automated shade structures or misting interventions to shield crops during peak heat waves."
+      },
+      {
+        "name": "Risk Assessment",
+        "description": "Model long-term damage probabilities and crop failure metrics based on seasonal extreme temperature durations."
+      }
     ]
   },
   {
@@ -166,9 +289,18 @@
     "domain": "Agriculture",
     "context": "Crop",
     "tasks": [
-      "Crop Monitoring",
-      "Water Management",
-      "Irrigation Planning"
+      {
+        "name": "Crop Monitoring",
+        "description": "Track field saturation levels continuously across variable soil depths to maintain a healthy root zone environment."
+      },
+      {
+        "name": "Water Management",
+        "description": "Prevent structural over-watering, nutrient leaching, and root rot by regulating topsoil saturation bands."
+      },
+      {
+        "name": "Irrigation Planning",
+        "description": "Incorporate real-time soil dryout curves to build adaptive, predictive watering schedules for the week."
+      }
     ]
   }
 ]
