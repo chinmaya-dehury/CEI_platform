@@ -14,7 +14,7 @@ OUTPUT_FILE = os.path.join(BASE_DIR, "task_execution_clusters.json")
 
 # Model Setup
 print("Initializing semantic embedding engine...")
-# model = SentenceTransformer("all-MiniLM-L6-v2")
+#model = SentenceTransformer("all-MiniLM-L6-v2")
 model = SentenceTransformer("all-mpnet-base-v2")  # More accurate but heavier model
 
 # Decision Thresholds
