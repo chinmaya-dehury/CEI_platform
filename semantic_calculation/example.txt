@@ -15,7 +15,7 @@ Here are 5 diverse task entries to test your system, along with the predicted cl
 
 ### Task Entry 3
 
-* **Input:** `Evaluate soil moisture retention rates alongside canopy temperature variations to calculate daily crop irrigation schedules.`
+* **Input:** `Evaluate soil moisture retention rates alongside temperature variations to calculate daily crop irrigation.`
 * **Expected Active Cluster:**
 * `Cluster-1`: `I14 -> Irrigation Requirement Analysis`, `I15 -> Crop Heat Stress Detection`, `I16 -> Soil Moisture Analysis`
 
@@ -31,6 +31,6 @@ Here are 5 diverse task entries to test your system, along with the predicted cl
 
 ### Task Entry 5
 
-* **Input:** `Forecast upcoming solar power grid injection spikes and optimize commercial battery pack storage charging cycles.`
+* **Input:** `Forecast upcoming solar power grid injection spikes.`
 * **Expected Active Cluster:**
 * `Cluster-1`: `I11 -> Battery Health Analysis`, `I12 -> Load Demand Forecasting`, `I13 -> Solar Generation Assessment`

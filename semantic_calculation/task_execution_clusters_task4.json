@@ -1,129 +1,121 @@
 {
-  "target_task": "Detect active fires in buildings and trigger automated emergency alarms.",
+  "target_task": "Monitor city road traffic speeds",
   "thresholds": {
     "sr_theta_1": 0.8,
     "tr_theta_2": 0.4
   },
   "summary": {
     "total_evaluated": 20,
-    "total_active": 4,
-    "total_eliminated": 16,
-    "total_clusters": 2
+    "total_active": 2,
+    "total_eliminated": 18,
+    "total_clusters": 1
   },
   "clusters": [
     {
       "cluster_id": "Cluster-1",
-      "size": 1,
+      "size": 2,
       "agents": [
         {
-          "id": "I1",
-          "name": "Heatwave Detection",
-          "tr_score": 0.451
-        }
-      ]
-    },
-    {
-      "cluster_id": "Cluster-2",
-      "size": 3,
-      "agents": [
-        {
-          "id": "I6",
-          "name": "Smoke Detection",
-          "tr_score": 0.653
+          "id": "I3",
+          "name": "Traffic Congestion Estimation"
         },
         {
-          "id": "I7",
-          "name": "Temperature Spike Detection",
-          "tr_score": 0.592
-        },
-        {
-          "id": "I8",
-          "name": "Flame Recognition",
-          "tr_score": 0.562
+          "id": "I4",
+          "name": "Vehicle Speed Analysis"
         }
       ]
     }
   ],
   "eliminated": [
     {
+      "id": "I1",
+      "name": "Heatwave Detection",
+      "tr_score": 0.175
+    },
+    {
       "id": "I2",
       "name": "Storm Risk Assessment",
-      "tr_score": 0.3
-    },
-    {
-      "id": "I3",
-      "name": "Traffic Congestion Estimation",
-      "tr_score": 0.106
-    },
-    {
-      "id": "I4",
-      "name": "Vehicle Speed Analysis",
-      "tr_score": 0.117
+      "tr_score": 0.14
     },
     {
       "id": "I5",
       "name": "Accident Risk Detection",
-      "tr_score": 0.32
+      "tr_score": 0.336
+    },
+    {
+      "id": "I6",
+      "name": "Smoke Detection",
+      "tr_score": 0.103
+    },
+    {
+      "id": "I7",
+      "name": "Temperature Spike Detection",
+      "tr_score": 0.188
+    },
+    {
+      "id": "I8",
+      "name": "Flame Recognition",
+      "tr_score": 0.023
     },
     {
       "id": "I9",
       "name": "Patient Risk Assessment",
-      "tr_score": 0.096
+      "tr_score": 0.046
     },
     {
       "id": "I10",
       "name": "ECG Anomaly Detection",
-      "tr_score": 0.268
+      "tr_score": 0.175
     },
     {
       "id": "I11",
       "name": "Battery Health Analysis",
-      "tr_score": 0.286
+      "tr_score": 0.115
     },
     {
       "id": "I12",
       "name": "Load Demand Forecasting",
-      "tr_score": 0.238
+      "tr_score": 0.117
     },
     {
       "id": "I13",
       "name": "Solar Generation Assessment",
-      "tr_score": 0.137
+      "tr_score": 0.101
     },
     {
       "id": "I14",
       "name": "Irrigation Requirement Analysis",
-      "tr_score": 0.095
+      "tr_score": 0.078
     },
     {
       "id": "I15",
       "name": "Crop Heat Stress Detection",
-      "tr_score": 0.299
+      "tr_score": 0.096
     },
     {
       "id": "I16",
       "name": "Soil Moisture Analysis",
-      "tr_score": 0.072
+      "tr_score": 0.061
     },
     {
       "id": "I17",
       "name": "Phishing & Fraud Interception",
-      "tr_score": 0.2
+      "tr_score": 0.112
     },
     {
       "id": "I18",
       "name": "Credit Risk Profiler",
-      "tr_score": 0.054
+      "tr_score": 0.105
     },
     {
       "id": "I19",
       "name": "Vibration Anomaly Parser",
-      "tr_score": 0.205
+      "tr_score": 0.163
     },
     {
       "id": "I20",
       "name": "Cold Chain Telemetry Optimizer",
-      "tr_score": 0.144
+      "tr_score": 0.129
     }
   ]
 }
