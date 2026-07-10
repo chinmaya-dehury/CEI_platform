@@ -21,9 +21,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/app/data           # keep for exports/data needs
-      - ./central_app.db:/app/central_app.db  # optional: persist the SQLite database file
-      - ./agents:/app/agents  # optional: if you want to access agent code from the dashboard
+      - ./data:/app/data           
+      - ./central_app.db:/app/central_app.db  
+      - ./agents:/app/agents  
     networks:
       - appnet
     depends_on:
@@ -48,9 +48,9 @@ services:
       - appnet
     restart: unless-stopped
 
-  # ──────────────── Agent 1 ────────────────
- 
+  # ──────────────── Agent 1 (Traffic) ────────────────
   traffic_agent:
+    image: cei/traffic-agent:latest
     build:
       context: .
       dockerfile: Dockerfiles/traffic_agent.dockerfile
@@ -70,33 +70,23 @@ services:
       - dashboard
     restart: unless-stopped
 
-  # ────────────────traffic agent (Intelligence Service) ────────────────
-     
   traffic_intelligence_service:
-    build:
-      context: .
-      dockerfile: Dockerfiles/traffic_agent.dockerfile
-
+    image: cei/traffic-agent:latest
     container_name: traffic_intelligence_service
-
     hostname: traffic_intelligence_service
-
     command: python agents/traffic_agent/traffic_main.py
-
     ports:
       - "5014:5010"
-
     networks:
       - appnet
-
     depends_on:
+      - traffic_agent
       - dashboard
-
     restart: unless-stopped
 
-
-  # ──────────────── Agent 2 ────────────────
+  # ──────────────── Agent 2 (CO2) ────────────────
   co2_agent:
+    image: cei/co2-agent:latest
     build:
       context: .
       dockerfile: Dockerfiles/co2_agent.dockerfile
@@ -117,37 +107,27 @@ services:
       - dashboard
     restart: unless-stopped
 
-# ─────────────── co2 (Intelligence Service) ────────────────
   co2_intelligence_service:
-    build:
-      context: .
-      dockerfile: Dockerfiles/co2_agent.dockerfile
-
+    image: cei/co2-agent:latest
     container_name: co2_intelligence_service
-
     hostname: co2_intelligence_service
-
     environment:
       - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY:-}
-
     command: python agents/co2_agent/co2_main.py
-
     ports:
       - "5010:5010"
-
     volumes:
       - ./agents/co2_agent:/app/agents/co2_agent
-
     networks:
       - appnet
-
     depends_on:
+      - co2_agent
       - dashboard
-
     restart: unless-stopped
 
-  # ──────────────── Agent 3 ────────────────
+  # ──────────────── Agent 3 (Noise) ────────────────
   noise_agent:
+    image: cei/noise-agent:latest
     build:
       context: .
       dockerfile: Dockerfiles/noise_agent.dockerfile
@@ -167,32 +147,23 @@ services:
       - dashboard
     restart: unless-stopped
 
-  # ──────────────── Noise agent (Intelligence Service) ────────────────
   noise_intelligence_service:
-    build:
-      context: .
-      dockerfile: Dockerfiles/noise_agent.dockerfile
-
+    image: cei/noise-agent:latest
     container_name: noise_intelligence_service
-
     hostname: noise_intelligence_service
-
     command: python agents/noise_agent/noise_main.py
-
     ports:
       - "5012:5010"
-
     networks:
       - appnet
-
     depends_on:
+      - noise_agent
       - dashboard
-
     restart: unless-stopped
 
-
-  # ──────────────── Agent 4 ────────────────
+  # ──────────────── Agent 4 (Humidity) ────────────────
   humidity_agent:
+    image: cei/humidity-agent:latest
     build:
       context: .
       dockerfile: Dockerfiles/humidity_agent.dockerfile
@@ -212,30 +183,23 @@ services:
       - dashboard
     restart: unless-stopped
 
-  # ─────────────── humidity agent (Intelligence Service) ────────────────
   humidity_intelligence_service:
-    build:
-      context: .
-      dockerfile: Dockerfiles/humidity_agent.dockerfile
-
+    image: cei/humidity-agent:latest
     container_name: humidity_intelligence_service
-
     hostname: humidity_intelligence_service
-
     command: python agents/humidity_agent/humidity_main.py
-
     ports:
       - "5011:5010"
-
     networks:
       - appnet
-
     depends_on:
+      - humidity_agent
       - dashboard
-
     restart: unless-stopped
-  # ──────────────── Agent 5 ────────────────
+
+  # ──────────────── Agent 5 (Temperature) ────────────────
   temperature_agent:
+    image: cei/temperature-agent:latest
     build:
       context: .
       dockerfile: Dockerfiles/temperature_agent.dockerfile
@@ -255,31 +219,21 @@ services:
       - dashboard
     restart: unless-stopped
 
-  # ──────────────── temperature agent (Intelligence Service) ────────────────
   temperature_intelligence_service:
-    build:
-      context: .
-      dockerfile: Dockerfiles/temperature_agent.dockerfile
-
+    image: cei/temperature-agent:latest
     container_name: temperature_intelligence_service
-
     hostname: temperature_intelligence_service
-
     command: python agents/temperature_agent/temperature_main.py
-
     ports:
       - "5013:5010"
-
     networks:
       - appnet
-
     depends_on:
+      - temperature_agent
       - dashboard
-
     restart: unless-stopped
 
   # ──────────────── Search Service ────────────────
-  
   search_service:
     build:
       context: .

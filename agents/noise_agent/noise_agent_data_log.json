@@ -793,5 +793,35 @@
     "timestamp": "2026-06-09T10:26:41.056692",
     "noise_level": 53.97,
     "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-09T00:32:20.436470",
+    "noise_level": 40.41,
+    "noise_status": "Moderate"
+  },
+  {
+    "timestamp": "2026-07-09T15:25:16.788435",
+    "noise_level": 43.38,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2026-07-09T15:55:08.885446",
+    "noise_level": 80.04,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-09T15:58:55.189818",
+    "noise_level": 63.12,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-10T01:05:33.128804",
+    "noise_level": 70.08,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-10T01:32:09.533301",
+    "noise_level": 110.21,
+    "noise_status": "Low"
   }
 ]

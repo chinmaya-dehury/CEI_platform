@@ -1,7 +1,0 @@
-{
-  "detect_pollution": {
-    "co2_level": 784,
-    "status": "HIGH",
-    "message": "CO2 level analyzed successfully"
-  }
-}

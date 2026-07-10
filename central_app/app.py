@@ -14,6 +14,7 @@ from consul_utils import get_registered_agents
 from agent_utils import fetch_health, fetch_requirements , fetch_intelligence 
 from datetime import datetime
 import os, json, requests
+import random
 from datetime import datetime
 from repository_service import collect_repository
 from intelligence_creator import forward_intelligence_to_agent
@@ -43,13 +44,42 @@ def index():
     agents = get_registered_agents()
     health_data = fetch_health()
     requirements_data = fetch_requirements()
+    repository_data = collect_repository()
 
     for agent in agents:
         agent_id = agent['ID']
         agent["Health"] = health_data.get(agent_id, {}).get("status", "unknown")
         agent["Requirements"] = json.dumps(requirements_data.get(agent_id, {}), indent=2)
 
-    return render_template("dashboard.html", agents=agents)
+    all_created = []
+    for agent_item in repository_data:
+        for intel in agent_item.get("created_intelligence", []):
+            all_created.append(
+                {
+                    "agent_name": agent_item.get("agent_name", "unknown"),
+                    "intelligence_name": intel.get("intelligence_name", ""),
+                    "description": intel.get("description", ""),
+                    "intelligence_id": intel.get("intelligence_id") or intel.get("uuid") or "",
+                    "created_at": intel.get("created_at", ""),
+                }
+            )
+
+    random.shuffle(all_created)
+    recent_created = all_created[:10]
+
+    total_agents = len(agents)
+    healthy_agents = len(
+        [a for a in agents if str(a.get("Health", "")).lower() == "reachable"]
+    )
+
+    return render_template(
+        "dashboard.html",
+        agents=agents,
+        recent_created=recent_created,
+        total_agents=total_agents,
+        healthy_agents=healthy_agents,
+        total_created=len(all_created),
+    )
 
 # -------- Get All Intelligence (Live from agents) -------- #
 @app.route('/intelligence')
@@ -154,6 +184,38 @@ def repository():
 def api_repository():
 
     return jsonify(collect_repository())
+
+
+@app.route("/repository/intelligence/<agent_name>/<intelligence_id>")
+def repository_intelligence(agent_name, intelligence_id):
+    data = collect_repository()
+    for agent in data:
+        if agent.get("agent_name") != agent_name:
+            continue
+
+        for intel in agent.get("created_intelligence", []):
+            record_id = str(intel.get("intelligence_id") or intel.get("uuid") or "")
+            if record_id == intelligence_id:
+                return jsonify(
+                    {
+                        "agent_name": agent_name,
+                        "intelligence_id": record_id,
+                        "intelligence_name": intel.get("intelligence_name"),
+                        "description": intel.get("description"),
+                        "details": {
+                            "implementation_path": intel.get("implementation_path"),
+                            "result_path": intel.get("result_path"),
+                            "engine": intel.get("engine"),
+                            "version": intel.get("version"),
+                            "created_at": intel.get("created_at"),
+                            "implementation_status": intel.get("implementation_status"),
+                            "result_status": intel.get("result_status"),
+                            "catalog_matches": intel.get("catalog_matches", []),
+                        },
+                    }
+                )
+
+    return jsonify({"error": "Intelligence not found"}), 404
 
 # -------- Add Intelligence -------- #
 @app.route('/add-intelligence', methods=['POST'])

@@ -1,0 +1,279 @@
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 240px;
+        height: 100%;
+        background: #222e3c;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        color: #f7c873;
+      }
+      .menu {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu > ul > li {
+        margin: 0;
+      }
+      .menu a {
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 24px;
+        display: block;
+        border-radius: 4px;
+        transition: background 0.2s;
+      }
+      .menu a:hover,
+      .menu .submenu a:hover {
+        background: #31415a;
+      }
+      .submenu {
+        display: none;
+        flex-direction: column;
+        background: #26344a;
+        margin-left: 10px;
+        border-left: 2px solid #f7c873;
+      }
+      .submenu li {
+        margin: 0;
+      }
+      .menu .has-submenu > a {
+        cursor: pointer;
+        position: relative;
+      }
+      .menu .has-submenu > a:after {
+        content: "\25BC";
+        position: absolute;
+        right: 20px;
+        font-size: 0.7em;
+        transition: transform 0.2s;
+      }
+      .menu .has-submenu.open > a:after {
+        transform: rotate(-180deg);
+      }
+      .menu .has-submenu.open .submenu {
+        display: flex;
+      }
+      .main-content {
+        margin-left: 260px;
+        padding: 30px;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f4f6f9 0%, #eef2f8 100%);
+      }
+      .hero {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 18px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .metric {
+        background: #fff;
+        border-radius: 10px;
+        padding: 14px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .metric .label {
+        font-size: 12px;
+        color: #586375;
+      }
+      .metric .value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #1b2a41;
+        margin-top: 6px;
+      }
+      .panel {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .subtle {
+        color: #6a7382;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background: #f7c873;
+      }
+
+      /* Add Intelligence Sidebar Styles */
+      .add-intelligence-sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 450px;
+        height: 100vh;
+        background: #f5f5f5;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        overflow-y: auto;
+        z-index: 1000;
+
+        /* hidden initially */
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .add-intelligence-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .add-intelligence-sidebar h3 {
+        margin-top: 0;
+        color: #222e3c;
+        font-size: 24px;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f7c873;
+        position: sticky;
+        top: -20px;
+        background: #f5f5f5;
+        z-index: 10;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #222e3c;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #f7c873;
+        box-shadow: 0 0 4px rgba(247, 200, 115, 0.5);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      button {
+        background: #f7c873;
+        color: #222e3c;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+      #submit-intelligence {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+        font-weight: bold;
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+      }
+      button:hover {
+        background: #e6b84a;
+      }
+
+      input[type="file"] {
+        background: white;
+        padding: 8px;
+      }
+
+      .close-sidebar {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+      }
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background: #4caf50;
+        color: white;
+        border-radius: 4px;
+        z-index: 2000;
+        max-width: 300px;
+      }
+      .notification.error {
+        background: #f44336;
+      }
+      .notification.success {
+        background: #4caf50;
+      }
+      .notification.info {
+        background: #2196f3;
+      }
+
+      .add-intelligence-sidebar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .add-intelligence-sidebar::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+      }
+
+      #submit-intelligence:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      #description {
+        min-height: 120px;
+      }

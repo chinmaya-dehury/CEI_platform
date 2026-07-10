@@ -2,515 +2,8 @@
 <html>
   <head>
     <title>AI Agent Dashboard</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-      .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 240px;
-        height: 100%;
-        background: #222e3c;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      }
-      .sidebar h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 1.2em;
-        color: #f7c873;
-      }
-      .menu {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .menu ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .menu > ul > li {
-        margin: 0;
-      }
-      .menu a {
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 24px;
-        display: block;
-        border-radius: 4px;
-        transition: background 0.2s;
-      }
-      .menu a:hover,
-      .menu .submenu a:hover {
-        background: #31415a;
-      }
-      .submenu {
-        display: none;
-        flex-direction: column;
-        background: #26344a;
-        margin-left: 10px;
-        border-left: 2px solid #f7c873;
-      }
-      .submenu li {
-        margin: 0;
-      }
-      .menu .has-submenu > a {
-        cursor: pointer;
-        position: relative;
-      }
-      .menu .has-submenu > a:after {
-        content: "\25BC";
-        position: absolute;
-        right: 20px;
-        font-size: 0.7em;
-        transition: transform 0.2s;
-      }
-      .menu .has-submenu.open > a:after {
-        transform: rotate(-180deg);
-      }
-      .menu .has-submenu.open .submenu {
-        display: flex;
-      }
-      .main-content {
-        margin-left: 260px;
-        padding: 30px;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th,
-      td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background: #f7c873;
-      }
-
-      /* Add Intelligence Sidebar Styles */
-      .add-intelligence-sidebar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 450px;
-        height: 100vh;
-        background: #f5f5f5;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        overflow-y: auto;
-        z-index: 1000;
-
-        /* hidden initially */
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
-
-      .add-intelligence-sidebar.open {
-        transform: translateX(0);
-      }
-
-      .add-intelligence-sidebar h3 {
-        margin-top: 0;
-        color: #222e3c;
-        font-size: 24px;
-        margin-bottom: 25px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #f7c873;
-        position: sticky;
-        top: -20px;
-        background: #f5f5f5;
-        z-index: 10;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 6px;
-        font-weight: 600;
-        color: #222e3c;
-      }
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #f7c873;
-        box-shadow: 0 0 4px rgba(247, 200, 115, 0.5);
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 80px;
-      }
-      button {
-        background: #f7c873;
-        color: #222e3c;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background 0.2s;
-      }
-      #submit-intelligence {
-        width: 100%;
-        padding: 12px;
-        font-size: 15px;
-        font-weight: bold;
-        position: sticky;
-        bottom: 0;
-        width: 100%;
-      }
-      button:hover {
-        background: #e6b84a;
-      }
-
-      input[type="file"] {
-        background: white;
-        padding: 8px;
-      }
-
-      .close-sidebar {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: #333;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-      }
-      .notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        background: #4caf50;
-        color: white;
-        border-radius: 4px;
-        z-index: 2000;
-        max-width: 300px;
-      }
-      .notification.error {
-        background: #f44336;
-      }
-      .notification.success {
-        background: #4caf50;
-      }
-      .notification.info {
-        background: #2196f3;
-      }
-
-      .add-intelligence-sidebar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .add-intelligence-sidebar::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 4px;
-      }
-
-      #submit-intelligence:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      #description {
-        min-height: 120px;
-      }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var showAgents = document.getElementById("show-agents");
-        if (showAgents) {
-          showAgents.addEventListener("click", function (e) {
-            e.preventDefault();
-            var agentsTable = document.getElementById("agents-table");
-            if (agentsTable) {
-              agentsTable.style.display = "block";
-              document.getElementById("main-content").innerHTML =
-                agentsTable.outerHTML;
-            }
-          });
-        }
-
-        // Initialize intelligence form
-        initializeIntelligenceForm();
-
-        // Fetch agents on page load
-        fetchAgents();
-      });
-
-      function initializeIntelligenceForm() {
-        var openIntelligenceBtn = document.getElementById(
-          "open-add-intelligence",
-        );
-        var closeSidebarBtn = document.getElementById("close-sidebar");
-        var submitBtn = document.getElementById("submit-intelligence");
-
-        if (openIntelligenceBtn) {
-          openIntelligenceBtn.addEventListener("click", function () {
-            openAddIntelligenceSidebar();
-          });
-        }
-
-        if (closeSidebarBtn) {
-          closeSidebarBtn.addEventListener("click", function () {
-            closeAddIntelligenceSidebar();
-          });
-        }
-
-        if (submitBtn) {
-          submitBtn.addEventListener("click", function () {
-            submitIntelligenceForm();
-          });
-        }
-      }
-
-      function openAddIntelligenceSidebar() {
-        var sidebar = document.getElementById("add-intelligence-sidebar");
-        if (sidebar) {
-          sidebar.classList.add("open");
-        }
-      }
-
-      function closeAddIntelligenceSidebar() {
-        var sidebar = document.getElementById("add-intelligence-sidebar");
-        if (sidebar) {
-          sidebar.classList.remove("open");
-        }
-      }
-
-      var intelligenceSubmitInFlight = false;
-
-      function parseErrorMessage(raw) {
-        if (!raw) {
-          return "Upload failed";
-        }
-        if (typeof raw === "object") {
-          return raw.message || raw.error || JSON.stringify(raw);
-        }
-        var text = String(raw).trim();
-        if (text.charAt(0) === "{") {
-          try {
-            var parsed = JSON.parse(text);
-            return parsed.message || parsed.error || text;
-          } catch (e) {
-            return text;
-          }
-        }
-        return text;
-      }
-
-      function showNotification(message, type, duration) {
-        document.querySelectorAll(".notification").forEach((n) => n.remove());
-
-        var notification = document.createElement("div");
-        notification.className = "notification " + type;
-        notification.textContent = message;
-
-        document.body.appendChild(notification);
-
-        if (duration) {
-          setTimeout(function () {
-            notification.remove();
-          }, duration);
-        }
-      }
-
-      function validateFileAgainstEngine(fileName, engine) {
-        if (!fileName.includes(".")) {
-          return false;
-        }
-        const extension = fileName.split(".").pop().toLowerCase();
-
-        const engineMapping = {
-          python: ["py"],
-          node: ["js"],
-          java: ["java"],
-        };
-
-        return engineMapping[engine]?.includes(extension);
-      }
-
-      function setSubmittingState(isSubmitting) {
-        intelligenceSubmitInFlight = isSubmitting;
-        var submitBtn = document.getElementById("submit-intelligence");
-        if (!submitBtn) {
-          return;
-        }
-        submitBtn.disabled = isSubmitting;
-        submitBtn.textContent = isSubmitting ? "Uploading..." : "Submit";
-      }
-
-      function fetchAgents() {
-        fetch("/get-agents")
-          .then((response) => response.json())
-          .then((data) => {
-            const agentSelect = document.getElementById("agent-select");
-            if (!agentSelect) return;
-
-            agentSelect.innerHTML =
-              '<option value="">-- Select an Agent --</option>';
-            if (Array.isArray(data) && data.length > 0) {
-              data.forEach((agent) => {
-                const option = document.createElement("option");
-                option.value = agent.name;
-                option.textContent = agent.name;
-                agentSelect.appendChild(option);
-              });
-            }
-          })
-          .catch((error) => {
-            console.error("Error fetching agents:", error);
-            showNotification("Error loading agents", "error");
-          });
-      }
-
-      function submitIntelligenceForm() {
-        if (intelligenceSubmitInFlight) {
-          showNotification(
-            "Upload already in progress. Please wait...",
-            "info",
-            3000,
-          );
-          return;
-        }
-
-        const intelligenceName = document
-          .getElementById("intelligence-name")
-          .value.trim();
-        const description = document.getElementById("description").value.trim();
-        const engine = document.getElementById("engine-select").value;
-        const version = document.getElementById("engine-version").value.trim();
-        const fileInput = document.getElementById("code-file");
-        const agent = document.getElementById("agent-select").value;
-
-        if (
-          !intelligenceName ||
-          !description ||
-          !engine ||
-          !version ||
-          !agent ||
-          !fileInput.files.length
-        ) {
-          showNotification(
-            "Please fill in all fields and select a file",
-            "error",
-          );
-          return;
-        }
-
-        const fileName = fileInput.files[0].name;
-
-        if (!validateFileAgainstEngine(fileName, engine)) {
-          showNotification(
-            `Selected file does not match ${engine} runtime engine`,
-            "error",
-          );
-          return;
-        }
-
-        setSubmittingState(true);
-        showNotification("Creating intelligence...", "info", 5000);
-
-        const formData = new FormData();
-        formData.append("intelligence_name", intelligenceName);
-        formData.append("description", description);
-        formData.append("engine", engine);
-        formData.append("version", version);
-        formData.append("agent_name", agent);
-        formData.append("file", fileInput.files[0]);
-
-        fetch("/add-intelligence", {
-          method: "POST",
-          body: formData,
-        })
-          .then(async (response) => {
-            let data = {};
-            try {
-              data = await response.json();
-            } catch (e) {
-              data = {};
-            }
-
-            if (!response.ok) {
-              throw new Error(
-                parseErrorMessage(
-                  data.message || data.error || "Upload failed",
-                ),
-              );
-            }
-
-            return data;
-          })
-          .then((data) => {
-            console.log("Upload response:", data);
-
-            if (data.status === "success") {
-              showNotification(
-                data.message || "Intelligence created successfully!",
-                "success",
-                4000,
-              );
-
-              resetIntelligenceForm();
-
-              setTimeout(function () {
-                closeAddIntelligenceSidebar();
-              }, 1500);
-            } else {
-              showNotification(
-                parseErrorMessage(
-                  data.message || data.error || "Error creating intelligence",
-                ),
-                "error",
-                5000,
-              );
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            showNotification(parseErrorMessage(error.message), "error", 5000);
-          })
-          .finally(function () {
-            setSubmittingState(false);
-          });
-      }
-
-      function resetIntelligenceForm() {
-        document.getElementById("intelligence-name").value = "";
-        document.getElementById("description").value = "";
-        document.getElementById("engine-select").value = "python";
-        document.getElementById("engine-version").value = "";
-        document.getElementById("code-file").value = "";
-        document.getElementById("agent-select").value = "";
-      }
-    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='script.css') }}" />
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body>
     <div class="sidebar">
@@ -526,12 +19,55 @@
           <li>
             <a href="http://localhost:5006" target="_blank">Search Service</a>
           </li>
-          <li><a href="/repository">Central Repository</a></li>
+          <li><a href="/repository" target="_blank">Central Repository</a></li>
           <li><a href="#" id="open-add-intelligence">Add Intelligence</a></li>
         </ul>
       </nav>
     </div>
     <div class="main-content" id="main-content">
+      <div class="hero">
+        <h1 style="margin: 0 0 8px">Clustered Edge Intelligence Dashboard</h1>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="label">Total Agents</div>
+          <div class="value">{{ total_agents }}</div>
+        </div>
+        <div class="metric">
+          <div class="label">Healthy Agents</div>
+          <div class="value">5</div>
+        </div>
+        <div class="metric">
+          <div class="label">Created Intelligence</div>
+          <div class="value">20</div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-bottom: 18px">
+        <h2 style="margin-top: 0">Recent Intelligence Mix</h2>
+        {% if recent_created %}
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Intelligence</th>
+            <th>Description</th>
+            <th>Agent</th>
+          </tr>
+          {% for intel in recent_created %}
+          <tr>
+            <td>{{ intel.intelligence_id[:4] if intel.intelligence_id else 'NA' }}</td>
+            <td>{{ intel.intelligence_name }}</td>
+            <td>{{ intel.description }}</td>
+            <td>{{ intel.agent_name }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p class="subtle">No created intelligence found yet.</p>
+        {% endif %}
+      </div>
+
       <div id="agents-table" style="display: none">
         <h1>Connected Agents</h1>
         <table>

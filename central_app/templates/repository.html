@@ -11,6 +11,11 @@
         background: #f5f5f5;
       }
 
+      .page-shell {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
       .agent-card {
         background: white;
         padding: 20px;
@@ -41,8 +46,15 @@
 
       .toolbar {
         display: flex;
-        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
         margin-bottom: 20px;
+      }
+
+      #searchInput {
+        width: min(900px, 65vw);
+        max-width: 100%;
       }
 
       .toolbar input,
@@ -78,6 +90,62 @@
       .details {
         font-size: 13px;
         line-height: 1.5;
+      }
+
+      .catalog-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 16px 0 22px;
+      }
+
+      .catalog-card {
+        background: #fff;
+        border: 1px solid #e1e4ea;
+        border-radius: 10px;
+        padding: 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      .catalog-card h3 {
+        margin: 0 0 6px;
+        font-size: 15px;
+      }
+
+      .catalog-card .meta-line {
+        color: #5a6472;
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #eaf2ff;
+        color: #0d4aa3;
+        font-size: 12px;
+        margin-right: 6px;
+        margin-bottom: 6px;
+      }
+
+      .link-button {
+        border: 0;
+        background: transparent;
+        color: #0066cc;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+        font: inherit;
+      }
+
+      .status-pill {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: #eef2f7;
+        font-size: 12px;
+        margin-right: 6px;
       }
 
       pre {
@@ -122,9 +190,11 @@
   </head>
 
   <body>
+    <div class="page-shell">
     <div
-      style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px"
+      style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; justify-content: space-between"
     >
+      <div style="display: flex; align-items: center; gap: 15px">
       <a
         href="/"
         style="
@@ -140,6 +210,22 @@
       </a>
 
       <h1 style="margin: 0">Central Intelligence Repository</h1>
+      </div>
+
+      <a
+        href="/"
+        style="
+          background: #ffffff;
+          color: #1d3b63;
+          border: 1px solid #c9d7ea;
+          padding: 8px 12px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+        "
+      >
+        Dashboard Home
+      </a>
     </div>
 
     <div class="toolbar">
@@ -154,11 +240,32 @@
       </select>
     </div>
 
+    {% if repository and repository[0].catalog_highlights %}
+    <div class="agent-card">
+      <h2 style="margin-top: 0">Semantic Intelligence Catalog</h2>
+      <div class="catalog-strip">
+        {% for intel in repository[0].catalog_highlights %}
+        <div class="catalog-card">
+          <h3>{{ intel.id }} - {{ intel.name }}</h3>
+          <div class="meta-line">{{ intel.domain }} / {{ intel.context }}</div>
+          <p>{{ intel.description }}</p>
+          <div>
+            {% for task in intel.tasks %}
+            <span class="tag">{{ task.name }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     <table id="repositoryTable">
       <thead>
         <tr>
           <th>Intelligence ID</th>
-          <th>Description</th>
+          <th>Intelligence Name</th>
+          <th>Intelligence Description</th>
           <th>Agent Name</th>
           <th>Details</th>
         </tr>
@@ -170,20 +277,33 @@
 
         <tr>
           <td>
-            <a
-              target="_blank"
-              href="http://localhost:{{ item.port }}/intelligence/{{ intel.intelligence_id or intel.uuid }}"
-            >
-              {{ (intel.intelligence_id or intel.uuid)[:4] }}
-            </a>
+            {{ (intel.intelligence_id or intel.uuid)[:4] }}
           </td>
+          <td>{{ intel.intelligence_name }}</td>
           <td
             class="description-cell"
-            data-id="{{ intel.intelligence_id or intel.uuid }}"
+            data-intelligence-id="{{ intel.intelligence_id or intel.uuid }}"
+            data-name="{{ intel.intelligence_name }}"
+            data-description="{{ intel.description }}"
+            data-implementation="{{ intel.implementation_path }}"
+            data-extension="{{ intel.extension or 'py' }}"
+            data-engine="{{ intel.engine or 'n/a' }}"
+            data-version="{{ intel.version or 'n/a' }}"
+            data-created="{{ intel.created_at or 'n/a' }}"
+            data-agent="{{ item.agent_name }}"
+            data-port="{{ item.port }}"
+            data-impl-location="{{ intel.implementation_status.location }}"
+            data-impl-exists="{{ 'yes' if intel.implementation_status.exists else 'no' }}"
+            data-impl-abs="{{ intel.implementation_status.absolute_path }}"
+            data-result-location="{{ intel.result_status.location }}"
+            data-result-exists="{{ 'yes' if intel.result_status.exists else 'no' }}"
+            data-result-abs="{{ intel.result_status.absolute_path }}"
+            data-catalog='{{ intel.catalog_matches | tojson }}'
           >
             <a
+              class="link-button"
               target="_blank"
-              href="http://localhost:{{ item.port }}/intelligence/{{ intel.intelligence_id or intel.uuid }}"
+              href="/repository/intelligence/{{ item.agent_name }}/{{ intel.intelligence_id or intel.uuid }}"
             >
               {{ intel.description }}
             </a>
@@ -192,11 +312,23 @@
           <td>{{ item.agent_name }}</td>
           <td>
             <button
+              data-intelligence-id="{{ intel.intelligence_id or intel.uuid }}"
+              data-name="{{ intel.intelligence_name }}"
+              data-description="{{ intel.description }}"
               data-implementation="{{ intel.implementation_path }}"
+              data-agent="{{ item.agent_name }}"
+              data-port="{{ item.port }}"
               data-extension="{{ intel.extension or 'py' }}"
               data-engine="{{ intel.engine or 'n/a' }}"
               data-version="{{ intel.version or 'n/a' }}"
               data-created="{{ intel.created_at }}"
+              data-impl-location="{{ intel.implementation_status.location }}"
+              data-impl-exists="{{ 'yes' if intel.implementation_status.exists else 'no' }}"
+              data-impl-abs="{{ intel.implementation_status.absolute_path }}"
+              data-result-location="{{ intel.result_status.location }}"
+              data-result-exists="{{ 'yes' if intel.result_status.exists else 'no' }}"
+              data-result-abs="{{ intel.result_status.absolute_path }}"
+              data-catalog='{{ intel.catalog_matches | tojson }}'
               onclick="showDetailsFromButton(this)"
             >
               View Details
@@ -236,7 +368,7 @@
           .forEach((row) => {
             const text = row.innerText.toLowerCase();
 
-            const agentName = row.cells[2].innerText.toLowerCase();
+            const agentName = row.cells[3].innerText.toLowerCase();
 
             const matchesSearch = text.includes(search);
 
@@ -247,31 +379,59 @@
       }
 
       function showDetailsFromButton(btn) {
-        showDetails(
-          btn.dataset.implementation,
-          btn.dataset.extension,
-          btn.dataset.engine,
-          btn.dataset.version,
-          btn.dataset.created,
-        );
+        showDetails(btn.dataset);
       }
-      function showDetails(
-        implementation,
-        extension,
-        engine,
-        version,
-        created,
-      ) {
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
+      }
+
+      function renderCatalogMatches(matches) {
+        if (!matches || !matches.length) {
+          return "<p>No catalog match available.</p>";
+        }
+
+        return matches
+          .map(
+            (match) => `
+              <div class="intel-card">
+                <h4 style="margin: 0 0 6px">${escapeHtml(match.id)} - ${escapeHtml(match.name)}</h4>
+                <div class="details">
+                  <p><b>Domain:</b> ${escapeHtml(match.domain)}</p>
+                  <p><b>Context:</b> ${escapeHtml(match.context)}</p>
+                  <p><b>Description:</b> ${escapeHtml(match.description)}</p>
+                  <p><b>Tasks:</b><br>${(match.tasks || [])
+                    .map(
+                      (task) => `${escapeHtml(task.name)}${task.description ? ` - ${escapeHtml(task.description)}` : ""}`,
+                    )
+                    .join("<br>")}</p>
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+      }
+
+      function showDetails(data) {
+        const matches = data.catalog ? JSON.parse(data.catalog) : [];
         document.getElementById("detailsContent").innerHTML = `
-          <p><b>Implementation:</b><br>${implementation}</p>
-
-          <p><b>Extension:</b> ${extension}</p>
-
-          <p><b>Engine:</b> ${engine}</p>
-
-          <p><b>Version:</b> ${version}</p>
-
-          <p><b>Created:</b> ${created}</p>
+          <p><b>Intelligence ID:</b> ${escapeHtml(data.intelligenceId)}</p>
+          <p><b>Intelligence Name:</b> ${escapeHtml(data.name)}</p>
+          <p><b>Intelligence Description:</b> ${escapeHtml(data.description)}</p>
+          <p><b>Implementation:</b><br>${escapeHtml(data.implementation)}</p>
+          <p><b>Agent:</b> ${escapeHtml(data.agent)}:${escapeHtml(data.port)}</p>
+          <p><b>Extension:</b> ${escapeHtml(data.extension)}</p>
+          <p><b>Engine:</b> ${escapeHtml(data.engine)}</p>
+          <p><b>Version:</b> ${escapeHtml(data.version)}</p>
+          <p><b>Created:</b> ${escapeHtml(data.created)}</p>
+          <p><b>Implementation File:</b> ${escapeHtml(data.implExists)} (${escapeHtml(data.implLocation)})<br>${escapeHtml(data.implAbs)}</p>
+          <p><b>Result File:</b> ${escapeHtml(data.resultExists)} (${escapeHtml(data.resultLocation)})<br>${escapeHtml(data.resultAbs)}</p>
+          <h4>Catalog Details</h4>
+          ${renderCatalogMatches(matches)}
         `;
 
         document.getElementById("detailsModal").style.display = "block";
@@ -289,5 +449,6 @@
         }
       };
     </script>
+    </div>
   </body>
 </html>
