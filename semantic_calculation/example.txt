@@ -1,36 +1,5 @@
-Here are 5 diverse task entries to test your system, along with the predicted cluster groups they should form:
-
-### Task Entry 1
-
-* **Input:** `Analyze high-frequency mechanical vibration signatures to identify machine faults and flag needed repairs.`
-* **Expected Active Cluster:** * `I19 -> Vibration Anomaly Parser` (Single-agent cluster or paired with `I7` depending on threshold if equipment monitoring overlaps).
-
-### Task Entry 2
-
-* **Input:** `Detect active fires in buildings and trigger automated emergency alarms.`
-* **Expected Active Cluster:**
-* `Cluster-1`: `I6 -> Smoke Detection`, `I7 -> Temperature Spike Detection`, `I8 -> Flame Recognition`
-
-
-
-### Task Entry 3
-
-* **Input:** `Evaluate soil moisture retention rates alongside temperature variations to calculate daily crop irrigation.`
-* **Expected Active Cluster:**
-* `Cluster-1`: `I14 -> Irrigation Requirement Analysis`, `I15 -> Crop Heat Stress Detection`, `I16 -> Soil Moisture Analysis`
-
-
-
-### Task Entry 4
-
-* **Input:** `Monitor city road traffic speeds, isolate major highway gridlocks, and calculate alternative navigation routes for vehicles.`
-* **Expected Active Cluster:**
-* `Cluster-1`: `I3 -> Traffic Congestion Estimation`, `I4 -> Vehicle Speed Analysis` (May also pull in `I5` if emergency management paths overlap).
-
-
-
-### Task Entry 5
-
-* **Input:** `Forecast upcoming solar power grid injection spikes.`
-* **Expected Active Cluster:**
-* `Cluster-1`: `I11 -> Battery Health Analysis`, `I12 -> Load Demand Forecasting`, `I13 -> Solar Generation Assessment`
+1. Analyze high-frequency mechanical vibration signatures to identify machine faults and flag needed repairs.
+2. Analyze city traffic flow and congestion for electric vehicle fleets
+3. Evaluate soil moisture retention rates alongside temperature variations to calculate daily crop irrigation.
+4. Assess crowded indoor venue safety using CO2, occupancy, ventilation efficiency, and noise levels.
+5. Monitor urban incident response using traffic congestion, vehicle speed, accident risk, acoustic alarms, and fire-like temperature spikes.

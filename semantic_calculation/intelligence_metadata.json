@@ -22,22 +22,22 @@
   },
   {
     "id": "I2",
-    "name": "Storm Risk Assessment",
+    "name": "Indoor Air Quality Assessment",
     "domain": "Environment",
-    "context": "Weather",
-    "description": "Analyzes cyclonic dynamics, pressure differentials, and precipitation volumes to map severe weather vulnerability structures.",
+    "context": "AirQuality",
+    "description": "Monitors indoor and vehicle cabin carbon dioxide concentration, ventilation effectiveness, and occupancy-driven air quality trends to maintain healthy environments and optimize fresh-air circulation.",
     "tasks": [
       {
-        "name": "Storm Prediction",
-        "description": "Analyze barometric pressure, wind vectors, and radar data to project severe tempest trajectories and landfall intensity."
+        "name": "Air Quality Monitoring",
+        "description": "Continuously measure carbon dioxide concentration to evaluate air freshness, ventilation performance, and occupant comfort."
       },
       {
-        "name": "Drone Safety Assessment",
-        "description": "Calculate wind shear and precipitation thresholds to determine go/no-go parameters for unmanned aerial vehicles."
+        "name": "Ventilation Assessment",
+        "description": "Identify poorly ventilated spaces by analyzing prolonged elevated carbon dioxide levels in rooms, cabins, and crowded indoor venues."
       },
       {
-        "name": "Emergency Planning",
-        "description": "Formulate evacuation staging protocols and municipal structural reinforcement steps prior to extreme weather events."
+        "name": "Occupant Safety Alert",
+        "description": "Trigger alerts whenever carbon dioxide concentration exceeds recommended health thresholds for occupants."
       }
     ]
   },
@@ -46,19 +46,19 @@
     "name": "Traffic Congestion Estimation",
     "domain": "Transportation",
     "context": "Traffic",
-    "description": "Utilizes spatial vehicle telemetry and loop detector inputs to map road saturation indexes and predict urban gridlock bottlenecks.",
+    "description": "Utilizes spatial vehicle telemetry, incident response cues, and loop detector inputs to map road saturation indexes and predict urban gridlock bottlenecks.",
     "tasks": [
       {
         "name": "Congestion Detection",
-        "description": "Identify dense vehicle crowding and slow commute speeds across major arterial roads using camera feeds and GPS telemetry."
+        "description": "Identify dense vehicle crowding, accident-prone slowdowns, and road blockages using camera feeds and GPS telemetry."
       },
       {
         "name": "Route Optimization",
-        "description": "Dynamically recalculate navigational paths to divert active traffic away from heavily bottlenecked grid segments."
+        "description": "Dynamically recalculate navigational paths to divert active traffic away from heavily bottlenecked or hazardous grid segments during incident response."
       },
       {
         "name": "Traffic Management",
-        "description": "Adjust traffic signal cycle lengths and lane configurations to clear active blockages and improve general throughput."
+        "description": "Adjust traffic signal cycle lengths and lane configurations to clear active blockages, reduce road hazards, and improve general throughput."
       }
     ]
   },
@@ -67,19 +67,19 @@
     "name": "Vehicle Speed Analysis",
     "domain": "Transportation",
     "context": "Traffic",
-    "description": "Evaluates instantaneous radar velocity datasets across highway corridors to profile flow behavior and structural bottlenecks.",
+    "description": "Evaluates instantaneous radar velocity datasets across highway corridors to profile flow behavior, bottlenecks, and incident response conditions.",
     "tasks": [
       {
         "name": "Congestion Detection",
-        "description": "Flag sudden drops in average vehicle velocity indicating gridlock patterns or stop-and-go conditions."
+        "description": "Flag sudden drops in average vehicle velocity indicating gridlock patterns, accident risk, or stop-and-go conditions."
       },
       {
         "name": "Traffic Flow Analysis",
-        "description": "Measure the velocity profile and volumetric density of passing vehicles to calculate total roadway efficiency."
+        "description": "Measure the velocity profile and volumetric density of passing vehicles to calculate total roadway efficiency and road safety."
       },
       {
         "name": "Bottleneck Detection",
-        "description": "Pinpoint spatial choke points where infrastructural lane reductions cause recurring traffic deceleration."
+        "description": "Pinpoint spatial choke points where infrastructural lane reductions cause recurring traffic deceleration and hazard buildup."
       }
     ]
   },
@@ -88,39 +88,43 @@
     "name": "Accident Risk Detection",
     "domain": "Transportation",
     "context": "Traffic",
-    "description": "Combines historic accident blackspot matrices with structural road design constraints to actively flag volatile traffic zones.",
+    "description": "Combines historic accident blackspot matrices with structural road design constraints to actively flag volatile traffic zones during incident response.",
     "tasks": [
       {
         "name": "Emergency Detection",
-        "description": "Instantly spot severe roadway collisions, disabled vehicles, or hazardous debris requiring immediate dispatcher response."
+        "description": "Instantly spot severe roadway collisions, disabled vehicles, hazardous debris, or emergency alarms requiring immediate dispatcher response."
       },
       {
         "name": "Traffic Management",
-        "description": "Deploy variable message signs and lane closures to protect first responders and manage passing vehicle flow."
+        "description": "Deploy variable message signs and lane closures to protect first responders, manage passing vehicle flow, and reduce road hazards."
       },
       {
         "name": "Risk Assessment",
-        "description": "Evaluate historical collision patterns alongside real-time inclement weather to map out high-probability accident zones."
+        "description": "Evaluate historical collision patterns alongside real-time inclement weather and traffic congestion to map out high-probability accident zones."
       }
     ]
   },
-  {
+{
     "id": "I6",
-    "name": "Smoke Detection",
-    "domain": "Emergency",
-    "context": "Fire",
-    "description": "Processes low-latency image feeds and physical ionization metrics to isolate initial combustion and early smoke plume formations.",
+    "name": "CO2 Threshold Detection",
+    "domain": "Environment",
+    "context": "AirQuality",
+    "description": "Continuously evaluates indoor and cabin carbon dioxide concentrations to detect hazardous accumulation caused by inadequate ventilation or abnormal occupancy conditions.",
     "tasks": [
       {
-        "name": "Fire Detection",
-        "description": "Use visual sensors and particulate detectors to spot active combustion signatures and rising ambient smoke columns."
+        "name": "CO2 Monitoring",
+        "description": "Track carbon dioxide concentration continuously across monitored rooms, cabins, and crowded spaces."
       },
       {
-        "name": "Emergency Detection",
-        "description": "Identify life-threatening building or wilderness hazards to automatically trigger localized suppression systems."
+        "name": "Threshold Alert",
+        "description": "Generate automated alerts whenever carbon dioxide levels exceed predefined safety limits for occupants."
+      },
+      {
+        "name": "Ventilation Recommendation",
+        "description": "Recommend increased ventilation or fresh-air circulation based on sustained CO2 accumulation and poor air quality."
       }
     ]
-  },
+},
   {
     "id": "I7",
     "name": "Temperature Spike Detection",
@@ -140,56 +144,56 @@
   },
   {
     "id": "I8",
-    "name": "Flame Recognition",
-    "domain": "Emergency",
-    "context": "Fire",
-    "description": "An advanced optical neural model trained to recognize glowing embers, thermal bands, and dynamic structural fire boundaries.",
+    "name": "Noise Pollution Monitoring",
+    "domain": "Environment",
+    "context": "Noise",
+    "description": "Processes continuous acoustic measurements to identify excessive environmental noise exposure and evaluate compliance with permissible sound level regulations.",
     "tasks": [
       {
-        "name": "Fire Detection",
-        "description": "Process computer vision inputs to identify open fire plumes and glowing embers visually."
+        "name": "Noise Level Monitoring",
+        "description": "Measure ambient sound pressure levels continuously across monitored locations."
       },
       {
-        "name": "Emergency Detection",
-        "description": "Assess the rate of fire spread across spatial coordinates to determine the necessity of an immediate structural evacuation."
+        "name": "Noise Threshold Alert",
+        "description": "Notify operators whenever environmental noise exceeds permissible regulatory limits."
+      },
+      {
+        "name": "Urban Noise Assessment",
+        "description": "Identify persistent high-noise zones affecting residential or commercial communities."
       }
     ]
   },
-  {
+{
     "id": "I9",
-    "name": "Patient Risk Assessment",
-    "domain": "Healthcare",
-    "context": "Health",
-    "description": "Tracks patient physiological historical baselines against acute clinical data to systematically flag systemic medical decay curves.",
+    "name": "Occupancy Estimation",
+    "domain": "SmartBuilding",
+    "context": "Building",
+    "description": "Analyzes carbon dioxide concentration trends to estimate occupant density in rooms, cabins, and venues, and optimize indoor environmental control systems efficiently.",
     "tasks": [
       {
-        "name": "Emergency Detection",
-        "description": "Flag sudden, critical drops in patient vital signs requiring immediate intervention by ICU staff or code teams."
+        "name": "Occupancy Detection",
+        "description": "Estimate room, cabin, and venue occupancy levels using carbon dioxide concentration patterns."
       },
       {
-        "name": "Patient Monitoring",
-        "description": "Continuously log and visualize vital metric trajectories including heart rate, oxygen levels, and blood pressure."
-      },
-      {
-        "name": "Risk Assessment",
-        "description": "Cross-reference baseline demographic profiles with current clinical data to forecast potential acute health deterioration."
+        "name": "HVAC Optimization",
+        "description": "Adjust ventilation schedules dynamically according to estimated occupancy levels and fresh-air demand."
       }
     ]
   },
-  {
+   {
     "id": "I10",
-    "name": "ECG Anomaly Detection",
-    "domain": "Healthcare",
-    "context": "Health",
-    "description": "An algorithmic parser that analyzes long-term continuous ECG printouts to highlight erratic cardiovascular rhythms.",
+    "name": "Urban Traffic Monitoring",
+    "domain": "Transportation",
+    "context": "Traffic",
+    "description": "Processes real-time environmental sound signatures to recognize abnormal events including road incidents, traffic flow, and sudden impact noises.",
     "tasks": [
       {
-        "name": "Patient Monitoring",
-        "description": "Continuously scan electrocardiogram waveforms to map rhythmic cardiac patterns over extended observation periods."
+        "name": "Abnormal Sound Detection",
+        "description": "Detect unexpected sound patterns indicating unusual or hazardous road incidents in urban environments."
       },
       {
-        "name": "Cardiac Risk Detection",
-        "description": "Analyze electrophysiological irregularities to identify immediate cardiac threats like arrhythmias or myocardial infarctions."
+        "name": "Traffic Flow and Congestion Analysis",
+        "description": "Analyze traffic flow, congestion, and vehicle movement patterns using road traffic sound signatures."
       }
     ]
   },
@@ -321,35 +325,43 @@
   },
   {
     "id": "I17",
-    "name": "Phishing & Fraud Interception",
-    "domain": "CyberSecurity",
-    "context": "Network",
-    "description": "Analyzes real-time text layouts, header structural markers, and inbound packet anomalies to drop malicious enterprise attacks.",
+    "name": "Ventilation Efficiency Analysis",
+    "domain": "SmartBuilding",
+    "context": "HVAC",
+    "description": "Evaluates indoor carbon dioxide accumulation patterns to assess ventilation system effectiveness and optimize fresh-air distribution strategies.",
     "tasks": [
       {
-        "name": "Threat Classification",
-        "description": "Identify and isolate malicious email patterns, spoofed structural configurations, and deceptive URL redirects."
+        "name": "Ventilation Performance",
+        "description": "Measure ventilation efficiency using carbon dioxide concentration trends."
       },
       {
-        "name": "Risk Mitigation",
-        "description": "Enforce dynamic sandboxing, auto-quarantine parameters, and global internal credential lockdowns instantly."
+        "name": "Fresh Air Optimization",
+        "description": "Recommend airflow adjustments to improve indoor air quality while minimizing energy consumption."
+      },
+      {
+        "name": "HVAC Monitoring",
+        "description": "Identify ventilation system degradation through persistent carbon dioxide accumulation."
       }
     ]
   },
   {
     "id": "I18",
-    "name": "Credit Risk Profiler",
-    "domain": "Fintech",
-    "context": "Banking",
-    "description": "Calculates borrowing limits and loan structural profiles by processing traditional metrics along with real-time transactional velocity data.",
+    "name": "Cabin Air Quality Assessment",
+    "domain": "Transportation",
+    "context": "Vehicle",
+    "description": "Monitors carbon dioxide concentration and ventilation conditions inside passenger vehicles to maintain healthy cabin air quality during transit.",
     "tasks": [
       {
-        "name": "Risk Assessment",
-        "description": "Evaluate multi-bank historical repayment structures to determine accurate credit-worthiness rankings."
+        "name": "Cabin CO2 Monitoring",
+        "description": "Continuously measure carbon dioxide concentration inside passenger compartments."
       },
       {
-        "name": "Liquidity Optimization",
-        "description": "Tailor unique micro-lending loan packages to fit consumer real-time transactional velocity margins perfectly."
+        "name": "Ventilation Recommendation",
+        "description": "Recommend fresh-air circulation whenever carbon dioxide concentration becomes elevated."
+      },
+      {
+        "name": "Passenger Comfort Assessment",
+        "description": "Evaluate cabin air quality conditions to maintain occupant comfort throughout the journey."
       }
     ]
   },

@@ -823,5 +823,20 @@
     "timestamp": "2026-07-10T01:32:09.533301",
     "noise_level": 110.21,
     "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-10T15:11:46.310904",
+    "noise_level": 83.14,
+    "noise_status": "High"
+  },
+  {
+    "timestamp": "2026-07-10T15:21:15.848811",
+    "noise_level": 48.37,
+    "noise_status": "Low"
+  },
+  {
+    "timestamp": "2026-07-11T01:10:47.564527",
+    "noise_level": 46.25,
+    "noise_status": "Moderate"
   }
 ]

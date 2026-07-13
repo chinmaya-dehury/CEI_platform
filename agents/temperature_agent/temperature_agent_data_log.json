@@ -963,5 +963,20 @@
     "timestamp": "2026-07-10T01:32:09.341002",
     "temperature": 24.36,
     "status": "Critical"
+  },
+  {
+    "timestamp": "2026-07-10T15:11:46.254016",
+    "temperature": 20.11,
+    "status": "Elevated"
+  },
+  {
+    "timestamp": "2026-07-10T15:21:15.845268",
+    "temperature": 38.63,
+    "status": "Normal"
+  },
+  {
+    "timestamp": "2026-07-11T01:10:47.665614",
+    "temperature": 13.07,
+    "status": "Critical"
   }
 ]
