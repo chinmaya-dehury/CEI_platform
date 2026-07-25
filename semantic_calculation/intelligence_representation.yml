@@ -1,0 +1,20 @@
+id: String
+name: String
+
+agent:
+  id: String
+  type: String          # static (fixed) or mobile (drone, vehicle, wearable)
+
+domain: String
+context: String
+application: String
+
+description: String (Multiline)
+
+outputs:
+  - String
+
+tasks:
+  - String
+
+created_at: String (ISO 8601 DateTime)

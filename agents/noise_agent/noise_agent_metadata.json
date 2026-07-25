@@ -1,9 +1,0 @@
-{
-    "uuid": "30f019dc-d8ff-45a5-a046-e914e150b5da",
-    "sensor_type": "Noise Sensor",
-    "frequency": "Every 10 seconds",
-    "unit": "dB",
-    "location": "Zone C",
-    "data_name": "noise_level",
-    "agent_name": "noise_agent"
-}

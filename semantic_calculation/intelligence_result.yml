@@ -1,0 +1,25 @@
+intelligence_id:
+agent_id:
+location:               # if agent is mobile (drone, vehicle, wearable)
+  latitude:
+  longitude:
+  altitude_m:           # Optional
+
+executions:
+  - timestamp:
+    outputs:
+      ...
+    execution_metadata:
+      ...
+
+  - timestamp:
+    outputs:
+      ...
+    execution_metadata:
+      ...
+
+  - timestamp:
+    outputs:
+      ...
+    execution_metadata:
+      ...
