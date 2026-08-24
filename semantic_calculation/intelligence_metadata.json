@@ -104,7 +104,7 @@
       }
     ]
   },
-{
+  {
     "id": "I6",
     "name": "CO2 Threshold Detection",
     "domain": "Environment",
@@ -124,11 +124,11 @@
         "description": "Recommend increased ventilation or fresh-air circulation based on sustained CO2 accumulation and poor air quality."
       }
     ]
-},
+  },
   {
     "id": "I7",
     "name": "Temperature Spike Detection",
-    "domain": "Emergency",
+    "domain": "DisasterManagement",
     "context": "Fire",
     "description": "Constantly evaluates thermal sensor profiles to isolate extreme, unnatural spikes indicating mechanical or infrastructural ignition points.",
     "tasks": [
@@ -163,7 +163,7 @@
       }
     ]
   },
-{
+  {
     "id": "I9",
     "name": "Occupancy Estimation",
     "domain": "SmartBuilding",
@@ -180,7 +180,7 @@
       }
     ]
   },
-   {
+  {
     "id": "I10",
     "name": "Urban Traffic Monitoring",
     "domain": "Transportation",
@@ -200,7 +200,7 @@
   {
     "id": "I11",
     "name": "Battery Health Analysis",
-    "domain": "SmartGrid",
+    "domain": "Energy",
     "context": "Energy",
     "description": "Monitors grid-tied storage hardware arrays, assessing micro-internal resistance profiles and lifecycle degradation parameters.",
     "tasks": [
@@ -221,7 +221,7 @@
   {
     "id": "I12",
     "name": "Load Demand Forecasting",
-    "domain": "SmartGrid",
+    "domain": "Energy",
     "context": "Energy",
     "description": "Aggregates environmental factors, seasonal history, and local urban behavior profiles to simulate dynamic grid load balances.",
     "tasks": [
@@ -242,7 +242,7 @@
   {
     "id": "I13",
     "name": "Solar Generation Assessment",
-    "domain": "SmartGrid",
+    "domain": "Energy",
     "context": "Energy",
     "description": "Processes micro-irradiance indices and spatial cloud coverage tracking vectors to predict solar array plant outputs.",
     "tasks": [
@@ -366,36 +366,1716 @@
     ]
   },
   {
-    "id": "I19",
-    "name": "Vibration Anomaly Parser",
-    "domain": "Industrial_IoT",
-    "context": "Manufacturing",
-    "description": "Processes continuous micro-frequency acoustic and structural vibration data arrays from heavy rotary machinery assets.",
+    "id": "I21",
+    "name": "Fleet Management",
+    "domain": "Transportation",
+    "context": "Fleet",
+    "description": "Monitors vehicle locations, fuel consumption, and driver behavior to optimize fleet operations.",
     "tasks": [
       {
-        "name": "Equipment Monitoring",
-        "description": "Map baseline harmonic frequencies across localized manufacturing assembly lines to flag immediate imbalances."
+        "name": "Fleet Management Task 1",
+        "description": "Perform primary monitoring for fleet management."
       },
       {
-        "name": "Maintenance Prediction",
-        "description": "Analyze high-frequency mechanical bearing stress signatures to target proactive maintenance schedules."
+        "name": "Fleet Management Task 2",
+        "description": "Analyze anomalies and generate alerts for fleet management."
+      },
+      {
+        "name": "Fleet Management Task 3",
+        "description": "Optimize processes based on fleet management data."
       }
     ]
   },
   {
-    "id": "I20",
-    "name": "Cold Chain Telemetry Optimizer",
-    "domain": "Logistics",
-    "context": "SupplyChain",
-    "description": "Monitors spatial humidity vectors and micro-temperature shifts inside cross-border cold chain storage containers during shipping runs.",
+    "id": "I22",
+    "name": "Pothole Detection",
+    "domain": "Transportation",
+    "context": "Road",
+    "description": "Uses camera and accelerometer data to identify and map road surface defects.",
     "tasks": [
       {
-        "name": "Spoilage Mitigation",
-        "description": "Predict perishable shelf-life decay thresholds dynamically during unpredictable transit delays."
+        "name": "Pothole Detection Task 1",
+        "description": "Perform primary monitoring for pothole detection."
       },
       {
-        "name": "Route Optimization",
-        "description": "Reroute long-haul transport assets to adjacent hubs if deep freezer hardware arrays show functional degradation."
+        "name": "Pothole Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for pothole detection."
+      },
+      {
+        "name": "Pothole Detection Task 3",
+        "description": "Optimize processes based on pothole detection data."
+      }
+    ]
+  },
+  {
+    "id": "I23",
+    "name": "Pedestrian Safety",
+    "domain": "Transportation",
+    "context": "Safety",
+    "description": "Analyzes crosswalk camera feeds to predict pedestrian movement and warn vehicles.",
+    "tasks": [
+      {
+        "name": "Pedestrian Safety Task 1",
+        "description": "Perform primary monitoring for pedestrian safety."
+      },
+      {
+        "name": "Pedestrian Safety Task 2",
+        "description": "Analyze anomalies and generate alerts for pedestrian safety."
+      },
+      {
+        "name": "Pedestrian Safety Task 3",
+        "description": "Optimize processes based on pedestrian safety data."
+      }
+    ]
+  },
+  {
+    "id": "I24",
+    "name": "Public Transit Optimization",
+    "domain": "Transportation",
+    "context": "Transit",
+    "description": "Tracks passenger loads and transit delays to adjust bus and train schedules dynamically.",
+    "tasks": [
+      {
+        "name": "Public Transit Optimization Task 1",
+        "description": "Perform primary monitoring for public transit optimization."
+      },
+      {
+        "name": "Public Transit Optimization Task 2",
+        "description": "Analyze anomalies and generate alerts for public transit optimization."
+      },
+      {
+        "name": "Public Transit Optimization Task 3",
+        "description": "Optimize processes based on public transit optimization data."
+      }
+    ]
+  },
+  {
+    "id": "I25",
+    "name": "Freight Tracking",
+    "domain": "Transportation",
+    "context": "Logistics",
+    "description": "Monitors location, temperature, and shock events of cargo in transit.",
+    "tasks": [
+      {
+        "name": "Freight Tracking Task 1",
+        "description": "Perform primary monitoring for freight tracking."
+      },
+      {
+        "name": "Freight Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for freight tracking."
+      },
+      {
+        "name": "Freight Tracking Task 3",
+        "description": "Optimize processes based on freight tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I26",
+    "name": "Parking Availability",
+    "domain": "Transportation",
+    "context": "Parking",
+    "description": "Detects empty parking spots using camera feeds or ground sensors.",
+    "tasks": [
+      {
+        "name": "Parking Availability Task 1",
+        "description": "Perform primary monitoring for parking availability."
+      },
+      {
+        "name": "Parking Availability Task 2",
+        "description": "Analyze anomalies and generate alerts for parking availability."
+      },
+      {
+        "name": "Parking Availability Task 3",
+        "description": "Optimize processes based on parking availability data."
+      }
+    ]
+  },
+  {
+    "id": "I27",
+    "name": "Emission Monitoring",
+    "domain": "Transportation",
+    "context": "Environment",
+    "description": "Measures vehicle exhaust emissions at toll booths or intersections.",
+    "tasks": [
+      {
+        "name": "Emission Monitoring Task 1",
+        "description": "Perform primary monitoring for emission monitoring."
+      },
+      {
+        "name": "Emission Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for emission monitoring."
+      },
+      {
+        "name": "Emission Monitoring Task 3",
+        "description": "Optimize processes based on emission monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I28",
+    "name": "Road Weather Conditions",
+    "domain": "Transportation",
+    "context": "Weather",
+    "description": "Monitors road surface freezing, wetness, or snow accumulation to alert drivers.",
+    "tasks": [
+      {
+        "name": "Road Weather Conditions Task 1",
+        "description": "Perform primary monitoring for road weather conditions."
+      },
+      {
+        "name": "Road Weather Conditions Task 2",
+        "description": "Analyze anomalies and generate alerts for road weather conditions."
+      },
+      {
+        "name": "Road Weather Conditions Task 3",
+        "description": "Optimize processes based on road weather conditions data."
+      }
+    ]
+  },
+  {
+    "id": "I29",
+    "name": "Toll Collection",
+    "domain": "Transportation",
+    "context": "Toll",
+    "description": "Automates vehicle identification and fee processing at toll gates.",
+    "tasks": [
+      {
+        "name": "Toll Collection Task 1",
+        "description": "Perform primary monitoring for toll collection."
+      },
+      {
+        "name": "Toll Collection Task 2",
+        "description": "Analyze anomalies and generate alerts for toll collection."
+      },
+      {
+        "name": "Toll Collection Task 3",
+        "description": "Optimize processes based on toll collection data."
+      }
+    ]
+  },
+  {
+    "id": "I30",
+    "name": "Railway Track Inspection",
+    "domain": "Transportation",
+    "context": "Rail",
+    "description": "Analyzes acoustic and vibration data from trains to detect track anomalies.",
+    "tasks": [
+      {
+        "name": "Railway Track Inspection Task 1",
+        "description": "Perform primary monitoring for railway track inspection."
+      },
+      {
+        "name": "Railway Track Inspection Task 2",
+        "description": "Analyze anomalies and generate alerts for railway track inspection."
+      },
+      {
+        "name": "Railway Track Inspection Task 3",
+        "description": "Optimize processes based on railway track inspection data."
+      }
+    ]
+  },
+  {
+    "id": "I31",
+    "name": "Crop Disease Detection",
+    "domain": "Agriculture",
+    "context": "Crop",
+    "description": "Analyzes leaf images to identify early signs of plant diseases.",
+    "tasks": [
+      {
+        "name": "Crop Disease Detection Task 1",
+        "description": "Perform primary monitoring for crop disease detection."
+      },
+      {
+        "name": "Crop Disease Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for crop disease detection."
+      },
+      {
+        "name": "Crop Disease Detection Task 3",
+        "description": "Optimize processes based on crop disease detection data."
+      }
+    ]
+  },
+  {
+    "id": "I32",
+    "name": "Weed Identification",
+    "domain": "Agriculture",
+    "context": "Crop",
+    "description": "Differentiates weeds from crops to enable targeted herbicide application.",
+    "tasks": [
+      {
+        "name": "Weed Identification Task 1",
+        "description": "Perform primary monitoring for weed identification."
+      },
+      {
+        "name": "Weed Identification Task 2",
+        "description": "Analyze anomalies and generate alerts for weed identification."
+      },
+      {
+        "name": "Weed Identification Task 3",
+        "description": "Optimize processes based on weed identification data."
+      }
+    ]
+  },
+  {
+    "id": "I33",
+    "name": "Pest Monitoring",
+    "domain": "Agriculture",
+    "context": "Pest",
+    "description": "Uses acoustic sensors and traps to estimate pest population densities.",
+    "tasks": [
+      {
+        "name": "Pest Monitoring Task 1",
+        "description": "Perform primary monitoring for pest monitoring."
+      },
+      {
+        "name": "Pest Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for pest monitoring."
+      },
+      {
+        "name": "Pest Monitoring Task 3",
+        "description": "Optimize processes based on pest monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I34",
+    "name": "Soil Nutrient Analysis",
+    "domain": "Agriculture",
+    "context": "Soil",
+    "description": "Measures nitrogen, phosphorus, and potassium levels using deployed soil sensors.",
+    "tasks": [
+      {
+        "name": "Soil Nutrient Analysis Task 1",
+        "description": "Perform primary monitoring for soil nutrient analysis."
+      },
+      {
+        "name": "Soil Nutrient Analysis Task 2",
+        "description": "Analyze anomalies and generate alerts for soil nutrient analysis."
+      },
+      {
+        "name": "Soil Nutrient Analysis Task 3",
+        "description": "Optimize processes based on soil nutrient analysis data."
+      }
+    ]
+  },
+  {
+    "id": "I35",
+    "name": "Yield Prediction",
+    "domain": "Agriculture",
+    "context": "Harvest",
+    "description": "Combines weather, soil, and crop growth data to estimate final harvest volume.",
+    "tasks": [
+      {
+        "name": "Yield Prediction Task 1",
+        "description": "Perform primary monitoring for yield prediction."
+      },
+      {
+        "name": "Yield Prediction Task 2",
+        "description": "Analyze anomalies and generate alerts for yield prediction."
+      },
+      {
+        "name": "Yield Prediction Task 3",
+        "description": "Optimize processes based on yield prediction data."
+      }
+    ]
+  },
+  {
+    "id": "I36",
+    "name": "Autonomous Harvesting",
+    "domain": "Agriculture",
+    "context": "Machinery",
+    "description": "Guides robotic harvesters using computer vision to pick ripe fruits.",
+    "tasks": [
+      {
+        "name": "Autonomous Harvesting Task 1",
+        "description": "Perform primary monitoring for autonomous harvesting."
+      },
+      {
+        "name": "Autonomous Harvesting Task 2",
+        "description": "Analyze anomalies and generate alerts for autonomous harvesting."
+      },
+      {
+        "name": "Autonomous Harvesting Task 3",
+        "description": "Optimize processes based on autonomous harvesting data."
+      }
+    ]
+  },
+  {
+    "id": "I37",
+    "name": "Greenhouse Climate Control",
+    "domain": "Agriculture",
+    "context": "Greenhouse",
+    "description": "Optimizes temperature, humidity, and lighting for indoor farming.",
+    "tasks": [
+      {
+        "name": "Greenhouse Climate Control Task 1",
+        "description": "Perform primary monitoring for greenhouse climate control."
+      },
+      {
+        "name": "Greenhouse Climate Control Task 2",
+        "description": "Analyze anomalies and generate alerts for greenhouse climate control."
+      },
+      {
+        "name": "Greenhouse Climate Control Task 3",
+        "description": "Optimize processes based on greenhouse climate control data."
+      }
+    ]
+  },
+  {
+    "id": "I38",
+    "name": "Livestock Health",
+    "domain": "Agriculture",
+    "context": "Livestock",
+    "description": "Monitors animal movement and vitals to detect illness early.",
+    "tasks": [
+      {
+        "name": "Livestock Health Task 1",
+        "description": "Perform primary monitoring for livestock health."
+      },
+      {
+        "name": "Livestock Health Task 2",
+        "description": "Analyze anomalies and generate alerts for livestock health."
+      },
+      {
+        "name": "Livestock Health Task 3",
+        "description": "Optimize processes based on livestock health data."
+      }
+    ]
+  },
+  {
+    "id": "I39",
+    "name": "Aerial Mapping",
+    "domain": "Agriculture",
+    "context": "Mapping",
+    "description": "Uses drone imagery to map field topology and drainage patterns.",
+    "tasks": [
+      {
+        "name": "Aerial Mapping Task 1",
+        "description": "Perform primary monitoring for aerial mapping."
+      },
+      {
+        "name": "Aerial Mapping Task 2",
+        "description": "Analyze anomalies and generate alerts for aerial mapping."
+      },
+      {
+        "name": "Aerial Mapping Task 3",
+        "description": "Optimize processes based on aerial mapping data."
+      }
+    ]
+  },
+  {
+    "id": "I40",
+    "name": "Irrigation Leak Detection",
+    "domain": "Agriculture",
+    "context": "Water",
+    "description": "Identifies pressure drops and abnormal flow rates in irrigation pipes.",
+    "tasks": [
+      {
+        "name": "Irrigation Leak Detection Task 1",
+        "description": "Perform primary monitoring for irrigation leak detection."
+      },
+      {
+        "name": "Irrigation Leak Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for irrigation leak detection."
+      },
+      {
+        "name": "Irrigation Leak Detection Task 3",
+        "description": "Optimize processes based on irrigation leak detection data."
+      }
+    ]
+  },
+  {
+    "id": "I41",
+    "name": "Predictive Maintenance",
+    "domain": "Manufacturing",
+    "context": "Equipment",
+    "description": "Analyzes machine vibrations and temperature to forecast equipment failure.",
+    "tasks": [
+      {
+        "name": "Predictive Maintenance Task 1",
+        "description": "Perform primary monitoring for predictive maintenance."
+      },
+      {
+        "name": "Predictive Maintenance Task 2",
+        "description": "Analyze anomalies and generate alerts for predictive maintenance."
+      },
+      {
+        "name": "Predictive Maintenance Task 3",
+        "description": "Optimize processes based on predictive maintenance data."
+      }
+    ]
+  },
+  {
+    "id": "I42",
+    "name": "Quality Control",
+    "domain": "Manufacturing",
+    "context": "Production",
+    "description": "Uses high-speed cameras to inspect products for defects on the assembly line.",
+    "tasks": [
+      {
+        "name": "Quality Control Task 1",
+        "description": "Perform primary monitoring for quality control."
+      },
+      {
+        "name": "Quality Control Task 2",
+        "description": "Analyze anomalies and generate alerts for quality control."
+      },
+      {
+        "name": "Quality Control Task 3",
+        "description": "Optimize processes based on quality control data."
+      }
+    ]
+  },
+  {
+    "id": "I43",
+    "name": "Assembly Line Robotics",
+    "domain": "Manufacturing",
+    "context": "Robotics",
+    "description": "Coordinates collaborative robots for efficient assembly operations.",
+    "tasks": [
+      {
+        "name": "Assembly Line Robotics Task 1",
+        "description": "Perform primary monitoring for assembly line robotics."
+      },
+      {
+        "name": "Assembly Line Robotics Task 2",
+        "description": "Analyze anomalies and generate alerts for assembly line robotics."
+      },
+      {
+        "name": "Assembly Line Robotics Task 3",
+        "description": "Optimize processes based on assembly line robotics data."
+      }
+    ]
+  },
+  {
+    "id": "I44",
+    "name": "Inventory Tracking",
+    "domain": "Manufacturing",
+    "context": "Warehouse",
+    "description": "Tracks raw material and finished goods movement using RFID and barcode scans.",
+    "tasks": [
+      {
+        "name": "Inventory Tracking Task 1",
+        "description": "Perform primary monitoring for inventory tracking."
+      },
+      {
+        "name": "Inventory Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for inventory tracking."
+      },
+      {
+        "name": "Inventory Tracking Task 3",
+        "description": "Optimize processes based on inventory tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I45",
+    "name": "Worker Safety Monitoring",
+    "domain": "Manufacturing",
+    "context": "Safety",
+    "description": "Detects lack of personal protective equipment or unsafe behaviors on the floor.",
+    "tasks": [
+      {
+        "name": "Worker Safety Monitoring Task 1",
+        "description": "Perform primary monitoring for worker safety monitoring."
+      },
+      {
+        "name": "Worker Safety Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for worker safety monitoring."
+      },
+      {
+        "name": "Worker Safety Monitoring Task 3",
+        "description": "Optimize processes based on worker safety monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I46",
+    "name": "Supply Chain Visibility",
+    "domain": "Manufacturing",
+    "context": "Logistics",
+    "description": "Monitors material shipments and predicts arrival times for production planning.",
+    "tasks": [
+      {
+        "name": "Supply Chain Visibility Task 1",
+        "description": "Perform primary monitoring for supply chain visibility."
+      },
+      {
+        "name": "Supply Chain Visibility Task 2",
+        "description": "Analyze anomalies and generate alerts for supply chain visibility."
+      },
+      {
+        "name": "Supply Chain Visibility Task 3",
+        "description": "Optimize processes based on supply chain visibility data."
+      }
+    ]
+  },
+  {
+    "id": "I47",
+    "name": "Energy Consumption",
+    "domain": "Manufacturing",
+    "context": "Energy",
+    "description": "Analyzes power usage of individual machines to identify inefficiencies.",
+    "tasks": [
+      {
+        "name": "Energy Consumption Task 1",
+        "description": "Perform primary monitoring for energy consumption."
+      },
+      {
+        "name": "Energy Consumption Task 2",
+        "description": "Analyze anomalies and generate alerts for energy consumption."
+      },
+      {
+        "name": "Energy Consumption Task 3",
+        "description": "Optimize processes based on energy consumption data."
+      }
+    ]
+  },
+  {
+    "id": "I48",
+    "name": "Defect Detection",
+    "domain": "Manufacturing",
+    "context": "Quality",
+    "description": "Uses machine learning to identify microscopic flaws in semiconductor wafers.",
+    "tasks": [
+      {
+        "name": "Defect Detection Task 1",
+        "description": "Perform primary monitoring for defect detection."
+      },
+      {
+        "name": "Defect Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for defect detection."
+      },
+      {
+        "name": "Defect Detection Task 3",
+        "description": "Optimize processes based on defect detection data."
+      }
+    ]
+  },
+  {
+    "id": "I49",
+    "name": "Packaging Automation",
+    "domain": "Manufacturing",
+    "context": "Packaging",
+    "description": "Optimizes the boxing and palletizing process using robotic arms.",
+    "tasks": [
+      {
+        "name": "Packaging Automation Task 1",
+        "description": "Perform primary monitoring for packaging automation."
+      },
+      {
+        "name": "Packaging Automation Task 2",
+        "description": "Analyze anomalies and generate alerts for packaging automation."
+      },
+      {
+        "name": "Packaging Automation Task 3",
+        "description": "Optimize processes based on packaging automation data."
+      }
+    ]
+  },
+  {
+    "id": "I50",
+    "name": "Tool Wear Monitoring",
+    "domain": "Manufacturing",
+    "context": "Equipment",
+    "description": "Monitors cutting tool degradation through acoustic emission analysis.",
+    "tasks": [
+      {
+        "name": "Tool Wear Monitoring Task 1",
+        "description": "Perform primary monitoring for tool wear monitoring."
+      },
+      {
+        "name": "Tool Wear Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for tool wear monitoring."
+      },
+      {
+        "name": "Tool Wear Monitoring Task 3",
+        "description": "Optimize processes based on tool wear monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I51",
+    "name": "Patient Fall Detection",
+    "domain": "Healthcare",
+    "context": "Patient",
+    "description": "Uses radar or camera systems to detect if a patient has fallen in their room.",
+    "tasks": [
+      {
+        "name": "Patient Fall Detection Task 1",
+        "description": "Perform primary monitoring for patient fall detection."
+      },
+      {
+        "name": "Patient Fall Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for patient fall detection."
+      },
+      {
+        "name": "Patient Fall Detection Task 3",
+        "description": "Optimize processes based on patient fall detection data."
+      }
+    ]
+  },
+  {
+    "id": "I52",
+    "name": "Vitals Monitoring",
+    "domain": "Healthcare",
+    "context": "Patient",
+    "description": "Continuously tracks heart rate, blood pressure, and oxygen saturation.",
+    "tasks": [
+      {
+        "name": "Vitals Monitoring Task 1",
+        "description": "Perform primary monitoring for vitals monitoring."
+      },
+      {
+        "name": "Vitals Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for vitals monitoring."
+      },
+      {
+        "name": "Vitals Monitoring Task 3",
+        "description": "Optimize processes based on vitals monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I53",
+    "name": "Medication Adherence",
+    "domain": "Healthcare",
+    "context": "Treatment",
+    "description": "Monitors pill dispenser usage to ensure patients take prescribed medicine.",
+    "tasks": [
+      {
+        "name": "Medication Adherence Task 1",
+        "description": "Perform primary monitoring for medication adherence."
+      },
+      {
+        "name": "Medication Adherence Task 2",
+        "description": "Analyze anomalies and generate alerts for medication adherence."
+      },
+      {
+        "name": "Medication Adherence Task 3",
+        "description": "Optimize processes based on medication adherence data."
+      }
+    ]
+  },
+  {
+    "id": "I54",
+    "name": "Hand Hygiene Compliance",
+    "domain": "Healthcare",
+    "context": "Safety",
+    "description": "Tracks staff use of hand sanitizer stations to prevent hospital-acquired infections.",
+    "tasks": [
+      {
+        "name": "Hand Hygiene Compliance Task 1",
+        "description": "Perform primary monitoring for hand hygiene compliance."
+      },
+      {
+        "name": "Hand Hygiene Compliance Task 2",
+        "description": "Analyze anomalies and generate alerts for hand hygiene compliance."
+      },
+      {
+        "name": "Hand Hygiene Compliance Task 3",
+        "description": "Optimize processes based on hand hygiene compliance data."
+      }
+    ]
+  },
+  {
+    "id": "I55",
+    "name": "Medical Equipment Tracking",
+    "domain": "Healthcare",
+    "context": "Equipment",
+    "description": "Locates mobile medical assets like wheelchairs and IV pumps in real-time.",
+    "tasks": [
+      {
+        "name": "Medical Equipment Tracking Task 1",
+        "description": "Perform primary monitoring for medical equipment tracking."
+      },
+      {
+        "name": "Medical Equipment Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for medical equipment tracking."
+      },
+      {
+        "name": "Medical Equipment Tracking Task 3",
+        "description": "Optimize processes based on medical equipment tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I56",
+    "name": "Bed Availability",
+    "domain": "Healthcare",
+    "context": "Management",
+    "description": "Monitors hospital bed occupancy and turnover rates for efficient admission.",
+    "tasks": [
+      {
+        "name": "Bed Availability Task 1",
+        "description": "Perform primary monitoring for bed availability."
+      },
+      {
+        "name": "Bed Availability Task 2",
+        "description": "Analyze anomalies and generate alerts for bed availability."
+      },
+      {
+        "name": "Bed Availability Task 3",
+        "description": "Optimize processes based on bed availability data."
+      }
+    ]
+  },
+  {
+    "id": "I57",
+    "name": "Sleep Apnea Detection",
+    "domain": "Healthcare",
+    "context": "Patient",
+    "description": "Analyzes breathing patterns and audio during sleep to diagnose apnea events.",
+    "tasks": [
+      {
+        "name": "Sleep Apnea Detection Task 1",
+        "description": "Perform primary monitoring for sleep apnea detection."
+      },
+      {
+        "name": "Sleep Apnea Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for sleep apnea detection."
+      },
+      {
+        "name": "Sleep Apnea Detection Task 3",
+        "description": "Optimize processes based on sleep apnea detection data."
+      }
+    ]
+  },
+  {
+    "id": "I58",
+    "name": "Telemedicine Diagnostics",
+    "domain": "Healthcare",
+    "context": "Remote",
+    "description": "Facilitates remote patient examination using connected digital instruments.",
+    "tasks": [
+      {
+        "name": "Telemedicine Diagnostics Task 1",
+        "description": "Perform primary monitoring for telemedicine diagnostics."
+      },
+      {
+        "name": "Telemedicine Diagnostics Task 2",
+        "description": "Analyze anomalies and generate alerts for telemedicine diagnostics."
+      },
+      {
+        "name": "Telemedicine Diagnostics Task 3",
+        "description": "Optimize processes based on telemedicine diagnostics data."
+      }
+    ]
+  },
+  {
+    "id": "I59",
+    "name": "Remote ECG Monitoring",
+    "domain": "Healthcare",
+    "context": "Cardio",
+    "description": "Continuously analyzes electrocardiogram data for ambulatory patients.",
+    "tasks": [
+      {
+        "name": "Remote ECG Monitoring Task 1",
+        "description": "Perform primary monitoring for remote ecg monitoring."
+      },
+      {
+        "name": "Remote ECG Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for remote ecg monitoring."
+      },
+      {
+        "name": "Remote ECG Monitoring Task 3",
+        "description": "Optimize processes based on remote ecg monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I60",
+    "name": "Asthma Trigger Detection",
+    "domain": "Healthcare",
+    "context": "Environment",
+    "description": "Monitors local air quality and allergens to alert asthma patients.",
+    "tasks": [
+      {
+        "name": "Asthma Trigger Detection Task 1",
+        "description": "Perform primary monitoring for asthma trigger detection."
+      },
+      {
+        "name": "Asthma Trigger Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for asthma trigger detection."
+      },
+      {
+        "name": "Asthma Trigger Detection Task 3",
+        "description": "Optimize processes based on asthma trigger detection data."
+      }
+    ]
+  },
+  {
+    "id": "I61",
+    "name": "Water Quality Monitoring",
+    "domain": "Environment",
+    "context": "Water",
+    "description": "Measures pH, turbidity, and dissolved oxygen in rivers and lakes.",
+    "tasks": [
+      {
+        "name": "Water Quality Monitoring Task 1",
+        "description": "Perform primary monitoring for water quality monitoring."
+      },
+      {
+        "name": "Water Quality Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for water quality monitoring."
+      },
+      {
+        "name": "Water Quality Monitoring Task 3",
+        "description": "Optimize processes based on water quality monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I62",
+    "name": "Air Pollution Tracking",
+    "domain": "Environment",
+    "context": "AirQuality",
+    "description": "Monitors PM2.5, NO2, and SO2 levels across urban areas.",
+    "tasks": [
+      {
+        "name": "Air Pollution Tracking Task 1",
+        "description": "Perform primary monitoring for air pollution tracking."
+      },
+      {
+        "name": "Air Pollution Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for air pollution tracking."
+      },
+      {
+        "name": "Air Pollution Tracking Task 3",
+        "description": "Optimize processes based on air pollution tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I63",
+    "name": "Deforestation Detection",
+    "domain": "Environment",
+    "context": "Forest",
+    "description": "Analyzes satellite imagery to identify illegal logging activities.",
+    "tasks": [
+      {
+        "name": "Deforestation Detection Task 1",
+        "description": "Perform primary monitoring for deforestation detection."
+      },
+      {
+        "name": "Deforestation Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for deforestation detection."
+      },
+      {
+        "name": "Deforestation Detection Task 3",
+        "description": "Optimize processes based on deforestation detection data."
+      }
+    ]
+  },
+  {
+    "id": "I64",
+    "name": "Wildlife Tracking",
+    "domain": "Environment",
+    "context": "Wildlife",
+    "description": "Monitors animal movements using GPS collars and camera traps.",
+    "tasks": [
+      {
+        "name": "Wildlife Tracking Task 1",
+        "description": "Perform primary monitoring for wildlife tracking."
+      },
+      {
+        "name": "Wildlife Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for wildlife tracking."
+      },
+      {
+        "name": "Wildlife Tracking Task 3",
+        "description": "Optimize processes based on wildlife tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I65",
+    "name": "Ocean Plastic Monitoring",
+    "domain": "Environment",
+    "context": "Ocean",
+    "description": "Uses drone and satellite imagery to track marine debris accumulation.",
+    "tasks": [
+      {
+        "name": "Ocean Plastic Monitoring Task 1",
+        "description": "Perform primary monitoring for ocean plastic monitoring."
+      },
+      {
+        "name": "Ocean Plastic Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for ocean plastic monitoring."
+      },
+      {
+        "name": "Ocean Plastic Monitoring Task 3",
+        "description": "Optimize processes based on ocean plastic monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I66",
+    "name": "River Level Monitoring",
+    "domain": "Environment",
+    "context": "Water",
+    "description": "Tracks river heights to predict and manage potential flooding events.",
+    "tasks": [
+      {
+        "name": "River Level Monitoring Task 1",
+        "description": "Perform primary monitoring for river level monitoring."
+      },
+      {
+        "name": "River Level Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for river level monitoring."
+      },
+      {
+        "name": "River Level Monitoring Task 3",
+        "description": "Optimize processes based on river level monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I67",
+    "name": "Noise Pollution Mapping",
+    "domain": "Environment",
+    "context": "Noise",
+    "description": "Aggregates acoustic sensor data to create city-wide noise maps.",
+    "tasks": [
+      {
+        "name": "Noise Pollution Mapping Task 1",
+        "description": "Perform primary monitoring for noise pollution mapping."
+      },
+      {
+        "name": "Noise Pollution Mapping Task 2",
+        "description": "Analyze anomalies and generate alerts for noise pollution mapping."
+      },
+      {
+        "name": "Noise Pollution Mapping Task 3",
+        "description": "Optimize processes based on noise pollution mapping data."
+      }
+    ]
+  },
+  {
+    "id": "I68",
+    "name": "Soil Contamination",
+    "domain": "Environment",
+    "context": "Soil",
+    "description": "Detects heavy metals and chemical pollutants in industrial areas.",
+    "tasks": [
+      {
+        "name": "Soil Contamination Task 1",
+        "description": "Perform primary monitoring for soil contamination."
+      },
+      {
+        "name": "Soil Contamination Task 2",
+        "description": "Analyze anomalies and generate alerts for soil contamination."
+      },
+      {
+        "name": "Soil Contamination Task 3",
+        "description": "Optimize processes based on soil contamination data."
+      }
+    ]
+  },
+  {
+    "id": "I69",
+    "name": "Urban Heat Island",
+    "domain": "Environment",
+    "context": "Climate",
+    "description": "Maps temperature variations across a city to identify heat-trapping zones.",
+    "tasks": [
+      {
+        "name": "Urban Heat Island Task 1",
+        "description": "Perform primary monitoring for urban heat island."
+      },
+      {
+        "name": "Urban Heat Island Task 2",
+        "description": "Analyze anomalies and generate alerts for urban heat island."
+      },
+      {
+        "name": "Urban Heat Island Task 3",
+        "description": "Optimize processes based on urban heat island data."
+      }
+    ]
+  },
+  {
+    "id": "I70",
+    "name": "Biodiversity Assessment",
+    "domain": "Environment",
+    "context": "Wildlife",
+    "description": "Uses audio recordings to identify and count bird and amphibian species.",
+    "tasks": [
+      {
+        "name": "Biodiversity Assessment Task 1",
+        "description": "Perform primary monitoring for biodiversity assessment."
+      },
+      {
+        "name": "Biodiversity Assessment Task 2",
+        "description": "Analyze anomalies and generate alerts for biodiversity assessment."
+      },
+      {
+        "name": "Biodiversity Assessment Task 3",
+        "description": "Optimize processes based on biodiversity assessment data."
+      }
+    ]
+  },
+  {
+    "id": "I71",
+    "name": "Wind Turbine Monitoring",
+    "domain": "Energy",
+    "context": "Renewable",
+    "description": "Analyzes blade vibrations and gearbox temperature to optimize maintenance.",
+    "tasks": [
+      {
+        "name": "Wind Turbine Monitoring Task 1",
+        "description": "Perform primary monitoring for wind turbine monitoring."
+      },
+      {
+        "name": "Wind Turbine Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for wind turbine monitoring."
+      },
+      {
+        "name": "Wind Turbine Monitoring Task 3",
+        "description": "Optimize processes based on wind turbine monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I72",
+    "name": "Substation Fault Detection",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Monitors transformer health and detects arcing or overheating events.",
+    "tasks": [
+      {
+        "name": "Substation Fault Detection Task 1",
+        "description": "Perform primary monitoring for substation fault detection."
+      },
+      {
+        "name": "Substation Fault Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for substation fault detection."
+      },
+      {
+        "name": "Substation Fault Detection Task 3",
+        "description": "Optimize processes based on substation fault detection data."
+      }
+    ]
+  },
+  {
+    "id": "I73",
+    "name": "Smart Metering",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Collects real-time electricity usage data for dynamic pricing and load analysis.",
+    "tasks": [
+      {
+        "name": "Smart Metering Task 1",
+        "description": "Perform primary monitoring for smart metering."
+      },
+      {
+        "name": "Smart Metering Task 2",
+        "description": "Analyze anomalies and generate alerts for smart metering."
+      },
+      {
+        "name": "Smart Metering Task 3",
+        "description": "Optimize processes based on smart metering data."
+      }
+    ]
+  },
+  {
+    "id": "I74",
+    "name": "Grid Voltage Stabilization",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Automatically adjusts reactive power to maintain stable voltage levels.",
+    "tasks": [
+      {
+        "name": "Grid Voltage Stabilization Task 1",
+        "description": "Perform primary monitoring for grid voltage stabilization."
+      },
+      {
+        "name": "Grid Voltage Stabilization Task 2",
+        "description": "Analyze anomalies and generate alerts for grid voltage stabilization."
+      },
+      {
+        "name": "Grid Voltage Stabilization Task 3",
+        "description": "Optimize processes based on grid voltage stabilization data."
+      }
+    ]
+  },
+  {
+    "id": "I75",
+    "name": "Pipeline Leak Detection",
+    "domain": "Energy",
+    "context": "Infrastructure",
+    "description": "Identifies pressure anomalies and acoustic signatures of gas or oil leaks.",
+    "tasks": [
+      {
+        "name": "Pipeline Leak Detection Task 1",
+        "description": "Perform primary monitoring for pipeline leak detection."
+      },
+      {
+        "name": "Pipeline Leak Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for pipeline leak detection."
+      },
+      {
+        "name": "Pipeline Leak Detection Task 3",
+        "description": "Optimize processes based on pipeline leak detection data."
+      }
+    ]
+  },
+  {
+    "id": "I76",
+    "name": "Transformer Health",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Analyzes dissolved gas in transformer oil to predict failures.",
+    "tasks": [
+      {
+        "name": "Transformer Health Task 1",
+        "description": "Perform primary monitoring for transformer health."
+      },
+      {
+        "name": "Transformer Health Task 2",
+        "description": "Analyze anomalies and generate alerts for transformer health."
+      },
+      {
+        "name": "Transformer Health Task 3",
+        "description": "Optimize processes based on transformer health data."
+      }
+    ]
+  },
+  {
+    "id": "I77",
+    "name": "Energy Theft Detection",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Identifies irregular consumption patterns indicative of meter tampering.",
+    "tasks": [
+      {
+        "name": "Energy Theft Detection Task 1",
+        "description": "Perform primary monitoring for energy theft detection."
+      },
+      {
+        "name": "Energy Theft Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for energy theft detection."
+      },
+      {
+        "name": "Energy Theft Detection Task 3",
+        "description": "Optimize processes based on energy theft detection data."
+      }
+    ]
+  },
+  {
+    "id": "I78",
+    "name": "Geothermal Output",
+    "domain": "Energy",
+    "context": "Renewable",
+    "description": "Monitors temperature and flow rates of geothermal wells for optimal extraction.",
+    "tasks": [
+      {
+        "name": "Geothermal Output Task 1",
+        "description": "Perform primary monitoring for geothermal output."
+      },
+      {
+        "name": "Geothermal Output Task 2",
+        "description": "Analyze anomalies and generate alerts for geothermal output."
+      },
+      {
+        "name": "Geothermal Output Task 3",
+        "description": "Optimize processes based on geothermal output data."
+      }
+    ]
+  },
+  {
+    "id": "I79",
+    "name": "Hydroelectric Dam",
+    "domain": "Energy",
+    "context": "Renewable",
+    "description": "Tracks water levels, flow rates, and turbine efficiency at dam facilities.",
+    "tasks": [
+      {
+        "name": "Hydroelectric Dam Task 1",
+        "description": "Perform primary monitoring for hydroelectric dam."
+      },
+      {
+        "name": "Hydroelectric Dam Task 2",
+        "description": "Analyze anomalies and generate alerts for hydroelectric dam."
+      },
+      {
+        "name": "Hydroelectric Dam Task 3",
+        "description": "Optimize processes based on hydroelectric dam data."
+      }
+    ]
+  },
+  {
+    "id": "I80",
+    "name": "Power Quality Analysis",
+    "domain": "Energy",
+    "context": "Grid",
+    "description": "Detects voltage sags, swells, and harmonics affecting sensitive equipment.",
+    "tasks": [
+      {
+        "name": "Power Quality Analysis Task 1",
+        "description": "Perform primary monitoring for power quality analysis."
+      },
+      {
+        "name": "Power Quality Analysis Task 2",
+        "description": "Analyze anomalies and generate alerts for power quality analysis."
+      },
+      {
+        "name": "Power Quality Analysis Task 3",
+        "description": "Optimize processes based on power quality analysis data."
+      }
+    ]
+  },
+  {
+    "id": "I81",
+    "name": "Lighting Optimization",
+    "domain": "SmartBuilding",
+    "context": "Energy",
+    "description": "Adjusts indoor lighting based on natural light availability and room occupancy.",
+    "tasks": [
+      {
+        "name": "Lighting Optimization Task 1",
+        "description": "Perform primary monitoring for lighting optimization."
+      },
+      {
+        "name": "Lighting Optimization Task 2",
+        "description": "Analyze anomalies and generate alerts for lighting optimization."
+      },
+      {
+        "name": "Lighting Optimization Task 3",
+        "description": "Optimize processes based on lighting optimization data."
+      }
+    ]
+  },
+  {
+    "id": "I82",
+    "name": "Space Utilization",
+    "domain": "SmartBuilding",
+    "context": "Management",
+    "description": "Analyzes desk and meeting room occupancy to optimize office layouts.",
+    "tasks": [
+      {
+        "name": "Space Utilization Task 1",
+        "description": "Perform primary monitoring for space utilization."
+      },
+      {
+        "name": "Space Utilization Task 2",
+        "description": "Analyze anomalies and generate alerts for space utilization."
+      },
+      {
+        "name": "Space Utilization Task 3",
+        "description": "Optimize processes based on space utilization data."
+      }
+    ]
+  },
+  {
+    "id": "I83",
+    "name": "Elevator Health",
+    "domain": "SmartBuilding",
+    "context": "Equipment",
+    "description": "Monitors elevator door mechanisms and motor vibrations to predict failures.",
+    "tasks": [
+      {
+        "name": "Elevator Health Task 1",
+        "description": "Perform primary monitoring for elevator health."
+      },
+      {
+        "name": "Elevator Health Task 2",
+        "description": "Analyze anomalies and generate alerts for elevator health."
+      },
+      {
+        "name": "Elevator Health Task 3",
+        "description": "Optimize processes based on elevator health data."
+      }
+    ]
+  },
+  {
+    "id": "I84",
+    "name": "Access Control",
+    "domain": "SmartBuilding",
+    "context": "Security",
+    "description": "Manages building entry using biometric scanners and smart badges.",
+    "tasks": [
+      {
+        "name": "Access Control Task 1",
+        "description": "Perform primary monitoring for access control."
+      },
+      {
+        "name": "Access Control Task 2",
+        "description": "Analyze anomalies and generate alerts for access control."
+      },
+      {
+        "name": "Access Control Task 3",
+        "description": "Optimize processes based on access control data."
+      }
+    ]
+  },
+  {
+    "id": "I85",
+    "name": "Water Leak Detection",
+    "domain": "SmartBuilding",
+    "context": "Infrastructure",
+    "description": "Identifies plumbing leaks early using moisture sensors to prevent damage.",
+    "tasks": [
+      {
+        "name": "Water Leak Detection Task 1",
+        "description": "Perform primary monitoring for water leak detection."
+      },
+      {
+        "name": "Water Leak Detection Task 2",
+        "description": "Analyze anomalies and generate alerts for water leak detection."
+      },
+      {
+        "name": "Water Leak Detection Task 3",
+        "description": "Optimize processes based on water leak detection data."
+      }
+    ]
+  },
+  {
+    "id": "I86",
+    "name": "Fire Alarm Analytics",
+    "domain": "SmartBuilding",
+    "context": "Safety",
+    "description": "Differentiates between false alarms and actual fires using multi-sensor data.",
+    "tasks": [
+      {
+        "name": "Fire Alarm Analytics Task 1",
+        "description": "Perform primary monitoring for fire alarm analytics."
+      },
+      {
+        "name": "Fire Alarm Analytics Task 2",
+        "description": "Analyze anomalies and generate alerts for fire alarm analytics."
+      },
+      {
+        "name": "Fire Alarm Analytics Task 3",
+        "description": "Optimize processes based on fire alarm analytics data."
+      }
+    ]
+  },
+  {
+    "id": "I87",
+    "name": "Indoor Air Quality",
+    "domain": "SmartBuilding",
+    "context": "AirQuality",
+    "description": "Monitors VOCs and CO2 to adjust ventilation for occupant health.",
+    "tasks": [
+      {
+        "name": "Indoor Air Quality Task 1",
+        "description": "Perform primary monitoring for indoor air quality."
+      },
+      {
+        "name": "Indoor Air Quality Task 2",
+        "description": "Analyze anomalies and generate alerts for indoor air quality."
+      },
+      {
+        "name": "Indoor Air Quality Task 3",
+        "description": "Optimize processes based on indoor air quality data."
+      }
+    ]
+  },
+  {
+    "id": "I88",
+    "name": "Waste Bin Monitoring",
+    "domain": "SmartBuilding",
+    "context": "Management",
+    "description": "Tracks trash fill levels to optimize janitorial collection routes.",
+    "tasks": [
+      {
+        "name": "Waste Bin Monitoring Task 1",
+        "description": "Perform primary monitoring for waste bin monitoring."
+      },
+      {
+        "name": "Waste Bin Monitoring Task 2",
+        "description": "Analyze anomalies and generate alerts for waste bin monitoring."
+      },
+      {
+        "name": "Waste Bin Monitoring Task 3",
+        "description": "Optimize processes based on waste bin monitoring data."
+      }
+    ]
+  },
+  {
+    "id": "I89",
+    "name": "HVAC Predictive Maintenance",
+    "domain": "SmartBuilding",
+    "context": "HVAC",
+    "description": "Analyzes compressor and fan performance to prevent HVAC system breakdowns.",
+    "tasks": [
+      {
+        "name": "HVAC Predictive Maintenance Task 1",
+        "description": "Perform primary monitoring for hvac predictive maintenance."
+      },
+      {
+        "name": "HVAC Predictive Maintenance Task 2",
+        "description": "Analyze anomalies and generate alerts for hvac predictive maintenance."
+      },
+      {
+        "name": "HVAC Predictive Maintenance Task 3",
+        "description": "Optimize processes based on hvac predictive maintenance data."
+      }
+    ]
+  },
+  {
+    "id": "I90",
+    "name": "Window Shade Automation",
+    "domain": "SmartBuilding",
+    "context": "Energy",
+    "description": "Adjusts smart blinds based on sun position to reduce cooling loads.",
+    "tasks": [
+      {
+        "name": "Window Shade Automation Task 1",
+        "description": "Perform primary monitoring for window shade automation."
+      },
+      {
+        "name": "Window Shade Automation Task 2",
+        "description": "Analyze anomalies and generate alerts for window shade automation."
+      },
+      {
+        "name": "Window Shade Automation Task 3",
+        "description": "Optimize processes based on window shade automation data."
+      }
+    ]
+  },
+  {
+    "id": "I91",
+    "name": "Flood Prediction",
+    "domain": "DisasterManagement",
+    "context": "Water",
+    "description": "Combines rainfall forecasts and river levels to predict flood inundation zones.",
+    "tasks": [
+      {
+        "name": "Flood Prediction Task 1",
+        "description": "Perform primary monitoring for flood prediction."
+      },
+      {
+        "name": "Flood Prediction Task 2",
+        "description": "Analyze anomalies and generate alerts for flood prediction."
+      },
+      {
+        "name": "Flood Prediction Task 3",
+        "description": "Optimize processes based on flood prediction data."
+      }
+    ]
+  },
+  {
+    "id": "I92",
+    "name": "Wildfire Tracking",
+    "domain": "DisasterManagement",
+    "context": "Fire",
+    "description": "Uses thermal imaging and wind data to predict the spread of forest fires.",
+    "tasks": [
+      {
+        "name": "Wildfire Tracking Task 1",
+        "description": "Perform primary monitoring for wildfire tracking."
+      },
+      {
+        "name": "Wildfire Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for wildfire tracking."
+      },
+      {
+        "name": "Wildfire Tracking Task 3",
+        "description": "Optimize processes based on wildfire tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I93",
+    "name": "Earthquake Warning",
+    "domain": "DisasterManagement",
+    "context": "Seismic",
+    "description": "Detects primary seismic waves to issue seconds of warning before major shaking.",
+    "tasks": [
+      {
+        "name": "Earthquake Warning Task 1",
+        "description": "Perform primary monitoring for earthquake warning."
+      },
+      {
+        "name": "Earthquake Warning Task 2",
+        "description": "Analyze anomalies and generate alerts for earthquake warning."
+      },
+      {
+        "name": "Earthquake Warning Task 3",
+        "description": "Optimize processes based on earthquake warning data."
+      }
+    ]
+  },
+  {
+    "id": "I94",
+    "name": "Hurricane Path",
+    "domain": "DisasterManagement",
+    "context": "Weather",
+    "description": "Analyzes meteorological data to update hurricane trajectories in real-time.",
+    "tasks": [
+      {
+        "name": "Hurricane Path Task 1",
+        "description": "Perform primary monitoring for hurricane path."
+      },
+      {
+        "name": "Hurricane Path Task 2",
+        "description": "Analyze anomalies and generate alerts for hurricane path."
+      },
+      {
+        "name": "Hurricane Path Task 3",
+        "description": "Optimize processes based on hurricane path data."
+      }
+    ]
+  },
+  {
+    "id": "I95",
+    "name": "Tsunami Alert",
+    "domain": "DisasterManagement",
+    "context": "Ocean",
+    "description": "Monitors ocean floor pressure sensors to detect tsunami waves generation.",
+    "tasks": [
+      {
+        "name": "Tsunami Alert Task 1",
+        "description": "Perform primary monitoring for tsunami alert."
+      },
+      {
+        "name": "Tsunami Alert Task 2",
+        "description": "Analyze anomalies and generate alerts for tsunami alert."
+      },
+      {
+        "name": "Tsunami Alert Task 3",
+        "description": "Optimize processes based on tsunami alert data."
+      }
+    ]
+  },
+  {
+    "id": "I96",
+    "name": "Landslide Vulnerability",
+    "domain": "DisasterManagement",
+    "context": "Geology",
+    "description": "Assesses soil moisture and slope stability to warn of potential landslides.",
+    "tasks": [
+      {
+        "name": "Landslide Vulnerability Task 1",
+        "description": "Perform primary monitoring for landslide vulnerability."
+      },
+      {
+        "name": "Landslide Vulnerability Task 2",
+        "description": "Analyze anomalies and generate alerts for landslide vulnerability."
+      },
+      {
+        "name": "Landslide Vulnerability Task 3",
+        "description": "Optimize processes based on landslide vulnerability data."
+      }
+    ]
+  },
+  {
+    "id": "I97",
+    "name": "Structural Integrity",
+    "domain": "DisasterManagement",
+    "context": "Infrastructure",
+    "description": "Monitors bridge and building vibrations during and after seismic events.",
+    "tasks": [
+      {
+        "name": "Structural Integrity Task 1",
+        "description": "Perform primary monitoring for structural integrity."
+      },
+      {
+        "name": "Structural Integrity Task 2",
+        "description": "Analyze anomalies and generate alerts for structural integrity."
+      },
+      {
+        "name": "Structural Integrity Task 3",
+        "description": "Optimize processes based on structural integrity data."
+      }
+    ]
+  },
+  {
+    "id": "I98",
+    "name": "Evacuation Optimization",
+    "domain": "DisasterManagement",
+    "context": "Safety",
+    "description": "Calculates safest exit routes based on real-time hazard propagation.",
+    "tasks": [
+      {
+        "name": "Evacuation Optimization Task 1",
+        "description": "Perform primary monitoring for evacuation optimization."
+      },
+      {
+        "name": "Evacuation Optimization Task 2",
+        "description": "Analyze anomalies and generate alerts for evacuation optimization."
+      },
+      {
+        "name": "Evacuation Optimization Task 3",
+        "description": "Optimize processes based on evacuation optimization data."
+      }
+    ]
+  },
+  {
+    "id": "I99",
+    "name": "Relief Supply Tracking",
+    "domain": "DisasterManagement",
+    "context": "Logistics",
+    "description": "Manages the distribution of emergency supplies to affected areas.",
+    "tasks": [
+      {
+        "name": "Relief Supply Tracking Task 1",
+        "description": "Perform primary monitoring for relief supply tracking."
+      },
+      {
+        "name": "Relief Supply Tracking Task 2",
+        "description": "Analyze anomalies and generate alerts for relief supply tracking."
+      },
+      {
+        "name": "Relief Supply Tracking Task 3",
+        "description": "Optimize processes based on relief supply tracking data."
+      }
+    ]
+  },
+  {
+    "id": "I100",
+    "name": "Emergency Resource Allocation",
+    "domain": "DisasterManagement",
+    "context": "Management",
+    "description": "Optimizes the deployment of first responders based on incident severity.",
+    "tasks": [
+      {
+        "name": "Emergency Resource Allocation Task 1",
+        "description": "Perform primary monitoring for emergency resource allocation."
+      },
+      {
+        "name": "Emergency Resource Allocation Task 2",
+        "description": "Analyze anomalies and generate alerts for emergency resource allocation."
+      },
+      {
+        "name": "Emergency Resource Allocation Task 3",
+        "description": "Optimize processes based on emergency resource allocation data."
+      }
+    ]
+  },
+  {
+    "id": "I101",
+    "name": "Healthcare Monitor 1",
+    "domain": "Healthcare",
+    "context": "Patient",
+    "description": "Monitors patient health metrics autonomously to ensure stable vitals 1.",
+    "tasks": [
+      {
+        "name": "Vital Check",
+        "description": "Check heart rate and blood pressure."
+      },
+      {
+        "name": "Alert System",
+        "description": "Notify nurse if anomalies detected."
+      }
+    ]
+  },
+  {
+    "id": "I102",
+    "name": "Healthcare Monitor 2",
+    "domain": "Healthcare",
+    "context": "Patient",
+    "description": "Monitors patient health metrics autonomously to ensure stable vitals 2.",
+    "tasks": [
+      {
+        "name": "Vital Check",
+        "description": "Check heart rate and blood pressure."
+      },
+      {
+        "name": "Alert System",
+        "description": "Notify nurse if anomalies detected."
       }
     ]
   }

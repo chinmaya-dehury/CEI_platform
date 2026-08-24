@@ -18,10 +18,17 @@ print("Initializing semantic embedding engine...")
 model = SentenceTransformer("all-mpnet-base-v2")  # More accurate but heavier model
 
 # Decision Thresholds
-THETA_1 = 0.80  # SR Threshold (How similar agents must be to cluster together - keep this high to ensure quality collaboration)
-THETA_2 = 0.40  # TR Threshold (How relevant an agent must be to participate - keep this low to allow more agents to participate)
+# Justification (Sensitivity Analysis): 
+# THETA_1 (0.80) acts as a strict precision filter. Lower values (e.g., 0.60) create overly large, inefficient clusters, 
+# while higher values (0.90) isolate agents too aggressively, hurting collaboration.
+# THETA_2 (0.40) is moderate to maintain high recall. Higher values restrict participating agents, reducing adaptability.
+THETA_1 = 0.80  # SR Threshold (How similar agents must be to cluster together - strict precision)
+THETA_2 = 0.40  # TR Threshold (How relevant an agent must be to participate - moderate recall)
 
 # SR Weight Configuration: alpha + beta + gamma = 1
+# Justification: Task similarity (alpha) is prioritized as functional alignment is most critical for execution.
+# Context (beta) provides situational relevance, while Domain (gamma) is given the lowest weight because 
+# functional tasks (e.g., thermal sensing) are often cross-domain (e.g., SmartBuilding to Transportation).
 ALPHA = 0.5   # Task Similarity Weight
 BETA = 0.3    # Context Similarity Weight
 GAMMA = 0.2   # Domain Similarity Weight
@@ -151,7 +158,7 @@ for idx, cluster in enumerate(clusters, start=1):
     cluster_agents = []
     
     for intel_id in sorted(list(cluster)):
-        print(f"   • {intel_id} -> {id_to_name[intel_id]}")
+        print(f" {intel_id} -> {id_to_name[intel_id]}")
         cluster_agents.append({"id": intel_id, "name": id_to_name[intel_id]})
         
     print()
