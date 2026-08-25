@@ -21,9 +21,9 @@ model = SentenceTransformer("all-mpnet-base-v2")  # More accurate but heavier mo
 # Justification (Sensitivity Analysis): 
 # THETA_1 (0.80) acts as a strict precision filter. Lower values (e.g., 0.60) create overly large, inefficient clusters, 
 # while higher values (0.90) isolate agents too aggressively, hurting collaboration.
-# THETA_2 (0.40) is moderate to maintain high recall. Higher values restrict participating agents, reducing adaptability.
-THETA_1 = 0.80  # SR Threshold (How similar agents must be to cluster together - strict precision)
-THETA_2 = 0.40  # TR Threshold (How relevant an agent must be to participate - moderate recall)
+# THETA_2 (0.45) is moderate to maintain high recall. Higher values restrict participating agents, reducing adaptability.
+THETA_1 = 0.80  # SR Threshold
+THETA_2 = 0.45  # TR Threshold (How relevant an agent must be to participate - moderate recall)
 
 # SR Weight Configuration: alpha + beta + gamma = 1
 # Justification: Task similarity (alpha) is prioritized as functional alignment is most critical for execution.
@@ -61,7 +61,8 @@ for intel in intelligences:
     intel["_domain_vector"] = model.encode(intel.get("domain", ""))
     intel["_tasks_vector"] = get_tasks_embedding(intel.get("tasks", []))
     # Full identity text for Task Relevance matching
-    intel["_identity_text"] = f"Intelligence: {intel['name']}. Domain: {intel['domain']}. Context: {intel['context']}."
+    intel_tasks_str = ", ".join([str(t) for t in intel.get("tasks", [])])
+    intel["_identity_text"] = f"Intelligence: {intel['name']}. Domain: {intel['domain']}. Context: {intel['context']}. Description: {intel.get('description', '')}. Tasks: {intel_tasks_str}."
 
 def calculate_sr(i1, i2):
     """Calculates the pure Semantic Relationship between two intelligences."""
@@ -83,11 +84,16 @@ def calculate_sr(i1, i2):
 # --------------------------------------------------
 
 # Step 1: User Inputs a Task
+import sys
 print("\n==================================================")
-user_task = input("Enter Task Description: ").strip()
-if not user_task:
-    user_task = "Detect fire incidents in forest areas and alert local emergency services."
-    print(f"Using default task: '{user_task}'")
+if len(sys.argv) > 1:
+    user_task = sys.argv[1].strip()
+    print(f"Using provided task: '{user_task}'")
+else:
+    user_task = input("Enter Task Description: ").strip()
+    if not user_task:
+        user_task = "Detect fire incidents in forest areas and alert local emergency services."
+        print(f"Using default task: '{user_task}'")
 print("==================================================")
 
 task_vector = model.encode(user_task).reshape(1, -1)
@@ -102,6 +108,7 @@ eliminated_logs = []
 for intel in intelligences:
     intel_vector = model.encode(intel["_identity_text"]).reshape(1, -1)
     tr_score = round(float(cosine_similarity(task_vector, intel_vector)[0][0]), 3)
+    intel["_tr_score"] = tr_score
     
     if tr_score >= THETA_2:
         print(f"✅ PASS | {intel['id']} ({intel['name']}) | TR Score: {tr_score:.3f}")
@@ -143,6 +150,34 @@ for intel in survivors:
     clusters.append(cluster)
 
 # --------------------------------------------------
+# CR Selection Logic (Algorithm 2)
+# --------------------------------------------------
+print("\n[STEP 4] CALCULATING CLUSTER RELEVANCE (CR)")
+print("-" * 70)
+
+id_to_intel = {x["id"]: x for x in survivors}
+cluster_metrics = []
+
+for idx, cluster in enumerate(clusters, start=1):
+    tr_scores = [id_to_intel[agent_id]["_tr_score"] for agent_id in cluster]
+    cr_score = sum(tr_scores) / len(cluster)
+    max_tr = max(tr_scores)
+    cluster_metrics.append({
+        "cluster": cluster,
+        "cluster_id": f"Cluster-{idx}",
+        "cr_score": cr_score,
+        "size": len(cluster),
+        "max_tr": max_tr
+    })
+    print(f"Cluster-{idx} | Size: {len(cluster)} | CR Score: {cr_score:.3f} | Max TR: {max_tr:.3f}")
+
+# Sort by CR Score (desc), then Size (desc), then Max TR (desc)
+cluster_metrics.sort(key=lambda x: (x["cr_score"], x["size"], x["max_tr"]), reverse=True)
+best_cluster = cluster_metrics[0]
+
+print(f"\n=> SELECTED EXECUTING CLUSTER (C*): {best_cluster['cluster_id']} (CR: {best_cluster['cr_score']:.3f})")
+
+# --------------------------------------------------
 # Terminal Display Results
 # --------------------------------------------------
 id_to_name = {x["id"]: x["name"] for x in intelligences}
@@ -159,7 +194,11 @@ for idx, cluster in enumerate(clusters, start=1):
     
     for intel_id in sorted(list(cluster)):
         print(f" {intel_id} -> {id_to_name[intel_id]}")
-        cluster_agents.append({"id": intel_id, "name": id_to_name[intel_id]})
+        cluster_agents.append({
+            "id": intel_id, 
+            "name": id_to_name[intel_id],
+            "tr_score": id_to_intel[intel_id]["_tr_score"]
+        })
         
     print()
     json_clusters_output.append({
@@ -189,6 +228,12 @@ export_data = {
         "total_clusters": len(clusters)
     },
     "clusters": json_clusters_output,
+    "selected_executing_cluster": {
+        "cluster_id": best_cluster["cluster_id"],
+        "cr_score": best_cluster["cr_score"],
+        "size": best_cluster["size"],
+        "max_tr": best_cluster["max_tr"]
+    },
     "eliminated": eliminated_logs
 }
 

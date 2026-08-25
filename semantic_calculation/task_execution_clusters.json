@@ -1,0 +1,547 @@
+{
+  "target_task": "Analyze city traffic flow and congestion for electric vehicle fleets",
+  "thresholds": {
+    "sr_theta_1": 0.8,
+    "tr_theta_2": 0.4
+  },
+  "summary": {
+    "total_evaluated": 100,
+    "total_active": 7,
+    "total_eliminated": 93,
+    "total_clusters": 4
+  },
+  "clusters": [
+    {
+      "cluster_id": "Cluster-1",
+      "size": 4,
+      "agents": [
+        {
+          "id": "I10",
+          "name": "Urban Traffic Monitoring",
+          "tr_score": 0.563
+        },
+        {
+          "id": "I24",
+          "name": "Public Transit Optimization",
+          "tr_score": 0.531
+        },
+        {
+          "id": "I3",
+          "name": "Traffic Congestion Estimation",
+          "tr_score": 0.599
+        },
+        {
+          "id": "I4",
+          "name": "Vehicle Speed Analysis",
+          "tr_score": 0.591
+        }
+      ]
+    },
+    {
+      "cluster_id": "Cluster-2",
+      "size": 1,
+      "agents": [
+        {
+          "id": "I21",
+          "name": "Fleet Management",
+          "tr_score": 0.443
+        }
+      ]
+    },
+    {
+      "cluster_id": "Cluster-3",
+      "size": 1,
+      "agents": [
+        {
+          "id": "I26",
+          "name": "Parking Availability",
+          "tr_score": 0.408
+        }
+      ]
+    },
+    {
+      "cluster_id": "Cluster-4",
+      "size": 1,
+      "agents": [
+        {
+          "id": "I29",
+          "name": "Toll Collection",
+          "tr_score": 0.424
+        }
+      ]
+    }
+  ],
+  "selected_executing_cluster": {
+    "cluster_id": "Cluster-1",
+    "cr_score": 0.571,
+    "size": 4,
+    "max_tr": 0.599
+  },
+  "eliminated": [
+    {
+      "id": "I1",
+      "name": "Heatwave Detection",
+      "tr_score": 0.153
+    },
+    {
+      "id": "I2",
+      "name": "Indoor Air Quality Assessment",
+      "tr_score": 0.219
+    },
+    {
+      "id": "I5",
+      "name": "Accident Risk Detection",
+      "tr_score": 0.396
+    },
+    {
+      "id": "I6",
+      "name": "CO2 Threshold Detection",
+      "tr_score": 0.221
+    },
+    {
+      "id": "I7",
+      "name": "Temperature Spike Detection",
+      "tr_score": 0.126
+    },
+    {
+      "id": "I8",
+      "name": "Noise Pollution Monitoring",
+      "tr_score": 0.249
+    },
+    {
+      "id": "I9",
+      "name": "Occupancy Estimation",
+      "tr_score": 0.175
+    },
+    {
+      "id": "I11",
+      "name": "Battery Health Analysis",
+      "tr_score": 0.309
+    },
+    {
+      "id": "I12",
+      "name": "Load Demand Forecasting",
+      "tr_score": 0.294
+    },
+    {
+      "id": "I13",
+      "name": "Solar Generation Assessment",
+      "tr_score": 0.219
+    },
+    {
+      "id": "I14",
+      "name": "Irrigation Requirement Analysis",
+      "tr_score": 0.086
+    },
+    {
+      "id": "I15",
+      "name": "Crop Heat Stress Detection",
+      "tr_score": 0.076
+    },
+    {
+      "id": "I16",
+      "name": "Soil Moisture Analysis",
+      "tr_score": 0.09
+    },
+    {
+      "id": "I17",
+      "name": "Ventilation Efficiency Analysis",
+      "tr_score": 0.158
+    },
+    {
+      "id": "I18",
+      "name": "Cabin Air Quality Assessment",
+      "tr_score": 0.309
+    },
+    {
+      "id": "I22",
+      "name": "Pothole Detection",
+      "tr_score": 0.321
+    },
+    {
+      "id": "I23",
+      "name": "Pedestrian Safety",
+      "tr_score": 0.317
+    },
+    {
+      "id": "I25",
+      "name": "Freight Tracking",
+      "tr_score": 0.306
+    },
+    {
+      "id": "I27",
+      "name": "Emission Monitoring",
+      "tr_score": 0.384
+    },
+    {
+      "id": "I28",
+      "name": "Road Weather Conditions",
+      "tr_score": 0.364
+    },
+    {
+      "id": "I30",
+      "name": "Railway Track Inspection",
+      "tr_score": 0.279
+    },
+    {
+      "id": "I31",
+      "name": "Crop Disease Detection",
+      "tr_score": 0.084
+    },
+    {
+      "id": "I32",
+      "name": "Weed Identification",
+      "tr_score": 0.124
+    },
+    {
+      "id": "I33",
+      "name": "Pest Monitoring",
+      "tr_score": 0.13
+    },
+    {
+      "id": "I34",
+      "name": "Soil Nutrient Analysis",
+      "tr_score": 0.087
+    },
+    {
+      "id": "I35",
+      "name": "Yield Prediction",
+      "tr_score": 0.07
+    },
+    {
+      "id": "I36",
+      "name": "Autonomous Harvesting",
+      "tr_score": 0.146
+    },
+    {
+      "id": "I37",
+      "name": "Greenhouse Climate Control",
+      "tr_score": 0.119
+    },
+    {
+      "id": "I38",
+      "name": "Livestock Health",
+      "tr_score": 0.122
+    },
+    {
+      "id": "I39",
+      "name": "Aerial Mapping",
+      "tr_score": 0.096
+    },
+    {
+      "id": "I40",
+      "name": "Irrigation Leak Detection",
+      "tr_score": 0.061
+    },
+    {
+      "id": "I41",
+      "name": "Predictive Maintenance",
+      "tr_score": 0.14
+    },
+    {
+      "id": "I42",
+      "name": "Quality Control",
+      "tr_score": 0.103
+    },
+    {
+      "id": "I43",
+      "name": "Assembly Line Robotics",
+      "tr_score": 0.15
+    },
+    {
+      "id": "I44",
+      "name": "Inventory Tracking",
+      "tr_score": 0.153
+    },
+    {
+      "id": "I45",
+      "name": "Worker Safety Monitoring",
+      "tr_score": 0.126
+    },
+    {
+      "id": "I46",
+      "name": "Supply Chain Visibility",
+      "tr_score": 0.185
+    },
+    {
+      "id": "I47",
+      "name": "Energy Consumption",
+      "tr_score": 0.246
+    },
+    {
+      "id": "I48",
+      "name": "Defect Detection",
+      "tr_score": 0.093
+    },
+    {
+      "id": "I49",
+      "name": "Packaging Automation",
+      "tr_score": 0.093
+    },
+    {
+      "id": "I50",
+      "name": "Tool Wear Monitoring",
+      "tr_score": 0.125
+    },
+    {
+      "id": "I51",
+      "name": "Patient Fall Detection",
+      "tr_score": 0.025
+    },
+    {
+      "id": "I52",
+      "name": "Vitals Monitoring",
+      "tr_score": 0.082
+    },
+    {
+      "id": "I53",
+      "name": "Medication Adherence",
+      "tr_score": 0.041
+    },
+    {
+      "id": "I54",
+      "name": "Hand Hygiene Compliance",
+      "tr_score": 0.079
+    },
+    {
+      "id": "I55",
+      "name": "Medical Equipment Tracking",
+      "tr_score": 0.11
+    },
+    {
+      "id": "I56",
+      "name": "Bed Availability",
+      "tr_score": 0.101
+    },
+    {
+      "id": "I57",
+      "name": "Sleep Apnea Detection",
+      "tr_score": 0.113
+    },
+    {
+      "id": "I58",
+      "name": "Telemedicine Diagnostics",
+      "tr_score": 0.099
+    },
+    {
+      "id": "I59",
+      "name": "Remote ECG Monitoring",
+      "tr_score": 0.094
+    },
+    {
+      "id": "I60",
+      "name": "Asthma Trigger Detection",
+      "tr_score": 0.125
+    },
+    {
+      "id": "I61",
+      "name": "Water Quality Monitoring",
+      "tr_score": 0.173
+    },
+    {
+      "id": "I62",
+      "name": "Air Pollution Tracking",
+      "tr_score": 0.273
+    },
+    {
+      "id": "I63",
+      "name": "Deforestation Detection",
+      "tr_score": 0.127
+    },
+    {
+      "id": "I64",
+      "name": "Wildlife Tracking",
+      "tr_score": 0.179
+    },
+    {
+      "id": "I65",
+      "name": "Ocean Plastic Monitoring",
+      "tr_score": 0.14
+    },
+    {
+      "id": "I66",
+      "name": "River Level Monitoring",
+      "tr_score": 0.178
+    },
+    {
+      "id": "I67",
+      "name": "Noise Pollution Mapping",
+      "tr_score": 0.243
+    },
+    {
+      "id": "I68",
+      "name": "Soil Contamination",
+      "tr_score": 0.111
+    },
+    {
+      "id": "I69",
+      "name": "Urban Heat Island",
+      "tr_score": 0.213
+    },
+    {
+      "id": "I70",
+      "name": "Biodiversity Assessment",
+      "tr_score": 0.157
+    },
+    {
+      "id": "I71",
+      "name": "Wind Turbine Monitoring",
+      "tr_score": 0.238
+    },
+    {
+      "id": "I72",
+      "name": "Substation Fault Detection",
+      "tr_score": 0.234
+    },
+    {
+      "id": "I73",
+      "name": "Smart Metering",
+      "tr_score": 0.254
+    },
+    {
+      "id": "I74",
+      "name": "Grid Voltage Stabilization",
+      "tr_score": 0.264
+    },
+    {
+      "id": "I75",
+      "name": "Pipeline Leak Detection",
+      "tr_score": 0.197
+    },
+    {
+      "id": "I76",
+      "name": "Transformer Health",
+      "tr_score": 0.244
+    },
+    {
+      "id": "I77",
+      "name": "Energy Theft Detection",
+      "tr_score": 0.266
+    },
+    {
+      "id": "I78",
+      "name": "Geothermal Output",
+      "tr_score": 0.169
+    },
+    {
+      "id": "I79",
+      "name": "Hydroelectric Dam",
+      "tr_score": 0.197
+    },
+    {
+      "id": "I80",
+      "name": "Power Quality Analysis",
+      "tr_score": 0.291
+    },
+    {
+      "id": "I81",
+      "name": "Lighting Optimization",
+      "tr_score": 0.177
+    },
+    {
+      "id": "I82",
+      "name": "Space Utilization",
+      "tr_score": 0.132
+    },
+    {
+      "id": "I83",
+      "name": "Elevator Health",
+      "tr_score": 0.163
+    },
+    {
+      "id": "I84",
+      "name": "Access Control",
+      "tr_score": 0.087
+    },
+    {
+      "id": "I85",
+      "name": "Water Leak Detection",
+      "tr_score": 0.086
+    },
+    {
+      "id": "I86",
+      "name": "Fire Alarm Analytics",
+      "tr_score": 0.142
+    },
+    {
+      "id": "I87",
+      "name": "Indoor Air Quality",
+      "tr_score": 0.171
+    },
+    {
+      "id": "I88",
+      "name": "Waste Bin Monitoring",
+      "tr_score": 0.137
+    },
+    {
+      "id": "I89",
+      "name": "HVAC Predictive Maintenance",
+      "tr_score": 0.12
+    },
+    {
+      "id": "I90",
+      "name": "Window Shade Automation",
+      "tr_score": 0.142
+    },
+    {
+      "id": "I91",
+      "name": "Flood Prediction",
+      "tr_score": 0.151
+    },
+    {
+      "id": "I92",
+      "name": "Wildfire Tracking",
+      "tr_score": 0.151
+    },
+    {
+      "id": "I93",
+      "name": "Earthquake Warning",
+      "tr_score": 0.091
+    },
+    {
+      "id": "I94",
+      "name": "Hurricane Path",
+      "tr_score": 0.154
+    },
+    {
+      "id": "I95",
+      "name": "Tsunami Alert",
+      "tr_score": 0.149
+    },
+    {
+      "id": "I96",
+      "name": "Landslide Vulnerability",
+      "tr_score": 0.075
+    },
+    {
+      "id": "I97",
+      "name": "Structural Integrity",
+      "tr_score": 0.091
+    },
+    {
+      "id": "I98",
+      "name": "Evacuation Optimization",
+      "tr_score": 0.187
+    },
+    {
+      "id": "I99",
+      "name": "Relief Supply Tracking",
+      "tr_score": 0.135
+    },
+    {
+      "id": "I100",
+      "name": "Emergency Resource Allocation",
+      "tr_score": 0.148
+    },
+    {
+      "id": "I101",
+      "name": "Healthcare Monitor 1",
+      "tr_score": 0.051
+    },
+    {
+      "id": "I102",
+      "name": "Healthcare Monitor 2",
+      "tr_score": 0.052
+    }
+  ]
+}

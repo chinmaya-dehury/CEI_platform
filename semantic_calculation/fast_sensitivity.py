@@ -62,8 +62,8 @@ for i in range(n):
     tr_scores[i] = cosine_similarity(target_task_vector, intelligences[i]["_identity_vector"])[0][0]
 
 # 2. DEFINE PARAMETER RANGES
-theta_2_range = np.arange(0.30, 0.65, 0.05)
-theta_1_range = np.arange(0.60, 0.95, 0.05)
+theta_2_range = np.arange(0.20, 0.70, 0.1)
+theta_1_range = np.arange(0.50, 0.90, 0.1)
 
 # Generate simplex weights (alpha + beta + gamma = 1) step 0.1
 weights = []

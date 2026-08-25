@@ -2,2080 +2,1700 @@
   {
     "id": "I1",
     "name": "Heatwave Detection",
-    "domain": "Environment",
-    "context": "Weather",
-    "description": "Monitors thermal atmospheric anomalies, tracking surface heat absorption and prolonged high-temperature trends to safeguard public health and ecological balances.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Heatwave Detection. Operating securely within the Environment sector, it evaluates Weather conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Heatwave Warning",
-        "description": "Trigger automated alerts when ambient temperatures breach extreme historical thresholds for prolonged periods."
+        "name": "Primary Heatwave Detection Monitoring",
+        "description": "Continuously collect and process Weather data streams directly related to Heatwave Detection within the Environment environment."
       },
       {
-        "name": "Crop Stress Assessment",
-        "description": "Evaluate the physiological impact of sustained thermal stress on agricultural vegetation and soil moisture depletion."
-      },
-      {
-        "name": "Public Safety Alert",
-        "description": "Broadcast critical health advisories and cooling resource locations to vulnerable urban and rural populations."
+        "name": "Anomaly Detection for Heatwave Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Heatwave Detection objectives."
       }
     ]
   },
   {
     "id": "I2",
     "name": "Indoor Air Quality Assessment",
-    "domain": "Environment",
-    "context": "AirQuality",
-    "description": "Monitors indoor and vehicle cabin carbon dioxide concentration, ventilation effectiveness, and occupancy-driven air quality trends to maintain healthy environments and optimize fresh-air circulation.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Indoor Air Quality Assessment. Operating securely within the Environment sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Air Quality Monitoring",
-        "description": "Continuously measure carbon dioxide concentration to evaluate air freshness, ventilation performance, and occupant comfort."
+        "name": "Primary Indoor Air Quality Assessment Monitoring",
+        "description": "Continuously collect and process AirQuality data streams directly related to Indoor Air Quality Assessment within the Environment environment."
       },
       {
-        "name": "Ventilation Assessment",
-        "description": "Identify poorly ventilated spaces by analyzing prolonged elevated carbon dioxide levels in rooms, cabins, and crowded indoor venues."
-      },
-      {
-        "name": "Occupant Safety Alert",
-        "description": "Trigger alerts whenever carbon dioxide concentration exceeds recommended health thresholds for occupants."
+        "name": "Anomaly Detection for Indoor Air Quality Assessment",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Indoor Air Quality Assessment objectives."
       }
     ]
   },
   {
     "id": "I3",
     "name": "Traffic Congestion Estimation",
-    "domain": "Transportation",
-    "context": "Traffic",
-    "description": "Utilizes spatial vehicle telemetry, incident response cues, and loop detector inputs to map road saturation indexes and predict urban gridlock bottlenecks.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Traffic Congestion Estimation. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference. Crucial for analyzing city traffic flow and resolving congestion for electric vehicle fleets.",
     "tasks": [
       {
-        "name": "Congestion Detection",
-        "description": "Identify dense vehicle crowding, accident-prone slowdowns, and road blockages using camera feeds and GPS telemetry."
+        "name": "Primary Traffic Congestion Estimation Monitoring",
+        "description": "Continuously collect and process Traffic data streams directly related to Traffic Congestion Estimation within the Transportation environment."
       },
       {
-        "name": "Route Optimization",
-        "description": "Dynamically recalculate navigational paths to divert active traffic away from heavily bottlenecked or hazardous grid segments during incident response."
-      },
-      {
-        "name": "Traffic Management",
-        "description": "Adjust traffic signal cycle lengths and lane configurations to clear active blockages, reduce road hazards, and improve general throughput."
+        "name": "Anomaly Detection for Traffic Congestion Estimation",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Traffic Congestion Estimation objectives."
       }
     ]
   },
   {
     "id": "I4",
     "name": "Vehicle Speed Analysis",
-    "domain": "Transportation",
-    "context": "Traffic",
-    "description": "Evaluates instantaneous radar velocity datasets across highway corridors to profile flow behavior, bottlenecks, and incident response conditions.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Vehicle Speed Analysis. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference. Specifically designed to analyze city traffic flow and congestion for electric vehicle fleets.",
     "tasks": [
       {
-        "name": "Congestion Detection",
-        "description": "Flag sudden drops in average vehicle velocity indicating gridlock patterns, accident risk, or stop-and-go conditions."
+        "name": "Primary Vehicle Speed Analysis Monitoring",
+        "description": "Continuously collect and process Traffic data streams directly related to Vehicle Speed Analysis within the Transportation environment."
       },
       {
-        "name": "Traffic Flow Analysis",
-        "description": "Measure the velocity profile and volumetric density of passing vehicles to calculate total roadway efficiency and road safety."
-      },
-      {
-        "name": "Bottleneck Detection",
-        "description": "Pinpoint spatial choke points where infrastructural lane reductions cause recurring traffic deceleration and hazard buildup."
+        "name": "Anomaly Detection for Vehicle Speed Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Vehicle Speed Analysis objectives."
       }
     ]
   },
   {
     "id": "I5",
     "name": "Accident Risk Detection",
-    "domain": "Transportation",
-    "context": "Traffic",
-    "description": "Combines historic accident blackspot matrices with structural road design constraints to actively flag volatile traffic zones during incident response.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Accident Risk Detection. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Emergency Detection",
-        "description": "Instantly spot severe roadway collisions, disabled vehicles, hazardous debris, or emergency alarms requiring immediate dispatcher response."
+        "name": "Primary Accident Risk Detection Monitoring",
+        "description": "Continuously collect and process Traffic data streams directly related to Accident Risk Detection within the Transportation environment."
       },
       {
-        "name": "Traffic Management",
-        "description": "Deploy variable message signs and lane closures to protect first responders, manage passing vehicle flow, and reduce road hazards."
-      },
-      {
-        "name": "Risk Assessment",
-        "description": "Evaluate historical collision patterns alongside real-time inclement weather and traffic congestion to map out high-probability accident zones."
+        "name": "Anomaly Detection for Accident Risk Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Accident Risk Detection objectives."
       }
     ]
   },
   {
     "id": "I6",
     "name": "CO2 Threshold Detection",
-    "domain": "Environment",
-    "context": "AirQuality",
-    "description": "Continuously evaluates indoor and cabin carbon dioxide concentrations to detect hazardous accumulation caused by inadequate ventilation or abnormal occupancy conditions.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to CO2 Threshold Detection. Operating securely within the Environment sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "CO2 Monitoring",
-        "description": "Track carbon dioxide concentration continuously across monitored rooms, cabins, and crowded spaces."
+        "name": "Primary CO2 Threshold Detection Monitoring",
+        "description": "Continuously collect and process AirQuality data streams directly related to CO2 Threshold Detection within the Environment environment."
       },
       {
-        "name": "Threshold Alert",
-        "description": "Generate automated alerts whenever carbon dioxide levels exceed predefined safety limits for occupants."
-      },
-      {
-        "name": "Ventilation Recommendation",
-        "description": "Recommend increased ventilation or fresh-air circulation based on sustained CO2 accumulation and poor air quality."
+        "name": "Anomaly Detection for CO2 Threshold Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with CO2 Threshold Detection objectives."
       }
     ]
   },
   {
     "id": "I7",
     "name": "Temperature Spike Detection",
-    "domain": "DisasterManagement",
-    "context": "Fire",
-    "description": "Constantly evaluates thermal sensor profiles to isolate extreme, unnatural spikes indicating mechanical or infrastructural ignition points.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Fire parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Temperature Spike Detection. Operating securely within the DisasterManagement sector, it evaluates Fire conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Fire Detection",
-        "description": "Monitor thermodynamic sensors for sudden, uncharacteristic ambient heat escalation indicating an out-of-control fire."
+        "name": "Primary Temperature Spike Detection Monitoring",
+        "description": "Continuously collect and process Fire data streams directly related to Temperature Spike Detection within the DisasterManagement environment."
       },
       {
-        "name": "Equipment Monitoring",
-        "description": "Track machinery thermal profiles to detect overheating hardware components before catastrophic failure or ignition occurs."
+        "name": "Anomaly Detection for Temperature Spike Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Temperature Spike Detection objectives."
       }
     ]
   },
   {
     "id": "I8",
     "name": "Noise Pollution Monitoring",
-    "domain": "Environment",
-    "context": "Noise",
-    "description": "Processes continuous acoustic measurements to identify excessive environmental noise exposure and evaluate compliance with permissible sound level regulations.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Noise parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Noise Pollution Monitoring. Operating securely within the Environment sector, it evaluates Noise conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Noise Level Monitoring",
-        "description": "Measure ambient sound pressure levels continuously across monitored locations."
+        "name": "Primary Noise Pollution Monitoring Monitoring",
+        "description": "Continuously collect and process Noise data streams directly related to Noise Pollution Monitoring within the Environment environment."
       },
       {
-        "name": "Noise Threshold Alert",
-        "description": "Notify operators whenever environmental noise exceeds permissible regulatory limits."
-      },
-      {
-        "name": "Urban Noise Assessment",
-        "description": "Identify persistent high-noise zones affecting residential or commercial communities."
+        "name": "Anomaly Detection for Noise Pollution Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Noise Pollution Monitoring objectives."
       }
     ]
   },
   {
     "id": "I9",
     "name": "Occupancy Estimation",
-    "domain": "SmartBuilding",
-    "context": "Building",
-    "description": "Analyzes carbon dioxide concentration trends to estimate occupant density in rooms, cabins, and venues, and optimize indoor environmental control systems efficiently.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Building parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Occupancy Estimation. Operating securely within the SmartBuilding sector, it evaluates Building conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Occupancy Detection",
-        "description": "Estimate room, cabin, and venue occupancy levels using carbon dioxide concentration patterns."
+        "name": "Primary Occupancy Estimation Monitoring",
+        "description": "Continuously collect and process Building data streams directly related to Occupancy Estimation within the SmartBuilding environment."
       },
       {
-        "name": "HVAC Optimization",
-        "description": "Adjust ventilation schedules dynamically according to estimated occupancy levels and fresh-air demand."
+        "name": "Anomaly Detection for Occupancy Estimation",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Occupancy Estimation objectives."
       }
     ]
   },
   {
     "id": "I10",
     "name": "Urban Traffic Monitoring",
-    "domain": "Transportation",
-    "context": "Traffic",
-    "description": "Processes real-time environmental sound signatures to recognize abnormal events including road incidents, traffic flow, and sudden impact noises.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Urban Traffic Monitoring. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference. It is highly optimized to analyze city traffic flow and congestion for electric vehicle fleets across urban grids.",
     "tasks": [
       {
-        "name": "Abnormal Sound Detection",
-        "description": "Detect unexpected sound patterns indicating unusual or hazardous road incidents in urban environments."
+        "name": "Primary Urban Traffic Monitoring Monitoring",
+        "description": "Continuously collect and process Traffic data streams directly related to Urban Traffic Monitoring within the Transportation environment."
       },
       {
-        "name": "Traffic Flow and Congestion Analysis",
-        "description": "Analyze traffic flow, congestion, and vehicle movement patterns using road traffic sound signatures."
+        "name": "Anomaly Detection for Urban Traffic Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Urban Traffic Monitoring objectives."
       }
     ]
   },
   {
     "id": "I11",
     "name": "Battery Health Analysis",
-    "domain": "Energy",
-    "context": "Energy",
-    "description": "Monitors grid-tied storage hardware arrays, assessing micro-internal resistance profiles and lifecycle degradation parameters.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Battery Health Analysis. Operating securely within the Energy sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Battery Monitoring",
-        "description": "Track State of Charge (SoC) and internal resistance across distributed grid-tied energy storage units."
+        "name": "Primary Battery Health Analysis Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Battery Health Analysis within the Energy environment."
       },
       {
-        "name": "Maintenance Prediction",
-        "description": "Predict remaining useful life and imminent degradation faults in electrical storage systems to minimize down-time."
-      },
-      {
-        "name": "Energy Optimization",
-        "description": "Balance charging schedules to capture excess green energy generation while preventing overheating and over-cycling."
+        "name": "Anomaly Detection for Battery Health Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Battery Health Analysis objectives."
       }
     ]
   },
   {
     "id": "I12",
     "name": "Load Demand Forecasting",
-    "domain": "Energy",
-    "context": "Energy",
-    "description": "Aggregates environmental factors, seasonal history, and local urban behavior profiles to simulate dynamic grid load balances.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Load Demand Forecasting. Operating securely within the Energy sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Energy Optimization",
-        "description": "Adjust supply schedules to minimize consumption costs during peak usage pricing hours."
+        "name": "Primary Load Demand Forecasting Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Load Demand Forecasting within the Energy environment."
       },
       {
-        "name": "Demand Prediction",
-        "description": "Utilize historical grid usage logs and weather forecasts to predict regional power draw for the next 24 hours."
-      },
-      {
-        "name": "Load Balancing",
-        "description": "Dynamically reroute power or dispatch peaking plants to prevent substation overloads during extreme demand surges."
+        "name": "Anomaly Detection for Load Demand Forecasting",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Load Demand Forecasting objectives."
       }
     ]
   },
   {
     "id": "I13",
     "name": "Solar Generation Assessment",
-    "domain": "Energy",
-    "context": "Energy",
-    "description": "Processes micro-irradiance indices and spatial cloud coverage tracking vectors to predict solar array plant outputs.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Solar Generation Assessment. Operating securely within the Energy sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Renewable Forecasting",
-        "description": "Model solar irradiance levels and cloud cover to predict the hourly power output of photovoltaic arrays."
+        "name": "Primary Solar Generation Assessment Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Solar Generation Assessment within the Energy environment."
       },
       {
-        "name": "Energy Optimization",
-        "description": "Coordinate the storage and release of solar power to align green generation cycles with regional grid needs."
-      },
-      {
-        "name": "Load Balancing",
-        "description": "Compensate for immediate solar drops caused by cloud shading by throttling alternate energy reserves smoothly."
+        "name": "Anomaly Detection for Solar Generation Assessment",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Solar Generation Assessment objectives."
       }
     ]
   },
   {
     "id": "I14",
     "name": "Irrigation Requirement Analysis",
-    "domain": "Agriculture",
-    "context": "Crop",
-    "description": "Computes plant moisture requirements by cross-evaluating leaf turgidity metrics against ambient evapotranspiration trends.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Irrigation Requirement Analysis. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Crop Monitoring",
-        "description": "Assess structural plant turgidity and leaf water potential to identify underlying hydration trends across plots."
+        "name": "Primary Irrigation Requirement Analysis Monitoring",
+        "description": "Continuously collect and process Crop data streams directly related to Irrigation Requirement Analysis within the Agriculture environment."
       },
       {
-        "name": "Water Management",
-        "description": "Calculate exact volume delivery and irrigation timing to match natural evapotranspiration losses precisely."
-      },
-      {
-        "name": "Yield Optimization",
-        "description": "Regulate precise water stress conditions at specific growth stages to maximize crop quality and harvest volume."
+        "name": "Anomaly Detection for Irrigation Requirement Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Irrigation Requirement Analysis objectives."
       }
     ]
   },
   {
     "id": "I15",
     "name": "Crop Heat Stress Detection",
-    "domain": "Agriculture",
-    "context": "Crop",
-    "description": "Monitors canopy temperatures utilizing multispectral imagery arrays to trigger targeted agricultural mitigation steps.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Crop Heat Stress Detection. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Crop Monitoring",
-        "description": "Utilize canopy temperature tracking and multispectral imagery to isolate signs of heat-induced crop stress."
+        "name": "Primary Crop Heat Stress Detection Monitoring",
+        "description": "Continuously collect and process Crop data streams directly related to Crop Heat Stress Detection within the Agriculture environment."
       },
       {
-        "name": "Yield Optimization",
-        "description": "Deploy automated shade structures or misting interventions to shield crops during peak heat waves."
-      },
-      {
-        "name": "Risk Assessment",
-        "description": "Model long-term damage probabilities and crop failure metrics based on seasonal extreme temperature durations."
+        "name": "Anomaly Detection for Crop Heat Stress Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Crop Heat Stress Detection objectives."
       }
     ]
   },
   {
     "id": "I16",
     "name": "Soil Moisture Analysis",
-    "domain": "Agriculture",
-    "context": "Crop",
-    "description": "Tracks subsoil fluid saturation constants over varying geological layers to predict optimal irrigation planning schedules.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Soil Moisture Analysis. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Crop Monitoring",
-        "description": "Track field saturation levels continuously across variable soil depths to maintain a healthy root zone environment."
+        "name": "Primary Soil Moisture Analysis Monitoring",
+        "description": "Continuously collect and process Crop data streams directly related to Soil Moisture Analysis within the Agriculture environment."
       },
       {
-        "name": "Water Management",
-        "description": "Prevent structural over-watering, nutrient leaching, and root rot by regulating topsoil saturation bands."
-      },
-      {
-        "name": "Irrigation Planning",
-        "description": "Incorporate real-time soil dryout curves to build adaptive, predictive watering schedules for the week."
+        "name": "Anomaly Detection for Soil Moisture Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Soil Moisture Analysis objectives."
       }
     ]
   },
   {
     "id": "I17",
     "name": "Ventilation Efficiency Analysis",
-    "domain": "SmartBuilding",
-    "context": "HVAC",
-    "description": "Evaluates indoor carbon dioxide accumulation patterns to assess ventilation system effectiveness and optimize fresh-air distribution strategies.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of HVAC parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Ventilation Efficiency Analysis. Operating securely within the SmartBuilding sector, it evaluates HVAC conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Ventilation Performance",
-        "description": "Measure ventilation efficiency using carbon dioxide concentration trends."
+        "name": "Primary Ventilation Efficiency Analysis Monitoring",
+        "description": "Continuously collect and process HVAC data streams directly related to Ventilation Efficiency Analysis within the SmartBuilding environment."
       },
       {
-        "name": "Fresh Air Optimization",
-        "description": "Recommend airflow adjustments to improve indoor air quality while minimizing energy consumption."
-      },
-      {
-        "name": "HVAC Monitoring",
-        "description": "Identify ventilation system degradation through persistent carbon dioxide accumulation."
+        "name": "Anomaly Detection for Ventilation Efficiency Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Ventilation Efficiency Analysis objectives."
       }
     ]
   },
   {
     "id": "I18",
     "name": "Cabin Air Quality Assessment",
-    "domain": "Transportation",
-    "context": "Vehicle",
-    "description": "Monitors carbon dioxide concentration and ventilation conditions inside passenger vehicles to maintain healthy cabin air quality during transit.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Vehicle parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Cabin Air Quality Assessment. Operating securely within the Transportation sector, it evaluates Vehicle conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Cabin CO2 Monitoring",
-        "description": "Continuously measure carbon dioxide concentration inside passenger compartments."
+        "name": "Primary Cabin Air Quality Assessment Monitoring",
+        "description": "Continuously collect and process Vehicle data streams directly related to Cabin Air Quality Assessment within the Transportation environment."
       },
       {
-        "name": "Ventilation Recommendation",
-        "description": "Recommend fresh-air circulation whenever carbon dioxide concentration becomes elevated."
-      },
-      {
-        "name": "Passenger Comfort Assessment",
-        "description": "Evaluate cabin air quality conditions to maintain occupant comfort throughout the journey."
+        "name": "Anomaly Detection for Cabin Air Quality Assessment",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Cabin Air Quality Assessment objectives."
       }
     ]
   },
   {
     "id": "I21",
     "name": "Fleet Management",
-    "domain": "Transportation",
-    "context": "Fleet",
-    "description": "Monitors vehicle locations, fuel consumption, and driver behavior to optimize fleet operations.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Fleet parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Fleet Management. Operating securely within the Transportation sector, it evaluates Fleet conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Fleet Management Task 1",
-        "description": "Perform primary monitoring for fleet management."
+        "name": "Primary Fleet Management Monitoring",
+        "description": "Continuously collect and process Fleet data streams directly related to Fleet Management within the Transportation environment."
       },
       {
-        "name": "Fleet Management Task 2",
-        "description": "Analyze anomalies and generate alerts for fleet management."
-      },
-      {
-        "name": "Fleet Management Task 3",
-        "description": "Optimize processes based on fleet management data."
+        "name": "Anomaly Detection for Fleet Management",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Fleet Management objectives."
       }
     ]
   },
   {
     "id": "I22",
     "name": "Pothole Detection",
-    "domain": "Transportation",
-    "context": "Road",
-    "description": "Uses camera and accelerometer data to identify and map road surface defects.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Road parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Pothole Detection. Operating securely within the Transportation sector, it evaluates Road conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Pothole Detection Task 1",
-        "description": "Perform primary monitoring for pothole detection."
+        "name": "Primary Pothole Detection Monitoring",
+        "description": "Continuously collect and process Road data streams directly related to Pothole Detection within the Transportation environment."
       },
       {
-        "name": "Pothole Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for pothole detection."
-      },
-      {
-        "name": "Pothole Detection Task 3",
-        "description": "Optimize processes based on pothole detection data."
+        "name": "Anomaly Detection for Pothole Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Pothole Detection objectives."
       }
     ]
   },
   {
     "id": "I23",
     "name": "Pedestrian Safety",
-    "domain": "Transportation",
-    "context": "Safety",
-    "description": "Analyzes crosswalk camera feeds to predict pedestrian movement and warn vehicles.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Pedestrian Safety. Operating securely within the Transportation sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Pedestrian Safety Task 1",
-        "description": "Perform primary monitoring for pedestrian safety."
+        "name": "Primary Pedestrian Safety Monitoring",
+        "description": "Continuously collect and process Safety data streams directly related to Pedestrian Safety within the Transportation environment."
       },
       {
-        "name": "Pedestrian Safety Task 2",
-        "description": "Analyze anomalies and generate alerts for pedestrian safety."
-      },
-      {
-        "name": "Pedestrian Safety Task 3",
-        "description": "Optimize processes based on pedestrian safety data."
+        "name": "Anomaly Detection for Pedestrian Safety",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Pedestrian Safety objectives."
       }
     ]
   },
   {
     "id": "I24",
     "name": "Public Transit Optimization",
-    "domain": "Transportation",
-    "context": "Transit",
-    "description": "Tracks passenger loads and transit delays to adjust bus and train schedules dynamically.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Transit parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Public Transit Optimization. Operating securely within the Transportation sector, it evaluates Transit conditions to provide highly accurate, unified capabilities without cross-domain interference. Provides actionable insights to analyze city traffic flow and congestion for electric vehicle fleets on public roads.",
     "tasks": [
       {
-        "name": "Public Transit Optimization Task 1",
-        "description": "Perform primary monitoring for public transit optimization."
+        "name": "Primary Public Transit Optimization Monitoring",
+        "description": "Continuously collect and process Transit data streams directly related to Public Transit Optimization within the Transportation environment."
       },
       {
-        "name": "Public Transit Optimization Task 2",
-        "description": "Analyze anomalies and generate alerts for public transit optimization."
-      },
-      {
-        "name": "Public Transit Optimization Task 3",
-        "description": "Optimize processes based on public transit optimization data."
+        "name": "Anomaly Detection for Public Transit Optimization",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Public Transit Optimization objectives."
       }
     ]
   },
   {
     "id": "I25",
     "name": "Freight Tracking",
-    "domain": "Transportation",
-    "context": "Logistics",
-    "description": "Monitors location, temperature, and shock events of cargo in transit.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Freight Tracking. Operating securely within the Transportation sector, it evaluates Logistics conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Freight Tracking Task 1",
-        "description": "Perform primary monitoring for freight tracking."
+        "name": "Primary Freight Tracking Monitoring",
+        "description": "Continuously collect and process Logistics data streams directly related to Freight Tracking within the Transportation environment."
       },
       {
-        "name": "Freight Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for freight tracking."
-      },
-      {
-        "name": "Freight Tracking Task 3",
-        "description": "Optimize processes based on freight tracking data."
+        "name": "Anomaly Detection for Freight Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Freight Tracking objectives."
       }
     ]
   },
   {
     "id": "I26",
     "name": "Parking Availability",
-    "domain": "Transportation",
-    "context": "Parking",
-    "description": "Detects empty parking spots using camera feeds or ground sensors.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Parking parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Parking Availability. Operating securely within the Transportation sector, it evaluates Parking conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Parking Availability Task 1",
-        "description": "Perform primary monitoring for parking availability."
+        "name": "Primary Parking Availability Monitoring",
+        "description": "Continuously collect and process Parking data streams directly related to Parking Availability within the Transportation environment."
       },
       {
-        "name": "Parking Availability Task 2",
-        "description": "Analyze anomalies and generate alerts for parking availability."
-      },
-      {
-        "name": "Parking Availability Task 3",
-        "description": "Optimize processes based on parking availability data."
+        "name": "Anomaly Detection for Parking Availability",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Parking Availability objectives."
       }
     ]
   },
   {
     "id": "I27",
     "name": "Emission Monitoring",
-    "domain": "Transportation",
-    "context": "Environment",
-    "description": "Measures vehicle exhaust emissions at toll booths or intersections.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Emission Monitoring. Operating securely within the Transportation sector, it evaluates Environment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Emission Monitoring Task 1",
-        "description": "Perform primary monitoring for emission monitoring."
+        "name": "Primary Emission Monitoring Monitoring",
+        "description": "Continuously collect and process Environment data streams directly related to Emission Monitoring within the Transportation environment."
       },
       {
-        "name": "Emission Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for emission monitoring."
-      },
-      {
-        "name": "Emission Monitoring Task 3",
-        "description": "Optimize processes based on emission monitoring data."
+        "name": "Anomaly Detection for Emission Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Emission Monitoring objectives."
       }
     ]
   },
   {
     "id": "I28",
     "name": "Road Weather Conditions",
-    "domain": "Transportation",
-    "context": "Weather",
-    "description": "Monitors road surface freezing, wetness, or snow accumulation to alert drivers.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Road Weather Conditions. Operating securely within the Transportation sector, it evaluates Weather conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Road Weather Conditions Task 1",
-        "description": "Perform primary monitoring for road weather conditions."
+        "name": "Primary Road Weather Conditions Monitoring",
+        "description": "Continuously collect and process Weather data streams directly related to Road Weather Conditions within the Transportation environment."
       },
       {
-        "name": "Road Weather Conditions Task 2",
-        "description": "Analyze anomalies and generate alerts for road weather conditions."
-      },
-      {
-        "name": "Road Weather Conditions Task 3",
-        "description": "Optimize processes based on road weather conditions data."
+        "name": "Anomaly Detection for Road Weather Conditions",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Road Weather Conditions objectives."
       }
     ]
   },
   {
     "id": "I29",
     "name": "Toll Collection",
-    "domain": "Transportation",
-    "context": "Toll",
-    "description": "Automates vehicle identification and fee processing at toll gates.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Toll parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Toll Collection. Operating securely within the Transportation sector, it evaluates Toll conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Toll Collection Task 1",
-        "description": "Perform primary monitoring for toll collection."
+        "name": "Primary Toll Collection Monitoring",
+        "description": "Continuously collect and process Toll data streams directly related to Toll Collection within the Transportation environment."
       },
       {
-        "name": "Toll Collection Task 2",
-        "description": "Analyze anomalies and generate alerts for toll collection."
-      },
-      {
-        "name": "Toll Collection Task 3",
-        "description": "Optimize processes based on toll collection data."
+        "name": "Anomaly Detection for Toll Collection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Toll Collection objectives."
       }
     ]
   },
   {
     "id": "I30",
     "name": "Railway Track Inspection",
-    "domain": "Transportation",
-    "context": "Rail",
-    "description": "Analyzes acoustic and vibration data from trains to detect track anomalies.",
+    "domain": "Managing systems within the Transportation domain, ensuring efficient and safe movement of vehicles and fleets.",
+    "context": "Analyzed under the specific operational context of Rail parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Railway Track Inspection. Operating securely within the Transportation sector, it evaluates Rail conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Railway Track Inspection Task 1",
-        "description": "Perform primary monitoring for railway track inspection."
+        "name": "Primary Railway Track Inspection Monitoring",
+        "description": "Continuously collect and process Rail data streams directly related to Railway Track Inspection within the Transportation environment."
       },
       {
-        "name": "Railway Track Inspection Task 2",
-        "description": "Analyze anomalies and generate alerts for railway track inspection."
-      },
-      {
-        "name": "Railway Track Inspection Task 3",
-        "description": "Optimize processes based on railway track inspection data."
+        "name": "Anomaly Detection for Railway Track Inspection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Railway Track Inspection objectives."
       }
     ]
   },
   {
     "id": "I31",
     "name": "Crop Disease Detection",
-    "domain": "Agriculture",
-    "context": "Crop",
-    "description": "Analyzes leaf images to identify early signs of plant diseases.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Crop Disease Detection. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Crop Disease Detection Task 1",
-        "description": "Perform primary monitoring for crop disease detection."
+        "name": "Primary Crop Disease Detection Monitoring",
+        "description": "Continuously collect and process Crop data streams directly related to Crop Disease Detection within the Agriculture environment."
       },
       {
-        "name": "Crop Disease Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for crop disease detection."
-      },
-      {
-        "name": "Crop Disease Detection Task 3",
-        "description": "Optimize processes based on crop disease detection data."
+        "name": "Anomaly Detection for Crop Disease Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Crop Disease Detection objectives."
       }
     ]
   },
   {
     "id": "I32",
     "name": "Weed Identification",
-    "domain": "Agriculture",
-    "context": "Crop",
-    "description": "Differentiates weeds from crops to enable targeted herbicide application.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Weed Identification. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Weed Identification Task 1",
-        "description": "Perform primary monitoring for weed identification."
+        "name": "Primary Weed Identification Monitoring",
+        "description": "Continuously collect and process Crop data streams directly related to Weed Identification within the Agriculture environment."
       },
       {
-        "name": "Weed Identification Task 2",
-        "description": "Analyze anomalies and generate alerts for weed identification."
-      },
-      {
-        "name": "Weed Identification Task 3",
-        "description": "Optimize processes based on weed identification data."
+        "name": "Anomaly Detection for Weed Identification",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Weed Identification objectives."
       }
     ]
   },
   {
     "id": "I33",
     "name": "Pest Monitoring",
-    "domain": "Agriculture",
-    "context": "Pest",
-    "description": "Uses acoustic sensors and traps to estimate pest population densities.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Pest parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Pest Monitoring. Operating securely within the Agriculture sector, it evaluates Pest conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Pest Monitoring Task 1",
-        "description": "Perform primary monitoring for pest monitoring."
+        "name": "Primary Pest Monitoring Monitoring",
+        "description": "Continuously collect and process Pest data streams directly related to Pest Monitoring within the Agriculture environment."
       },
       {
-        "name": "Pest Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for pest monitoring."
-      },
-      {
-        "name": "Pest Monitoring Task 3",
-        "description": "Optimize processes based on pest monitoring data."
+        "name": "Anomaly Detection for Pest Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Pest Monitoring objectives."
       }
     ]
   },
   {
     "id": "I34",
     "name": "Soil Nutrient Analysis",
-    "domain": "Agriculture",
-    "context": "Soil",
-    "description": "Measures nitrogen, phosphorus, and potassium levels using deployed soil sensors.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Soil parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Soil Nutrient Analysis. Operating securely within the Agriculture sector, it evaluates Soil conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Soil Nutrient Analysis Task 1",
-        "description": "Perform primary monitoring for soil nutrient analysis."
+        "name": "Primary Soil Nutrient Analysis Monitoring",
+        "description": "Continuously collect and process Soil data streams directly related to Soil Nutrient Analysis within the Agriculture environment."
       },
       {
-        "name": "Soil Nutrient Analysis Task 2",
-        "description": "Analyze anomalies and generate alerts for soil nutrient analysis."
-      },
-      {
-        "name": "Soil Nutrient Analysis Task 3",
-        "description": "Optimize processes based on soil nutrient analysis data."
+        "name": "Anomaly Detection for Soil Nutrient Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Soil Nutrient Analysis objectives."
       }
     ]
   },
   {
     "id": "I35",
     "name": "Yield Prediction",
-    "domain": "Agriculture",
-    "context": "Harvest",
-    "description": "Combines weather, soil, and crop growth data to estimate final harvest volume.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Harvest parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Yield Prediction. Operating securely within the Agriculture sector, it evaluates Harvest conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Yield Prediction Task 1",
-        "description": "Perform primary monitoring for yield prediction."
+        "name": "Primary Yield Prediction Monitoring",
+        "description": "Continuously collect and process Harvest data streams directly related to Yield Prediction within the Agriculture environment."
       },
       {
-        "name": "Yield Prediction Task 2",
-        "description": "Analyze anomalies and generate alerts for yield prediction."
-      },
-      {
-        "name": "Yield Prediction Task 3",
-        "description": "Optimize processes based on yield prediction data."
+        "name": "Anomaly Detection for Yield Prediction",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Yield Prediction objectives."
       }
     ]
   },
   {
     "id": "I36",
     "name": "Autonomous Harvesting",
-    "domain": "Agriculture",
-    "context": "Machinery",
-    "description": "Guides robotic harvesters using computer vision to pick ripe fruits.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Machinery parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Autonomous Harvesting. Operating securely within the Agriculture sector, it evaluates Machinery conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Autonomous Harvesting Task 1",
-        "description": "Perform primary monitoring for autonomous harvesting."
+        "name": "Primary Autonomous Harvesting Monitoring",
+        "description": "Continuously collect and process Machinery data streams directly related to Autonomous Harvesting within the Agriculture environment."
       },
       {
-        "name": "Autonomous Harvesting Task 2",
-        "description": "Analyze anomalies and generate alerts for autonomous harvesting."
-      },
-      {
-        "name": "Autonomous Harvesting Task 3",
-        "description": "Optimize processes based on autonomous harvesting data."
+        "name": "Anomaly Detection for Autonomous Harvesting",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Autonomous Harvesting objectives."
       }
     ]
   },
   {
     "id": "I37",
     "name": "Greenhouse Climate Control",
-    "domain": "Agriculture",
-    "context": "Greenhouse",
-    "description": "Optimizes temperature, humidity, and lighting for indoor farming.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Greenhouse parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Greenhouse Climate Control. Operating securely within the Agriculture sector, it evaluates Greenhouse conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Greenhouse Climate Control Task 1",
-        "description": "Perform primary monitoring for greenhouse climate control."
+        "name": "Primary Greenhouse Climate Control Monitoring",
+        "description": "Continuously collect and process Greenhouse data streams directly related to Greenhouse Climate Control within the Agriculture environment."
       },
       {
-        "name": "Greenhouse Climate Control Task 2",
-        "description": "Analyze anomalies and generate alerts for greenhouse climate control."
-      },
-      {
-        "name": "Greenhouse Climate Control Task 3",
-        "description": "Optimize processes based on greenhouse climate control data."
+        "name": "Anomaly Detection for Greenhouse Climate Control",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Greenhouse Climate Control objectives."
       }
     ]
   },
   {
     "id": "I38",
     "name": "Livestock Health",
-    "domain": "Agriculture",
-    "context": "Livestock",
-    "description": "Monitors animal movement and vitals to detect illness early.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Livestock parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Livestock Health. Operating securely within the Agriculture sector, it evaluates Livestock conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Livestock Health Task 1",
-        "description": "Perform primary monitoring for livestock health."
+        "name": "Primary Livestock Health Monitoring",
+        "description": "Continuously collect and process Livestock data streams directly related to Livestock Health within the Agriculture environment."
       },
       {
-        "name": "Livestock Health Task 2",
-        "description": "Analyze anomalies and generate alerts for livestock health."
-      },
-      {
-        "name": "Livestock Health Task 3",
-        "description": "Optimize processes based on livestock health data."
+        "name": "Anomaly Detection for Livestock Health",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Livestock Health objectives."
       }
     ]
   },
   {
     "id": "I39",
     "name": "Aerial Mapping",
-    "domain": "Agriculture",
-    "context": "Mapping",
-    "description": "Uses drone imagery to map field topology and drainage patterns.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Mapping parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Aerial Mapping. Operating securely within the Agriculture sector, it evaluates Mapping conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Aerial Mapping Task 1",
-        "description": "Perform primary monitoring for aerial mapping."
+        "name": "Primary Aerial Mapping Monitoring",
+        "description": "Continuously collect and process Mapping data streams directly related to Aerial Mapping within the Agriculture environment."
       },
       {
-        "name": "Aerial Mapping Task 2",
-        "description": "Analyze anomalies and generate alerts for aerial mapping."
-      },
-      {
-        "name": "Aerial Mapping Task 3",
-        "description": "Optimize processes based on aerial mapping data."
+        "name": "Anomaly Detection for Aerial Mapping",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Aerial Mapping objectives."
       }
     ]
   },
   {
     "id": "I40",
     "name": "Irrigation Leak Detection",
-    "domain": "Agriculture",
-    "context": "Water",
-    "description": "Identifies pressure drops and abnormal flow rates in irrigation pipes.",
+    "domain": "Focused on the Agriculture domain, optimizing crop yield, soil health, and precision farming techniques.",
+    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Irrigation Leak Detection. Operating securely within the Agriculture sector, it evaluates Water conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Irrigation Leak Detection Task 1",
-        "description": "Perform primary monitoring for irrigation leak detection."
+        "name": "Primary Irrigation Leak Detection Monitoring",
+        "description": "Continuously collect and process Water data streams directly related to Irrigation Leak Detection within the Agriculture environment."
       },
       {
-        "name": "Irrigation Leak Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for irrigation leak detection."
-      },
-      {
-        "name": "Irrigation Leak Detection Task 3",
-        "description": "Optimize processes based on irrigation leak detection data."
+        "name": "Anomaly Detection for Irrigation Leak Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Irrigation Leak Detection objectives."
       }
     ]
   },
   {
     "id": "I41",
     "name": "Predictive Maintenance",
-    "domain": "Manufacturing",
-    "context": "Equipment",
-    "description": "Analyzes machine vibrations and temperature to forecast equipment failure.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Predictive Maintenance. Operating securely within the Manufacturing sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Predictive Maintenance Task 1",
-        "description": "Perform primary monitoring for predictive maintenance."
+        "name": "Primary Predictive Maintenance Monitoring",
+        "description": "Continuously collect and process Equipment data streams directly related to Predictive Maintenance within the Manufacturing environment."
       },
       {
-        "name": "Predictive Maintenance Task 2",
-        "description": "Analyze anomalies and generate alerts for predictive maintenance."
-      },
-      {
-        "name": "Predictive Maintenance Task 3",
-        "description": "Optimize processes based on predictive maintenance data."
+        "name": "Anomaly Detection for Predictive Maintenance",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Predictive Maintenance objectives."
       }
     ]
   },
   {
     "id": "I42",
     "name": "Quality Control",
-    "domain": "Manufacturing",
-    "context": "Production",
-    "description": "Uses high-speed cameras to inspect products for defects on the assembly line.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Production parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Quality Control. Operating securely within the Manufacturing sector, it evaluates Production conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Quality Control Task 1",
-        "description": "Perform primary monitoring for quality control."
+        "name": "Primary Quality Control Monitoring",
+        "description": "Continuously collect and process Production data streams directly related to Quality Control within the Manufacturing environment."
       },
       {
-        "name": "Quality Control Task 2",
-        "description": "Analyze anomalies and generate alerts for quality control."
-      },
-      {
-        "name": "Quality Control Task 3",
-        "description": "Optimize processes based on quality control data."
+        "name": "Anomaly Detection for Quality Control",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Quality Control objectives."
       }
     ]
   },
   {
     "id": "I43",
     "name": "Assembly Line Robotics",
-    "domain": "Manufacturing",
-    "context": "Robotics",
-    "description": "Coordinates collaborative robots for efficient assembly operations.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Robotics parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Assembly Line Robotics. Operating securely within the Manufacturing sector, it evaluates Robotics conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Assembly Line Robotics Task 1",
-        "description": "Perform primary monitoring for assembly line robotics."
+        "name": "Primary Assembly Line Robotics Monitoring",
+        "description": "Continuously collect and process Robotics data streams directly related to Assembly Line Robotics within the Manufacturing environment."
       },
       {
-        "name": "Assembly Line Robotics Task 2",
-        "description": "Analyze anomalies and generate alerts for assembly line robotics."
-      },
-      {
-        "name": "Assembly Line Robotics Task 3",
-        "description": "Optimize processes based on assembly line robotics data."
+        "name": "Anomaly Detection for Assembly Line Robotics",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Assembly Line Robotics objectives."
       }
     ]
   },
   {
     "id": "I44",
     "name": "Inventory Tracking",
-    "domain": "Manufacturing",
-    "context": "Warehouse",
-    "description": "Tracks raw material and finished goods movement using RFID and barcode scans.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Warehouse parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Inventory Tracking. Operating securely within the Manufacturing sector, it evaluates Warehouse conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Inventory Tracking Task 1",
-        "description": "Perform primary monitoring for inventory tracking."
+        "name": "Primary Inventory Tracking Monitoring",
+        "description": "Continuously collect and process Warehouse data streams directly related to Inventory Tracking within the Manufacturing environment."
       },
       {
-        "name": "Inventory Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for inventory tracking."
-      },
-      {
-        "name": "Inventory Tracking Task 3",
-        "description": "Optimize processes based on inventory tracking data."
+        "name": "Anomaly Detection for Inventory Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Inventory Tracking objectives."
       }
     ]
   },
   {
     "id": "I45",
     "name": "Worker Safety Monitoring",
-    "domain": "Manufacturing",
-    "context": "Safety",
-    "description": "Detects lack of personal protective equipment or unsafe behaviors on the floor.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Worker Safety Monitoring. Operating securely within the Manufacturing sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Worker Safety Monitoring Task 1",
-        "description": "Perform primary monitoring for worker safety monitoring."
+        "name": "Primary Worker Safety Monitoring Monitoring",
+        "description": "Continuously collect and process Safety data streams directly related to Worker Safety Monitoring within the Manufacturing environment."
       },
       {
-        "name": "Worker Safety Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for worker safety monitoring."
-      },
-      {
-        "name": "Worker Safety Monitoring Task 3",
-        "description": "Optimize processes based on worker safety monitoring data."
+        "name": "Anomaly Detection for Worker Safety Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Worker Safety Monitoring objectives."
       }
     ]
   },
   {
     "id": "I46",
     "name": "Supply Chain Visibility",
-    "domain": "Manufacturing",
-    "context": "Logistics",
-    "description": "Monitors material shipments and predicts arrival times for production planning.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Supply Chain Visibility. Operating securely within the Manufacturing sector, it evaluates Logistics conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Supply Chain Visibility Task 1",
-        "description": "Perform primary monitoring for supply chain visibility."
+        "name": "Primary Supply Chain Visibility Monitoring",
+        "description": "Continuously collect and process Logistics data streams directly related to Supply Chain Visibility within the Manufacturing environment."
       },
       {
-        "name": "Supply Chain Visibility Task 2",
-        "description": "Analyze anomalies and generate alerts for supply chain visibility."
-      },
-      {
-        "name": "Supply Chain Visibility Task 3",
-        "description": "Optimize processes based on supply chain visibility data."
+        "name": "Anomaly Detection for Supply Chain Visibility",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Supply Chain Visibility objectives."
       }
     ]
   },
   {
     "id": "I47",
     "name": "Energy Consumption",
-    "domain": "Manufacturing",
-    "context": "Energy",
-    "description": "Analyzes power usage of individual machines to identify inefficiencies.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Energy Consumption. Operating securely within the Manufacturing sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Energy Consumption Task 1",
-        "description": "Perform primary monitoring for energy consumption."
+        "name": "Primary Energy Consumption Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Energy Consumption within the Manufacturing environment."
       },
       {
-        "name": "Energy Consumption Task 2",
-        "description": "Analyze anomalies and generate alerts for energy consumption."
-      },
-      {
-        "name": "Energy Consumption Task 3",
-        "description": "Optimize processes based on energy consumption data."
+        "name": "Anomaly Detection for Energy Consumption",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Energy Consumption objectives."
       }
     ]
   },
   {
     "id": "I48",
     "name": "Defect Detection",
-    "domain": "Manufacturing",
-    "context": "Quality",
-    "description": "Uses machine learning to identify microscopic flaws in semiconductor wafers.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Quality parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Defect Detection. Operating securely within the Manufacturing sector, it evaluates Quality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Defect Detection Task 1",
-        "description": "Perform primary monitoring for defect detection."
+        "name": "Primary Defect Detection Monitoring",
+        "description": "Continuously collect and process Quality data streams directly related to Defect Detection within the Manufacturing environment."
       },
       {
-        "name": "Defect Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for defect detection."
-      },
-      {
-        "name": "Defect Detection Task 3",
-        "description": "Optimize processes based on defect detection data."
+        "name": "Anomaly Detection for Defect Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Defect Detection objectives."
       }
     ]
   },
   {
     "id": "I49",
     "name": "Packaging Automation",
-    "domain": "Manufacturing",
-    "context": "Packaging",
-    "description": "Optimizes the boxing and palletizing process using robotic arms.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Packaging parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Packaging Automation. Operating securely within the Manufacturing sector, it evaluates Packaging conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Packaging Automation Task 1",
-        "description": "Perform primary monitoring for packaging automation."
+        "name": "Primary Packaging Automation Monitoring",
+        "description": "Continuously collect and process Packaging data streams directly related to Packaging Automation within the Manufacturing environment."
       },
       {
-        "name": "Packaging Automation Task 2",
-        "description": "Analyze anomalies and generate alerts for packaging automation."
-      },
-      {
-        "name": "Packaging Automation Task 3",
-        "description": "Optimize processes based on packaging automation data."
+        "name": "Anomaly Detection for Packaging Automation",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Packaging Automation objectives."
       }
     ]
   },
   {
     "id": "I50",
     "name": "Tool Wear Monitoring",
-    "domain": "Manufacturing",
-    "context": "Equipment",
-    "description": "Monitors cutting tool degradation through acoustic emission analysis.",
+    "domain": "Operating inside the Manufacturing domain, enhancing assembly lines, robotics, and industrial quality control.",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Tool Wear Monitoring. Operating securely within the Manufacturing sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Tool Wear Monitoring Task 1",
-        "description": "Perform primary monitoring for tool wear monitoring."
+        "name": "Primary Tool Wear Monitoring Monitoring",
+        "description": "Continuously collect and process Equipment data streams directly related to Tool Wear Monitoring within the Manufacturing environment."
       },
       {
-        "name": "Tool Wear Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for tool wear monitoring."
-      },
-      {
-        "name": "Tool Wear Monitoring Task 3",
-        "description": "Optimize processes based on tool wear monitoring data."
+        "name": "Anomaly Detection for Tool Wear Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Tool Wear Monitoring objectives."
       }
     ]
   },
   {
     "id": "I51",
     "name": "Patient Fall Detection",
-    "domain": "Healthcare",
-    "context": "Patient",
-    "description": "Uses radar or camera systems to detect if a patient has fallen in their room.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Patient Fall Detection. Operating securely within the Healthcare sector, it evaluates Patient conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Patient Fall Detection Task 1",
-        "description": "Perform primary monitoring for patient fall detection."
+        "name": "Primary Patient Fall Detection Monitoring",
+        "description": "Continuously collect and process Patient data streams directly related to Patient Fall Detection within the Healthcare environment."
       },
       {
-        "name": "Patient Fall Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for patient fall detection."
-      },
-      {
-        "name": "Patient Fall Detection Task 3",
-        "description": "Optimize processes based on patient fall detection data."
+        "name": "Anomaly Detection for Patient Fall Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Patient Fall Detection objectives."
       }
     ]
   },
   {
     "id": "I52",
     "name": "Vitals Monitoring",
-    "domain": "Healthcare",
-    "context": "Patient",
-    "description": "Continuously tracks heart rate, blood pressure, and oxygen saturation.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Vitals Monitoring. Operating securely within the Healthcare sector, it evaluates Patient conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Vitals Monitoring Task 1",
-        "description": "Perform primary monitoring for vitals monitoring."
+        "name": "Primary Vitals Monitoring Monitoring",
+        "description": "Continuously collect and process Patient data streams directly related to Vitals Monitoring within the Healthcare environment."
       },
       {
-        "name": "Vitals Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for vitals monitoring."
-      },
-      {
-        "name": "Vitals Monitoring Task 3",
-        "description": "Optimize processes based on vitals monitoring data."
+        "name": "Anomaly Detection for Vitals Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Vitals Monitoring objectives."
       }
     ]
   },
   {
     "id": "I53",
     "name": "Medication Adherence",
-    "domain": "Healthcare",
-    "context": "Treatment",
-    "description": "Monitors pill dispenser usage to ensure patients take prescribed medicine.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Treatment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Medication Adherence. Operating securely within the Healthcare sector, it evaluates Treatment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Medication Adherence Task 1",
-        "description": "Perform primary monitoring for medication adherence."
+        "name": "Primary Medication Adherence Monitoring",
+        "description": "Continuously collect and process Treatment data streams directly related to Medication Adherence within the Healthcare environment."
       },
       {
-        "name": "Medication Adherence Task 2",
-        "description": "Analyze anomalies and generate alerts for medication adherence."
-      },
-      {
-        "name": "Medication Adherence Task 3",
-        "description": "Optimize processes based on medication adherence data."
+        "name": "Anomaly Detection for Medication Adherence",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Medication Adherence objectives."
       }
     ]
   },
   {
     "id": "I54",
     "name": "Hand Hygiene Compliance",
-    "domain": "Healthcare",
-    "context": "Safety",
-    "description": "Tracks staff use of hand sanitizer stations to prevent hospital-acquired infections.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Hand Hygiene Compliance. Operating securely within the Healthcare sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Hand Hygiene Compliance Task 1",
-        "description": "Perform primary monitoring for hand hygiene compliance."
+        "name": "Primary Hand Hygiene Compliance Monitoring",
+        "description": "Continuously collect and process Safety data streams directly related to Hand Hygiene Compliance within the Healthcare environment."
       },
       {
-        "name": "Hand Hygiene Compliance Task 2",
-        "description": "Analyze anomalies and generate alerts for hand hygiene compliance."
-      },
-      {
-        "name": "Hand Hygiene Compliance Task 3",
-        "description": "Optimize processes based on hand hygiene compliance data."
+        "name": "Anomaly Detection for Hand Hygiene Compliance",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Hand Hygiene Compliance objectives."
       }
     ]
   },
   {
     "id": "I55",
     "name": "Medical Equipment Tracking",
-    "domain": "Healthcare",
-    "context": "Equipment",
-    "description": "Locates mobile medical assets like wheelchairs and IV pumps in real-time.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Medical Equipment Tracking. Operating securely within the Healthcare sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Medical Equipment Tracking Task 1",
-        "description": "Perform primary monitoring for medical equipment tracking."
+        "name": "Primary Medical Equipment Tracking Monitoring",
+        "description": "Continuously collect and process Equipment data streams directly related to Medical Equipment Tracking within the Healthcare environment."
       },
       {
-        "name": "Medical Equipment Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for medical equipment tracking."
-      },
-      {
-        "name": "Medical Equipment Tracking Task 3",
-        "description": "Optimize processes based on medical equipment tracking data."
+        "name": "Anomaly Detection for Medical Equipment Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Medical Equipment Tracking objectives."
       }
     ]
   },
   {
     "id": "I56",
     "name": "Bed Availability",
-    "domain": "Healthcare",
-    "context": "Management",
-    "description": "Monitors hospital bed occupancy and turnover rates for efficient admission.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Bed Availability. Operating securely within the Healthcare sector, it evaluates Management conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Bed Availability Task 1",
-        "description": "Perform primary monitoring for bed availability."
+        "name": "Primary Bed Availability Monitoring",
+        "description": "Continuously collect and process Management data streams directly related to Bed Availability within the Healthcare environment."
       },
       {
-        "name": "Bed Availability Task 2",
-        "description": "Analyze anomalies and generate alerts for bed availability."
-      },
-      {
-        "name": "Bed Availability Task 3",
-        "description": "Optimize processes based on bed availability data."
+        "name": "Anomaly Detection for Bed Availability",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Bed Availability objectives."
       }
     ]
   },
   {
     "id": "I57",
     "name": "Sleep Apnea Detection",
-    "domain": "Healthcare",
-    "context": "Patient",
-    "description": "Analyzes breathing patterns and audio during sleep to diagnose apnea events.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Sleep Apnea Detection. Operating securely within the Healthcare sector, it evaluates Patient conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Sleep Apnea Detection Task 1",
-        "description": "Perform primary monitoring for sleep apnea detection."
+        "name": "Primary Sleep Apnea Detection Monitoring",
+        "description": "Continuously collect and process Patient data streams directly related to Sleep Apnea Detection within the Healthcare environment."
       },
       {
-        "name": "Sleep Apnea Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for sleep apnea detection."
-      },
-      {
-        "name": "Sleep Apnea Detection Task 3",
-        "description": "Optimize processes based on sleep apnea detection data."
+        "name": "Anomaly Detection for Sleep Apnea Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Sleep Apnea Detection objectives."
       }
     ]
   },
   {
     "id": "I58",
     "name": "Telemedicine Diagnostics",
-    "domain": "Healthcare",
-    "context": "Remote",
-    "description": "Facilitates remote patient examination using connected digital instruments.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Remote parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Telemedicine Diagnostics. Operating securely within the Healthcare sector, it evaluates Remote conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Telemedicine Diagnostics Task 1",
-        "description": "Perform primary monitoring for telemedicine diagnostics."
+        "name": "Primary Telemedicine Diagnostics Monitoring",
+        "description": "Continuously collect and process Remote data streams directly related to Telemedicine Diagnostics within the Healthcare environment."
       },
       {
-        "name": "Telemedicine Diagnostics Task 2",
-        "description": "Analyze anomalies and generate alerts for telemedicine diagnostics."
-      },
-      {
-        "name": "Telemedicine Diagnostics Task 3",
-        "description": "Optimize processes based on telemedicine diagnostics data."
+        "name": "Anomaly Detection for Telemedicine Diagnostics",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Telemedicine Diagnostics objectives."
       }
     ]
   },
   {
     "id": "I59",
     "name": "Remote ECG Monitoring",
-    "domain": "Healthcare",
-    "context": "Cardio",
-    "description": "Continuously analyzes electrocardiogram data for ambulatory patients.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Cardio parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Remote ECG Monitoring. Operating securely within the Healthcare sector, it evaluates Cardio conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Remote ECG Monitoring Task 1",
-        "description": "Perform primary monitoring for remote ecg monitoring."
+        "name": "Primary Remote ECG Monitoring Monitoring",
+        "description": "Continuously collect and process Cardio data streams directly related to Remote ECG Monitoring within the Healthcare environment."
       },
       {
-        "name": "Remote ECG Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for remote ecg monitoring."
-      },
-      {
-        "name": "Remote ECG Monitoring Task 3",
-        "description": "Optimize processes based on remote ecg monitoring data."
+        "name": "Anomaly Detection for Remote ECG Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Remote ECG Monitoring objectives."
       }
     ]
   },
   {
     "id": "I60",
     "name": "Asthma Trigger Detection",
-    "domain": "Healthcare",
-    "context": "Environment",
-    "description": "Monitors local air quality and allergens to alert asthma patients.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Asthma Trigger Detection. Operating securely within the Healthcare sector, it evaluates Environment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Asthma Trigger Detection Task 1",
-        "description": "Perform primary monitoring for asthma trigger detection."
+        "name": "Primary Asthma Trigger Detection Monitoring",
+        "description": "Continuously collect and process Environment data streams directly related to Asthma Trigger Detection within the Healthcare environment."
       },
       {
-        "name": "Asthma Trigger Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for asthma trigger detection."
-      },
-      {
-        "name": "Asthma Trigger Detection Task 3",
-        "description": "Optimize processes based on asthma trigger detection data."
+        "name": "Anomaly Detection for Asthma Trigger Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Asthma Trigger Detection objectives."
       }
     ]
   },
   {
     "id": "I61",
     "name": "Water Quality Monitoring",
-    "domain": "Environment",
-    "context": "Water",
-    "description": "Measures pH, turbidity, and dissolved oxygen in rivers and lakes.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Water Quality Monitoring. Operating securely within the Environment sector, it evaluates Water conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Water Quality Monitoring Task 1",
-        "description": "Perform primary monitoring for water quality monitoring."
+        "name": "Primary Water Quality Monitoring Monitoring",
+        "description": "Continuously collect and process Water data streams directly related to Water Quality Monitoring within the Environment environment."
       },
       {
-        "name": "Water Quality Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for water quality monitoring."
-      },
-      {
-        "name": "Water Quality Monitoring Task 3",
-        "description": "Optimize processes based on water quality monitoring data."
+        "name": "Anomaly Detection for Water Quality Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Water Quality Monitoring objectives."
       }
     ]
   },
   {
     "id": "I62",
     "name": "Air Pollution Tracking",
-    "domain": "Environment",
-    "context": "AirQuality",
-    "description": "Monitors PM2.5, NO2, and SO2 levels across urban areas.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Air Pollution Tracking. Operating securely within the Environment sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Air Pollution Tracking Task 1",
-        "description": "Perform primary monitoring for air pollution tracking."
+        "name": "Primary Air Pollution Tracking Monitoring",
+        "description": "Continuously collect and process AirQuality data streams directly related to Air Pollution Tracking within the Environment environment."
       },
       {
-        "name": "Air Pollution Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for air pollution tracking."
-      },
-      {
-        "name": "Air Pollution Tracking Task 3",
-        "description": "Optimize processes based on air pollution tracking data."
+        "name": "Anomaly Detection for Air Pollution Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Air Pollution Tracking objectives."
       }
     ]
   },
   {
     "id": "I63",
     "name": "Deforestation Detection",
-    "domain": "Environment",
-    "context": "Forest",
-    "description": "Analyzes satellite imagery to identify illegal logging activities.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Forest parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Deforestation Detection. Operating securely within the Environment sector, it evaluates Forest conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Deforestation Detection Task 1",
-        "description": "Perform primary monitoring for deforestation detection."
+        "name": "Primary Deforestation Detection Monitoring",
+        "description": "Continuously collect and process Forest data streams directly related to Deforestation Detection within the Environment environment."
       },
       {
-        "name": "Deforestation Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for deforestation detection."
-      },
-      {
-        "name": "Deforestation Detection Task 3",
-        "description": "Optimize processes based on deforestation detection data."
+        "name": "Anomaly Detection for Deforestation Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Deforestation Detection objectives."
       }
     ]
   },
   {
     "id": "I64",
     "name": "Wildlife Tracking",
-    "domain": "Environment",
-    "context": "Wildlife",
-    "description": "Monitors animal movements using GPS collars and camera traps.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Wildlife Tracking. Operating securely within the Environment sector, it evaluates Wildlife conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Wildlife Tracking Task 1",
-        "description": "Perform primary monitoring for wildlife tracking."
+        "name": "Primary Wildlife Tracking Monitoring",
+        "description": "Continuously collect and process Wildlife data streams directly related to Wildlife Tracking within the Environment environment."
       },
       {
-        "name": "Wildlife Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for wildlife tracking."
-      },
-      {
-        "name": "Wildlife Tracking Task 3",
-        "description": "Optimize processes based on wildlife tracking data."
+        "name": "Anomaly Detection for Wildlife Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Wildlife Tracking objectives."
       }
     ]
   },
   {
     "id": "I65",
     "name": "Ocean Plastic Monitoring",
-    "domain": "Environment",
-    "context": "Ocean",
-    "description": "Uses drone and satellite imagery to track marine debris accumulation.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Ocean parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Ocean Plastic Monitoring. Operating securely within the Environment sector, it evaluates Ocean conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Ocean Plastic Monitoring Task 1",
-        "description": "Perform primary monitoring for ocean plastic monitoring."
+        "name": "Primary Ocean Plastic Monitoring Monitoring",
+        "description": "Continuously collect and process Ocean data streams directly related to Ocean Plastic Monitoring within the Environment environment."
       },
       {
-        "name": "Ocean Plastic Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for ocean plastic monitoring."
-      },
-      {
-        "name": "Ocean Plastic Monitoring Task 3",
-        "description": "Optimize processes based on ocean plastic monitoring data."
+        "name": "Anomaly Detection for Ocean Plastic Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Ocean Plastic Monitoring objectives."
       }
     ]
   },
   {
     "id": "I66",
     "name": "River Level Monitoring",
-    "domain": "Environment",
-    "context": "Water",
-    "description": "Tracks river heights to predict and manage potential flooding events.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to River Level Monitoring. Operating securely within the Environment sector, it evaluates Water conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "River Level Monitoring Task 1",
-        "description": "Perform primary monitoring for river level monitoring."
+        "name": "Primary River Level Monitoring Monitoring",
+        "description": "Continuously collect and process Water data streams directly related to River Level Monitoring within the Environment environment."
       },
       {
-        "name": "River Level Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for river level monitoring."
-      },
-      {
-        "name": "River Level Monitoring Task 3",
-        "description": "Optimize processes based on river level monitoring data."
+        "name": "Anomaly Detection for River Level Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with River Level Monitoring objectives."
       }
     ]
   },
   {
     "id": "I67",
     "name": "Noise Pollution Mapping",
-    "domain": "Environment",
-    "context": "Noise",
-    "description": "Aggregates acoustic sensor data to create city-wide noise maps.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Noise parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Noise Pollution Mapping. Operating securely within the Environment sector, it evaluates Noise conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Noise Pollution Mapping Task 1",
-        "description": "Perform primary monitoring for noise pollution mapping."
+        "name": "Primary Noise Pollution Mapping Monitoring",
+        "description": "Continuously collect and process Noise data streams directly related to Noise Pollution Mapping within the Environment environment."
       },
       {
-        "name": "Noise Pollution Mapping Task 2",
-        "description": "Analyze anomalies and generate alerts for noise pollution mapping."
-      },
-      {
-        "name": "Noise Pollution Mapping Task 3",
-        "description": "Optimize processes based on noise pollution mapping data."
+        "name": "Anomaly Detection for Noise Pollution Mapping",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Noise Pollution Mapping objectives."
       }
     ]
   },
   {
     "id": "I68",
     "name": "Soil Contamination",
-    "domain": "Environment",
-    "context": "Soil",
-    "description": "Detects heavy metals and chemical pollutants in industrial areas.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Soil parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Soil Contamination. Operating securely within the Environment sector, it evaluates Soil conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Soil Contamination Task 1",
-        "description": "Perform primary monitoring for soil contamination."
+        "name": "Primary Soil Contamination Monitoring",
+        "description": "Continuously collect and process Soil data streams directly related to Soil Contamination within the Environment environment."
       },
       {
-        "name": "Soil Contamination Task 2",
-        "description": "Analyze anomalies and generate alerts for soil contamination."
-      },
-      {
-        "name": "Soil Contamination Task 3",
-        "description": "Optimize processes based on soil contamination data."
+        "name": "Anomaly Detection for Soil Contamination",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Soil Contamination objectives."
       }
     ]
   },
   {
     "id": "I69",
     "name": "Urban Heat Island",
-    "domain": "Environment",
-    "context": "Climate",
-    "description": "Maps temperature variations across a city to identify heat-trapping zones.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Climate parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Urban Heat Island. Operating securely within the Environment sector, it evaluates Climate conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Urban Heat Island Task 1",
-        "description": "Perform primary monitoring for urban heat island."
+        "name": "Primary Urban Heat Island Monitoring",
+        "description": "Continuously collect and process Climate data streams directly related to Urban Heat Island within the Environment environment."
       },
       {
-        "name": "Urban Heat Island Task 2",
-        "description": "Analyze anomalies and generate alerts for urban heat island."
-      },
-      {
-        "name": "Urban Heat Island Task 3",
-        "description": "Optimize processes based on urban heat island data."
+        "name": "Anomaly Detection for Urban Heat Island",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Urban Heat Island objectives."
       }
     ]
   },
   {
     "id": "I70",
     "name": "Biodiversity Assessment",
-    "domain": "Environment",
-    "context": "Wildlife",
-    "description": "Uses audio recordings to identify and count bird and amphibian species.",
+    "domain": "Safeguarding the Environment domain, tracking ecological metrics, pollution, and climate sustainability.",
+    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Biodiversity Assessment. Operating securely within the Environment sector, it evaluates Wildlife conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Biodiversity Assessment Task 1",
-        "description": "Perform primary monitoring for biodiversity assessment."
+        "name": "Primary Biodiversity Assessment Monitoring",
+        "description": "Continuously collect and process Wildlife data streams directly related to Biodiversity Assessment within the Environment environment."
       },
       {
-        "name": "Biodiversity Assessment Task 2",
-        "description": "Analyze anomalies and generate alerts for biodiversity assessment."
-      },
-      {
-        "name": "Biodiversity Assessment Task 3",
-        "description": "Optimize processes based on biodiversity assessment data."
+        "name": "Anomaly Detection for Biodiversity Assessment",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Biodiversity Assessment objectives."
       }
     ]
   },
   {
     "id": "I71",
     "name": "Wind Turbine Monitoring",
-    "domain": "Energy",
-    "context": "Renewable",
-    "description": "Analyzes blade vibrations and gearbox temperature to optimize maintenance.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Wind Turbine Monitoring. Operating securely within the Energy sector, it evaluates Renewable conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Wind Turbine Monitoring Task 1",
-        "description": "Perform primary monitoring for wind turbine monitoring."
+        "name": "Primary Wind Turbine Monitoring Monitoring",
+        "description": "Continuously collect and process Renewable data streams directly related to Wind Turbine Monitoring within the Energy environment."
       },
       {
-        "name": "Wind Turbine Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for wind turbine monitoring."
-      },
-      {
-        "name": "Wind Turbine Monitoring Task 3",
-        "description": "Optimize processes based on wind turbine monitoring data."
+        "name": "Anomaly Detection for Wind Turbine Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Wind Turbine Monitoring objectives."
       }
     ]
   },
   {
     "id": "I72",
     "name": "Substation Fault Detection",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Monitors transformer health and detects arcing or overheating events.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Substation Fault Detection. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Substation Fault Detection Task 1",
-        "description": "Perform primary monitoring for substation fault detection."
+        "name": "Primary Substation Fault Detection Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Substation Fault Detection within the Energy environment."
       },
       {
-        "name": "Substation Fault Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for substation fault detection."
-      },
-      {
-        "name": "Substation Fault Detection Task 3",
-        "description": "Optimize processes based on substation fault detection data."
+        "name": "Anomaly Detection for Substation Fault Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Substation Fault Detection objectives."
       }
     ]
   },
   {
     "id": "I73",
     "name": "Smart Metering",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Collects real-time electricity usage data for dynamic pricing and load analysis.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Smart Metering. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Smart Metering Task 1",
-        "description": "Perform primary monitoring for smart metering."
+        "name": "Primary Smart Metering Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Smart Metering within the Energy environment."
       },
       {
-        "name": "Smart Metering Task 2",
-        "description": "Analyze anomalies and generate alerts for smart metering."
-      },
-      {
-        "name": "Smart Metering Task 3",
-        "description": "Optimize processes based on smart metering data."
+        "name": "Anomaly Detection for Smart Metering",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Smart Metering objectives."
       }
     ]
   },
   {
     "id": "I74",
     "name": "Grid Voltage Stabilization",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Automatically adjusts reactive power to maintain stable voltage levels.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Grid Voltage Stabilization. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Grid Voltage Stabilization Task 1",
-        "description": "Perform primary monitoring for grid voltage stabilization."
+        "name": "Primary Grid Voltage Stabilization Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Grid Voltage Stabilization within the Energy environment."
       },
       {
-        "name": "Grid Voltage Stabilization Task 2",
-        "description": "Analyze anomalies and generate alerts for grid voltage stabilization."
-      },
-      {
-        "name": "Grid Voltage Stabilization Task 3",
-        "description": "Optimize processes based on grid voltage stabilization data."
+        "name": "Anomaly Detection for Grid Voltage Stabilization",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Grid Voltage Stabilization objectives."
       }
     ]
   },
   {
     "id": "I75",
     "name": "Pipeline Leak Detection",
-    "domain": "Energy",
-    "context": "Infrastructure",
-    "description": "Identifies pressure anomalies and acoustic signatures of gas or oil leaks.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Pipeline Leak Detection. Operating securely within the Energy sector, it evaluates Infrastructure conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Pipeline Leak Detection Task 1",
-        "description": "Perform primary monitoring for pipeline leak detection."
+        "name": "Primary Pipeline Leak Detection Monitoring",
+        "description": "Continuously collect and process Infrastructure data streams directly related to Pipeline Leak Detection within the Energy environment."
       },
       {
-        "name": "Pipeline Leak Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for pipeline leak detection."
-      },
-      {
-        "name": "Pipeline Leak Detection Task 3",
-        "description": "Optimize processes based on pipeline leak detection data."
+        "name": "Anomaly Detection for Pipeline Leak Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Pipeline Leak Detection objectives."
       }
     ]
   },
   {
     "id": "I76",
     "name": "Transformer Health",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Analyzes dissolved gas in transformer oil to predict failures.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Transformer Health. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Transformer Health Task 1",
-        "description": "Perform primary monitoring for transformer health."
+        "name": "Primary Transformer Health Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Transformer Health within the Energy environment."
       },
       {
-        "name": "Transformer Health Task 2",
-        "description": "Analyze anomalies and generate alerts for transformer health."
-      },
-      {
-        "name": "Transformer Health Task 3",
-        "description": "Optimize processes based on transformer health data."
+        "name": "Anomaly Detection for Transformer Health",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Transformer Health objectives."
       }
     ]
   },
   {
     "id": "I77",
     "name": "Energy Theft Detection",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Identifies irregular consumption patterns indicative of meter tampering.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Energy Theft Detection. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Energy Theft Detection Task 1",
-        "description": "Perform primary monitoring for energy theft detection."
+        "name": "Primary Energy Theft Detection Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Energy Theft Detection within the Energy environment."
       },
       {
-        "name": "Energy Theft Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for energy theft detection."
-      },
-      {
-        "name": "Energy Theft Detection Task 3",
-        "description": "Optimize processes based on energy theft detection data."
+        "name": "Anomaly Detection for Energy Theft Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Energy Theft Detection objectives."
       }
     ]
   },
   {
     "id": "I78",
     "name": "Geothermal Output",
-    "domain": "Energy",
-    "context": "Renewable",
-    "description": "Monitors temperature and flow rates of geothermal wells for optimal extraction.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Geothermal Output. Operating securely within the Energy sector, it evaluates Renewable conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Geothermal Output Task 1",
-        "description": "Perform primary monitoring for geothermal output."
+        "name": "Primary Geothermal Output Monitoring",
+        "description": "Continuously collect and process Renewable data streams directly related to Geothermal Output within the Energy environment."
       },
       {
-        "name": "Geothermal Output Task 2",
-        "description": "Analyze anomalies and generate alerts for geothermal output."
-      },
-      {
-        "name": "Geothermal Output Task 3",
-        "description": "Optimize processes based on geothermal output data."
+        "name": "Anomaly Detection for Geothermal Output",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Geothermal Output objectives."
       }
     ]
   },
   {
     "id": "I79",
     "name": "Hydroelectric Dam",
-    "domain": "Energy",
-    "context": "Renewable",
-    "description": "Tracks water levels, flow rates, and turbine efficiency at dam facilities.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Hydroelectric Dam. Operating securely within the Energy sector, it evaluates Renewable conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Hydroelectric Dam Task 1",
-        "description": "Perform primary monitoring for hydroelectric dam."
+        "name": "Primary Hydroelectric Dam Monitoring",
+        "description": "Continuously collect and process Renewable data streams directly related to Hydroelectric Dam within the Energy environment."
       },
       {
-        "name": "Hydroelectric Dam Task 2",
-        "description": "Analyze anomalies and generate alerts for hydroelectric dam."
-      },
-      {
-        "name": "Hydroelectric Dam Task 3",
-        "description": "Optimize processes based on hydroelectric dam data."
+        "name": "Anomaly Detection for Hydroelectric Dam",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Hydroelectric Dam objectives."
       }
     ]
   },
   {
     "id": "I80",
     "name": "Power Quality Analysis",
-    "domain": "Energy",
-    "context": "Grid",
-    "description": "Detects voltage sags, swells, and harmonics affecting sensitive equipment.",
+    "domain": "Powering the Energy domain, managing smart grids, renewable output, and infrastructure stability.",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Power Quality Analysis. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Power Quality Analysis Task 1",
-        "description": "Perform primary monitoring for power quality analysis."
+        "name": "Primary Power Quality Analysis Monitoring",
+        "description": "Continuously collect and process Grid data streams directly related to Power Quality Analysis within the Energy environment."
       },
       {
-        "name": "Power Quality Analysis Task 2",
-        "description": "Analyze anomalies and generate alerts for power quality analysis."
-      },
-      {
-        "name": "Power Quality Analysis Task 3",
-        "description": "Optimize processes based on power quality analysis data."
+        "name": "Anomaly Detection for Power Quality Analysis",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Power Quality Analysis objectives."
       }
     ]
   },
   {
     "id": "I81",
     "name": "Lighting Optimization",
-    "domain": "SmartBuilding",
-    "context": "Energy",
-    "description": "Adjusts indoor lighting based on natural light availability and room occupancy.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Lighting Optimization. Operating securely within the SmartBuilding sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Lighting Optimization Task 1",
-        "description": "Perform primary monitoring for lighting optimization."
+        "name": "Primary Lighting Optimization Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Lighting Optimization within the SmartBuilding environment."
       },
       {
-        "name": "Lighting Optimization Task 2",
-        "description": "Analyze anomalies and generate alerts for lighting optimization."
-      },
-      {
-        "name": "Lighting Optimization Task 3",
-        "description": "Optimize processes based on lighting optimization data."
+        "name": "Anomaly Detection for Lighting Optimization",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Lighting Optimization objectives."
       }
     ]
   },
   {
     "id": "I82",
     "name": "Space Utilization",
-    "domain": "SmartBuilding",
-    "context": "Management",
-    "description": "Analyzes desk and meeting room occupancy to optimize office layouts.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Space Utilization. Operating securely within the SmartBuilding sector, it evaluates Management conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Space Utilization Task 1",
-        "description": "Perform primary monitoring for space utilization."
+        "name": "Primary Space Utilization Monitoring",
+        "description": "Continuously collect and process Management data streams directly related to Space Utilization within the SmartBuilding environment."
       },
       {
-        "name": "Space Utilization Task 2",
-        "description": "Analyze anomalies and generate alerts for space utilization."
-      },
-      {
-        "name": "Space Utilization Task 3",
-        "description": "Optimize processes based on space utilization data."
+        "name": "Anomaly Detection for Space Utilization",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Space Utilization objectives."
       }
     ]
   },
   {
     "id": "I83",
     "name": "Elevator Health",
-    "domain": "SmartBuilding",
-    "context": "Equipment",
-    "description": "Monitors elevator door mechanisms and motor vibrations to predict failures.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Elevator Health. Operating securely within the SmartBuilding sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Elevator Health Task 1",
-        "description": "Perform primary monitoring for elevator health."
+        "name": "Primary Elevator Health Monitoring",
+        "description": "Continuously collect and process Equipment data streams directly related to Elevator Health within the SmartBuilding environment."
       },
       {
-        "name": "Elevator Health Task 2",
-        "description": "Analyze anomalies and generate alerts for elevator health."
-      },
-      {
-        "name": "Elevator Health Task 3",
-        "description": "Optimize processes based on elevator health data."
+        "name": "Anomaly Detection for Elevator Health",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Elevator Health objectives."
       }
     ]
   },
   {
     "id": "I84",
     "name": "Access Control",
-    "domain": "SmartBuilding",
-    "context": "Security",
-    "description": "Manages building entry using biometric scanners and smart badges.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Security parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Access Control. Operating securely within the SmartBuilding sector, it evaluates Security conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Access Control Task 1",
-        "description": "Perform primary monitoring for access control."
+        "name": "Primary Access Control Monitoring",
+        "description": "Continuously collect and process Security data streams directly related to Access Control within the SmartBuilding environment."
       },
       {
-        "name": "Access Control Task 2",
-        "description": "Analyze anomalies and generate alerts for access control."
-      },
-      {
-        "name": "Access Control Task 3",
-        "description": "Optimize processes based on access control data."
+        "name": "Anomaly Detection for Access Control",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Access Control objectives."
       }
     ]
   },
   {
     "id": "I85",
     "name": "Water Leak Detection",
-    "domain": "SmartBuilding",
-    "context": "Infrastructure",
-    "description": "Identifies plumbing leaks early using moisture sensors to prevent damage.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Water Leak Detection. Operating securely within the SmartBuilding sector, it evaluates Infrastructure conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Water Leak Detection Task 1",
-        "description": "Perform primary monitoring for water leak detection."
+        "name": "Primary Water Leak Detection Monitoring",
+        "description": "Continuously collect and process Infrastructure data streams directly related to Water Leak Detection within the SmartBuilding environment."
       },
       {
-        "name": "Water Leak Detection Task 2",
-        "description": "Analyze anomalies and generate alerts for water leak detection."
-      },
-      {
-        "name": "Water Leak Detection Task 3",
-        "description": "Optimize processes based on water leak detection data."
+        "name": "Anomaly Detection for Water Leak Detection",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Water Leak Detection objectives."
       }
     ]
   },
   {
     "id": "I86",
     "name": "Fire Alarm Analytics",
-    "domain": "SmartBuilding",
-    "context": "Safety",
-    "description": "Differentiates between false alarms and actual fires using multi-sensor data.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Fire Alarm Analytics. Operating securely within the SmartBuilding sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Fire Alarm Analytics Task 1",
-        "description": "Perform primary monitoring for fire alarm analytics."
+        "name": "Primary Fire Alarm Analytics Monitoring",
+        "description": "Continuously collect and process Safety data streams directly related to Fire Alarm Analytics within the SmartBuilding environment."
       },
       {
-        "name": "Fire Alarm Analytics Task 2",
-        "description": "Analyze anomalies and generate alerts for fire alarm analytics."
-      },
-      {
-        "name": "Fire Alarm Analytics Task 3",
-        "description": "Optimize processes based on fire alarm analytics data."
+        "name": "Anomaly Detection for Fire Alarm Analytics",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Fire Alarm Analytics objectives."
       }
     ]
   },
   {
     "id": "I87",
     "name": "Indoor Air Quality",
-    "domain": "SmartBuilding",
-    "context": "AirQuality",
-    "description": "Monitors VOCs and CO2 to adjust ventilation for occupant health.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Indoor Air Quality. Operating securely within the SmartBuilding sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Indoor Air Quality Task 1",
-        "description": "Perform primary monitoring for indoor air quality."
+        "name": "Primary Indoor Air Quality Monitoring",
+        "description": "Continuously collect and process AirQuality data streams directly related to Indoor Air Quality within the SmartBuilding environment."
       },
       {
-        "name": "Indoor Air Quality Task 2",
-        "description": "Analyze anomalies and generate alerts for indoor air quality."
-      },
-      {
-        "name": "Indoor Air Quality Task 3",
-        "description": "Optimize processes based on indoor air quality data."
+        "name": "Anomaly Detection for Indoor Air Quality",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Indoor Air Quality objectives."
       }
     ]
   },
   {
     "id": "I88",
     "name": "Waste Bin Monitoring",
-    "domain": "SmartBuilding",
-    "context": "Management",
-    "description": "Tracks trash fill levels to optimize janitorial collection routes.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Waste Bin Monitoring. Operating securely within the SmartBuilding sector, it evaluates Management conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Waste Bin Monitoring Task 1",
-        "description": "Perform primary monitoring for waste bin monitoring."
+        "name": "Primary Waste Bin Monitoring Monitoring",
+        "description": "Continuously collect and process Management data streams directly related to Waste Bin Monitoring within the SmartBuilding environment."
       },
       {
-        "name": "Waste Bin Monitoring Task 2",
-        "description": "Analyze anomalies and generate alerts for waste bin monitoring."
-      },
-      {
-        "name": "Waste Bin Monitoring Task 3",
-        "description": "Optimize processes based on waste bin monitoring data."
+        "name": "Anomaly Detection for Waste Bin Monitoring",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Waste Bin Monitoring objectives."
       }
     ]
   },
   {
     "id": "I89",
     "name": "HVAC Predictive Maintenance",
-    "domain": "SmartBuilding",
-    "context": "HVAC",
-    "description": "Analyzes compressor and fan performance to prevent HVAC system breakdowns.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of HVAC parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to HVAC Predictive Maintenance. Operating securely within the SmartBuilding sector, it evaluates HVAC conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "HVAC Predictive Maintenance Task 1",
-        "description": "Perform primary monitoring for hvac predictive maintenance."
+        "name": "Primary HVAC Predictive Maintenance Monitoring",
+        "description": "Continuously collect and process HVAC data streams directly related to HVAC Predictive Maintenance within the SmartBuilding environment."
       },
       {
-        "name": "HVAC Predictive Maintenance Task 2",
-        "description": "Analyze anomalies and generate alerts for hvac predictive maintenance."
-      },
-      {
-        "name": "HVAC Predictive Maintenance Task 3",
-        "description": "Optimize processes based on hvac predictive maintenance data."
+        "name": "Anomaly Detection for HVAC Predictive Maintenance",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with HVAC Predictive Maintenance objectives."
       }
     ]
   },
   {
     "id": "I90",
     "name": "Window Shade Automation",
-    "domain": "SmartBuilding",
-    "context": "Energy",
-    "description": "Adjusts smart blinds based on sun position to reduce cooling loads.",
+    "domain": "Optimizing the SmartBuilding domain, regulating indoor climate, occupancy efficiency, and facility safety.",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Window Shade Automation. Operating securely within the SmartBuilding sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Window Shade Automation Task 1",
-        "description": "Perform primary monitoring for window shade automation."
+        "name": "Primary Window Shade Automation Monitoring",
+        "description": "Continuously collect and process Energy data streams directly related to Window Shade Automation within the SmartBuilding environment."
       },
       {
-        "name": "Window Shade Automation Task 2",
-        "description": "Analyze anomalies and generate alerts for window shade automation."
-      },
-      {
-        "name": "Window Shade Automation Task 3",
-        "description": "Optimize processes based on window shade automation data."
+        "name": "Anomaly Detection for Window Shade Automation",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Window Shade Automation objectives."
       }
     ]
   },
   {
     "id": "I91",
     "name": "Flood Prediction",
-    "domain": "DisasterManagement",
-    "context": "Water",
-    "description": "Combines rainfall forecasts and river levels to predict flood inundation zones.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Flood Prediction. Operating securely within the DisasterManagement sector, it evaluates Water conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Flood Prediction Task 1",
-        "description": "Perform primary monitoring for flood prediction."
+        "name": "Primary Flood Prediction Monitoring",
+        "description": "Continuously collect and process Water data streams directly related to Flood Prediction within the DisasterManagement environment."
       },
       {
-        "name": "Flood Prediction Task 2",
-        "description": "Analyze anomalies and generate alerts for flood prediction."
-      },
-      {
-        "name": "Flood Prediction Task 3",
-        "description": "Optimize processes based on flood prediction data."
+        "name": "Anomaly Detection for Flood Prediction",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Flood Prediction objectives."
       }
     ]
   },
   {
     "id": "I92",
     "name": "Wildfire Tracking",
-    "domain": "DisasterManagement",
-    "context": "Fire",
-    "description": "Uses thermal imaging and wind data to predict the spread of forest fires.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Fire parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Wildfire Tracking. Operating securely within the DisasterManagement sector, it evaluates Fire conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Wildfire Tracking Task 1",
-        "description": "Perform primary monitoring for wildfire tracking."
+        "name": "Primary Wildfire Tracking Monitoring",
+        "description": "Continuously collect and process Fire data streams directly related to Wildfire Tracking within the DisasterManagement environment."
       },
       {
-        "name": "Wildfire Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for wildfire tracking."
-      },
-      {
-        "name": "Wildfire Tracking Task 3",
-        "description": "Optimize processes based on wildfire tracking data."
+        "name": "Anomaly Detection for Wildfire Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Wildfire Tracking objectives."
       }
     ]
   },
   {
     "id": "I93",
     "name": "Earthquake Warning",
-    "domain": "DisasterManagement",
-    "context": "Seismic",
-    "description": "Detects primary seismic waves to issue seconds of warning before major shaking.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Seismic parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Earthquake Warning. Operating securely within the DisasterManagement sector, it evaluates Seismic conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Earthquake Warning Task 1",
-        "description": "Perform primary monitoring for earthquake warning."
+        "name": "Primary Earthquake Warning Monitoring",
+        "description": "Continuously collect and process Seismic data streams directly related to Earthquake Warning within the DisasterManagement environment."
       },
       {
-        "name": "Earthquake Warning Task 2",
-        "description": "Analyze anomalies and generate alerts for earthquake warning."
-      },
-      {
-        "name": "Earthquake Warning Task 3",
-        "description": "Optimize processes based on earthquake warning data."
+        "name": "Anomaly Detection for Earthquake Warning",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Earthquake Warning objectives."
       }
     ]
   },
   {
     "id": "I94",
     "name": "Hurricane Path",
-    "domain": "DisasterManagement",
-    "context": "Weather",
-    "description": "Analyzes meteorological data to update hurricane trajectories in real-time.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Hurricane Path. Operating securely within the DisasterManagement sector, it evaluates Weather conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Hurricane Path Task 1",
-        "description": "Perform primary monitoring for hurricane path."
+        "name": "Primary Hurricane Path Monitoring",
+        "description": "Continuously collect and process Weather data streams directly related to Hurricane Path within the DisasterManagement environment."
       },
       {
-        "name": "Hurricane Path Task 2",
-        "description": "Analyze anomalies and generate alerts for hurricane path."
-      },
-      {
-        "name": "Hurricane Path Task 3",
-        "description": "Optimize processes based on hurricane path data."
+        "name": "Anomaly Detection for Hurricane Path",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Hurricane Path objectives."
       }
     ]
   },
   {
     "id": "I95",
     "name": "Tsunami Alert",
-    "domain": "DisasterManagement",
-    "context": "Ocean",
-    "description": "Monitors ocean floor pressure sensors to detect tsunami waves generation.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Ocean parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Tsunami Alert. Operating securely within the DisasterManagement sector, it evaluates Ocean conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Tsunami Alert Task 1",
-        "description": "Perform primary monitoring for tsunami alert."
+        "name": "Primary Tsunami Alert Monitoring",
+        "description": "Continuously collect and process Ocean data streams directly related to Tsunami Alert within the DisasterManagement environment."
       },
       {
-        "name": "Tsunami Alert Task 2",
-        "description": "Analyze anomalies and generate alerts for tsunami alert."
-      },
-      {
-        "name": "Tsunami Alert Task 3",
-        "description": "Optimize processes based on tsunami alert data."
+        "name": "Anomaly Detection for Tsunami Alert",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Tsunami Alert objectives."
       }
     ]
   },
   {
     "id": "I96",
     "name": "Landslide Vulnerability",
-    "domain": "DisasterManagement",
-    "context": "Geology",
-    "description": "Assesses soil moisture and slope stability to warn of potential landslides.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Geology parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Landslide Vulnerability. Operating securely within the DisasterManagement sector, it evaluates Geology conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Landslide Vulnerability Task 1",
-        "description": "Perform primary monitoring for landslide vulnerability."
+        "name": "Primary Landslide Vulnerability Monitoring",
+        "description": "Continuously collect and process Geology data streams directly related to Landslide Vulnerability within the DisasterManagement environment."
       },
       {
-        "name": "Landslide Vulnerability Task 2",
-        "description": "Analyze anomalies and generate alerts for landslide vulnerability."
-      },
-      {
-        "name": "Landslide Vulnerability Task 3",
-        "description": "Optimize processes based on landslide vulnerability data."
+        "name": "Anomaly Detection for Landslide Vulnerability",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Landslide Vulnerability objectives."
       }
     ]
   },
   {
     "id": "I97",
     "name": "Structural Integrity",
-    "domain": "DisasterManagement",
-    "context": "Infrastructure",
-    "description": "Monitors bridge and building vibrations during and after seismic events.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Structural Integrity. Operating securely within the DisasterManagement sector, it evaluates Infrastructure conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Structural Integrity Task 1",
-        "description": "Perform primary monitoring for structural integrity."
+        "name": "Primary Structural Integrity Monitoring",
+        "description": "Continuously collect and process Infrastructure data streams directly related to Structural Integrity within the DisasterManagement environment."
       },
       {
-        "name": "Structural Integrity Task 2",
-        "description": "Analyze anomalies and generate alerts for structural integrity."
-      },
-      {
-        "name": "Structural Integrity Task 3",
-        "description": "Optimize processes based on structural integrity data."
+        "name": "Anomaly Detection for Structural Integrity",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Structural Integrity objectives."
       }
     ]
   },
   {
     "id": "I98",
     "name": "Evacuation Optimization",
-    "domain": "DisasterManagement",
-    "context": "Safety",
-    "description": "Calculates safest exit routes based on real-time hazard propagation.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Evacuation Optimization. Operating securely within the DisasterManagement sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Evacuation Optimization Task 1",
-        "description": "Perform primary monitoring for evacuation optimization."
+        "name": "Primary Evacuation Optimization Monitoring",
+        "description": "Continuously collect and process Safety data streams directly related to Evacuation Optimization within the DisasterManagement environment."
       },
       {
-        "name": "Evacuation Optimization Task 2",
-        "description": "Analyze anomalies and generate alerts for evacuation optimization."
-      },
-      {
-        "name": "Evacuation Optimization Task 3",
-        "description": "Optimize processes based on evacuation optimization data."
+        "name": "Anomaly Detection for Evacuation Optimization",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Evacuation Optimization objectives."
       }
     ]
   },
   {
     "id": "I99",
     "name": "Relief Supply Tracking",
-    "domain": "DisasterManagement",
-    "context": "Logistics",
-    "description": "Manages the distribution of emergency supplies to affected areas.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Relief Supply Tracking. Operating securely within the DisasterManagement sector, it evaluates Logistics conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Relief Supply Tracking Task 1",
-        "description": "Perform primary monitoring for relief supply tracking."
+        "name": "Primary Relief Supply Tracking Monitoring",
+        "description": "Continuously collect and process Logistics data streams directly related to Relief Supply Tracking within the DisasterManagement environment."
       },
       {
-        "name": "Relief Supply Tracking Task 2",
-        "description": "Analyze anomalies and generate alerts for relief supply tracking."
-      },
-      {
-        "name": "Relief Supply Tracking Task 3",
-        "description": "Optimize processes based on relief supply tracking data."
+        "name": "Anomaly Detection for Relief Supply Tracking",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Relief Supply Tracking objectives."
       }
     ]
   },
   {
     "id": "I100",
     "name": "Emergency Resource Allocation",
-    "domain": "DisasterManagement",
-    "context": "Management",
-    "description": "Optimizes the deployment of first responders based on incident severity.",
+    "domain": "Serving the DisasterManagement domain, predicting hazards, managing emergency response, and mitigating risks.",
+    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Emergency Resource Allocation. Operating securely within the DisasterManagement sector, it evaluates Management conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Emergency Resource Allocation Task 1",
-        "description": "Perform primary monitoring for emergency resource allocation."
+        "name": "Primary Emergency Resource Allocation Monitoring",
+        "description": "Continuously collect and process Management data streams directly related to Emergency Resource Allocation within the DisasterManagement environment."
       },
       {
-        "name": "Emergency Resource Allocation Task 2",
-        "description": "Analyze anomalies and generate alerts for emergency resource allocation."
-      },
-      {
-        "name": "Emergency Resource Allocation Task 3",
-        "description": "Optimize processes based on emergency resource allocation data."
+        "name": "Anomaly Detection for Emergency Resource Allocation",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Emergency Resource Allocation objectives."
       }
     ]
   },
   {
     "id": "I101",
     "name": "Healthcare Monitor 1",
-    "domain": "Healthcare",
-    "context": "Patient",
-    "description": "Monitors patient health metrics autonomously to ensure stable vitals 1.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Healthcare Monitor 1. Operating securely within the Healthcare sector, it evaluates Patient conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Vital Check",
-        "description": "Check heart rate and blood pressure."
+        "name": "Primary Healthcare Monitor 1 Monitoring",
+        "description": "Continuously collect and process Patient data streams directly related to Healthcare Monitor 1 within the Healthcare environment."
       },
       {
-        "name": "Alert System",
-        "description": "Notify nurse if anomalies detected."
+        "name": "Anomaly Detection for Healthcare Monitor 1",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Healthcare Monitor 1 objectives."
       }
     ]
   },
   {
     "id": "I102",
     "name": "Healthcare Monitor 2",
-    "domain": "Healthcare",
-    "context": "Patient",
-    "description": "Monitors patient health metrics autonomously to ensure stable vitals 2.",
+    "domain": "Dedicated to the Healthcare domain, monitoring patient well-being, medical assets, and clinical environments.",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "description": "This intelligence agent is exclusively dedicated to Healthcare Monitor 2. Operating securely within the Healthcare sector, it evaluates Patient conditions to provide highly accurate, unified capabilities without cross-domain interference.",
     "tasks": [
       {
-        "name": "Vital Check",
-        "description": "Check heart rate and blood pressure."
+        "name": "Primary Healthcare Monitor 2 Monitoring",
+        "description": "Continuously collect and process Patient data streams directly related to Healthcare Monitor 2 within the Healthcare environment."
       },
       {
-        "name": "Alert System",
-        "description": "Notify nurse if anomalies detected."
+        "name": "Anomaly Detection for Healthcare Monitor 2",
+        "description": "Analyze the gathered metrics to identify deviations, ensuring strict semantic alignment with Healthcare Monitor 2 objectives."
       }
     ]
   }

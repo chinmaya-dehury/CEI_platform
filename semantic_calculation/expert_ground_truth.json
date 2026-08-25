@@ -1,0 +1,362 @@
+[
+  {
+    "task_id": 1,
+    "task_text": "1. Analyze high-frequency mechanical vibration signatures to identify machine faults and flag needed repairs.",
+    "expected_candidates": [
+      "I50",
+      "I48",
+      "I41",
+      "I83"
+    ],
+    "expected_clusters": [
+      [
+        "I50",
+        "I48",
+        "I41",
+        "I83"
+      ]
+    ]
+  },
+  {
+    "task_id": 2,
+    "task_text": "2. Analyze city traffic flow and congestion for electric vehicle fleets",
+    "expected_candidates": [
+      "I3",
+      "I4",
+      "I10",
+      "I24"
+    ],
+    "expected_clusters": [
+      [
+        "I3",
+        "I4",
+        "I10",
+        "I24"
+      ]
+    ]
+  },
+  {
+    "task_id": 3,
+    "task_text": "3. Evaluate soil moisture retention rates alongside temperature variations to calculate daily crop irrigation.",
+    "expected_candidates": [
+      "I16",
+      "I14",
+      "I15",
+      "I40"
+    ],
+    "expected_clusters": [
+      [
+        "I16",
+        "I14",
+        "I15",
+        "I40"
+      ]
+    ]
+  },
+  {
+    "task_id": 4,
+    "task_text": "4. Assess crowded indoor venue safety using CO2, occupancy, ventilation efficiency, and noise levels.",
+    "expected_candidates": [
+      "I17",
+      "I87",
+      "I9",
+      "I2"
+    ],
+    "expected_clusters": [
+      [
+        "I17",
+        "I87",
+        "I9",
+        "I2"
+      ]
+    ]
+  },
+  {
+    "task_id": 5,
+    "task_text": "5. Monitor urban incident response using traffic congestion, vehicle speed, accident risk, acoustic alarms, and fire-like temperature spikes.",
+    "expected_candidates": [
+      "I7",
+      "I10",
+      "I5",
+      "I86"
+    ],
+    "expected_clusters": [
+      [
+        "I7",
+        "I10",
+        "I5",
+        "I86"
+      ]
+    ]
+  },
+  {
+    "task_id": 6,
+    "task_text": "6. Coordinate autonomous robotic assembly lines while monitoring worker safety and tool wear.",
+    "expected_candidates": [
+      "I43",
+      "I50",
+      "I45",
+      "I41"
+    ],
+    "expected_clusters": [
+      [
+        "I43",
+        "I50",
+        "I45",
+        "I41"
+      ]
+    ]
+  },
+  {
+    "task_id": 7,
+    "task_text": "7. Optimize city-wide public transit schedules using passenger tracking and traffic congestion data.",
+    "expected_candidates": [
+      "I24",
+      "I3",
+      "I10",
+      "I4"
+    ],
+    "expected_clusters": [
+      [
+        "I24",
+        "I3",
+        "I10",
+        "I4"
+      ]
+    ]
+  },
+  {
+    "task_id": 8,
+    "task_text": "8. Track patient vitals, medication adherence, and bed availability in a smart hospital environment.",
+    "expected_candidates": [
+      "I56",
+      "I102",
+      "I52",
+      "I101"
+    ],
+    "expected_clusters": [
+      [
+        "I56",
+        "I102",
+        "I52",
+        "I101"
+      ]
+    ]
+  },
+  {
+    "task_id": 9,
+    "task_text": "9. Monitor renewable energy output from wind turbines and solar panels to balance smart grid loads.",
+    "expected_candidates": [
+      "I71",
+      "I73",
+      "I13",
+      "I74"
+    ],
+    "expected_clusters": [
+      [
+        "I71",
+        "I73",
+        "I13",
+        "I74"
+      ]
+    ]
+  },
+  {
+    "task_id": 10,
+    "task_text": "10. Predict flood risks and optimize evacuation routes by analyzing river levels and weather forecasts.",
+    "expected_candidates": [
+      "I91",
+      "I98",
+      "I94",
+      "I66"
+    ],
+    "expected_clusters": [
+      [
+        "I91",
+        "I98",
+        "I94",
+        "I66"
+      ]
+    ]
+  },
+  {
+    "task_id": 11,
+    "task_text": "11. Manage agricultural yields through autonomous harvesting and drone-based aerial mapping.",
+    "expected_candidates": [
+      "I39",
+      "I36",
+      "I35",
+      "I32"
+    ],
+    "expected_clusters": [
+      [
+        "I39",
+        "I36",
+        "I35",
+        "I32"
+      ]
+    ]
+  },
+  {
+    "task_id": 12,
+    "task_text": "12. Ensure structural integrity of bridges and buildings following early earthquake warnings.",
+    "expected_candidates": [
+      "I97",
+      "I93",
+      "I96",
+      "I83"
+    ],
+    "expected_clusters": [
+      [
+        "I97",
+        "I93",
+        "I96",
+        "I83"
+      ]
+    ]
+  },
+  {
+    "task_id": 13,
+    "task_text": "13. Assess forest deforestation and wildlife movement using satellite and drone imagery.",
+    "expected_candidates": [
+      "I63",
+      "I39",
+      "I64",
+      "I70"
+    ],
+    "expected_clusters": [
+      [
+        "I63",
+        "I39",
+        "I64",
+        "I70"
+      ]
+    ]
+  },
+  {
+    "task_id": 14,
+    "task_text": "14. Monitor smart building energy consumption, space utilization, and HVAC health.",
+    "expected_candidates": [
+      "I89",
+      "I17",
+      "I82",
+      "I87"
+    ],
+    "expected_clusters": [
+      [
+        "I89",
+        "I17",
+        "I82",
+        "I87"
+      ]
+    ]
+  },
+  {
+    "task_id": 15,
+    "task_text": "15. Optimize freight tracking and cold chain logistics for long-haul transportation.",
+    "expected_candidates": [
+      "I25",
+      "I46",
+      "I44",
+      "I99"
+    ],
+    "expected_clusters": [
+      [
+        "I25",
+        "I46",
+        "I44",
+        "I99"
+      ]
+    ]
+  },
+  {
+    "task_id": 16,
+    "task_text": "16. Detect pipeline leaks and monitor transformer health in critical energy infrastructure.",
+    "expected_candidates": [
+      "I75",
+      "I76",
+      "I72",
+      "I85"
+    ],
+    "expected_clusters": [
+      [
+        "I75",
+        "I76",
+        "I72",
+        "I85"
+      ]
+    ]
+  },
+  {
+    "task_id": 17,
+    "task_text": "17. Analyze ocean plastic accumulation and river water quality for environmental protection.",
+    "expected_candidates": [
+      "I65",
+      "I61",
+      "I66",
+      "I68"
+    ],
+    "expected_clusters": [
+      [
+        "I65",
+        "I61",
+        "I66",
+        "I68"
+      ]
+    ]
+  },
+  {
+    "task_id": 18,
+    "task_text": "18. Coordinate patient fall detection and remote telemedicine diagnostics.",
+    "expected_candidates": [
+      "I51",
+      "I58",
+      "I56",
+      "I55"
+    ],
+    "expected_clusters": [
+      [
+        "I51",
+        "I58",
+        "I56",
+        "I55"
+      ]
+    ]
+  },
+  {
+    "task_id": 19,
+    "task_text": "19. Optimize greenhouse climate control and livestock health in precision agriculture.",
+    "expected_candidates": [
+      "I38",
+      "I37",
+      "I15",
+      "I31"
+    ],
+    "expected_clusters": [
+      [
+        "I38",
+        "I37",
+        "I15",
+        "I31"
+      ]
+    ]
+  },
+  {
+    "task_id": 20,
+    "task_text": "20. Track urban heat islands and noise pollution mapping for smart city development.",
+    "expected_candidates": [
+      "I69",
+      "I67",
+      "I8",
+      "I87"
+    ],
+    "expected_clusters": [
+      [
+        "I69",
+        "I67",
+        "I8",
+        "I87"
+      ]
+    ]
+  }
+]
