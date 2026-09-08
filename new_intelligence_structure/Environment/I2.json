@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I2",
+    "name": "Indoor Air Quality Assessment",
+    "description": "This intelligence agent is exclusively dedicated to Indoor Air Quality Assessment. Operating securely within the Environment sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I2",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "tags": [
+      "indoor",
+      "quality",
+      "assessment"
+    ],
+    "source": "http://edge-node.local/api/I2",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Indoor Air Quality Assessment",
+      "generated_at": "2026-08-27T10:59:08.416267Z",
+      "valid_until": "2026-08-27T11:04:08.416273Z",
+      "location": {
+        "latitude": 83.2225,
+        "longitude": -57.7845
+      }
+    }
+  ]
+}

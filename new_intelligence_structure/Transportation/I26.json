@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I26",
+    "name": "Parking Availability",
+    "description": "This intelligence agent is exclusively dedicated to Parking Availability. Operating securely within the Transportation sector, it evaluates Parking conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I26",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Parking parameters and environmental variables.",
+    "tags": [
+      "parking",
+      "availability",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I26",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Parking Availability",
+      "generated_at": "2026-08-27T10:59:08.425950Z",
+      "valid_until": "2026-08-27T11:04:08.425953Z",
+      "location": {
+        "latitude": -74.9852,
+        "longitude": -175.9337
+      }
+    }
+  ]
+}

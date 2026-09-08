@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I96",
+    "name": "Landslide Vulnerability",
+    "description": "This intelligence agent is exclusively dedicated to Landslide Vulnerability. Operating securely within the DisasterManagement sector, it evaluates Geology conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I96",
+      "type": "fixed_location"
+    },
+    "domain": "Disaster Management",
+    "context": "Analyzed under the specific operational context of Geology parameters and environmental variables.",
+    "tags": [
+      "landslide",
+      "vulnerability",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I96",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Landslide Vulnerability",
+      "generated_at": "2026-08-27T10:59:08.454858Z",
+      "valid_until": "2026-08-27T11:04:08.454862Z",
+      "location": {
+        "latitude": -88.2738,
+        "longitude": -176.5339
+      }
+    }
+  ]
+}

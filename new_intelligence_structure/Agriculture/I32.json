@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I32",
+    "name": "Weed Identification",
+    "description": "This intelligence agent is exclusively dedicated to Weed Identification. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I32",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "tags": [
+      "weed",
+      "identification",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I32",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Weed Identification",
+      "generated_at": "2026-08-27T10:59:08.428120Z",
+      "valid_until": "2026-08-27T11:04:08.428123Z",
+      "location": {
+        "latitude": 30.1413,
+        "longitude": 156.3086
+      }
+    }
+  ]
+}

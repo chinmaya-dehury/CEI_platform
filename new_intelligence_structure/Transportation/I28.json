@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I28",
+    "name": "Road Weather Conditions",
+    "description": "This intelligence agent is exclusively dedicated to Road Weather Conditions. Operating securely within the Transportation sector, it evaluates Weather conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I28",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "tags": [
+      "road",
+      "weather",
+      "conditions"
+    ],
+    "source": "http://edge-node.local/api/I28",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Road Weather Conditions",
+      "generated_at": "2026-08-27T10:59:08.426714Z",
+      "valid_until": "2026-08-27T11:04:08.426718Z",
+      "location": {
+        "latitude": 84.4046,
+        "longitude": -59.9055
+      }
+    }
+  ]
+}

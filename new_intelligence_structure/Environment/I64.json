@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I64",
+    "name": "Wildlife Tracking",
+    "description": "This intelligence agent is exclusively dedicated to Wildlife Tracking. Operating securely within the Environment sector, it evaluates Wildlife conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I64",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "tags": [
+      "wildlife",
+      "tracking",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I64",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Wildlife Tracking",
+      "generated_at": "2026-08-27T10:59:08.440914Z",
+      "valid_until": "2026-08-27T11:04:08.440918Z",
+      "location": {
+        "latitude": 55.7644,
+        "longitude": -83.7692
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I86",
+    "name": "Fire Alarm Analytics",
+    "description": "This intelligence agent is exclusively dedicated to Fire Alarm Analytics. Operating securely within the SmartBuilding sector, it evaluates Safety conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I86",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "tags": [
+      "fire",
+      "alarm",
+      "analytics"
+    ],
+    "source": "http://edge-node.local/api/I86",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Fire Alarm Analytics",
+      "generated_at": "2026-08-27T10:59:08.450726Z",
+      "valid_until": "2026-08-27T11:04:08.450730Z",
+      "location": {
+        "latitude": -30.5698,
+        "longitude": -21.0001
+      }
+    }
+  ]
+}

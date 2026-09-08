@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I55",
+    "name": "Medical Equipment Tracking",
+    "description": "This intelligence agent is exclusively dedicated to Medical Equipment Tracking. Operating securely within the Healthcare sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I55",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "tags": [
+      "medical",
+      "equipment",
+      "tracking"
+    ],
+    "source": "http://edge-node.local/api/I55",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Medical Equipment Tracking",
+      "generated_at": "2026-08-27T10:59:08.437476Z",
+      "valid_until": "2026-08-27T11:04:08.437479Z",
+      "location": {
+        "latitude": -38.6761,
+        "longitude": 138.6398
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I10",
+    "name": "Urban Traffic Monitoring",
+    "description": "This intelligence agent is exclusively dedicated to Urban Traffic Monitoring. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference. It is highly optimized to analyze city traffic flow and congestion for electric vehicle fleets across urban grids.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I10",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "tags": [
+      "urban",
+      "traffic",
+      "monitoring"
+    ],
+    "source": "http://edge-node.local/api/I10",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Urban Traffic Monitoring",
+      "generated_at": "2026-08-27T10:59:08.420287Z",
+      "valid_until": "2026-08-27T11:04:08.420291Z",
+      "location": {
+        "latitude": 80.4813,
+        "longitude": 147.5488
+      }
+    }
+  ]
+}

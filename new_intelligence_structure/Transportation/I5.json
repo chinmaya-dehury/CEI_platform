@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I5",
+    "name": "Accident Risk Detection",
+    "description": "This intelligence agent is exclusively dedicated to Accident Risk Detection. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I5",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "tags": [
+      "accident",
+      "risk",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I5",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Accident Risk Detection",
+      "generated_at": "2026-08-27T10:59:08.417840Z",
+      "valid_until": "2026-08-27T11:04:08.417844Z",
+      "location": {
+        "latitude": 49.6485,
+        "longitude": -74.5378
+      }
+    }
+  ]
+}

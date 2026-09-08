@@ -1,0 +1,44 @@
+{
+  "metadata": {
+
+    "id": "String",
+    "name": "String",
+    "description": "String",
+    "version": "Integer",
+    "agent": {
+      "id": "String",
+      "type": "fixed_location | mobile"
+    },
+
+    "domain": "String",
+    "context": "String",
+    "tags": ["t1", "t2", "t3"],
+    "source": "agent_url",
+    "status": "online | offline",
+    "update_mode": "periodic | event-driven | on-demand",
+    "frequency": {
+      "value": "Integer",
+      "unit": "sec | min | hr | mth | yr"
+    }
+  },
+  "intelligence_items": [
+  {
+    "intelligence": "String | Numeric",
+    "generated_at": "datetime",
+    "valid_until": "datetime",
+    "location": {
+      "latitude": "Numeric",
+      "longitude": "Numeric"
+    }
+  },
+  {
+    "intelligence": "String | Numeric",
+    "generated_at": "datetime",
+    "valid_until": "datetime",
+    "location": {
+      "latitude": "Numeric",
+      "longitude": "Numeric"
+
+    }
+  }
+]} 

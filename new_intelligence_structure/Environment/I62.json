@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I62",
+    "name": "Air Pollution Tracking",
+    "description": "This intelligence agent is exclusively dedicated to Air Pollution Tracking. Operating securely within the Environment sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I62",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "tags": [
+      "pollution",
+      "tracking",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I62",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Air Pollution Tracking",
+      "generated_at": "2026-08-27T10:59:08.440185Z",
+      "valid_until": "2026-08-27T11:04:08.440189Z",
+      "location": {
+        "latitude": 27.1659,
+        "longitude": 174.134
+      }
+    }
+  ]
+}

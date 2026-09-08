@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I12",
+    "name": "Load Demand Forecasting",
+    "description": "This intelligence agent is exclusively dedicated to Load Demand Forecasting. Operating securely within the Energy sector, it evaluates Energy conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I12",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "tags": [
+      "load",
+      "demand",
+      "forecasting"
+    ],
+    "source": "http://edge-node.local/api/I12",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Load Demand Forecasting",
+      "generated_at": "2026-08-27T10:59:08.421096Z",
+      "valid_until": "2026-08-27T11:04:08.421100Z",
+      "location": {
+        "latitude": -32.9064,
+        "longitude": 144.2109
+      }
+    }
+  ]
+}

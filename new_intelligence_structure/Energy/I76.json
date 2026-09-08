@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I76",
+    "name": "Transformer Health",
+    "description": "This intelligence agent is exclusively dedicated to Transformer Health. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I76",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "tags": [
+      "transformer",
+      "health",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I76",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Transformer Health",
+      "generated_at": "2026-08-27T10:59:08.446374Z",
+      "valid_until": "2026-08-27T11:04:08.446377Z",
+      "location": {
+        "latitude": -39.0756,
+        "longitude": -122.9467
+      }
+    }
+  ]
+}

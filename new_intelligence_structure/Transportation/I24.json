@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I24",
+    "name": "Public Transit Optimization",
+    "description": "This intelligence agent is exclusively dedicated to Public Transit Optimization. Operating securely within the Transportation sector, it evaluates Transit conditions to provide highly accurate, unified capabilities without cross-domain interference. Provides actionable insights to analyze city traffic flow and congestion for electric vehicle fleets on public roads.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I24",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Transit parameters and environmental variables.",
+    "tags": [
+      "public",
+      "transit",
+      "optimization"
+    ],
+    "source": "http://edge-node.local/api/I24",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Public Transit Optimization",
+      "generated_at": "2026-08-27T10:59:08.425219Z",
+      "valid_until": "2026-08-27T11:04:08.425223Z",
+      "location": {
+        "latitude": -31.2283,
+        "longitude": -76.4002
+      }
+    }
+  ]
+}

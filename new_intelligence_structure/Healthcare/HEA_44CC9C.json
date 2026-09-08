@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_44CC9C",
+    "name": "VitalSignsMonitor-HEALTH-02",
+    "description": "A mobile edge AI agent for real-time monitoring of patient vitals in ICU settings, with early warning detection for critical condition changes.",
+    "version": 1,
+    "agent": {
+      "id": "EDGE-AGENT-HEALTH-02-001",
+      "type": "mobile"
+    },
+    "domain": "Healthcare",
+    "context": "Continuous monitoring of ICU patients for respiratory and cardiac parameters with anomaly detection and alert generation.",
+    "tags": [
+      "ICU monitoring",
+      "vital signs",
+      "early warning"
+    ],
+    "source": "https://health-edge-agents.org/monitoring/vitals",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 72.5,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T14:59:59Z",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.006
+      }
+    }
+  ]
+}

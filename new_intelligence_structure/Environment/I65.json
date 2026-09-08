@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I65",
+    "name": "Ocean Plastic Monitoring",
+    "description": "This intelligence agent is exclusively dedicated to Ocean Plastic Monitoring. Operating securely within the Environment sector, it evaluates Ocean conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I65",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Ocean parameters and environmental variables.",
+    "tags": [
+      "ocean",
+      "plastic",
+      "monitoring"
+    ],
+    "source": "http://edge-node.local/api/I65",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Ocean Plastic Monitoring",
+      "generated_at": "2026-08-27T10:59:08.441755Z",
+      "valid_until": "2026-08-27T11:04:08.441759Z",
+      "location": {
+        "latitude": -62.8752,
+        "longitude": -59.1976
+      }
+    }
+  ]
+}

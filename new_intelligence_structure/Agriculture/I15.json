@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I15",
+    "name": "Crop Heat Stress Detection",
+    "description": "This intelligence agent is exclusively dedicated to Crop Heat Stress Detection. Operating securely within the Agriculture sector, it evaluates Crop conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I15",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "tags": [
+      "crop",
+      "heat",
+      "stress"
+    ],
+    "source": "http://edge-node.local/api/I15",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Crop Heat Stress Detection",
+      "generated_at": "2026-08-27T10:59:08.422322Z",
+      "valid_until": "2026-08-27T11:04:08.422326Z",
+      "location": {
+        "latitude": 46.3276,
+        "longitude": 93.8355
+      }
+    }
+  ]
+}

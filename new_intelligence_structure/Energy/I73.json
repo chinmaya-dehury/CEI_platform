@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I73",
+    "name": "Smart Metering",
+    "description": "This intelligence agent is exclusively dedicated to Smart Metering. Operating securely within the Energy sector, it evaluates Grid conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I73",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "tags": [
+      "smart",
+      "metering",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I73",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Smart Metering",
+      "generated_at": "2026-08-27T10:59:08.445083Z",
+      "valid_until": "2026-08-27T11:04:08.445087Z",
+      "location": {
+        "latitude": -49.6061,
+        "longitude": 144.8659
+      }
+    }
+  ]
+}

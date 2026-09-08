@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I70",
+    "name": "Biodiversity Assessment",
+    "description": "This intelligence agent is exclusively dedicated to Biodiversity Assessment. Operating securely within the Environment sector, it evaluates Wildlife conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I70",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "tags": [
+      "biodiversity",
+      "assessment",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I70",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Biodiversity Assessment",
+      "generated_at": "2026-08-27T10:59:08.443638Z",
+      "valid_until": "2026-08-27T11:04:08.443641Z",
+      "location": {
+        "latitude": -63.7659,
+        "longitude": 56.5421
+      }
+    }
+  ]
+}

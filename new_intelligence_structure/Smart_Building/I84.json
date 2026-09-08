@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I84",
+    "name": "Access Control",
+    "description": "This intelligence agent is exclusively dedicated to Access Control. Operating securely within the SmartBuilding sector, it evaluates Security conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I84",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Security parameters and environmental variables.",
+    "tags": [
+      "access",
+      "control",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I84",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Access Control",
+      "generated_at": "2026-08-27T10:59:08.449967Z",
+      "valid_until": "2026-08-27T11:04:08.449971Z",
+      "location": {
+        "latitude": 36.4397,
+        "longitude": -90.0133
+      }
+    }
+  ]
+}

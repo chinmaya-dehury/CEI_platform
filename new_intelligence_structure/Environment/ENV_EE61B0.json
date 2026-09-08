@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_EE61B0",
+    "name": "EnvEdgeAgentV2",
+    "description": "Highly specialized edge node for environmental monitoring with AI capabilities in real-time data analysis and anomaly detection.",
+    "version": 1,
+    "agent": {
+      "id": "env_edge_agent_002",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Real-time environmental monitoring and anomaly detection in remote ecological zones.",
+    "tags": [
+      "ecology",
+      "anomaly_detection",
+      "remote_sensing"
+    ],
+    "source": "https://env-edge-agent-v2.source.com",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 300,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 28.7,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T15:00:00Z",
+      "location": {
+        "latitude": -34.397,
+        "longitude": 140.666
+      }
+    }
+  ]
+}

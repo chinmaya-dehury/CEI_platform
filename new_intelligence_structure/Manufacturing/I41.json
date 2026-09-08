@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I41",
+    "name": "Predictive Maintenance",
+    "description": "This intelligence agent is exclusively dedicated to Predictive Maintenance. Operating securely within the Manufacturing sector, it evaluates Equipment conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I41",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "tags": [
+      "predictive",
+      "maintenance",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I41",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Predictive Maintenance",
+      "generated_at": "2026-08-27T10:59:08.431668Z",
+      "valid_until": "2026-08-27T11:04:08.431672Z",
+      "location": {
+        "latitude": -81.1496,
+        "longitude": -112.296
+      }
+    }
+  ]
+}

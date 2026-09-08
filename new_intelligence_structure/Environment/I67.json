@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I67",
+    "name": "Noise Pollution Mapping",
+    "description": "This intelligence agent is exclusively dedicated to Noise Pollution Mapping. Operating securely within the Environment sector, it evaluates Noise conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I67",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Noise parameters and environmental variables.",
+    "tags": [
+      "noise",
+      "pollution",
+      "mapping"
+    ],
+    "source": "http://edge-node.local/api/I67",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Noise Pollution Mapping",
+      "generated_at": "2026-08-27T10:59:08.442560Z",
+      "valid_until": "2026-08-27T11:04:08.442563Z",
+      "location": {
+        "latitude": -23.5005,
+        "longitude": 99.8974
+      }
+    }
+  ]
+}

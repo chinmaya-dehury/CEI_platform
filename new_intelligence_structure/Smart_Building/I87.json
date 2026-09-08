@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I87",
+    "name": "Indoor Air Quality",
+    "description": "This intelligence agent is exclusively dedicated to Indoor Air Quality. Operating securely within the SmartBuilding sector, it evaluates AirQuality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I87",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "tags": [
+      "indoor",
+      "quality",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I87",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Indoor Air Quality",
+      "generated_at": "2026-08-27T10:59:08.451102Z",
+      "valid_until": "2026-08-27T11:04:08.451105Z",
+      "location": {
+        "latitude": 17.4387,
+        "longitude": -71.8209
+      }
+    }
+  ]
+}

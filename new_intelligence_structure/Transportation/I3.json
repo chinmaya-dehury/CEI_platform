@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I3",
+    "name": "Traffic Congestion Estimation",
+    "description": "This intelligence agent is exclusively dedicated to Traffic Congestion Estimation. Operating securely within the Transportation sector, it evaluates Traffic conditions to provide highly accurate, unified capabilities without cross-domain interference. Crucial for analyzing city traffic flow and resolving congestion for electric vehicle fleets.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I3",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "tags": [
+      "traffic",
+      "congestion",
+      "estimation"
+    ],
+    "source": "http://edge-node.local/api/I3",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Traffic Congestion Estimation",
+      "generated_at": "2026-08-27T10:59:08.416848Z",
+      "valid_until": "2026-08-27T11:04:08.416852Z",
+      "location": {
+        "latitude": -31.965,
+        "longitude": -178.4049
+      }
+    }
+  ]
+}

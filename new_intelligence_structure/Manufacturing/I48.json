@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "I48",
+    "name": "Defect Detection",
+    "description": "This intelligence agent is exclusively dedicated to Defect Detection. Operating securely within the Manufacturing sector, it evaluates Quality conditions to provide highly accurate, unified capabilities without cross-domain interference.",
+    "version": 1,
+    "agent": {
+      "id": "agent_I48",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Quality parameters and environmental variables.",
+    "tags": [
+      "defect",
+      "detection",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I48",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Defect Detection",
+      "generated_at": "2026-08-27T10:59:08.434559Z",
+      "valid_until": "2026-08-27T11:04:08.434562Z",
+      "location": {
+        "latitude": 3.4483,
+        "longitude": 28.1374
+      }
+    }
+  ]
+}
