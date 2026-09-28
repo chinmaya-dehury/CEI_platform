@@ -3,13 +3,19 @@ import csv
 import os
 from pathlib import Path
 
-# Base directory containing the intelligence JSON files (the new_intelligence_structure folder)
-BASE_DIR = Path(__file__).resolve().parent
+# Directory containing the intelligence JSON files.
+BASE_DIR = Path(__file__).resolve().parents[1] / "dataset"
 
-# Output CSV path (will be created in the same folder)
+# Output CSV path (will be created in the dataset folder)
 OUTPUT_CSV = BASE_DIR / "intelligence_summary.csv"
 
-header = ["Domain Name", "Intelligence Name", "Intelligence Description"]
+header = [
+    "Domain Name",
+    "Intelligence Name",
+    "Intelligence Description",
+    "Context",
+    "Tags",
+]
 rows = []
 
 # Walk through all JSON files recursively
@@ -21,7 +27,15 @@ for json_file in BASE_DIR.rglob("*.json"):
         domain = meta.get("domain", "")
         name = meta.get("name", "")
         description = meta.get("description", "")
-        rows.append([domain, name, description])
+        context = meta.get("context", "")
+        tags = meta.get("tags", [])
+        rows.append([
+            domain,
+            name,
+            description,
+            context,
+            json.dumps(tags, ensure_ascii=False),
+        ])
     except Exception as e:
         # Skip files that cannot be read or do not have expected structure
         print(f"Skipping {json_file}: {e}")

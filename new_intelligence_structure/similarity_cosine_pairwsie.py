@@ -8,6 +8,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.manifold import MDS
 from sklearn.metrics import davies_bouldin_score
+from sklearn.metrics import pairwise_distances
 from sklearn.metrics.pairwise import cosine_similarity
 
 BASE_DIR = r'C:\Users\DELL\Desktop\Code More\CEI_platform\new_intelligence_structure'
@@ -15,16 +16,6 @@ OUT_DIR = os.path.join(BASE_DIR, 'similarity_results', 'cosine_experiment')
 os.makedirs(OUT_DIR, exist_ok=True)
 
 ALPHA_VALUES = np.arange(0.0, 1.01, 0.1)
-
-
-def jaccard_similarity(values1, values2):
-    set1 = {str(value).lower() for value in values1}
-    set2 = {str(value).lower() for value in values2}
-    if not set1 and not set2:
-        return 1.0
-    if not set1 or not set2:
-        return 0.0
-    return len(set1 & set2) / len(set1 | set2)
 
 
 json_files = glob.glob(os.path.join(BASE_DIR, '**', '*.json'), recursive=True)
@@ -49,7 +40,7 @@ for path in sorted(json_files):
 labels = [item.get('metadata', {}).get('id', f'item_{index}')
           for index, item in enumerate(intelligences)]
 text_corpus = []
-categorical_values = []
+tags_list = []
 
 for item in intelligences:
     metadata = item.get('metadata', {})
@@ -59,7 +50,9 @@ for item in intelligences:
     )
     domain = metadata.get('domain', [])
     tags = metadata.get('tags', [])
-    categorical_values.append((domain if isinstance(domain, list) else [domain]) + tags)
+    domain_values = domain if isinstance(domain, list) else [domain]
+    tag_values = tags if isinstance(tags, list) else [tags]
+    tags_list.append(domain_values + tag_values)
 
 model = SentenceTransformer('all-mpnet-base-v2')
 text_embeddings = model.encode(text_corpus, batch_size=32, show_progress_bar=False)
@@ -67,10 +60,21 @@ text_embeddings = model.encode(text_corpus, batch_size=32, show_progress_bar=Fal
 # cosine_similarity returns similarity directly: identical vectors are 1.0.
 text_similarity = cosine_similarity(text_embeddings)
 
-jaccard_matrix = np.array([
-    [jaccard_similarity(categorical_values[i], categorical_values[j]) for j in range(len(labels))]
-    for i in range(len(labels))
-])
+# Convert domain and tag values to one sentence per intelligence.
+tag_sentences = [
+    " ".join(str(value) for value in item_tags if str(value).strip())
+    for item_tags in tags_list
+]
+
+# Encode domain/tag sentences into dense semantic vector space.
+tag_embeddings = model.encode(
+    tag_sentences,
+    batch_size=32,
+    show_progress_bar=False,
+)
+S_tags_semantic = 1.0 - pairwise_distances(tag_embeddings, metric='cosine')
+S_tags_semantic = np.clip(S_tags_semantic, 0.0, 1.0)
+np.fill_diagonal(S_tags_semantic, 1.0)
 
 best_score = np.inf
 best_alpha = None
@@ -80,10 +84,19 @@ best_k = None
 
 for alpha in ALPHA_VALUES:
     beta = 1.0 - alpha
-    similarity = np.clip(alpha * text_similarity + beta * jaccard_matrix, 0.0, 1.0)
+    similarity = np.clip(
+        alpha * text_similarity + beta * S_tags_semantic,
+        0.0,
+        1.0,
+    )
     np.fill_diagonal(similarity, 1.0)
     distance = 1.0 - similarity
-    coordinates = MDS(n_components=min(10, len(labels) - 1), dissimilarity='precomputed', random_state=42).fit_transform(distance)
+    coordinates = MDS(
+        n_components=min(10, len(labels) - 1),
+        metric='precomputed',
+        init='random',
+        random_state=42,
+    ).fit_transform(distance)
 
     for k in range(2, min(11, len(labels))):
         cluster_labels = AgglomerativeClustering(n_clusters=k).fit_predict(coordinates)
@@ -103,7 +116,7 @@ pd.DataFrame(
 
 for name, matrix in {
     'text_cosine_similarity': text_similarity,
-    'domain_tags_jaccard_similarity': jaccard_matrix,
+    'domain_tags_semantic_similarity': S_tags_semantic,
 }.items():
     pd.DataFrame(matrix, index=labels, columns=labels).to_csv(
         os.path.join(OUT_DIR, f'{name}.csv')
@@ -112,4 +125,4 @@ for name, matrix in {
 with open(os.path.join(OUT_DIR, 'index_mapping.json'), 'w', encoding='utf-8') as file:
     json.dump({str(index): label for index, label in enumerate(labels)}, file, indent=2)
 
-print(f'Calculated cosine and Jaccard similarity for {len(labels)} intelligences.')
+print(f'Calculated text and domain/tag semantic similarity for {len(labels)} intelligences.')
