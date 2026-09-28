@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "MAN_06_5a689",
+    "name": "Tool Wear Monitoring",
+    "description": "Measures friction and wear on heavy cutting or drilling tools to signal when they need sharpening or replacement.",
+    "version": 1,
+    "agent": {
+      "id": "agent_MAN_06_5a689",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "tags": [
+      "tool",
+      "wear",
+      "monitoring"
+    ],
+    "source": "http://edge-node.local/api/I50",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Tool Wear Monitoring",
+      "generated_at": "2026-08-27T10:59:08.435440Z",
+      "valid_until": "2026-08-27T11:04:08.435444Z",
+      "location": {
+        "latitude": 54.2012,
+        "longitude": 23.3416
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_02_0f9b0",
+    "name": "Deforestation Detection",
+    "description": "Uses satellite and aerial images to spot illegal tree cutting and forest loss.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENV_02_0f9b0",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Forest parameters and environmental variables.",
+    "tags": [
+      "deforestation",
+      "detection",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I63",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Deforestation Detection",
+      "generated_at": "2026-08-27T10:59:08.440556Z",
+      "valid_until": "2026-08-27T11:04:08.440559Z",
+      "location": {
+        "latitude": -40.7407,
+        "longitude": -139.6771
+      }
+    }
+  ]
+}

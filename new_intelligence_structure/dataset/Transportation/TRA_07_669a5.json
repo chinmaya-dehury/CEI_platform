@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_07_669a5",
+    "name": "Pedestrian Safety",
+    "description": "Detects people walking near crosswalks or roadways to alert drivers and adjust traffic signals.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_07_669a5",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "tags": [
+      "pedestrian",
+      "safety",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I23",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Pedestrian Safety",
+      "generated_at": "2026-08-27T10:59:08.424772Z",
+      "valid_until": "2026-08-27T11:04:08.424776Z",
+      "location": {
+        "latitude": 60.2393,
+        "longitude": 71.4399
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_05_7d386",
+    "name": "Irrigation Leak Detection",
+    "description": "Finds cracked pipes or broken water lines quickly to prevent water loss in farm fields.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_05_7d386",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "tags": [
+      "irrigation",
+      "leak",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I40",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Irrigation Leak Detection",
+      "generated_at": "2026-08-27T10:59:08.431230Z",
+      "valid_until": "2026-08-27T11:04:08.431233Z",
+      "location": {
+        "latitude": 31.5755,
+        "longitude": 144.1237
+      }
+    }
+  ]
+}

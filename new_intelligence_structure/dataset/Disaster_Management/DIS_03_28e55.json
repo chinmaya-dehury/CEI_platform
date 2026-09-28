@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "DIS_03_28e55",
+    "name": "Disaster Early Warning",
+    "description": "Sends instant alerts to local communities before dangerous natural events occur.",
+    "version": 1,
+    "agent": {
+      "id": "agent_DIS_03_28e55",
+      "type": "mobile"
+    },
+    "domain": "Disaster Management",
+    "context": "Real-time monitoring and early warning system for natural disasters such as earthquakes, floods, and hurricanes.",
+    "tags": [
+      "early_warning",
+      "seismic_monitoring",
+      "weather_analysis"
+    ],
+    "source": "https://edge.dm.agent/DM-Edge-001",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "SeismicActivityLevel:7.2",
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T14:45:00Z",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    }
+  ]
+}

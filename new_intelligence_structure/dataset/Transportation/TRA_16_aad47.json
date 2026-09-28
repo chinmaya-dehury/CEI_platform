@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_16_aad47",
+    "name": "Trans Flow",
+    "description": "A specialized edge sensor that monitors traffic throughput and vehicle counts at key transport junctions.",
+    "version": 2,
+    "agent": {
+      "id": "agent_TRA_16_aad47",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Urban traffic management system at a central traffic control hub",
+    "tags": [
+      "traffic_analysis",
+      "adaptive_signaling",
+      "edge_computing"
+    ],
+    "source": "https://transflow-edge.net/agent/2000",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 15,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 87.4,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T14:45:00Z",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    }
+  ]
+}

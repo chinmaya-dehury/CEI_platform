@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_07_8b7c5",
+    "name": "Autonomous Harvesting",
+    "description": "Uses smart machines and robots to pick mature fruits and vegetables without human labor.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_07_8b7c5",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Machinery parameters and environmental variables.",
+    "tags": [
+      "autonomous",
+      "harvesting",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I36",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Autonomous Harvesting",
+      "generated_at": "2026-08-27T10:59:08.429668Z",
+      "valid_until": "2026-08-27T11:04:08.429671Z",
+      "location": {
+        "latitude": 64.7847,
+        "longitude": 126.2659
+      }
+    }
+  ]
+}

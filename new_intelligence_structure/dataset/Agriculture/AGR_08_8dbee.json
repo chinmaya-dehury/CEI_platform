@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_08_8dbee",
+    "name": "Crop Disease Detection",
+    "description": "Scans plants for signs of sickness or infections early so farmers can treat them in time.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_08_8dbee",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "tags": [
+      "crop",
+      "disease",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I31",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Crop Disease Detection",
+      "generated_at": "2026-08-27T10:59:08.427793Z",
+      "valid_until": "2026-08-27T11:04:08.427796Z",
+      "location": {
+        "latitude": 16.2278,
+        "longitude": -99.4214
+      }
+    }
+  ]
+}

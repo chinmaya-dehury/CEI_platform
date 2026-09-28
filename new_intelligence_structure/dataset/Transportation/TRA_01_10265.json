@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_01_10265",
+    "name": "Cabin Air Quality Assessment",
+    "description": "Monitors carbon dioxide, dust, and temperature inside vehicles to keep drivers and passengers comfortable and alert.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_01_10265",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Vehicle parameters and environmental variables.",
+    "tags": [
+      "cabin",
+      "quality",
+      "assessment"
+    ],
+    "source": "http://edge-node.local/api/I18",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Cabin Air Quality Assessment",
+      "generated_at": "2026-08-27T10:59:08.423652Z",
+      "valid_until": "2026-08-27T11:04:08.423655Z",
+      "location": {
+        "latitude": 56.2636,
+        "longitude": 165.5355
+      }
+    }
+  ]
+}

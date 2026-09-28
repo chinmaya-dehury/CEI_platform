@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_04_19bb1",
+    "name": "Vitals Monitoring",
+    "description": "Continuously tracks heart rate, blood pressure, and oxygen levels to keep an eye on a patient's health.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_04_19bb1",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "tags": [
+      "vitals",
+      "monitoring",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I52",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Vitals Monitoring",
+      "generated_at": "2026-08-27T10:59:08.436292Z",
+      "valid_until": "2026-08-27T11:04:08.436296Z",
+      "location": {
+        "latitude": 4.9868,
+        "longitude": 159.3365
+      }
+    }
+  ]
+}

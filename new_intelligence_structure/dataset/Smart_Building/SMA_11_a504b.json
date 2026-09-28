@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_11_a504b",
+    "name": "Building Energy Optimizer",
+    "description": "Optimizing energy consumption in commercial buildings by analyzing real-time sensor data and adjusting HVAC systems.",
+    "version": 2,
+    "agent": {
+      "id": "agent_SMA_11_a504b",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Commercial building with IoT sensors monitoring temperature, humidity, and occupancy.",
+    "tags": [
+      "energy_efficiency",
+      "HVAC_control",
+      "IoT_integration"
+    ],
+    "source": "https://edge-intelligence-platform.com/smart-building/agents/SB-AGENT-001",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 5,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 82.4,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T15:30:00Z",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    }
+  ]
+}

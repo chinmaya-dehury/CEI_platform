@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_05_65dc0",
+    "name": "Vital Signs Monitor Health",
+    "description": "Checks if bedside patient monitors are working accurately and transmitting vital signs without errors.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_05_65dc0",
+      "type": "mobile"
+    },
+    "domain": "Healthcare",
+    "context": "Continuous monitoring of ICU patients for respiratory and cardiac parameters with anomaly detection and alert generation.",
+    "tags": [
+      "ICU monitoring",
+      "vital signs",
+      "early warning"
+    ],
+    "source": "https://health-edge-agents.org/monitoring/vitals",
+    "status": "online",
+    "update_mode": "event-driven",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 72.5,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T14:59:59Z",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.006
+      }
+    }
+  ]
+}

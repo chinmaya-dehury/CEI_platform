@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "DIS_08_71203",
+    "name": "Quake Sense",
+    "description": "Detects small ground vibrations to identify active fault lines and measure shaking levels.",
+    "version": 3,
+    "agent": {
+      "id": "agent_DIS_08_71203",
+      "type": "fixed_location"
+    },
+    "domain": "Disaster Management",
+    "context": "Urban seismic monitoring network",
+    "tags": [
+      "seismic",
+      "early_warning",
+      "urban"
+    ],
+    "source": "https://quakesense.net/agent-215",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 2.7,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T15:00:00Z",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    }
+  ]
+}

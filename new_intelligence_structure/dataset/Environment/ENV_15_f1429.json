@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_15_f1429",
+    "name": "Noise Pollution Monitoring",
+    "description": "Continuously measures decibel levels over time to ensure community noise rules are enforced.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENV_15_f1429",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Noise parameters and environmental variables.",
+    "tags": [
+      "noise",
+      "pollution",
+      "monitoring"
+    ],
+    "source": "http://edge-node.local/api/I8",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Noise Pollution Monitoring",
+      "generated_at": "2026-08-27T10:59:08.419355Z",
+      "valid_until": "2026-08-27T11:04:08.419358Z",
+      "location": {
+        "latitude": 72.2843,
+        "longitude": -171.8788
+      }
+    }
+  ]
+}

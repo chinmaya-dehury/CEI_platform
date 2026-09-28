@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_02_1b70d",
+    "name": "Occupancy Estimation",
+    "description": "Counts the number of people inside rooms or zones to optimize heating, cooling, and space usage.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_02_1b70d",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Building parameters and environmental variables.",
+    "tags": [
+      "occupancy",
+      "estimation",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I9",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Occupancy Estimation",
+      "generated_at": "2026-08-27T10:59:08.419865Z",
+      "valid_until": "2026-08-27T11:04:08.419869Z",
+      "location": {
+        "latitude": 41.2764,
+        "longitude": 127.8499
+      }
+    }
+  ]
+}

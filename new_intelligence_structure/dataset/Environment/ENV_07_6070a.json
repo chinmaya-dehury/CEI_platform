@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_07_6070a",
+    "name": "Heatwave Detection",
+    "description": "Uses GPS collars, camera traps, or radio tags to monitor animal movement and preserve habitats.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENV_07_6070a",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "tags": [
+      "heatwave",
+      "detection",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I1",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Heatwave Detection",
+      "generated_at": "2026-08-27T10:59:08.414689Z",
+      "valid_until": "2026-08-27T11:04:08.414711Z",
+      "location": {
+        "latitude": -69.8771,
+        "longitude": -24.8174
+      }
+    }
+  ]
+}

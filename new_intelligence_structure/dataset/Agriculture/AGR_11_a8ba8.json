@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_11_a8ba8",
+    "name": "Aerial Mapping",
+    "description": "Takes photos of farm fields from drones or airplanes to give a full overhead view of crop growth.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_11_a8ba8",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Mapping parameters and environmental variables.",
+    "tags": [
+      "aerial",
+      "mapping",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I39",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Aerial Mapping",
+      "generated_at": "2026-08-27T10:59:08.430841Z",
+      "valid_until": "2026-08-27T11:04:08.430844Z",
+      "location": {
+        "latitude": -72.0847,
+        "longitude": 122.3625
+      }
+    }
+  ]
+}

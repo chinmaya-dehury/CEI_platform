@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "DIS_02_24fa8",
+    "name": "Hurricane Path",
+    "description": "Tracks the movement and direction of severe storms to predict where they will hit land.",
+    "version": 1,
+    "agent": {
+      "id": "agent_DIS_02_24fa8",
+      "type": "fixed_location"
+    },
+    "domain": "Disaster Management",
+    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "tags": [
+      "hurricane",
+      "path",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I94",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Hurricane Path",
+      "generated_at": "2026-08-27T10:59:08.454023Z",
+      "valid_until": "2026-08-27T11:04:08.454026Z",
+      "location": {
+        "latitude": 61.5297,
+        "longitude": 114.0191
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_13_99007",
+    "name": "Emission Monitoring",
+    "description": "Measures exhaust pollutants emitted by vehicles to enforce environmental rules and track urban air impacts.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_13_99007",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "tags": [
+      "emission",
+      "monitoring",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I27",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Emission Monitoring",
+      "generated_at": "2026-08-27T10:59:08.426281Z",
+      "valid_until": "2026-08-27T11:04:08.426284Z",
+      "location": {
+        "latitude": -61.5691,
+        "longitude": 126.7326
+      }
+    }
+  ]
+}

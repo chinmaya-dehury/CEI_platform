@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_01_07f11",
+    "name": "Hand Hygiene Compliance",
+    "description": "Tracks whether doctors, nurses, and hospital staff wash their hands properly to prevent infection spread.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_01_07f11",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "tags": [
+      "hand",
+      "hygiene",
+      "compliance"
+    ],
+    "source": "http://edge-node.local/api/I54",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Hand Hygiene Compliance",
+      "generated_at": "2026-08-27T10:59:08.437137Z",
+      "valid_until": "2026-08-27T11:04:08.437140Z",
+      "location": {
+        "latitude": 11.0507,
+        "longitude": -141.7505
+      }
+    }
+  ]
+}

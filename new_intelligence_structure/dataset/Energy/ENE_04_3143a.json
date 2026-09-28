@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENE_04_3143a",
+    "name": "Hydroelectric Dam",
+    "description": "Tracks water levels and dam turbine performance to generate steady, safe water power.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENE_04_3143a",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "tags": [
+      "hydroelectric",
+      "analyzed",
+      "under"
+    ],
+    "source": "http://edge-node.local/api/I79",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Hydroelectric Dam",
+      "generated_at": "2026-08-27T10:59:08.447550Z",
+      "valid_until": "2026-08-27T11:04:08.447553Z",
+      "location": {
+        "latitude": 83.2459,
+        "longitude": -135.3454
+      }
+    }
+  ]
+}

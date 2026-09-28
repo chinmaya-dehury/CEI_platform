@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_03_12168",
+    "name": "Telemedicine Diagnostics",
+    "description": "Processes patient health data remotely so doctors can diagnose illnesses during online consultations.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_03_12168",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Remote parameters and environmental variables.",
+    "tags": [
+      "telemedicine",
+      "diagnostics",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I58",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Telemedicine Diagnostics",
+      "generated_at": "2026-08-27T10:59:08.438712Z",
+      "valid_until": "2026-08-27T11:04:08.438715Z",
+      "location": {
+        "latitude": 36.5972,
+        "longitude": 51.3577
+      }
+    }
+  ]
+}

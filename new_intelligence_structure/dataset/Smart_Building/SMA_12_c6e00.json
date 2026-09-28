@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_12_c6e00",
+    "name": "Water Leak Detection",
+    "description": "Finds pipe drips, moisture accumulation, or unexpected water flow to prevent structural water damage.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_12_c6e00",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "tags": [
+      "water",
+      "leak",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I85",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Water Leak Detection",
+      "generated_at": "2026-08-27T10:59:08.450358Z",
+      "valid_until": "2026-08-27T11:04:08.450361Z",
+      "location": {
+        "latitude": -52.5861,
+        "longitude": -35.0079
+      }
+    }
+  ]
+}

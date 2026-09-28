@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "MAN_01_00138",
+    "name": "Packaging Automation",
+    "description": "Controls and verifies high-speed sorting, boxing, and labeling of finished products before shipping.",
+    "version": 1,
+    "agent": {
+      "id": "agent_MAN_01_00138",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Packaging parameters and environmental variables.",
+    "tags": [
+      "packaging",
+      "automation",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I49",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Packaging Automation",
+      "generated_at": "2026-08-27T10:59:08.434945Z",
+      "valid_until": "2026-08-27T11:04:08.434948Z",
+      "location": {
+        "latitude": 76.4309,
+        "longitude": 48.9373
+      }
+    }
+  ]
+}

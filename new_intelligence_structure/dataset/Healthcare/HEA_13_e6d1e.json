@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_13_e6d1e",
+    "name": "Healthcare Monitor 2",
+    "description": "A backup or secondary edge unit that collects medical data in remote wards or home care setups.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_13_e6d1e",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "tags": [
+      "healthcare",
+      "monitor",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I102",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Healthcare Monitor 2",
+      "generated_at": "2026-08-27T10:59:08.457139Z",
+      "valid_until": "2026-08-27T11:04:08.457142Z",
+      "location": {
+        "latitude": 38.9905,
+        "longitude": 104.1143
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_03_20b1e",
+    "name": "Access Control",
+    "description": "Verifies keycards, biometrics, or mobile passes to allow authorized personnel into secured building areas.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_03_20b1e",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Security parameters and environmental variables.",
+    "tags": [
+      "access",
+      "control",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I84",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Access Control",
+      "generated_at": "2026-08-27T10:59:08.449967Z",
+      "valid_until": "2026-08-27T11:04:08.449971Z",
+      "location": {
+        "latitude": 36.4397,
+        "longitude": -90.0133
+      }
+    }
+  ]
+}

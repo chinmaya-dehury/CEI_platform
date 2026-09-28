@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_08_7c732",
+    "name": "Healthcare Monitor 1",
+    "description": "A primary local device that gathers patient health stats and processes them right at the hospital bedside.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_08_7c732",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "tags": [
+      "healthcare",
+      "monitor",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I101",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Healthcare Monitor 1",
+      "generated_at": "2026-08-27T10:59:08.456700Z",
+      "valid_until": "2026-08-27T11:04:08.456704Z",
+      "location": {
+        "latitude": -8.0199,
+        "longitude": 12.5007
+      }
+    }
+  ]
+}

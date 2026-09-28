@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENE_14_dc481",
+    "name": "Load Demand Forecasting",
+    "description": "Predicts how much electricity a city or region will need in the coming hours or days.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENE_14_dc481",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "tags": [
+      "load",
+      "demand",
+      "forecasting"
+    ],
+    "source": "http://edge-node.local/api/I12",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Load Demand Forecasting",
+      "generated_at": "2026-08-27T10:59:08.421096Z",
+      "valid_until": "2026-08-27T11:04:08.421100Z",
+      "location": {
+        "latitude": -32.9064,
+        "longitude": 144.2109
+      }
+    }
+  ]
+}

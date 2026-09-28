@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "HEA_02_0a422",
+    "name": "Asthma Trigger Detection",
+    "description": "Monitors air quality, pollen levels, and dust in the room to warn asthma patients before a breathing attack.",
+    "version": 1,
+    "agent": {
+      "id": "agent_HEA_02_0a422",
+      "type": "fixed_location"
+    },
+    "domain": "Healthcare",
+    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "tags": [
+      "asthma",
+      "trigger",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I60",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Asthma Trigger Detection",
+      "generated_at": "2026-08-27T10:59:08.439424Z",
+      "valid_until": "2026-08-27T11:04:08.439427Z",
+      "location": {
+        "latitude": -57.2113,
+        "longitude": 89.2173
+      }
+    }
+  ]
+}

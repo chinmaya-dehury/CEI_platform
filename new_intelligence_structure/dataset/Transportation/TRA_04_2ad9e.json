@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_04_2ad9e",
+    "name": "Urban Traffic Flow Analyzer",
+    "description": "Tracks vehicle density and movements across city roads to keep traffic moving smoothly.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_04_2ad9e",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Urban traffic management system",
+    "tags": [
+      "traffic_monitoring",
+      "real_time_analysis",
+      "edge_computing"
+    ],
+    "source": "https://edge.ai/transportation/trafficflow",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 145.3,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T15:30:00Z",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.006
+      }
+    }
+  ]
+}

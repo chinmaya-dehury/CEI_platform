@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "MAN_11_d7e72",
+    "name": "Supply Chain Visibility",
+    "description": "Tracks incoming shipment arrivals and outgoing logistics to prevent production line stoppages.",
+    "version": 1,
+    "agent": {
+      "id": "agent_MAN_11_d7e72",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "tags": [
+      "supply",
+      "chain",
+      "visibility"
+    ],
+    "source": "http://edge-node.local/api/I46",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Supply Chain Visibility",
+      "generated_at": "2026-08-27T10:59:08.433750Z",
+      "valid_until": "2026-08-27T11:04:08.433753Z",
+      "location": {
+        "latitude": -15.35,
+        "longitude": -21.1429
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_12_c170b",
+    "name": "Livestock Health",
+    "description": "Tracks farm animals' activity and temperature to detect sickness early.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_12_c170b",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Livestock parameters and environmental variables.",
+    "tags": [
+      "livestock",
+      "health",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I38",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Livestock Health",
+      "generated_at": "2026-08-27T10:59:08.430492Z",
+      "valid_until": "2026-08-27T11:04:08.430495Z",
+      "location": {
+        "latitude": 0.6945,
+        "longitude": -127.9059
+      }
+    }
+  ]
+}

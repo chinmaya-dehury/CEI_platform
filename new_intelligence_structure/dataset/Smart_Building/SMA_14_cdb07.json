@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_14_cdb07",
+    "name": "Lighting Optimization",
+    "description": "Dims or switches off artificial lights in unoccupied rooms or when natural daylight is sufficient.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_14_cdb07",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "tags": [
+      "lighting",
+      "optimization",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I81",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Lighting Optimization",
+      "generated_at": "2026-08-27T10:59:08.448515Z",
+      "valid_until": "2026-08-27T11:04:08.448518Z",
+      "location": {
+        "latitude": -0.8996,
+        "longitude": -172.4068
+      }
+    }
+  ]
+}

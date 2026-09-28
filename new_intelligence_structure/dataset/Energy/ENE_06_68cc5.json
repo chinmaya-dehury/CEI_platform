@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENE_06_68cc5",
+    "name": "Pipeline Leak Detection",
+    "description": "Finds cracks or pressure drops in oil and gas pipes to stop hazardous leaks early.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENE_06_68cc5",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "tags": [
+      "pipeline",
+      "leak",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I75",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Pipeline Leak Detection",
+      "generated_at": "2026-08-27T10:59:08.445950Z",
+      "valid_until": "2026-08-27T11:04:08.445953Z",
+      "location": {
+        "latitude": 80.3918,
+        "longitude": 93.8383
+      }
+    }
+  ]
+}

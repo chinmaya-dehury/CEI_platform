@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "MAN_09_678b1",
+    "name": "Quality Control",
+    "description": "Evaluates final product specifications against engineering standards to guarantee consistent output quality.",
+    "version": 1,
+    "agent": {
+      "id": "agent_MAN_09_678b1",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Production parameters and environmental variables.",
+    "tags": [
+      "quality",
+      "control",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I42",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Quality Control",
+      "generated_at": "2026-08-27T10:59:08.432114Z",
+      "valid_until": "2026-08-27T11:04:08.432117Z",
+      "location": {
+        "latitude": -83.6633,
+        "longitude": 85.3166
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_13_c9088",
+    "name": "HVAC Predictive Maintenance",
+    "description": "Monitors compressor pressure, refrigerant levels, and fan wear to fix heating and cooling units before they fail.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_13_c9088",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of HVAC parameters and environmental variables.",
+    "tags": [
+      "hvac",
+      "predictive",
+      "maintenance"
+    ],
+    "source": "http://edge-node.local/api/I89",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for HVAC Predictive Maintenance",
+      "generated_at": "2026-08-27T10:59:08.451884Z",
+      "valid_until": "2026-08-27T11:04:08.451887Z",
+      "location": {
+        "latitude": 0.3951,
+        "longitude": 61.5434
+      }
+    }
+  ]
+}

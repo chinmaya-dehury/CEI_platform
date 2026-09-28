@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENE_03_31059",
+    "name": "Substation Fault Detection",
+    "description": "Monitors high-voltage power stations to find short circuits or equipment failures before blackouts happen.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENE_03_31059",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "tags": [
+      "substation",
+      "fault",
+      "detection"
+    ],
+    "source": "http://edge-node.local/api/I72",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Substation Fault Detection",
+      "generated_at": "2026-08-27T10:59:08.444627Z",
+      "valid_until": "2026-08-27T11:04:08.444631Z",
+      "location": {
+        "latitude": -80.2217,
+        "longitude": -36.841
+      }
+    }
+  ]
+}

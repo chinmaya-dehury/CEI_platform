@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "DIS_11_b2825",
+    "name": "Evacuation Optimization",
+    "description": "Finds the fastest and safest routes for people to leave a dangerous area without getting stuck in traffic.",
+    "version": 1,
+    "agent": {
+      "id": "agent_DIS_11_b2825",
+      "type": "fixed_location"
+    },
+    "domain": "Disaster Management",
+    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "tags": [
+      "evacuation",
+      "optimization",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I98",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Evacuation Optimization",
+      "generated_at": "2026-08-27T10:59:08.455619Z",
+      "valid_until": "2026-08-27T11:04:08.455622Z",
+      "location": {
+        "latitude": -51.2451,
+        "longitude": -120.8623
+      }
+    }
+  ]
+}

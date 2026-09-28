@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_13_e223a",
+    "name": "Air Quality Monitor",
+    "description": "Tracks general outdoor air conditions by checking levels of dust, smog, and fine particulate matter.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENV_13_e223a",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Urban air quality monitoring in real-time",
+    "tags": [
+      "air_quality",
+      "real_time",
+      "environment"
+    ],
+    "source": "https://edgeagent.airquality.net/monitor",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 60,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 78.4,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "2023-10-25T15:30:00Z",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.006
+      }
+    }
+  ]
+}

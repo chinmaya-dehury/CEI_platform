@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_15_fe6d3",
+    "name": "Yield Prediction",
+    "description": "Estimates how much total crop harvest a farm will produce at the end of the season.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_15_fe6d3",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Harvest parameters and environmental variables.",
+    "tags": [
+      "yield",
+      "prediction",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I35",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 1800,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Yield Prediction",
+      "generated_at": "2026-08-27T10:59:08.429275Z",
+      "valid_until": "2026-08-27T11:04:08.429278Z",
+      "location": {
+        "latitude": -33.64,
+        "longitude": 65.3455
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_02_225ce",
+    "name": "Soil Monitor",
+    "description": "Soil moisture and nutrient level monitoring system for precision agriculture",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_02_225ce",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Real-time soil condition monitoring for crop optimization",
+    "tags": [
+      "soil_monitoring",
+      "precision_farming",
+      "smart_irrigation"
+    ],
+    "source": "https://agri-edge.com/soil-monitor",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 15,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": 42.7,
+      "generated_at": "2023-10-25T14:30:00Z",
+      "valid_until": "23:59:59Z",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    }
+  ]
+}

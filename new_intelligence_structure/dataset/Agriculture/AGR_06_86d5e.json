@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "AGR_06_86d5e",
+    "name": "Soil Moisture Analysis",
+    "description": "Measures how wet or dry the soil is to prevent crops from overwatering or drying out.",
+    "version": 1,
+    "agent": {
+      "id": "agent_AGR_06_86d5e",
+      "type": "fixed_location"
+    },
+    "domain": "Agriculture",
+    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "tags": [
+      "soil",
+      "moisture",
+      "analysis"
+    ],
+    "source": "http://edge-node.local/api/I16",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 30,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Soil Moisture Analysis",
+      "generated_at": "2026-08-27T10:59:08.422674Z",
+      "valid_until": "2026-08-27T11:04:08.422678Z",
+      "location": {
+        "latitude": -61.8231,
+        "longitude": 130.9797
+      }
+    }
+  ]
+}

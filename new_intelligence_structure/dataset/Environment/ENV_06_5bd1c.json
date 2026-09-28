@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENV_06_5bd1c",
+    "name": "Wildlife Tracking",
+    "description": "Uses GPS collars, camera traps, or radio tags to monitor animal movement and preserve habitats.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENV_06_5bd1c",
+      "type": "fixed_location"
+    },
+    "domain": "Environment",
+    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "tags": [
+      "wildlife",
+      "tracking",
+      "analyzed"
+    ],
+    "source": "http://edge-node.local/api/I64",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 300,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Wildlife Tracking",
+      "generated_at": "2026-08-27T10:59:08.440914Z",
+      "valid_until": "2026-08-27T11:04:08.440918Z",
+      "location": {
+        "latitude": 55.7644,
+        "longitude": -83.7692
+      }
+    }
+  ]
+}

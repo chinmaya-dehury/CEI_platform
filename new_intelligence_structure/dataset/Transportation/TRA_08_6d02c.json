@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_08_6d02c",
+    "name": "Public Transit Optimization",
+    "description": "Adjusts bus and train arrival schedules based on passenger demand and real-time transit delays.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_08_6d02c",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Transit parameters and environmental variables.",
+    "tags": [
+      "public",
+      "transit",
+      "optimization"
+    ],
+    "source": "http://edge-node.local/api/I24",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Public Transit Optimization",
+      "generated_at": "2026-08-27T10:59:08.425219Z",
+      "valid_until": "2026-08-27T11:04:08.425223Z",
+      "location": {
+        "latitude": -31.2283,
+        "longitude": -76.4002
+      }
+    }
+  ]
+}

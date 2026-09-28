@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "SMA_07_57127",
+    "name": "Window Shade Automation",
+    "description": "Raises or lowers blinds based on sun position and daylight levels to control glare and indoor temperature.",
+    "version": 1,
+    "agent": {
+      "id": "agent_SMA_07_57127",
+      "type": "fixed_location"
+    },
+    "domain": "Smart Building",
+    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "tags": [
+      "window",
+      "shade",
+      "automation"
+    ],
+    "source": "http://edge-node.local/api/I90",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "min"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Window Shade Automation",
+      "generated_at": "2026-08-27T10:59:08.452240Z",
+      "valid_until": "2026-08-27T11:04:08.452243Z",
+      "location": {
+        "latitude": -0.625,
+        "longitude": -102.3124
+      }
+    }
+  ]
+}

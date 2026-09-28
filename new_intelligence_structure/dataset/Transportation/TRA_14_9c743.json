@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "TRA_14_9c743",
+    "name": "Traffic Congestion Estimation",
+    "description": "Calculates gridlock levels along key road links to estimate travel delays and suggest alternate routes.",
+    "version": 1,
+    "agent": {
+      "id": "agent_TRA_14_9c743",
+      "type": "fixed_location"
+    },
+    "domain": "Transportation",
+    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "tags": [
+      "traffic",
+      "congestion",
+      "estimation"
+    ],
+    "source": "http://edge-node.local/api/I3",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Traffic Congestion Estimation",
+      "generated_at": "2026-08-27T10:59:08.416848Z",
+      "valid_until": "2026-08-27T11:04:08.416852Z",
+      "location": {
+        "latitude": -31.965,
+        "longitude": -178.4049
+      }
+    }
+  ]
+}

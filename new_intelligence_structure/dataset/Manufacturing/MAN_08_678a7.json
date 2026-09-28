@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "MAN_08_678a7",
+    "name": "Assembly Line Robotics",
+    "description": "Coordinates industrial robotic arms for precise welding, picking, and placing parts on the factory floor.",
+    "version": 1,
+    "agent": {
+      "id": "agent_MAN_08_678a7",
+      "type": "fixed_location"
+    },
+    "domain": "Manufacturing",
+    "context": "Analyzed under the specific operational context of Robotics parameters and environmental variables.",
+    "tags": [
+      "assembly",
+      "line",
+      "robotics"
+    ],
+    "source": "http://edge-node.local/api/I43",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 3600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Assembly Line Robotics",
+      "generated_at": "2026-08-27T10:59:08.432505Z",
+      "valid_until": "2026-08-27T11:04:08.432509Z",
+      "location": {
+        "latitude": -82.9056,
+        "longitude": -54.5795
+      }
+    }
+  ]
+}

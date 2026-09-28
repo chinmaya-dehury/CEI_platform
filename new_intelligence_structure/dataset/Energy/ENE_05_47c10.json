@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "ENE_05_47c10",
+    "name": "Grid Voltage Stabilization",
+    "description": "Balances electricity levels across the power grid so household appliances do not get damaged by sudden power surges.",
+    "version": 1,
+    "agent": {
+      "id": "agent_ENE_05_47c10",
+      "type": "fixed_location"
+    },
+    "domain": "Energy",
+    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "tags": [
+      "grid",
+      "voltage",
+      "stabilization"
+    ],
+    "source": "http://edge-node.local/api/I74",
+    "status": "online",
+    "update_mode": "periodic",
+    "frequency": {
+      "value": 600,
+      "unit": "sec"
+    }
+  },
+  "intelligence_items": [
+    {
+      "intelligence": "Sample data for Grid Voltage Stabilization",
+      "generated_at": "2026-08-27T10:59:08.445559Z",
+      "valid_until": "2026-08-27T11:04:08.445562Z",
+      "location": {
+        "latitude": -50.079,
+        "longitude": 152.9216
+      }
+    }
+  ]
+}
