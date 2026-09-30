@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Urban seismic monitoring network",
+    "context": "Used on underground ground sensors to measure shaking and map fault lines.",
     "tags": [
       "seismic",
       "early_warning",

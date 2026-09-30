@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Real-time monitoring of soil conditions in crop fields",
+    "context": "Used on local computer boxes placed on farms to track daily field conditions.",
     "tags": [
       "soil_analysis",
       "precision_farming",

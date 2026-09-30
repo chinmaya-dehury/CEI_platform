@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "context": "Used in remote health clinics or home care settings as a backup patient monitoring unit.",
     "tags": [
       "medical",
       "equipment",

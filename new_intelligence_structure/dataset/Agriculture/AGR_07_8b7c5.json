@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Machinery parameters and environmental variables.",
+    "context": "Used on robotic farm vehicles working in fields to pick ripe fruits and vegetables.",
     "tags": [
       "autonomous",
       "harvesting",

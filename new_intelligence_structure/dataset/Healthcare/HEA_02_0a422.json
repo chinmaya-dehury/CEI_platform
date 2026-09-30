@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "context": "Used during video doctor visits to share patient health stats remotely.",
     "tags": [
       "asthma",
       "trigger",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Climate parameters and environmental variables.",
+    "context": "Used at hospital sink stations to track if medical staff wash their hands properly.",
     "tags": [
       "urban",
       "heat",

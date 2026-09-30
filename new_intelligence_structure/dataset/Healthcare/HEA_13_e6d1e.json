@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "context": "Used on wearable chest patches worn by patients at home to detect heart rhythm problems.",
     "tags": [
       "healthcare",
       "monitor",

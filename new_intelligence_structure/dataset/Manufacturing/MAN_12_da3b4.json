@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Factory floor, production line, equipment monitoring",
+    "context": "Used inside smart buildings to evaluate smoke and heat sensors to prevent false alarms.",
     "tags": [
       "predictive_maintenance",
       "real_time_monitoring",

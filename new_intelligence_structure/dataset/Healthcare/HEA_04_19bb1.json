@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "context": "Used on ICU medical monitors to verify that patient vital signs are recorded accurately.",
     "tags": [
       "vitals",
       "monitoring",

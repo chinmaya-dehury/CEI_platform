@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used on local power pole transformers to check oil heat and prevent sudden explosions.",
     "tags": [
       "transformer",
       "health",

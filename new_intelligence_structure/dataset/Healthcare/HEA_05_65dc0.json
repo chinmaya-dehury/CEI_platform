@@ -9,7 +9,7 @@
       "type": "mobile"
     },
     "domain": "Healthcare",
-    "context": "Continuous monitoring of ICU patients for respiratory and cardiac parameters with anomaly detection and alert generation.",
+    "context": "Used in sleep clinic beds or home bedrooms to monitor breathing pauses during sleep.",
     "tags": [
       "ICU monitoring",
       "vital signs",

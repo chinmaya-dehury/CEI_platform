@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Environment parameters and environmental variables.",
+    "context": "Used along highway stretches to detect icy roads and dispatch snow plows.",
     "tags": [
       "emission",
       "monitoring",

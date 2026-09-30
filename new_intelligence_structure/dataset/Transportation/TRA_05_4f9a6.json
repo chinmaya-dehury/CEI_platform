@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Rail parameters and environmental variables.",
+    "context": "Used near street crosswalks to spot pedestrians and trigger warning lights for drivers.",
     "tags": [
       "railway",
       "track",

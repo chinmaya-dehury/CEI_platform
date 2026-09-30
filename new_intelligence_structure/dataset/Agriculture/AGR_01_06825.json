@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "context": "Used in open farm fields to know when to turn on water pumps based on plant dryness.",
     "tags": [
       "irrigation",
       "requirement",

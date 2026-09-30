@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Seismic parameters and environmental variables.",
+    "context": "Used near seismic fault lines to give citizens seconds of advance warning to take cover.",
     "tags": [
       "earthquake",
       "warning",

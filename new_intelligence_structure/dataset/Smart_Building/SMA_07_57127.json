@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "context": "Used inside air ducts to ensure clean air circulates with minimal energy loss.",
     "tags": [
       "window",
       "shade",

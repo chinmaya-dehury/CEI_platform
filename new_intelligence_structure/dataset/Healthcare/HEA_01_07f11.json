@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "context": "Used inside patient rooms to warn asthma sufferers when dust or pollen counts rise.",
     "tags": [
       "hand",
       "hygiene",

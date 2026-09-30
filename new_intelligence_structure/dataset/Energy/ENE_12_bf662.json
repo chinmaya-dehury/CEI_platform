@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "context": "Used on rooftop solar panels to measure sunlight levels and total solar power production.",
     "tags": [
       "solar",
       "generation",

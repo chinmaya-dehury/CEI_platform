@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "context": "Used on wind turbines to track propeller speed and prevent engine damage.",
     "tags": [
       "wind",
       "turbine",

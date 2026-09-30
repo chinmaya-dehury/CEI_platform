@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Robotics parameters and environmental variables.",
+    "context": "Used at factory inspection stations to verify finished goods match safety standards.",
     "tags": [
       "assembly",
       "line",

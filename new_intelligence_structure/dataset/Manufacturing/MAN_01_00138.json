@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Packaging parameters and environmental variables.",
+    "context": "Used along factory conveyor belts to guide robotic arms during product assembly.",
     "tags": [
       "packaging",
       "automation",

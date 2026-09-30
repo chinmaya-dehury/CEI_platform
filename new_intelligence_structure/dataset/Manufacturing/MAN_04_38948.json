@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "context": "Used on factory assembly lines with cameras to spot damaged or scratched products.",
     "tags": [
       "predictive",
       "maintenance",

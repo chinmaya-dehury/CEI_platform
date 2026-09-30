@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Soil parameters and environmental variables.",
+    "context": "Used inside public buildings and factories to sound alarms when carbon dioxide gets too high.",
     "tags": [
       "soil",
       "contamination",

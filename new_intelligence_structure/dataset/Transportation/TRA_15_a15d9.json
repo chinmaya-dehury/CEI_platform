@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "context": "Used in municipal traffic control rooms to monitor whole city road networks in real time.",
     "tags": [
       "road",
       "weather",

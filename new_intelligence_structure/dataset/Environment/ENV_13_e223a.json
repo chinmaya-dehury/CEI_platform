@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Urban air quality monitoring in real-time",
+    "context": "Used near factory smokestacks and busy roads to identify major sources of dirty air.",
     "tags": [
       "air_quality",
       "real_time",

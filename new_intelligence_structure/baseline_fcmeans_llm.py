@@ -215,7 +215,7 @@ results = []
 
 membership_results = {}
 
-for K in range(2, (N // 2) + 1):
+for K in range(2, (N // 3) + 1):
 
     print(f"Running K = {K}")
 

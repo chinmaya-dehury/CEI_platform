@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Smart grid infrastructure monitoring",
+    "context": "Used by electric utilities to predict how much power a city will need during peak hours.",
     "tags": [
       "smart_grid",
       "renewables",

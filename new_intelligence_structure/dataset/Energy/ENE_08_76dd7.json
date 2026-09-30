@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "context": "Used near underground hot steam wells to measure natural earth heat energy production.",
     "tags": [
       "geothermal",
       "output",

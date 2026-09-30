@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Greenhouse parameters and environmental variables.",
+    "context": "Used inside glass greenhouses to control temperature fans and humidity for growing plants.",
     "tags": [
       "greenhouse",
       "climate",

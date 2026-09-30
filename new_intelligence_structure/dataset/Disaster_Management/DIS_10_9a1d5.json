@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "context": "Used along river banks and city drains to warn communities before roads get flooded.",
     "tags": [
       "flood",
       "prediction",

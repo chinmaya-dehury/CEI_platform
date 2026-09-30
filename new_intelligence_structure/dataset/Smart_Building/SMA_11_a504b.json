@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Commercial building with IoT sensors monitoring temperature, humidity, and occupancy.",
+    "context": "Used on roof heating and cooling units to repair AC compressors before they break.",
     "tags": [
       "energy_efficiency",
       "HVAC_control",

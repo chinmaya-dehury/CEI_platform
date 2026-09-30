@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Fire parameters and environmental variables.",
+    "context": "Used in dry forest areas to spot sudden heat rises that could trigger wildfires.",
     "tags": [
       "temperature",
       "spike",

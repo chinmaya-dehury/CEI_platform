@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Treatment parameters and environmental variables.",
+    "context": "Used directly at bedside in hospital wards to collect baseline patient stats.",
     "tags": [
       "medication",
       "adherence",

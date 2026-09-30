@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "context": "Used on delivery trucks and aid packages carrying emergency food water and medicine.",
     "tags": [
       "relief",
       "supply",

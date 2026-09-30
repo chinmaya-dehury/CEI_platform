@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "context": "Used in commercial office buildings to automatically lower heating and cooling bills.",
     "tags": [
       "space",
       "utilization",

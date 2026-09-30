@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Quality parameters and environmental variables.",
+    "context": "Used on heavy industrial drills and cutters to signal when blades need sharpening.",
     "tags": [
       "defect",
       "detection",

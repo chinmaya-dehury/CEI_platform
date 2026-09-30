@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "context": "Used at disaster response centers to dispatch rescue teams and ambulances where needed first.",
     "tags": [
       "emergency",
       "resource",

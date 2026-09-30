@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Livestock parameters and environmental variables.",
+    "context": "Used on wearable collar sensors attached to farm animals to spot sick livestock early.",
     "tags": [
       "livestock",
       "health",

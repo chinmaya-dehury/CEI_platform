@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used inside home and office rooms to check if the air is safe and clean to breathe.",
     "tags": [
       "power",
       "quality",

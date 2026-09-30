@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Security parameters and environmental variables.",
+    "context": "Used inside elevator shafts to check cable wear and prevent elevator breakdowns.",
     "tags": [
       "access",
       "control",

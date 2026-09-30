@@ -9,7 +9,7 @@
       "type": "mobile"
     },
     "domain": "Disaster Management",
-    "context": "Real-time monitoring and early warning system for natural disasters such as earthquakes, floods, and hurricanes.",
+    "context": "Used across emergency response networks to send quick disaster warnings to local residents.",
     "tags": [
       "early_warning",
       "seismic_monitoring",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Commercial office building with 500+ occupants",
+    "context": "Used on office windows to raise or lower blinds depending on sun position.",
     "tags": [
       "energy_efficiency",
       "IoT",

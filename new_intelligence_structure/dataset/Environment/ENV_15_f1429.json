@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Noise parameters and environmental variables.",
+    "context": "Used in concrete-heavy city centers to identify hot zones that trap extra sun heat.",
     "tags": [
       "noise",
       "pollution",

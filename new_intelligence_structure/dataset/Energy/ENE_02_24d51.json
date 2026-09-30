@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used outside homes and office buildings to measure daily power usage for billing.",
     "tags": [
       "smart",
       "metering",

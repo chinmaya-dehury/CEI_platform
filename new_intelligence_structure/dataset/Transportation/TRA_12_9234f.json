@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Parking parameters and environmental variables.",
+    "context": "Used on city navigation maps to calculate traffic gridlock and suggest alternate routes.",
     "tags": [
       "parking",
       "availability",

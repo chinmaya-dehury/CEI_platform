@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Road parameters and environmental variables.",
+    "context": "Used near roadway checkpoints to measure car exhaust gases and air pollution.",
     "tags": [
       "pothole",
       "detection",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "context": "Used along long oil and gas pipes to find cracks and stop dangerous fuel leaks.",
     "tags": [
       "pipeline",
       "leak",

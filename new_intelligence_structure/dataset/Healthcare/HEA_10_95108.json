@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "context": "Used in hospital intensive care units (ICU) to measure pulse temperature and breathing.",
     "tags": [
       "availability",
       "analyzed",

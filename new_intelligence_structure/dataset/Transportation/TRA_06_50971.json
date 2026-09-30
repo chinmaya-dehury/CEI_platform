@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Fleet parameters and environmental variables.",
+    "context": "Used across city bus networks to adjust bus schedules based on passenger traffic.",
     "tags": [
       "fleet",
       "management",

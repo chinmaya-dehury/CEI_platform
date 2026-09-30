@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "context": "Used at hospital front desks to track open beds and admit emergency patients faster.",
     "tags": [
       "patient",
       "fall",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Vehicle parameters and environmental variables.",
+    "context": "Used at highway toll gantries to automatically scan license plates and collect toll fees.",
     "tags": [
       "cabin",
       "quality",

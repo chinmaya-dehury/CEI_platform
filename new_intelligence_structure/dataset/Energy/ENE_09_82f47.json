@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "context": "Used in large power storage banks to monitor battery temperature and prevent overheating.",
     "tags": [
       "battery",
       "health",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "context": "Used in hospital rooms and senior care homes to alert nurses instantly if a patient falls.",
     "tags": [
       "healthcare",
       "monitor",

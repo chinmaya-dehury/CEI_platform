@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "context": "Used over forest areas to spot illegal tree clearing and land damage from space.",
     "tags": [
       "indoor",
       "quality",

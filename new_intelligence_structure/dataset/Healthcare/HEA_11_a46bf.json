@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Hospital ICU monitoring",
+    "context": "Used inside hospital corridors to locate wheelchairs and IV pumps quickly.",
     "tags": [
       "biomedical",
       "realtime",

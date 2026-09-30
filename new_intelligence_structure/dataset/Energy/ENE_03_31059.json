@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used inside high-voltage electrical stations to catch short circuits before blackouts occur.",
     "tags": [
       "substation",
       "fault",

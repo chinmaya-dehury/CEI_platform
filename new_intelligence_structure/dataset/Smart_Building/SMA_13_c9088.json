@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of HVAC parameters and environmental variables.",
+    "context": "Used inside car and bus cabins to monitor clean air and keep drivers alert.",
     "tags": [
       "hvac",
       "predictive",

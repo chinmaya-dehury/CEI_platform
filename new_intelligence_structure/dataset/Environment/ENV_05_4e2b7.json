@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Real-time environmental monitoring and anomaly detection in remote ecological zones.",
+    "context": "Used on animal GPS collars and outdoor camera traps to track wild animals.",
     "tags": [
       "ecology",
       "anomaly_detection",

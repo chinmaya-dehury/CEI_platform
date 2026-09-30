@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "context": "Used in dirt around industrial sites to test for toxic chemicals and heavy metals.",
     "tags": [
       "river",
       "level",

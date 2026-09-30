@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Cardio parameters and environmental variables.",
+    "context": "Used on factory packing lines to speed up product boxing sorting and labeling.",
     "tags": [
       "remote",
       "monitoring",

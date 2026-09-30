@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "context": "Used on automated robot arms to weld and place parts accurately on assembly lines.",
     "tags": [
       "worker",
       "safety",

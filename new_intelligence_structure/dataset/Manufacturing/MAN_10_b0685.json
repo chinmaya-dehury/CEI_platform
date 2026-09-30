@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Warehouse parameters and environmental variables.",
+    "context": "Used across shipping docks and delivery trucks to prevent factory production delays.",
     "tags": [
       "inventory",
       "tracking",

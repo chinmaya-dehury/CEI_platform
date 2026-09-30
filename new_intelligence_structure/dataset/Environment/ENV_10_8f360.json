@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "context": "Used in nature reserves to count plant and animal populations and protect ecosystems.",
     "tags": [
       "threshold",
       "detection",

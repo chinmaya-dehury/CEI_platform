@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Soil parameters and environmental variables.",
+    "context": "Used in farm soil to check if plants need more fertilizer or plant food.",
     "tags": [
       "soil",
       "nutrient",

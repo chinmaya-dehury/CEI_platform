@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "context": "Used in outdoor fields during hot days to protect crops from overheating.",
     "tags": [
       "crop",
       "heat",

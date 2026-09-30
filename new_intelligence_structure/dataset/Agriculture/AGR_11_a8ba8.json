@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Mapping parameters and environmental variables.",
+    "context": "Used on flying drones taking top-down photos of large farm fields.",
     "tags": [
       "aerial",
       "mapping",

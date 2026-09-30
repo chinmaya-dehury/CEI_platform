@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Ocean parameters and environmental variables.",
+    "context": "Used on outdoor city street posts to measure dust smog and overall air pollution.",
     "tags": [
       "ocean",
       "plastic",

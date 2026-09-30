@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Patient parameters and environmental variables.",
+    "context": "Used on smart pillboxes or home health apps to remind patients to take medicine on time.",
     "tags": [
       "sleep",
       "apnea",

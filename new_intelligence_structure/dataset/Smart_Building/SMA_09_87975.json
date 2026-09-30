@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Management parameters and environmental variables.",
+    "context": "Used in office hallways to track carbon dioxide humidity and chemical odors.",
     "tags": [
       "waste",
       "monitoring",

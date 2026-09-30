@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Harvest parameters and environmental variables.",
+    "context": "Used near harvest time to estimate how many crops the farm will produce.",
     "tags": [
       "yield",
       "prediction",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Infrastructure parameters and environmental variables.",
+    "context": "Used in building hallways to turn off lights automatically when rooms are empty.",
     "tags": [
       "water",
       "leak",

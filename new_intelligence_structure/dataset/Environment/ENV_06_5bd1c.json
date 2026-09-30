@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Wildlife parameters and environmental variables.",
+    "context": "Used across city and rural weather stations to sound warnings during extreme heatwaves.",
     "tags": [
       "wildlife",
       "tracking",

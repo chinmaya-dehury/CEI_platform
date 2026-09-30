@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Transit parameters and environmental variables.",
+    "context": "Used on highway traffic cameras to spot speeding cars and keep roads safe.",
     "tags": [
       "public",
       "transit",

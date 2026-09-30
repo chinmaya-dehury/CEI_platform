@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Traffic parameters and environmental variables.",
+    "context": "Used at city road intersections to change traffic light timing and reduce traffic jams.",
     "tags": [
       "accident",
       "risk",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Energy parameters and environmental variables.",
+    "context": "Used along dangerous road curves and busy highways to detect collision risks.",
     "tags": [
       "lighting",
       "optimization",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "context": "Used along city highways and busy streets to map loud noise areas.",
     "tags": [
       "water",
       "quality",

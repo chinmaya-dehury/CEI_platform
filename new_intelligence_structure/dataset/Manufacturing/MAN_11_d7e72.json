@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "context": "Used directly on factory machines to gather live operational performance data.",
     "tags": [
       "supply",
       "chain",

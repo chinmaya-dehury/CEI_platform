@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Crop parameters and environmental variables.",
+    "context": "Used in farm dirt to measure how wet the ground is so crops do not dry out.",
     "tags": [
       "soil",
       "moisture",

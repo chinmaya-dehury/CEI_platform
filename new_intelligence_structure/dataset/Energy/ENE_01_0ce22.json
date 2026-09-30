@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used on street utility poles to spot illegal wire hookups stealing power.",
     "tags": [
       "energy",
       "theft",

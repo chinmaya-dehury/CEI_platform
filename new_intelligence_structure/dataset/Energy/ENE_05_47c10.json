@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Grid parameters and environmental variables.",
+    "context": "Used across neighborhood power lines to prevent sudden voltage spikes that damage appliances.",
     "tags": [
       "grid",
       "voltage",

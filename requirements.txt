@@ -5,3 +5,4 @@ sentence-transformers
 scikit-learn
 dotenv
 scikit-fuzzy
+seaborn

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of Building parameters and environmental variables.",
+    "context": "Used at building entrance doors to read keycards and block unauthorized visitors.",
     "tags": [
       "occupancy",
       "estimation",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Forest parameters and environmental variables.",
+    "context": "Used in rivers lakes and drinking reservoirs to test for chemical pollution and bacteria.",
     "tags": [
       "deforestation",
       "detection",

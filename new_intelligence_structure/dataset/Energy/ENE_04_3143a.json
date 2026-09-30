@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Energy",
-    "context": "Analyzed under the specific operational context of Renewable parameters and environmental variables.",
+    "context": "Used at river dams to manage water flow and keep power turbines spinning safely.",
     "tags": [
       "hydroelectric",
       "analyzed",

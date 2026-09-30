@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Healthcare",
-    "context": "Analyzed under the specific operational context of Remote parameters and environmental variables.",
+    "context": "Used beside hospital beds to constantly track patient heart rate blood pressure and oxygen.",
     "tags": [
       "telemedicine",
       "diagnostics",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Production parameters and environmental variables.",
+    "context": "Used on warehouse storage shelves to track raw materials and boxed inventory levels.",
     "tags": [
       "quality",
       "control",

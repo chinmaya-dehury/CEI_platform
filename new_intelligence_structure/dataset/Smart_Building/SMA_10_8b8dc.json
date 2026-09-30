@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Smart Building",
-    "context": "Analyzed under the specific operational context of AirQuality parameters and environmental variables.",
+    "context": "Used near building water pipes and basements to catch pipe drips before water damage occurs.",
     "tags": [
       "indoor",
       "quality",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Environment",
-    "context": "Analyzed under the specific operational context of Weather parameters and environmental variables.",
+    "context": "Used under river bridges to monitor rising water levels and give flood warnings.",
     "tags": [
       "heatwave",
       "detection",

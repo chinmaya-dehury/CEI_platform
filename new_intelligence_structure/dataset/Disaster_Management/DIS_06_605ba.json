@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Fire parameters and environmental variables.",
+    "context": "Used via satellite images to track active forest fires and direct firefighting teams.",
     "tags": [
       "wildfire",
       "tracking",

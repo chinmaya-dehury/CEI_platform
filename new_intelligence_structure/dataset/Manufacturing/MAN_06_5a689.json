@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Manufacturing",
-    "context": "Analyzed under the specific operational context of Equipment parameters and environmental variables.",
+    "context": "Used on factory floors to make sure workers wear hard hats and stay clear of dangerous zones.",
     "tags": [
       "tool",
       "wear",

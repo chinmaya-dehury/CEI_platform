@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Analyzed under the specific operational context of Logistics parameters and environmental variables.",
+    "context": "Used on road inspection vehicles to scan street asphalt for cracks and potholes.",
     "tags": [
       "freight",
       "tracking",

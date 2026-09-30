@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Real-time soil condition monitoring for crop optimization",
+    "context": "Used in dirt around plant roots to check soil moisture and fertilizer levels in real time.",
     "tags": [
       "soil_monitoring",
       "precision_farming",

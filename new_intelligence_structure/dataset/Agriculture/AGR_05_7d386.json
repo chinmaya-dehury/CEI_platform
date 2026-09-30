@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Agriculture",
-    "context": "Analyzed under the specific operational context of Water parameters and environmental variables.",
+    "context": "Used along farm water pipes to catch leaks before fields flood or water gets wasted.",
     "tags": [
       "irrigation",
       "leak",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Disaster Management",
-    "context": "Analyzed under the specific operational context of Safety parameters and environmental variables.",
+    "context": "Used on emergency GPS maps to direct fleeing traffic away from dangerous disaster zones.",
     "tags": [
       "evacuation",
       "optimization",

@@ -9,7 +9,7 @@
       "type": "fixed_location"
     },
     "domain": "Transportation",
-    "context": "Urban traffic management system",
+    "context": "Used on company delivery vans to track live vehicle locations and fuel efficiency.",
     "tags": [
       "traffic_monitoring",
       "real_time_analysis",
