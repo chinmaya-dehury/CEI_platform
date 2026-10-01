@@ -1,3 +1,4 @@
+import argparse
 import csv
 import json
 import os
@@ -27,14 +28,14 @@ MAX_RETRIES = 2
 
 STANDARD_MEMBERSHIP_FILES = {
     "baseline_cosine": RESULTS_DIR / "result_cosine_baseline_corrected" / "fuzzy_membership_matrix.csv",
-    "pcm_cosine": RESULTS_DIR / "result_cosine_pcm" / "fuzzy_membership_matrix.csv",
+    "fcm_cosine": RESULTS_DIR / "result_cosine_fcm" / "fuzzy_membership_matrix.csv",
     "baseline_llm": RESULTS_DIR / "result_llm_baseline" / "fuzzy_membership_matrix.csv",
-    "pcm_llm_standard": RESULTS_DIR / "result_llm_pcm" / "fuzzy_membership_matrix.csv",
+    "fcm_llm_standard": RESULTS_DIR / "result_llm_fcm" / "fuzzy_membership_matrix.csv",
 }
 
 OVERLAP_ASSIGNMENT_DIRS = {
-    "pcm_cosine": RESULTS_DIR / "result_cosine_pcm",
-    "pcm_llm": RESULTS_DIR / "result_llm_pcm",
+    "fcm_cosine": RESULTS_DIR / "result_cosine_fcm",
+    "fcm_llm": RESULTS_DIR / "result_llm_fcm",
 }
 
 DOMAIN_COLORS = {
@@ -143,6 +144,7 @@ def save_cluster_domain_graph(approach, clusters, records):
 
     cluster_names = list(clusters)
     edge_colors = plt.cm.hsv(np.linspace(0, 1, max(len(cluster_names), 1), endpoint=False))
+    
     for cluster_index, cluster_name in enumerate(cluster_names):
         cluster_ids = [item_id for item_id in clusters[cluster_name] if item_id in records]
         for left_index, left_id in enumerate(cluster_ids):
@@ -160,12 +162,44 @@ def save_cluster_domain_graph(approach, clusters, records):
     if not graph.nodes:
         return
 
-    positions = nx.spring_layout(graph, seed=42, k=1.2 / np.sqrt(len(graph.nodes)))
-    plt.figure(figsize=(16, 12))
+    # --- GRID & SPACING PARAMETERS ---
+    GRID_STEP = 0.8     # Unified spacing between cluster grid centers (x and y)
+    MAX_RADIUS = 0.40    # Reduced node ring radius so nodes stay tight and don't overlap text
+    
+    positions = {}
+    cluster_centers = {}
+    grid_width = max(1, int(np.ceil(np.sqrt(len(cluster_names)))))
+
+    for cluster_index, cluster_name in enumerate(cluster_names):
+        cluster_ids = [item_id for item_id in clusters[cluster_name] if item_id in records]
+        grid_x = cluster_index % grid_width
+        grid_y = cluster_index // grid_width
+        
+        # Calculate cluster center coordinate
+        center = np.array([grid_x * GRID_STEP, -grid_y * GRID_STEP], dtype=float)
+        cluster_centers[cluster_name] = center
+        
+        if len(cluster_ids) == 1:
+            positions[cluster_ids[0]] = center
+        else:
+            # Scaled radius bounded at MAX_RADIUS
+            radius = min(MAX_RADIUS, 0.22 + 0.015 * np.sqrt(len(cluster_ids)))
+            angles = np.linspace(0, 2 * np.pi, len(cluster_ids), endpoint=False)
+            for item_index, item_id in enumerate(cluster_ids):
+                positions[item_id] = center + radius * np.array([
+                    np.cos(angles[item_index]),
+                    np.sin(angles[item_index]),
+                ])
+
+    # Dynamic figure size proportional to grid size
+    grid_height = int(np.ceil(len(cluster_names) / grid_width))
+    plt.figure(figsize=(grid_width * 2.8 + 2.0, grid_height * 2.6 + 1.0), dpi=160)
+
     node_colors = [
         DOMAIN_COLORS.get(records[node]["domain"], "#7f7f7f")
         for node in graph.nodes
     ]
+
     nx.draw_networkx_edges(
         graph,
         positions,
@@ -173,11 +207,12 @@ def save_cluster_domain_graph(approach, clusters, records):
         alpha=0.18,
         width=[0.5 + data.get("weight", 1) for _, _, data in graph.edges(data=True)],
     )
+    
     nx.draw_networkx_nodes(
         graph,
         positions,
         node_color=node_colors,
-        node_size=90,
+        node_size=200,          # Slightly reduced node size for clarity
         alpha=0.9,
         linewidths=0.3,
         edgecolors="black",
@@ -188,14 +223,78 @@ def save_cluster_domain_graph(approach, clusters, records):
                markerfacecolor=color, markersize=9)
         for domain, color in DOMAIN_COLORS.items()
     ]
-    plt.legend(handles=domain_handles, title="Application domain", loc="upper left")
-    plt.title(f"{approach}: cluster relationships with domain-colored intelligences")
+
+    # --- PLOT CLUSTER LABELS (EXACT CENTER MATCHing) ---
+    for cluster_name, center in cluster_centers.items():
+        plt.text(
+            center[0],              # Uses exact cluster center x-coordinate
+            center[1] - 0.35,       # Fixed vertical offset directly below the cluster
+            cluster_name,
+            ha="center",
+            va="top",
+            fontsize=10,
+            fontweight="bold",
+            bbox={"facecolor": "white", "edgecolor": "#555555", "alpha": 0.9, "pad": 3},
+        )
+        # Place legend inside the empty bottom-right cell (grid_x=2, grid_y=2)
+        empty_cell_x = 2 * GRID_STEP
+        empty_cell_y = -2 * GRID_STEP
+
+        plt.legend(
+            handles=domain_handles,
+            title="Application Domain",
+            fontsize=13,
+            title_fontsize=14,
+            loc="center",
+            bbox_to_anchor=(empty_cell_x, empty_cell_y),
+            bbox_transform=plt.gca().transData,  # Uses data coordinates to lock position into the cell
+            frameon=True,
+            facecolor="white",
+            edgecolor="#cccccc"
+        )
+    plt.title( f"Domain Distribution Across {len(clusters)} Clusters ({approach.capitalize()})",
+    fontsize=14,          # Increases font size (e.g., 14 or 16 for titles)
+    fontweight="bold",    # Makes title bold
+    loc="center",          # Keeps title centered
+    y=0.95
+)
     plt.axis("off")
-    plt.tight_layout()
+    plt.tight_layout(rect=(0, 0, 0.86, 1))
     graph_path = OUTPUT_DIR / f"{approach}_cluster_domain_graph.png"
     plt.savefig(graph_path, dpi=300, bbox_inches="tight")
+    plt.savefig(OUTPUT_DIR / f"{approach}_cluster_domain_graph.pdf", dpi=300, bbox_inches="tight")
     plt.close()
     print(f"  Saved graph {graph_path}")
+
+
+def save_cluster_size_chart(approach, clusters, records):
+    cluster_names = list(clusters)
+    sizes = [
+        sum(item_id in records for item_id in clusters[cluster_name])
+        for cluster_name in cluster_names
+    ]
+    figure_width = max(10, len(cluster_names) * 0.7)
+    plt.figure(figsize=(figure_width, 6), dpi=160)
+    bars = plt.bar(cluster_names, sizes, color="#2878b5")
+    for bar, size in zip(bars, sizes):
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height(),
+            str(size),
+            ha="center",
+            va="bottom",
+        )
+    plt.xlabel("Cluster")
+    plt.ylabel("Items with available records")
+    plt.title(f"{approach}: {len(cluster_names)} clusters and item counts")
+    plt.xticks(rotation=45, ha="right")
+    plt.grid(axis="y", alpha=0.25)
+    plt.tight_layout()
+    chart_path = OUTPUT_DIR / f"{approach}_cluster_sizes.png"
+    plt.savefig(chart_path, dpi=300, bbox_inches="tight")
+    plt.savefig(OUTPUT_DIR / f"{approach}_cluster_sizes.pdf", dpi=300, bbox_inches="tight")
+    plt.close()
+    print(f"  Saved cluster-size chart {chart_path}")
 
 
 def parse_response(text):
@@ -257,21 +356,9 @@ def analyze_source(approach, path, cluster_loader, records):
     results = []
     print(f"\nAnalyzing {approach}: {path.name}")
     save_cluster_domain_graph(approach, clusters, records)
+    save_cluster_size_chart(approach, clusters, records)
 
-    for cluster_name, item_ids in clusters.items():
-        items = [records[item_id] for item_id in item_ids if item_id in records]
-        if not items:
-            continue
-        print(f"  {cluster_name}: {len(items)} items")
-        result = analyze_cluster(approach, cluster_name, items)
-        result.update({
-            "approach": approach,
-            "cluster": cluster_name,
-            "item_count": len(items),
-            "missing_items": len(item_ids) - len(items),
-            "source_file": str(path),
-        })
-        results.append(result)
+    # LLM cluster analysis is disabled. Graphs and cluster-size reports still run.
 
     output_json = OUTPUT_DIR / f"{approach}_cluster_insights.json"
     output_csv = OUTPUT_DIR / f"{approach}_cluster_insights.csv"
@@ -294,25 +381,49 @@ def analyze_source(approach, path, cluster_loader, records):
 
 
 def main():
-    if not OLLAMA_MODEL:
-        raise ValueError("OLLAMA_MODEL is not set in the environment or .env file")
+    parser = argparse.ArgumentParser(description="Analyze clusters with Ollama")
+    parser.add_argument("--membership-file", type=Path)
+    parser.add_argument("--assignments-file", type=Path)
+    parser.add_argument("--approach", default="fcm")
+    parser.add_argument("--plot-only", action="store_true")
+    args = parser.parse_args()
+
+    # Ollama calls are disabled; OLLAMA_MODEL is not required.
 
     records = load_records()
     if not records:
         raise FileNotFoundError(f"No intelligence JSON files found in {DATASET_DIR}")
 
+    if args.membership_file and args.assignments_file:
+        raise ValueError("Use only one of --membership-file or --assignments-file")
+
+    if args.assignments_file:
+        assignment_path = args.assignments_file.resolve()
+        if not assignment_path.exists():
+            raise FileNotFoundError(f"Assignment file not found: {assignment_path}")
+        if args.plot_only:
+            clusters = clusters_from_assignments(assignment_path)
+            save_cluster_domain_graph(args.approach, clusters, records)
+            save_cluster_size_chart(args.approach, clusters, records)
+            return
+        analyze_source(args.approach, assignment_path, clusters_from_assignments, records)
+        return
+
+    if args.membership_file:
+        membership_path = args.membership_file.resolve()
+        if not membership_path.exists():
+            raise FileNotFoundError(f"Membership file not found: {membership_path}")
+        if args.plot_only:
+            clusters = clusters_from_membership(membership_path)
+            save_cluster_domain_graph(args.approach, clusters, records)
+            save_cluster_size_chart(args.approach, clusters, records)
+            return
+        analyze_source(args.approach, membership_path, clusters_from_membership, records)
+        return
+
     for approach, path in STANDARD_MEMBERSHIP_FILES.items():
         if path.exists():
             analyze_source(approach, path, clusters_from_membership, records)
-        else:
-            print(f"Skipping missing file: {path}")
-
-    for source_name, assignment_dir in OVERLAP_ASSIGNMENT_DIRS.items():
-        for path in sorted(assignment_dir.glob("cluster_assignments_threshold_*.csv")):
-            threshold_match = re.search(r"threshold_(\d+_\d+)_K(\d+)", path.stem)
-            threshold = threshold_match.group(1).replace("_", ".") if threshold_match else "unknown"
-            approach = f"{source_name}_overlap_threshold_{threshold}"
-            analyze_source(approach, path, clusters_from_assignments, records)
 
 
 if __name__ == "__main__":

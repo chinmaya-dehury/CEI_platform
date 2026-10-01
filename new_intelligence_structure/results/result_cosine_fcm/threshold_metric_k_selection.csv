@@ -1,0 +1,6 @@
+threshold,metric,selection,K,score,actual_clusters,hard_cluster_count,cluster_utilization,threshold_items
+0.4,fpc,max,35,0.9064705780435853,35,35,1.0,104
+0.4,fuzzy_silhouette,max,8,0.0890920825998896,8,8,1.0,102
+0.4,silhouette,max,8,0.10486392437396791,8,8,1.0,102
+0.4,davies_bouldin,min,38,1.0500453886198253,38,38,1.0,105
+0.4,calinski_harabasz,max,8,12.107531141153366,8,8,1.0,102
