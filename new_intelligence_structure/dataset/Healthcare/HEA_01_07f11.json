@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Hand Hygiene Compliance",
+      "intelligence": "Stable",
       "generated_at": "2026-08-27T10:59:08.437137Z",
       "valid_until": "2026-08-27T11:04:08.437140Z",
       "location": {

@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Medical Equipment Tracking",
+      "intelligence": 102,
       "generated_at": "2026-08-27T10:59:08.437476Z",
       "valid_until": "2026-08-27T11:04:08.437479Z",
       "location": {

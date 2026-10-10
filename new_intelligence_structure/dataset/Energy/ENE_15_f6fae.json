@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Power Quality Analysis",
+      "intelligence": 153.9,
       "generated_at": "2026-08-27T10:59:08.448020Z",
       "valid_until": "2026-08-27T11:04:08.448024Z",
       "location": {

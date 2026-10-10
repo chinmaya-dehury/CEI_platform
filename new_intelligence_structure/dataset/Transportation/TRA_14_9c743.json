@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Traffic Congestion Estimation",
+      "intelligence": "Heavy",
       "generated_at": "2026-08-27T10:59:08.416848Z",
       "valid_until": "2026-08-27T11:04:08.416852Z",
       "location": {

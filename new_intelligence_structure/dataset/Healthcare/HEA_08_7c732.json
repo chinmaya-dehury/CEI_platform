@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Healthcare Monitor 1",
+      "intelligence": {
+        "status": "Stable",
+        "heart_rate_bpm": 94
+      },
       "generated_at": "2026-08-27T10:59:08.456700Z",
       "valid_until": "2026-08-27T11:04:08.456704Z",
       "location": {

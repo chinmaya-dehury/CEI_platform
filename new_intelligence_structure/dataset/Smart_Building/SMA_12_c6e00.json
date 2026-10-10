@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Water Leak Detection",
+      "intelligence": 51.3,
       "generated_at": "2026-08-27T10:59:08.450358Z",
       "valid_until": "2026-08-27T11:04:08.450361Z",
       "location": {

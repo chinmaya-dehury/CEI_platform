@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Livestock Health",
+      "intelligence": 34.5,
       "generated_at": "2026-08-27T10:59:08.430492Z",
       "valid_until": "2026-08-27T11:04:08.430495Z",
       "location": {

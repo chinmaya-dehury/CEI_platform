@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Pedestrian Safety",
+      "intelligence": "Heavy",
       "generated_at": "2026-08-27T10:59:08.424772Z",
       "valid_until": "2026-08-27T11:04:08.424776Z",
       "location": {

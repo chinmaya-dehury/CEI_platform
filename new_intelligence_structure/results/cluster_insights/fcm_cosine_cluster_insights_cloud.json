@@ -1,0 +1,122 @@
+[
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_1",
+    "item_count": 13,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive set of tools and systems for disaster management, focusing on early warning, risk assessment, and response optimization. The items collectively enable proactive and reactive measures to mitigate the impact of natural disasters.",
+    "evidence": [
+      "Identifies hill slopes and mud areas at high risk of falling during heavy rainfall (DIS_01_0c5e4)",
+      "Tracks the movement and direction of severe storms to predict where they will hit land (DIS_02_24fa8)"
+    ],
+    "reason": "The items in this cluster share a common domain (Disaster Management) and exhibit a clear functional pattern, with most items focused on early warning, risk assessment, and response optimization. The descriptions and contexts of the items demonstrate a high degree of thematic coherence, making this cluster a meaningful and non-trivial pattern.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_2",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a cohesive set of energy-related technologies and applications that focus on monitoring, detection, and analysis to ensure efficient and safe energy production, transmission, and consumption.",
+    "evidence": [
+      "Tracks water levels and dam turbine performance to generate steady, safe water power",
+      "Balances electricity levels across the power grid so household appliances do not get damaged by sudden power surges"
+    ],
+    "reason": "The cluster exhibits a strong thematic coherence due to the consistent focus on energy-related technologies and applications. The outlier item (HEA_01_07f11) is related to healthcare, which is a different domain. The cluster forms a meaningful, non-trivial pattern as it represents a cohesive set of energy-related concepts.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_3",
+    "item_count": 12,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive theme of Industrial Manufacturing Automation and Quality Control, highlighting the integration of various technologies to optimize factory operations, predict maintenance needs, and ensure product quality.",
+    "evidence": [
+      "Controls and verifies high-speed sorting, boxing, and labeling of finished products before shipping.",
+      "Tracks each step of the product assembly process to ensure parts are put together correctly."
+    ],
+    "reason": "The cluster exhibits a strong thematic coherence, with most items related to manufacturing automation, quality control, and predictive maintenance. The items demonstrate a clear synergy in their application and functionality, making this cluster a meaningful and non-trivial pattern.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_4",
+    "item_count": 14,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a cohesive set of smart building technologies that work together to optimize energy efficiency, indoor air quality, and occupant comfort, while also ensuring building safety and security.",
+    "evidence": [
+      "Evaluates smoke, heat, and flame sensor signals to verify genuine fire threats and trigger emergency procedures.",
+      "Monitors door cycles, cable tension, and motor vibrations to schedule elevator repairs before breakdowns."
+    ],
+    "reason": "The items in this cluster are all related to smart building technologies, with a clear focus on energy efficiency, indoor air quality, and occupant comfort. The presence of fire alarm analytics and elevator health monitoring suggests a strong emphasis on building safety and security.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_5",
+    "item_count": 15,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a comprehensive suite of precision agriculture tools and techniques that enable farmers to optimize crop growth, reduce waste, and improve yields. By analyzing various aspects of soil, climate, and crop health, these items collectively form a cohesive pattern that supports data-driven decision-making in agriculture.",
+    "evidence": [
+      "Calculates exactly how much water crops need so farmers know when and how much to water.",
+      "Tracks harmful bugs in the fields to warn farmers before crops get damaged."
+    ],
+    "reason": "The cluster exhibits a high degree of thematic coherence, with most items sharing a common domain (Agriculture) and functional pattern (precision agriculture). The outlier (Soil Contamination) is from a different domain (Environment) and does not fit the overall theme of the cluster.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_6",
+    "item_count": 14,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a cohesive pattern of healthcare monitoring and patient care solutions, highlighting the importance of remote patient monitoring, early detection of health issues, and efficient hospital operations.",
+    "evidence": [
+      "Crop Heat Stress Detection monitors crops for extreme weather conditions, similar to how Asthma Trigger Detection monitors air quality for asthma patients.",
+      "Vital Signs Monitor Health checks bedside patient monitors for accuracy, mirroring the functionality of Vital Signs Monitor, which measures baseline body metrics."
+    ],
+    "reason": "The cluster exhibits a strong thematic coherence, with most items related to healthcare monitoring, patient care, and hospital operations. The items demonstrate a clear synergy, with each contributing to the overall theme of efficient and effective healthcare delivery.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_7",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a collection of environmental monitoring and assessment tools that focus on air, water, and noise quality, as well as wildlife tracking and biodiversity assessment. These items share a common theme of preserving and understanding the natural environment, with a focus on detecting and mitigating pollution and its effects.",
+    "evidence": [
+      "Measures pollutants inside home or office spaces to ensure air is safe and healthy to breathe. (ENV_01_0cfd4)",
+      "Uses satellite and aerial images to spot illegal tree cutting and forest loss. (ENV_02_0f9b0)"
+    ],
+    "reason": "The cluster exhibits a high degree of thematic coherence, with most items sharing a common domain (Environment) and focusing on related topics such as pollution detection, monitoring, and assessment. The outliers (TRA_01_10265 and TRA_05_4f9a6) are transportation-related items that do not fit the environmental theme, but are still included in the cluster due to their proximity to environmental items in the FCM space.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_8",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive pattern of Transportation-related applications focused on monitoring, analyzing, and optimizing traffic flow, safety, and environmental impact. These items share a common theme of using data-driven approaches to improve transportation efficiency, reduce congestion, and enhance public safety.",
+    "evidence": [
+      "Uses GPS collars, camera traps, or radio tags to monitor animal movement and preserve habitats (ENV_07_6070a)",
+      "Scans road conditions, vehicle speeds, and driver behavior to identify hazardous areas and prevent collisions (TRA_02_12fb4)"
+    ],
+    "reason": "The items in this cluster demonstrate a strong thematic coherence, with a clear focus on transportation-related applications. The descriptions and contexts provided for each item reinforce this theme, highlighting the use of data-driven approaches to improve transportation efficiency, safety, and environmental impact.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  }
+]

@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Road Weather Conditions",
+      "intelligence": 7.0,
       "generated_at": "2026-08-27T10:59:08.426714Z",
       "valid_until": "2026-08-27T11:04:08.426718Z",
       "location": {

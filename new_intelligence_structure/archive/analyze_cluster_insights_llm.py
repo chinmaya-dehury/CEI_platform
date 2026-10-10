@@ -81,10 +81,12 @@ def save_cluster_domain_graph(approach, clusters, records):
                 else:
                     graph.add_edge(left_id, right_id, weight=1, color=edge_colors[cluster_index])
 
+    
+    
     if not graph.nodes:
         return
 
-    GRID_STEP, MAX_RADIUS, grid_width = 0.9, 0.28, 7
+    GRID_STEP, MAX_RADIUS, grid_width = 0.9, 0.28, 9
     positions, cluster_centers = {}, {}
 
     for cluster_index, cluster_name in enumerate(cluster_names):
@@ -101,8 +103,9 @@ def save_cluster_domain_graph(approach, clusters, records):
             for item_index, item_id in enumerate(cluster_ids):
                 positions[item_id] = center + radius * np.array([np.cos(angles[item_index]), np.sin(angles[item_index])])
 
+
     grid_height = int(np.ceil(len(cluster_names) / grid_width))
-    plt.figure(figsize=(12, max(8, grid_height * 1.8)), dpi=160)
+    plt.figure(figsize=(10, max(5, grid_height * 1.6)), dpi=160)
     node_colors = [DOMAIN_COLORS.get(records[node]["domain"], "#7f7f7f") for node in graph.nodes]
 
     nx.draw_networkx_edges(
@@ -125,16 +128,19 @@ def save_cluster_domain_graph(approach, clusters, records):
             fontsize=10, fontweight="bold", bbox={"facecolor": "white", "edgecolor": "#555555", "alpha": 0.9, "pad": 3}
         )
 
-    plt.legend(
-        handles=domain_handles, title="Application Domain", fontsize=13, title_fontsize=15,
-        loc="upper center", bbox_to_anchor=(0.5, 0.02), ncol=4, frameon=True, facecolor="white", edgecolor="#cccccc"
+    # Create legend and bold its title (Matplotlib does not accept title_fontweight directly)
+    legend = plt.legend(
+        handles=domain_handles, title="Application Domains", fontsize=10, title_fontsize=11,
+        loc="lower center", bbox_to_anchor=(0.70, 0.02), ncol=2, frameon=True, facecolor="white", edgecolor="#cccccc"
     )
+    legend.get_title().set_weight('bold')
     plt.title(
         f"Domain Distribution Across {len(clusters)} Clusters ({approach.capitalize()})",
-        fontsize=20, fontweight="bold", loc="center", y=0.95
+        fontsize=16, fontweight="bold", loc="center", y=0.98
     )
     plt.axis("off")
-    plt.tight_layout(rect=(0, 0.14, 1, 1))
+
+    plt.tight_layout(rect=(0.0, 0.0, 1.0, 1.0))
 
     graph_path = OUTPUT_DIR / f"{approach}_cluster_domain_graph.png"
     plt.savefig(graph_path, dpi=300, bbox_inches="tight")
@@ -166,7 +172,9 @@ def save_cluster_size_chart(approach, clusters, records):
 
 def generate_plots(approach, path, cluster_loader, records):
     clusters = cluster_loader(path)
-    print(f"\nProcessing {approach}: {path.name}")
+    # Remove clusters with less than 2 items
+    clusters = {name: items for name, items in clusters.items() if len(items) >= 2}
+    print(f"\nProcessing {approach}: {path.name} (filtered min 2 items)")
     save_cluster_domain_graph(approach, clusters, records)
     save_cluster_size_chart(approach, clusters, records)
 

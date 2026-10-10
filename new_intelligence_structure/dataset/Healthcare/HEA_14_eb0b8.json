@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Remote ECG Monitoring",
+      "intelligence": {
+        "status": "Stable",
+        "heart_rate_bpm": 84
+      },
       "generated_at": "2026-08-27T10:59:08.439075Z",
       "valid_until": "2026-08-27T11:04:08.439078Z",
       "location": {

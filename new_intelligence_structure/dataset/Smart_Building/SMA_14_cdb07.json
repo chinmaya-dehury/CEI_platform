@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Lighting Optimization",
+      "intelligence": 78.38,
       "generated_at": "2026-08-27T10:59:08.448515Z",
       "valid_until": "2026-08-27T11:04:08.448518Z",
       "location": {

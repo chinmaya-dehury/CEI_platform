@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Tool Wear Monitoring",
+      "intelligence": 49.26,
       "generated_at": "2026-08-27T10:59:08.435440Z",
       "valid_until": "2026-08-27T11:04:08.435444Z",
       "location": {

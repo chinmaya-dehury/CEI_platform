@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Worker Safety Monitoring",
+      "intelligence": 35.6,
       "generated_at": "2026-08-27T10:59:08.433405Z",
       "valid_until": "2026-08-27T11:04:08.433409Z",
       "location": {

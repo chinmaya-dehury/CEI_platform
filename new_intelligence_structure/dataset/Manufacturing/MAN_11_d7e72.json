@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Supply Chain Visibility",
+      "intelligence": {
+        "count": 432,
+        "status": "Active"
+      },
       "generated_at": "2026-08-27T10:59:08.433750Z",
       "valid_until": "2026-08-27T11:04:08.433753Z",
       "location": {

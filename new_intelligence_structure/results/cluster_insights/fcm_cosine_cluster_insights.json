@@ -1,1 +1,114 @@
-[]
+[
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_1",
+    "item_count": 13,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive set of disaster management tools and systems that focus on early warning, prediction, tracking, and response to various natural disasters such as landslides, hurricanes, earthquakes, floods, wildfires, and tsunamis. These items collectively demonstrate the importance of proactive measures in mitigating the impact of disasters.",
+    "evidence": [
+      "Identifies hill slopes and mud areas at high risk of falling during heavy rainfall."
+    ],
+    "reason": "The cluster exhibits a strong thematic coherence due to its focus on disaster management, with most items sharing similar domains (Disaster Management) and tags (e.g., analyzed). The descriptions also reveal a common thread of early warning, prediction, tracking, and response. This cohesion suggests that the items are not arbitrary or noise but rather form a meaningful pattern.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_2",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive group of energy-related technologies and systems focused on monitoring, managing, and optimizing the flow of electricity across various domains, including generation, transmission, distribution, and consumption.",
+    "evidence": [
+      "Tracks water levels and dam turbine performance to generate steady, safe water power."
+    ],
+    "reason": "The cluster exhibits a high degree of thematic coherence due to the presence of energy-related concepts such as monitoring, detection, analysis, and optimization across various domains (e.g., grid voltage stabilization, pipeline leak detection, wind turbine monitoring). The outlier item HEA_01_07f11 is related to healthcare and does not fit with the rest of the cluster.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_3",
+    "item_count": 12,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a cohesive set of manufacturing technologies focused on optimizing production efficiency, quality control, and predictive maintenance. These items collectively form a functional pattern centered around monitoring, analyzing, and automating various aspects of the factory floor.",
+    "evidence": [
+      "Controls and verifies high-speed sorting, boxing, and labeling of finished products before shipping."
+    ],
+    "reason": "The cluster exhibits a strong thematic coherence due to its focus on manufacturing technologies that enhance production efficiency, quality control, and predictive maintenance. The items share common attributes such as 'Manufacturing' domain, 'analyzed' tag, and context related to factory floors, assembly lines, and robotic arms.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_4",
+    "item_count": 14,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a cohesive set of smart building technologies that focus on optimizing energy efficiency, safety, and occupant comfort through real-time monitoring and automation. These systems work together to create a seamless and efficient building experience.",
+    "evidence": [
+      "Evaluates smoke, heat, and flame sensor signals to verify genuine fire threats and trigger emergency procedures."
+    ],
+    "reason": "The cluster exhibits high thematic coherence due to the presence of common themes such as smart building technologies, energy efficiency, safety, and occupant comfort. The descriptions and contexts provided for each item demonstrate a clear focus on optimizing building operations and enhancing user experience.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_5",
+    "item_count": 15,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents a comprehensive suite of precision agriculture tools that enable farmers to monitor and manage various aspects of their crops' health, growth, and yield. These tools leverage advanced technologies such as sensors, drones, and artificial intelligence to provide real-time data and insights that inform decision-making.",
+    "evidence": [
+      "Calculates exactly how much water crops need so farmers know when and how much to water."
+    ],
+    "reason": "The cluster is highly cohesive, with most items sharing a common theme of precision agriculture and crop management. The outlier ENV_09_80007 stands out as it belongs to the Environment domain rather than Agriculture, but its description still relates to soil analysis, which is a common thread among the other items.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_6",
+    "item_count": 14,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.95,
+    "insight": "This cluster represents various healthcare-related devices and systems that monitor patient health, track vital signs, and provide real-time data for medical professionals. These items collectively form a cohesive pattern of healthcare monitoring and tracking capabilities.",
+    "evidence": [
+      "Description: Monitors if crops are getting too hot or dehydrated during extreme weather."
+    ],
+    "reason": "The cluster is tightly coupled with a high coherence score due to the prevalence of healthcare-related attributes and tags across all items, indicating a strong thematic connection.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_7",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents a collection of environmental monitoring systems that focus on assessing and mitigating the impact of human activities on ecosystems. These items share a common theme of tracking pollutants, noise levels, and other factors to ensure the health and safety of both humans and wildlife.",
+    "evidence": [
+      "Measures pollutants inside home or office spaces to ensure air is safe and healthy to breathe."
+    ],
+    "reason": "The cluster exhibits a high degree of thematic coherence, with most items related to environmental monitoring and assessment. The presence of items like 'Noise Pollution Mapping' and 'Urban Heat Island' further reinforces the theme of tracking human impact on ecosystems.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  },
+  {
+    "approach": "fcm_cosine",
+    "cluster": "Cluster_8",
+    "item_count": 16,
+    "missing_items": 0,
+    "valid": true,
+    "coherence": 0.92,
+    "insight": "This cluster represents various transportation-related applications that leverage data analytics to improve safety, efficiency, and decision-making in urban environments. These items share a common theme of using sensor data, machine learning, and real-time processing to optimize traffic flow, reduce congestion, and enhance public safety.",
+    "evidence": [
+      "Uses GPS collars, camera traps, or radio tags to monitor animal movement and preserve habitats"
+    ],
+    "reason": "The cluster exhibits a high degree of thematic coherence due to the consistent focus on transportation-related applications, data-driven decision-making, and real-time processing. The items share common attributes such as sensor data collection, machine learning, and edge computing, which further supports their cohesion.",
+    "source_file": "C:\\Users\\DELL\\Desktop\\Code More\\CEI_platform\\new_intelligence_structure\\results\\result_cosine_fcm\\fuzzy_membership_matrix.csv"
+  }
+]

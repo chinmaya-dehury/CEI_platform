@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Soil Nutrient Analysis",
+      "intelligence": 46.4,
       "generated_at": "2026-08-27T10:59:08.428906Z",
       "valid_until": "2026-08-27T11:04:08.428910Z",
       "location": {

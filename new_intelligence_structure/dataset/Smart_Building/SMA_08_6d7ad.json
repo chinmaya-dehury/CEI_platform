@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Ventilation Efficiency Analysis",
+      "intelligence": 230.6,
       "generated_at": "2026-08-27T10:59:08.423275Z",
       "valid_until": "2026-08-27T11:04:08.423279Z",
       "location": {

@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Telemedicine Diagnostics",
+      "intelligence": {
+        "status": "Critical",
+        "heart_rate_bpm": 92
+      },
       "generated_at": "2026-08-27T10:59:08.438712Z",
       "valid_until": "2026-08-27T11:04:08.438715Z",
       "location": {

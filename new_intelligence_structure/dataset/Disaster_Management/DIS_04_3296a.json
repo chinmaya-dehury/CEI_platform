@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Relief Supply Tracking",
+      "intelligence": {
+        "count": 96,
+        "status": "Active"
+      },
       "generated_at": "2026-08-27T10:59:08.455964Z",
       "valid_until": "2026-08-27T11:04:08.455967Z",
       "location": {

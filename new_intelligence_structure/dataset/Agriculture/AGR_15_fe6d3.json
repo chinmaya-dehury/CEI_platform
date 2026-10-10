@@ -25,7 +25,9 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Yield Prediction",
+      "intelligence": {
+        "estimated_tons": 2.07
+      },
       "generated_at": "2026-08-27T10:59:08.429275Z",
       "valid_until": "2026-08-27T11:04:08.429278Z",
       "location": {

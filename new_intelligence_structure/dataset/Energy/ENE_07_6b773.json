@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Wind Turbine Monitoring",
+      "intelligence": 14.5,
       "generated_at": "2026-08-27T10:59:08.443984Z",
       "valid_until": "2026-08-27T11:04:08.443987Z",
       "location": {

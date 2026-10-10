@@ -25,7 +25,9 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Autonomous Harvesting",
+      "intelligence": {
+        "estimated_tons": 4.19
+      },
       "generated_at": "2026-08-27T10:59:08.429668Z",
       "valid_until": "2026-08-27T11:04:08.429671Z",
       "location": {

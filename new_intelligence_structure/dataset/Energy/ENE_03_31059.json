@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Substation Fault Detection",
+      "intelligence": "Detected",
       "generated_at": "2026-08-27T10:59:08.444627Z",
       "valid_until": "2026-08-27T11:04:08.444631Z",
       "location": {

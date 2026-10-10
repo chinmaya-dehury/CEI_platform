@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Greenhouse Climate Control",
+      "intelligence": 33.2,
       "generated_at": "2026-08-27T10:59:08.430131Z",
       "valid_until": "2026-08-27T11:04:08.430134Z",
       "location": {

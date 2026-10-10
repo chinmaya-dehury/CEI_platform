@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Patient Fall Detection",
+      "intelligence": {
+        "status": "Warning",
+        "heart_rate_bpm": 67
+      },
       "generated_at": "2026-08-27T10:59:08.435897Z",
       "valid_until": "2026-08-27T11:04:08.435901Z",
       "location": {

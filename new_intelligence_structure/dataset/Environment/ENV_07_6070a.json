@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Heatwave Detection",
+      "intelligence": 33.7,
       "generated_at": "2026-08-27T10:59:08.414689Z",
       "valid_until": "2026-08-27T11:04:08.414711Z",
       "location": {

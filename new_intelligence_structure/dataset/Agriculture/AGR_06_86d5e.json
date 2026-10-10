@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Soil Moisture Analysis",
+      "intelligence": 59.9,
       "generated_at": "2026-08-27T10:59:08.422674Z",
       "valid_until": "2026-08-27T11:04:08.422678Z",
       "location": {

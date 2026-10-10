@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Healthcare Monitor 2",
+      "intelligence": {
+        "status": "Critical",
+        "heart_rate_bpm": 65
+      },
       "generated_at": "2026-08-27T10:59:08.457139Z",
       "valid_until": "2026-08-27T11:04:08.457142Z",
       "location": {

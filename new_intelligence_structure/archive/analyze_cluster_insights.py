@@ -1,17 +1,17 @@
 import argparse
-import csv
-import json
+import csv          
+import json         
 import os
-import re
+import re           
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import requests
+import requests     
 import matplotlib.pyplot as plt
 import networkx as nx
 from matplotlib.lines import Line2D
-from dotenv import load_dotenv
+from dotenv import load_dotenv  
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -29,8 +29,6 @@ MAX_RETRIES = 2
 STANDARD_MEMBERSHIP_FILES = {
     "baseline_cosine": RESULTS_DIR / "result_cosine_baseline_corrected" / "fuzzy_membership_matrix.csv",
     "fcm_cosine": RESULTS_DIR / "result_cosine_fcm" / "fuzzy_membership_matrix.csv",
-    "baseline_llm": RESULTS_DIR / "result_llm_baseline" / "fuzzy_membership_matrix.csv",
-    "fcm_llm_standard": RESULTS_DIR / "result_llm_fcm" / "fuzzy_membership_matrix.csv",
 }
 
 OVERLAP_ASSIGNMENT_DIRS = {
@@ -49,31 +47,37 @@ DOMAIN_COLORS = {
     "Disaster Management": "#8c564b",
 }
 
-PROMPT = """You are a cluster-insight analyst.
+# --- [OLLAMA] PROMPT – uncomment to enable LLM cluster analysis ---
+PROMPT = """You are a domain-expert cluster analyst.
 
-You will receive the items belonging to ONE cluster.
+You will analyze a single cluster containing multiple items to evaluate its semantic coherence and discover actionable insights.
 
 Tasks:
-1. Identify the main common theme, behavior, capability, or characteristic shared by the items.
-2. Explain the key insight represented by this cluster in 1-3 sentences.
-3. Identify the strongest evidence from the items supporting the insight.
-4. Check whether the items are sufficiently coherent or appear unrelated.
-5. Decide whether the cluster is meaningful based on its internal pattern.
+1. Identify the core overarching theme, capability, or functional pattern uniting these items.
+2. Formulate a key insight (1-3 sentences) explaining *why* these items belong together and what unique capability, application, or domain interaction this grouping represents.
+3. Highlight 2-3 specific data points or attributes across the items as direct evidence.
+4. Assess thematic coherence on a continuous scale from 0.0 (unrelated/random noise) to 1.0 (tightly coupled/identical theme).
+5. Flag any potential outlier items that do not fit the rest of the cluster.
+6. Determine if the cluster forms a meaningful, non-trivial pattern. Set "valid" to false if the items are arbitrary, noise, or lack a clear unifying theme.
 
-Return ONLY this JSON object:
+Return ONLY a valid JSON object matching this schema:
 {
   "valid": true,
-  "insight": "short description of the discovered pattern",
-  "evidence": ["key evidence 1", "key evidence 2"],
-  "coherence": 0.0,
-  "reason": "short explanation"
+  "insight": "1-3 sentences explaining the deeper functional pattern or synergy",
+  "evidence": ["Specific attribute/quote from Item A", "Specific attribute/quote from Item B"],
+  "coherence": 0.85,
+  "outliers": ["item_id_if_any"],
+  "reason": "Brief justification for validity and coherence score"
 }
 
-Do not invent information. Do not judge the cluster based only on similarity. Set valid to false if no meaningful pattern can be identified.
+Constraints:
+- Rely strictly on provided item attributes. Do not assume or invent capabilities.
+- Do not mark a cluster as valid if it is merely a generic dumping ground for loosely related concepts.
 """
 
 
 def load_records():
+    import json
     records = {}
     for path in DATASET_DIR.rglob("*.json"):
         try:
@@ -101,6 +105,7 @@ def load_records():
     return records
 
 
+# --- [OLLAMA] item_text – formats an item for the LLM prompt ---
 def item_text(item):
     return (
         f"ID: {item['id']}\n"
@@ -125,6 +130,7 @@ def clusters_from_membership(path):
 
 
 def clusters_from_assignments(path):
+    import pandas as pd
     assignments = pd.read_csv(path)
     required = {"cluster", "intelligence_id"}
     if not required.issubset(assignments.columns):
@@ -144,7 +150,7 @@ def save_cluster_domain_graph(approach, clusters, records):
 
     cluster_names = list(clusters)
     edge_colors = plt.cm.hsv(np.linspace(0, 1, max(len(cluster_names), 1), endpoint=False))
-    
+
     for cluster_index, cluster_name in enumerate(cluster_names):
         cluster_ids = [item_id for item_id in clusters[cluster_name] if item_id in records]
         for left_index, left_id in enumerate(cluster_ids):
@@ -163,26 +169,24 @@ def save_cluster_domain_graph(approach, clusters, records):
         return
 
     # --- GRID & SPACING PARAMETERS ---
-    GRID_STEP = 0.8     # Unified spacing between cluster grid centers (x and y)
-    MAX_RADIUS = 0.40    # Reduced node ring radius so nodes stay tight and don't overlap text
-    
+    GRID_STEP = 0.8      # spacing between cluster grid centers
+    MAX_RADIUS = 0.40    # max node ring radius
+
     positions = {}
     cluster_centers = {}
-    grid_width = max(1, int(np.ceil(np.sqrt(len(cluster_names)))))
+    grid_width = 4       # 4 clusters per row
 
     for cluster_index, cluster_name in enumerate(cluster_names):
         cluster_ids = [item_id for item_id in clusters[cluster_name] if item_id in records]
         grid_x = cluster_index % grid_width
         grid_y = cluster_index // grid_width
-        
-        # Calculate cluster center coordinate
+
         center = np.array([grid_x * GRID_STEP, -grid_y * GRID_STEP], dtype=float)
         cluster_centers[cluster_name] = center
-        
+
         if len(cluster_ids) == 1:
             positions[cluster_ids[0]] = center
         else:
-            # Scaled radius bounded at MAX_RADIUS
             radius = min(MAX_RADIUS, 0.22 + 0.015 * np.sqrt(len(cluster_ids)))
             angles = np.linspace(0, 2 * np.pi, len(cluster_ids), endpoint=False)
             for item_index, item_id in enumerate(cluster_ids):
@@ -193,7 +197,7 @@ def save_cluster_domain_graph(approach, clusters, records):
 
     # Dynamic figure size proportional to grid size
     grid_height = int(np.ceil(len(cluster_names) / grid_width))
-    plt.figure(figsize=(grid_width * 2.8 + 2.0, grid_height * 2.6 + 1.0), dpi=160)
+    plt.figure(figsize=(8.5, max(5.5, grid_height * 2.3)), dpi=160)
 
     node_colors = [
         DOMAIN_COLORS.get(records[node]["domain"], "#7f7f7f")
@@ -207,12 +211,12 @@ def save_cluster_domain_graph(approach, clusters, records):
         alpha=0.18,
         width=[0.5 + data.get("weight", 1) for _, _, data in graph.edges(data=True)],
     )
-    
+
     nx.draw_networkx_nodes(
         graph,
         positions,
         node_color=node_colors,
-        node_size=200,          # Slightly reduced node size for clarity
+        node_size=200,
         alpha=0.9,
         linewidths=0.3,
         edgecolors="black",
@@ -224,11 +228,11 @@ def save_cluster_domain_graph(approach, clusters, records):
         for domain, color in DOMAIN_COLORS.items()
     ]
 
-    # --- PLOT CLUSTER LABELS (EXACT CENTER MATCHing) ---
+    # --- PLOT CLUSTER LABELS ---
     for cluster_name, center in cluster_centers.items():
         plt.text(
-            center[0],              # Uses exact cluster center x-coordinate
-            center[1] - 0.35,       # Fixed vertical offset directly below the cluster
+            center[0],
+            center[1] - 0.35,
             cluster_name,
             ha="center",
             va="top",
@@ -236,30 +240,31 @@ def save_cluster_domain_graph(approach, clusters, records):
             fontweight="bold",
             bbox={"facecolor": "white", "edgecolor": "#555555", "alpha": 0.9, "pad": 3},
         )
-        # Place legend inside the empty bottom-right cell (grid_x=2, grid_y=2)
-        empty_cell_x = 2 * GRID_STEP
-        empty_cell_y = -2 * GRID_STEP
 
-        plt.legend(
-            handles=domain_handles,
-            title="Application Domain",
-            fontsize=13,
-            title_fontsize=14,
-            loc="center",
-            bbox_to_anchor=(empty_cell_x, empty_cell_y),
-            bbox_transform=plt.gca().transData,  # Uses data coordinates to lock position into the cell
-            frameon=True,
-            facecolor="white",
-            edgecolor="#cccccc"
-        )
-    plt.title( f"Domain Distribution Across {len(clusters)} Clusters ({approach.capitalize()})",
-    fontsize=14,          # Increases font size (e.g., 14 or 16 for titles)
-    fontweight="bold",    # Makes title bold
-    loc="center",          # Keeps title centered
-    y=0.95
-)
+    # Legend – horizontal across bottom, bold title
+    legend = plt.legend(
+        handles=domain_handles,
+        title="Application Domains",
+        fontsize=9,
+        title_fontsize=10,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 0),
+        ncol=4,
+        frameon=True,
+        facecolor="white",
+        edgecolor="#cccccc",
+    )
+    legend.get_title().set_weight("bold")
+
+    plt.title(
+        f"Domain Distribution Across {len(clusters)} Clusters ({approach.capitalize()})",
+        fontsize=16,
+        fontweight="bold",
+        loc="center",
+        y=0.98,
+    )
     plt.axis("off")
-    plt.tight_layout(rect=(0, 0, 0.86, 1))
+    plt.tight_layout(rect=(0.0, 0.16, 1.0, 0.98))
     graph_path = OUTPUT_DIR / f"{approach}_cluster_domain_graph.png"
     plt.savefig(graph_path, dpi=300, bbox_inches="tight")
     plt.savefig(OUTPUT_DIR / f"{approach}_cluster_domain_graph.pdf", dpi=300, bbox_inches="tight")
@@ -297,7 +302,9 @@ def save_cluster_size_chart(approach, clusters, records):
     print(f"  Saved cluster-size chart {chart_path}")
 
 
+
 def parse_response(text):
+    import re, json
     text = re.sub(r"^```(?:json)?\s*", "", text.strip(), flags=re.IGNORECASE)
     text = re.sub(r"\s*```$", "", text)
     result = json.loads(text)
@@ -315,6 +322,7 @@ def parse_response(text):
 
 
 def analyze_cluster(approach, cluster_name, items):
+    import requests, json
     prompt = (
         f"{PROMPT}\n\nApproach: {approach}\n"
         f"Cluster: {cluster_name}\nNumber of items: {len(items)}\n\n"
@@ -352,30 +360,49 @@ def analyze_cluster(approach, cluster_name, items):
 
 
 def analyze_source(approach, path, cluster_loader, records):
+    import json, csv
     clusters = cluster_loader(path)
     results = []
     print(f"\nAnalyzing {approach}: {path.name}")
     save_cluster_domain_graph(approach, clusters, records)
     save_cluster_size_chart(approach, clusters, records)
 
-    # LLM cluster analysis is disabled. Graphs and cluster-size reports still run.
+    for cluster_name, member_ids in clusters.items():
+        items = [records[item_id] for item_id in member_ids if item_id in records]
+        missing_count = len(member_ids) - len(items)
 
-    output_json = OUTPUT_DIR / f"{approach}_cluster_insights.json"
-    output_csv = OUTPUT_DIR / f"{approach}_cluster_insights.csv"
+        if not items:
+            result = {
+                "approach": approach, "cluster": cluster_name,
+                "item_count": len(member_ids), "missing_items": missing_count,
+                "valid": False, "coherence": 0.0, "insight": "", "evidence": [],
+                "reason": "No dataset records found for cluster members.",
+                "source_file": str(path),
+            }
+        else:
+            print(f"  Analyzing {cluster_name} ({len(items)} items)...")
+            analysis = analyze_cluster(approach, cluster_name, items)
+            result = {
+                "approach": approach, "cluster": cluster_name,
+                "item_count": len(member_ids), "missing_items": missing_count,
+                "valid": analysis["valid"], "coherence": analysis["coherence"],
+                "insight": analysis["insight"], "evidence": analysis["evidence"],
+                "reason": analysis["reason"], "source_file": str(path),
+            }
+        results.append(result)
+
+    output_json = OUTPUT_DIR / f"{approach}_cluster_insights_qwen.json"
+    output_csv  = OUTPUT_DIR / f"{approach}_cluster_insights_qwen.csv"
     output_json.write_text(json.dumps(results, indent=2), encoding="utf-8")
-
     with output_csv.open("w", newline="", encoding="utf-8") as file:
-        fields = [
-            "approach", "cluster", "item_count", "missing_items", "valid",
-            "coherence", "insight", "evidence", "reason", "source_file",
-        ]
+        fields = ["approach", "cluster", "item_count", "missing_items", "valid",
+                  "coherence", "insight", "evidence", "reason", "source_file"]
         writer = csv.DictWriter(file, fieldnames=fields)
         writer.writeheader()
         for result in results:
             row = result.copy()
             row["evidence"] = json.dumps(row["evidence"], ensure_ascii=False)
             writer.writerow(row)
-
     print(f"  Saved {output_json}")
     print(f"  Saved {output_csv}")
 
@@ -428,3 +455,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

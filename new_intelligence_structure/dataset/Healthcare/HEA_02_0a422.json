@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Asthma Trigger Detection",
+      "intelligence": 99,
       "generated_at": "2026-08-27T10:59:08.439424Z",
       "valid_until": "2026-08-27T11:04:08.439427Z",
       "location": {

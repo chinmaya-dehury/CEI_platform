@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Ocean Plastic Monitoring",
+      "intelligence": 83.2,
       "generated_at": "2026-08-27T10:59:08.441755Z",
       "valid_until": "2026-08-27T11:04:08.441759Z",
       "location": {

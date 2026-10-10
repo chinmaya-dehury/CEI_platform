@@ -25,7 +25,7 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Tsunami Alert",
+      "intelligence": 1.0,
       "generated_at": "2026-08-27T10:59:08.454478Z",
       "valid_until": "2026-08-27T11:04:08.454482Z",
       "location": {

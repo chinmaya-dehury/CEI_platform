@@ -25,7 +25,10 @@
   },
   "intelligence_items": [
     {
-      "intelligence": "Sample data for Medication Adherence",
+      "intelligence": {
+        "status": "Stable",
+        "heart_rate_bpm": 76
+      },
       "generated_at": "2026-08-27T10:59:08.436693Z",
       "valid_until": "2026-08-27T11:04:08.436697Z",
       "location": {
